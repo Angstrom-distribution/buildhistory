@@ -546,7 +546,7 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rwxr-xr-x root       root             2781 ./etc/init.d/dbus-1  
 -rwxr-xr-x root       root             2674 ./etc/init.d/dropbear  
 -rwxr-xr-x root       root              535 ./etc/init.d/busybox-udhcpc  
--rwxr-xr-x root       root             1611 ./etc/init.d/syslog.busybox  
+-rwxr-xr-x root       root             1627 ./etc/init.d/syslog.busybox  
 lrwxrwxrwx root       root               14 ./etc/init.d/syslog -> syslog.busybox
 -rwxr-xr-x root       root             1449 ./etc/init.d/networking  
 -rwxr-xr-x root       root             4380 ./etc/init.d/avahi-daemon  
@@ -759,6 +759,7 @@ lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/rsyslog.service -> /lib/systemd/system/rsyslog.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants  
 -rw-r--r-- root       root              634 ./etc/systemd/system.conf  
+lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 drwxr-xr-x root       root             4096 ./etc/bash_completion.d  
 -rw-r--r-- root       root             1930 ./etc/bash_completion.d/gsettings-bash-completion.sh  
 -rw-r--r-- root       root            10664 ./etc/bash_completion.d/systemd-bash-completion.sh  
@@ -766,12 +767,12 @@ drwxr-xr-x root       root             4096 ./etc/bash_completion.d
 drwxr-xr-x root       root             4096 ./etc/rcS.d  
 -rwxr-xr-x root       root               60 ./etc/rcS.d/S98configure  
 lrwxrwxrwx root       root               20 ./etc/rcS.d/S40networking -> ../init.d/networking
+-rw-r--r-- root       root              649 ./etc/syslog-startup.conf.busybox  
 -rw-r--r-- root       root             1633 ./etc/inputrc  
 -rw-r--r-- root       root              465 ./etc/nsswitch.conf  
 -rw-r--r-- root       root            19281 ./etc/services  
 drwxr-xr-x root       root             4096 ./etc/pango  
 -rw-r--r-- root       root            11446 ./etc/pango/pangox.aliases  
--rw-r--r-- root       root              508 ./etc/syslog.conf.busybox  
 -rw-r--r-- root       crontab          3661 ./etc/localtime  
 drwxr-xr-x root       root             4096 ./etc/modules-load.d  
 -rw------- root       root              547 ./etc/group-  
@@ -837,7 +838,6 @@ drwxr-xr-x root       root             4096 ./etc/terminfo/a
 -rw-r--r-- root       root             2933 ./etc/protocols  
 -rw------- root       root              856 ./etc/passwd-  
 drwxr-xr-x root       root             4096 ./etc/cron.daily  
-lrwxrwxrwx root       root               19 ./etc/syslog.conf -> syslog.conf.busybox
 -rw------- root       root              378 ./etc/crontab  
 drwxr-xr-x root       root             4096 ./usr  
 drwxr-xr-x root       root             4096 ./usr/games  
@@ -19036,7 +19036,7 @@ lrwxrwxrwx root       root               29 ./usr/lib/libpangocairo-1.0.so -> li
 lrwxrwxrwx root       root               16 ./usr/lib/libXext.so -> libXext.so.6.4.0
 lrwxrwxrwx root       root               17 ./usr/lib/libexpat.so -> libexpat.so.1.5.2
 lrwxrwxrwx root       root               26 ./usr/lib/libgnutls-extra.so -> libgnutls-extra.so.26.21.8
--rw-r--r-- root       root            73362 ./usr/lib/libuuid.a  
+-rw-r--r-- root       root            73366 ./usr/lib/libuuid.a  
 -rwxr-xr-x root       root           176572 ./usr/lib/libfontconfig.so.1.4.4  
 -rw-r--r-- root       root             2152 ./usr/lib/libieee.a  
 drwxr-xr-x root       root             4096 ./usr/lib/ssl  
@@ -19791,7 +19791,7 @@ drwxr-xr-x root       root            12288 ./usr/lib/python2.7/encodings
 -rw-r--r-- root       root            51126 ./usr/lib/python2.7/urllib2.py  
 -rw-r--r-- root       root             6370 ./usr/lib/python2.7/StringIO.pyo  
 drwxr-xr-x root       root             4096 ./usr/lib/python2.7/config  
--rw-r--r-- root       root            47362 ./usr/lib/python2.7/config/Makefile  
+-rw-r--r-- root       root            47367 ./usr/lib/python2.7/config/Makefile  
 -rw-r--r-- root       root             6800 ./usr/lib/python2.7/copy_reg.py  
 -rw-r--r-- root       root              419 ./usr/lib/python2.7/sha.pyo  
 -rw-r--r-- root       root             5467 ./usr/lib/python2.7/macpath.pyo  
@@ -21191,7 +21191,7 @@ lrwxrwxrwx root       root               24 ./usr/lib/libopencv_highgui.so -> li
 lrwxrwxrwx root       root               16 ./usr/lib/libuuid.so.1 -> libuuid.so.1.3.0
 lrwxrwxrwx root       root               17 ./usr/lib/liblcms.so.1 -> liblcms.so.1.0.16
 -rwxr-xr-x root       root              917 ./usr/lib/libltdl.la  
--rw-r--r-- root       root          1224930 ./usr/lib/libblkid.a  
+-rw-r--r-- root       root          1225230 ./usr/lib/libblkid.a  
 lrwxrwxrwx root       root               22 ./usr/lib/libopencv_flann.so -> libopencv_flann.so.2.3
 lrwxrwxrwx root       root               16 ./usr/lib/libcurl.so -> libcurl.so.5.2.0
 -rwxr-xr-x root       root             7192 ./usr/lib/libXcomposite.so.1.0.0  
@@ -24144,7 +24144,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root             2377 ./var/lib/opkg/info/perl-module-pod-perldoc-tochecker.control  
 -rw-r--r-- root       root             2734 ./var/lib/opkg/info/kernel-module-cx24116.control  
 -rw-r--r-- root       root              445 ./var/lib/opkg/info/libcap2.control  
--rw-r--r-- root       root             1476 ./var/lib/opkg/info/busybox-syslog.control  
+-rw-r--r-- root       root             1484 ./var/lib/opkg/info/busybox-syslog.control  
 -rw-r--r-- root       root              613 ./var/lib/opkg/info/libxcb-res0.control  
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/perl-module-text-wrap.list  
 -rw-r--r-- root       root             2385 ./var/lib/opkg/info/perl-module-unicode-collate-locale-sv.control  
@@ -24338,7 +24338,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-sch5636.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-tda8290.postrm  
 -rw-r--r-- root       root               31 ./var/lib/opkg/info/perl-module-config.list  
--rw-r--r-- root       root             1476 ./var/lib/opkg/info/busybox-udhcpc.control  
+-rw-r--r-- root       root             1484 ./var/lib/opkg/info/busybox-udhcpc.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-cma3000-d0x-i2c.postrm  
 -rw-r--r-- root       root             2351 ./var/lib/opkg/info/perl-module-filetest.control  
 -rw-r--r-- root       root             2735 ./var/lib/opkg/info/kernel-module-cypress-m8.control  
@@ -24655,7 +24655,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root              994 ./var/lib/opkg/info/libopencv-highgui2.3.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-xfrm4-tunnel.postrm  
 -rw-r--r-- root       root             2369 ./var/lib/opkg/info/perl-module-pod-perldoc-toxml.control  
--rw-r--r-- root       root               52 ./var/lib/opkg/info/busybox-syslog.list  
+-rw-r--r-- root       root               60 ./var/lib/opkg/info/busybox-syslog.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-pl2303.postrm  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-rfkill.postinst  
 -rw-r--r-- root       root               27 ./var/lib/opkg/info/perl-module-db.list  
@@ -24848,6 +24848,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root             2345 ./var/lib/opkg/info/perl-module-build.control  
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/perl-module-tap-parser-source.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-lm63.postinst  
+-rw-r--r-- root       root               28 ./var/lib/opkg/info/bonescript.conffiles  
 -rw-r--r-- root       root               31 ./var/lib/opkg/info/perl-module-parent.list  
 -rw-r--r-- root       root              119 ./var/lib/opkg/info/perl-module-autodie-exception-system.list  
 -rw-r--r-- root       root             2690 ./var/lib/opkg/info/kernel-module-tda665x.control  
@@ -25697,7 +25698,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/libpthread-stubs-dev.list  
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/kernel-module-wl12xx-sdio.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-s5h1409.postinst  
--rw-r--r-- root       root               25 ./var/lib/opkg/info/busybox-syslog.conffiles  
+-rw-r--r-- root       root               33 ./var/lib/opkg/info/busybox-syslog.conffiles  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-raid6-pq.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-pac207.postrm  
 -rw-r--r-- root       root             2349 ./var/lib/opkg/info/perl-module-term-ui.control  
@@ -26030,7 +26031,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root             2406 ./var/lib/opkg/info/perl-module-io-poll.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-usbvision.postrm  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-async-raid6-recov.postinst  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/busybox-syslog.postinst  
+-rwxr-xr-x root       root              278 ./var/lib/opkg/info/busybox-syslog.postinst  
 -rw-r--r-- root       root             2772 ./var/lib/opkg/info/kernel-module-irnet.control  
 -rw-r--r-- root       root             2355 ./var/lib/opkg/info/perl-module-cgi-apache.control  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libpanelw5.list  
@@ -26561,7 +26562,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ppp-async.postrm  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-pc87360.postinst  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-ipip.postinst  
--rw-r--r-- root       root             1550 ./var/lib/opkg/info/busybox.control  
+-rw-r--r-- root       root             1558 ./var/lib/opkg/info/busybox.control  
 -rw-r--r-- root       root             2389 ./var/lib/opkg/info/perl-module-bigrat.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-tda10086.postinst  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-g-file-storage.postinst  
@@ -27450,7 +27451,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rwxr-xr-x root       root               52 ./var/lib/opkg/info/bash.postrm  
 -rw-r--r-- root       root               70 ./var/lib/opkg/info/kernel-module-gspca-spca561.list  
 -rw-r--r-- root       root               64 ./var/lib/opkg/info/kernel-module-g-mass-storage.list  
--rwxr-xr-x root       root              306 ./var/lib/opkg/info/busybox-syslog.prerm  
+-rwxr-xr-x root       root              322 ./var/lib/opkg/info/busybox-syslog.prerm  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-libertas.postinst  
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/perl-module-math-trig.list  
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/libcom-err2.list  
@@ -28185,7 +28186,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root               69 ./var/lib/opkg/info/kernel-module-gspca-sq905c.list  
 -rw-r--r-- root       root              873 ./var/lib/opkg/info/util-linux-fsck.control  
 -rw-r--r-- root       root             2745 ./var/lib/opkg/info/kernel-module-gspca-sn9c20x.control  
--rw-r--r-- root       root           438867 ./var/lib/opkg/status  
+-rw-r--r-- root       root           438948 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/expand  
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/ps  
@@ -28220,6 +28221,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/which  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/shuf  
 -rw-r--r-- root       root               31 ./var/lib/opkg/alternatives/fmt  
+-rw-r--r-- root       root               56 ./var/lib/opkg/alternatives/syslog-startup-conf  
 -rw-r--r-- root       root               25 ./var/lib/opkg/alternatives/hostname  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/gunzip  
 -rw-r--r-- root       root               56 ./var/lib/opkg/alternatives/users  
@@ -28355,7 +28357,6 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/chcon  
 -rw-r--r-- root       root               76 ./var/lib/opkg/alternatives/groups  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/dd  
--rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/syslog-conf  
 -rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/start-stop-daemon  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/install  
 -rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/chmod  
