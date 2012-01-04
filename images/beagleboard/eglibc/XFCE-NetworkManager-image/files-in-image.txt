@@ -197,7 +197,7 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rwxr-xr-x root       root             1454 ./etc/init.d/xinetd  
 -rwxr-xr-x root       root             2674 ./etc/init.d/dropbear  
 -rwxr-xr-x root       root              535 ./etc/init.d/busybox-udhcpc  
--rwxr-xr-x root       root             1611 ./etc/init.d/syslog.busybox  
+-rwxr-xr-x root       root             1627 ./etc/init.d/syslog.busybox  
 lrwxrwxrwx root       root               14 ./etc/init.d/syslog -> syslog.busybox
 -rwxr-xr-x root       root             1449 ./etc/init.d/networking  
 -rwxr-xr-x root       root             1812 ./etc/init.d/NetworkManager  
@@ -444,6 +444,7 @@ lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/rsyslog.service -> /lib/systemd/system/rsyslog.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants  
 -rw-r--r-- root       root              634 ./etc/systemd/system.conf  
+lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 drwxr-xr-x root       root             4096 ./etc/bash_completion.d  
 -rw-r--r-- root       root             1930 ./etc/bash_completion.d/gsettings-bash-completion.sh  
 -rw-r--r-- root       root            10664 ./etc/bash_completion.d/systemd-bash-completion.sh  
@@ -451,12 +452,12 @@ drwxr-xr-x root       root             4096 ./etc/bash_completion.d
 drwxr-xr-x root       root             4096 ./etc/rcS.d  
 -rwxr-xr-x root       root               60 ./etc/rcS.d/S98configure  
 lrwxrwxrwx root       root               20 ./etc/rcS.d/S40networking -> ../init.d/networking
+-rw-r--r-- root       root              649 ./etc/syslog-startup.conf.busybox  
 -rw-r--r-- root       root             1633 ./etc/inputrc  
 -rw-r--r-- root       root              465 ./etc/nsswitch.conf  
 -rw-r--r-- root       root            19281 ./etc/services  
 drwxr-xr-x root       root             4096 ./etc/pango  
 -rw-r--r-- root       root            11446 ./etc/pango/pangox.aliases  
--rw-r--r-- root       root              508 ./etc/syslog.conf.busybox  
 -rw-r--r-- root       1000             3661 ./etc/localtime  
 drwxr-xr-x root       root             4096 ./etc/modules-load.d  
 -rw------- root       root              503 ./etc/group-  
@@ -538,7 +539,6 @@ drwxr-xr-x root       root             4096 ./etc/terminfo/a
 -rw-r--r-- root       root             1481 ./etc/terminfo/a/ansi  
 -rw-r--r-- root       root             2933 ./etc/protocols  
 -rw------- root       root              816 ./etc/passwd-  
-lrwxrwxrwx root       root               19 ./etc/syslog.conf -> syslog.conf.busybox
 drwxr-xr-x root       root             4096 ./usr  
 drwxr-xr-x root       root             4096 ./usr/games  
 drwxr-xr-x root       root             4096 ./usr/sbin  
@@ -7225,8 +7225,8 @@ drwxr-xr-x root       root             4096 ./usr/share/Thunar
 drwxr-xr-x root       root             4096 ./usr/share/Thunar/sendto  
 -rw-r--r-- root       root             1712 ./usr/share/Thunar/sendto/thunar-sendto-email.desktop  
 drwxr-xr-x root       root             4096 ./usr/share/vte  
-drwxr-xr-x root       root             4096 ./usr/share/vte/termcap  
--rw-r--r-- root       root             1584 ./usr/share/vte/termcap/xterm  
+drwxr-xr-x root       root             4096 ./usr/share/vte/termcap-0.0  
+-rw-r--r-- root       root             1584 ./usr/share/vte/termcap-0.0/xterm  
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1  
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services  
 -rw-r--r-- root       root               86 ./usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service  
@@ -12099,7 +12099,7 @@ lrwxrwxrwx root       root               22 ./usr/lib/libXfontcache.so.1 -> libX
 -rwxr-xr-x root       root            80768 ./usr/lib/libpolkit-backend-1.so.0.0.0  
 -rwxr-xr-x root       root            16392 ./usr/lib/libXfixes.so.3.1.0  
 -rwxr-xr-x root       root           155596 ./usr/lib/libvorbis.so.0.4.5  
-lrwxrwxrwx root       root               16 ./usr/lib/libvte.so.9 -> libvte.so.9.13.3
+lrwxrwxrwx root       root               18 ./usr/lib/libvte.so.9 -> libvte.so.9.2800.2
 -rwxr-xr-x root       root            52784 ./usr/lib/libtasn1.so.3.1.13  
 -rwxr-xr-x root       root            21120 ./usr/lib/libip6tc.so.0.0.0  
 -rwxr-xr-x root       root            34700 ./usr/lib/libsystemd-login.so.0.0.6  
@@ -12377,7 +12377,6 @@ lrwxrwxrwx root       root               16 ./usr/lib/libgp11.so.0 -> libgp11.so
 -rwxr-xr-x root       root            18416 ./usr/lib/libpolkit-gtk-1.so.0.0.0  
 lrwxrwxrwx root       root               19 ./usr/lib/libusb-1.0.so.0 -> libusb-1.0.so.0.0.0
 -rwxr-xr-x root       root          1083804 ./usr/lib/libxml2.so.2.7.8  
--rwxr-xr-x root       root           548992 ./usr/lib/libvte.so.9.13.3  
 -rwxr-xr-x root       root            14512 ./usr/lib/libXv.so.1.0.0  
 lrwxrwxrwx root       root               14 ./usr/lib/libXv.so.1 -> libXv.so.1.0.0
 drwxr-xr-x root       root             4096 ./usr/lib/tmpfiles.d  
@@ -12399,6 +12398,7 @@ lrwxrwxrwx root       root               19 ./usr/lib/libnm-util.so.2 -> libnm-u
 lrwxrwxrwx root       root               24 ./usr/lib/libpolkit-gtk-1.so.0 -> libpolkit-gtk-1.so.0.0.0
 -rwxr-xr-x root       root           163252 ./usr/lib/libnm-glib.so.4.2.0  
 -rwxr-xr-x root       root            40532 ./usr/lib/libavahi-common.so.3.5.3  
+-rwxr-xr-x root       root           561312 ./usr/lib/libvte.so.9.2800.2  
 lrwxrwxrwx root       root               20 ./usr/lib/libcanberra.so.0 -> libcanberra.so.0.2.4
 -rwxr-xr-x root       root            97264 ./usr/lib/libgnome-keyring.so.0.1.1  
 lrwxrwxrwx root       root               19 ./usr/lib/libXrender.so.1 -> libXrender.so.1.3.0
@@ -13683,7 +13683,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root             2453 ./var/lib/opkg/info/exo.list  
 -rw-r--r-- root       root              591 ./var/lib/opkg/info/libxcb1.control  
 -rw-r--r-- root       root              688 ./var/lib/opkg/info/xkbcomp.control  
--rw-r--r-- root       root               77 ./var/lib/opkg/info/libvte9.list  
+-rw-r--r-- root       root               79 ./var/lib/opkg/info/libvte9.list  
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/libxcursor1.list  
 -rw-r--r-- root       root              674 ./var/lib/opkg/info/polkit.control  
 -rw-r--r-- root       root               80 ./var/lib/opkg/info/e2fsprogs-e2fsck.list  
@@ -13769,8 +13769,8 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               51 ./var/lib/opkg/info/sysvinit-pidof.prerm  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles  
 -rw-r--r-- root       root              445 ./var/lib/opkg/info/libcap2.control  
--rw-r--r-- root       root             1476 ./var/lib/opkg/info/busybox-syslog.control  
--rw-r--r-- root       root              368 ./var/lib/opkg/info/vte-termcap.control  
+-rw-r--r-- root       root             1484 ./var/lib/opkg/info/busybox-syslog.control  
+-rw-r--r-- root       root              395 ./var/lib/opkg/info/vte-termcap.control  
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/xinetd.conffiles  
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/pango-module-basic-fc.list  
 -rwxr-xr-x root       root              253 ./var/lib/opkg/info/systemd-compat-units.postinst  
@@ -13804,7 +13804,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              688 ./var/lib/opkg/info/libudev0.control  
 -rw-r--r-- root       root              644 ./var/lib/opkg/info/consolekit.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/rgb.list  
--rw-r--r-- root       root             1476 ./var/lib/opkg/info/busybox-udhcpc.control  
+-rw-r--r-- root       root             1484 ./var/lib/opkg/info/busybox-udhcpc.control  
 -rw-r--r-- root       root              923 ./var/lib/opkg/info/task-xfce-base.control  
 -rw-r--r-- root       root              447 ./var/lib/opkg/info/rsyslog.control  
 -rw-r--r-- root       root              913 ./var/lib/opkg/info/libavahi-common3.control  
@@ -13859,7 +13859,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               69 ./var/lib/opkg/info/util-linux-mount.postinst  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/netbase.conffiles  
 -rwxr-xr-x root       root              114 ./var/lib/opkg/info/util-linux-fsck.prerm  
--rw-r--r-- root       root               52 ./var/lib/opkg/info/busybox-syslog.list  
+-rw-r--r-- root       root               60 ./var/lib/opkg/info/busybox-syslog.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postinst  
 -rw-r--r-- root       root              415 ./var/lib/opkg/info/pango.list  
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/libxcb-util0.list  
@@ -13989,7 +13989,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              871 ./var/lib/opkg/info/dropbear.control  
 -rwxr-xr-x root       root              305 ./var/lib/opkg/info/font-alias.postinst  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/eglibc-gconv-iso8859-1.list  
--rw-r--r-- root       root              875 ./var/lib/opkg/info/libvte9.control  
+-rw-r--r-- root       root              903 ./var/lib/opkg/info/libvte9.control  
 -rwxr-xr-x root       root               52 ./var/lib/opkg/info/update-modules.postinst  
 -rw-r--r-- root       root              572 ./var/lib/opkg/info/pango-module-basic-fc.control  
 -rw-r--r-- root       root              118 ./var/lib/opkg/info/busybox-udhcpc.list  
@@ -14027,7 +14027,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root              114 ./var/lib/opkg/info/shadow.prerm  
 -rw-r--r-- root       root              125 ./var/lib/opkg/info/gtk-engine-clearlooks.list  
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/libreadline6.list  
--rw-r--r-- root       root               25 ./var/lib/opkg/info/busybox-syslog.conffiles  
+-rw-r--r-- root       root               33 ./var/lib/opkg/info/busybox-syslog.conffiles  
 -rw-r--r-- root       root            16312 ./var/lib/opkg/info/kernel-image-3.0.14+.control  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libxdmcp6.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-g-ether.postinst  
@@ -14091,7 +14091,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root              122 ./var/lib/opkg/info/networkmanager.prerm  
 -rw-r--r-- root       root             3481 ./var/lib/opkg/info/udev.list  
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/libncursesw5.control  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/busybox-syslog.postinst  
+-rwxr-xr-x root       root              278 ./var/lib/opkg/info/busybox-syslog.postinst  
 -rw-r--r-- root       root             1165 ./var/lib/opkg/info/xfce4-panel-plugin-separator.control  
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/pam-plugin-ck-connector.list  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libpanelw5.list  
@@ -14180,7 +14180,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root            16379 ./var/lib/opkg/info/kernel-module-g-mass-storage.control  
 -rw-r--r-- root       root              556 ./var/lib/opkg/info/pango-module-basic-x.control  
 -rw-r--r-- root       root              574 ./var/lib/opkg/info/pam-plugin-ck-connector.control  
--rw-r--r-- root       root             1550 ./var/lib/opkg/info/busybox.control  
+-rw-r--r-- root       root             1558 ./var/lib/opkg/info/busybox.control  
 -rw-r--r-- root       root              688 ./var/lib/opkg/info/xf86-input-mouse.control  
 -rwxr-xr-x root       root              125 ./var/lib/opkg/info/dropbear-systemd.postinst  
 -rw-r--r-- root       root              638 ./var/lib/opkg/info/libgnutls-extra26.control  
@@ -14226,7 +14226,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              500 ./var/lib/opkg/info/encodings.control  
 -rwxr-xr-x root       root               74 ./var/lib/opkg/info/metacity.postrm  
 -rw-r--r-- root       root              217 ./var/lib/opkg/info/alsa-conf-base.list  
--rw-r--r-- root       root               69 ./var/lib/opkg/info/vte-termcap.list  
+-rw-r--r-- root       root               77 ./var/lib/opkg/info/vte-termcap.list  
 -rwxr-xr-x root       root              149 ./var/lib/opkg/info/util-linux-swaponoff.postinst  
 -rwxr-xr-x root       root             2262 ./var/lib/opkg/info/dbus-1.preinst  
 -rwxr-xr-x root       root               70 ./var/lib/opkg/info/util-linux-blkid.postinst  
@@ -14294,7 +14294,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               52 ./var/lib/opkg/info/bash.postrm  
 -rw-r--r-- root       root               65 ./var/lib/opkg/info/kernel-module-g-mass-storage.list  
 -rw-r--r-- root       root              452 ./var/lib/opkg/info/libexif12.control  
--rwxr-xr-x root       root              306 ./var/lib/opkg/info/busybox-syslog.prerm  
+-rwxr-xr-x root       root              322 ./var/lib/opkg/info/busybox-syslog.prerm  
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/libcom-err2.list  
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/wpa-supplicant-passphrase.list  
 -rw-r--r-- root       root              752 ./var/lib/opkg/info/xserver-xorg.control  
@@ -14417,7 +14417,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              299 ./var/lib/opkg/info/dbus-systemd.list  
 -rw-r--r-- root       root              463 ./var/lib/opkg/info/libxfce4util.control  
 -rw-r--r-- root       root              873 ./var/lib/opkg/info/util-linux-fsck.control  
--rw-r--r-- root       root            91113 ./var/lib/opkg/status  
+-rw-r--r-- root       root            91122 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives  
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/ps  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/tr  
@@ -14443,6 +14443,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/loadfont  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/less  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/which  
+-rw-r--r-- root       root               56 ./var/lib/opkg/alternatives/syslog-startup-conf  
 -rw-r--r-- root       root               25 ./var/lib/opkg/alternatives/hostname  
 -rw-r--r-- root       root               23 ./var/lib/opkg/alternatives/gunzip  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/users  
@@ -14555,7 +14556,6 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               28 ./var/lib/opkg/alternatives/login  
 -rw-r--r-- root       root               55 ./var/lib/opkg/alternatives/groups  
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/dd  
--rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/syslog-conf  
 -rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/start-stop-daemon  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/chmod  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/tftp  

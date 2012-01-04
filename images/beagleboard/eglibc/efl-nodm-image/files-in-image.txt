@@ -201,7 +201,7 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rwxr-xr-x root       root             2781 ./etc/init.d/dbus-1  
 -rwxr-xr-x root       root             2674 ./etc/init.d/dropbear  
 -rwxr-xr-x root       root              535 ./etc/init.d/busybox-udhcpc  
--rwxr-xr-x root       root             1611 ./etc/init.d/syslog.busybox  
+-rwxr-xr-x root       root             1627 ./etc/init.d/syslog.busybox  
 lrwxrwxrwx root       root               14 ./etc/init.d/syslog -> syslog.busybox
 -rwxr-xr-x root       root             1449 ./etc/init.d/networking  
 -rwxr-xr-x root       root             4380 ./etc/init.d/avahi-daemon  
@@ -415,6 +415,7 @@ lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/rsyslog.service -> /lib/systemd/system/rsyslog.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants  
 -rw-r--r-- root       root              634 ./etc/systemd/system.conf  
+lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 drwxr-xr-x root       root             4096 ./etc/bash_completion.d  
 -rw-r--r-- root       root             1930 ./etc/bash_completion.d/gsettings-bash-completion.sh  
 -rw-r--r-- root       root            10664 ./etc/bash_completion.d/systemd-bash-completion.sh  
@@ -422,12 +423,12 @@ drwxr-xr-x root       root             4096 ./etc/bash_completion.d
 drwxr-xr-x root       root             4096 ./etc/rcS.d  
 -rwxr-xr-x root       root               60 ./etc/rcS.d/S98configure  
 lrwxrwxrwx root       root               20 ./etc/rcS.d/S40networking -> ../init.d/networking
+-rw-r--r-- root       root              649 ./etc/syslog-startup.conf.busybox  
 -rw-r--r-- root       root             1633 ./etc/inputrc  
 -rw-r--r-- root       root              465 ./etc/nsswitch.conf  
 -rw-r--r-- root       root            19281 ./etc/services  
 drwxr-xr-x root       root             4096 ./etc/pango  
 -rw-r--r-- root       root            11446 ./etc/pango/pangox.aliases  
--rw-r--r-- root       root              508 ./etc/syslog.conf.busybox  
 -rw-r--r-- root       1000             3661 ./etc/localtime  
 drwxr-xr-x root       root             4096 ./etc/modules-load.d  
 -rw------- root       root              531 ./etc/group-  
@@ -531,7 +532,6 @@ drwxr-xr-x root       root             4096 ./etc/terminfo/a
 -rw-r--r-- root       root             1481 ./etc/terminfo/a/ansi  
 -rw-r--r-- root       root             2933 ./etc/protocols  
 -rw------- root       root              856 ./etc/passwd-  
-lrwxrwxrwx root       root               19 ./etc/syslog.conf -> syslog.conf.busybox
 drwxr-xr-x root       root             4096 ./usr  
 drwxr-xr-x root       root             4096 ./usr/games  
 drwxr-xr-x root       root             4096 ./usr/sbin  
@@ -13111,7 +13111,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               51 ./var/lib/opkg/info/sysvinit-pidof.prerm  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles  
 -rw-r--r-- root       root              445 ./var/lib/opkg/info/libcap2.control  
--rw-r--r-- root       root             1476 ./var/lib/opkg/info/busybox-syslog.control  
+-rw-r--r-- root       root             1484 ./var/lib/opkg/info/busybox-syslog.control  
 -rw-r--r-- root       root              482 ./var/lib/opkg/info/ttf-dejavu-sans.control  
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/sessreg.list  
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/pango-module-basic-fc.list  
@@ -13138,7 +13138,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              688 ./var/lib/opkg/info/libudev0.control  
 -rw-r--r-- root       root              644 ./var/lib/opkg/info/consolekit.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/rgb.list  
--rw-r--r-- root       root             1476 ./var/lib/opkg/info/busybox-udhcpc.control  
+-rw-r--r-- root       root             1484 ./var/lib/opkg/info/busybox-udhcpc.control  
 -rw-r--r-- root       root              155 ./var/lib/opkg/info/libefreet1.list  
 -rw-r--r-- root       root              447 ./var/lib/opkg/info/rsyslog.control  
 -rw-r--r-- root       root              913 ./var/lib/opkg/info/libavahi-common3.control  
@@ -13196,7 +13196,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              568 ./var/lib/opkg/info/libedbus1.control  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/netbase.conffiles  
 -rwxr-xr-x root       root              114 ./var/lib/opkg/info/util-linux-fsck.prerm  
--rw-r--r-- root       root               52 ./var/lib/opkg/info/busybox-syslog.list  
+-rw-r--r-- root       root               60 ./var/lib/opkg/info/busybox-syslog.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postinst  
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/epdf.list  
 -rw-r--r-- root       root              415 ./var/lib/opkg/info/pango.list  
@@ -13361,7 +13361,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              531 ./var/lib/opkg/info/embryo.control  
 -rwxr-xr-x root       root              114 ./var/lib/opkg/info/shadow.prerm  
 -rw-r--r-- root       root              460 ./var/lib/opkg/info/libreadline6.list  
--rw-r--r-- root       root               25 ./var/lib/opkg/info/busybox-syslog.conffiles  
+-rw-r--r-- root       root               33 ./var/lib/opkg/info/busybox-syslog.conffiles  
 -rw-r--r-- root       root             1089 ./var/lib/opkg/info/elsa.control  
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/libgif4.list  
 -rw-r--r-- root       root            16312 ./var/lib/opkg/info/kernel-image-3.0.14+.control  
@@ -13423,7 +13423,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/libdmx1.list  
 -rw-r--r-- root       root              544 ./var/lib/opkg/info/connman-plugin-ethernet.control  
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/libncursesw5.control  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/busybox-syslog.postinst  
+-rwxr-xr-x root       root              278 ./var/lib/opkg/info/busybox-syslog.postinst  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libpanelw5.list  
 -rw-r--r-- root       root              476 ./var/lib/opkg/info/e-wm-theme-default.control  
 -rw-r--r-- root       root              807 ./var/lib/opkg/info/ecore-con.control  
@@ -13506,7 +13506,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              811 ./var/lib/opkg/info/libxrandr2.control  
 -rw-r--r-- root       root            16379 ./var/lib/opkg/info/kernel-module-g-mass-storage.control  
 -rw-r--r-- root       root              556 ./var/lib/opkg/info/pango-module-basic-x.control  
--rw-r--r-- root       root             1550 ./var/lib/opkg/info/busybox.control  
+-rw-r--r-- root       root             1558 ./var/lib/opkg/info/busybox.control  
 -rw-r--r-- root       root              688 ./var/lib/opkg/info/xf86-input-mouse.control  
 -rwxr-xr-x root       root              125 ./var/lib/opkg/info/dropbear-systemd.postinst  
 -rw-r--r-- root       root              638 ./var/lib/opkg/info/libgnutls-extra26.control  
@@ -13634,7 +13634,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rwxr-xr-x root       root               52 ./var/lib/opkg/info/bash.postrm  
 -rw-r--r-- root       root               65 ./var/lib/opkg/info/kernel-module-g-mass-storage.list  
 -rw-r--r-- root       root              452 ./var/lib/opkg/info/libexif12.control  
--rwxr-xr-x root       root              306 ./var/lib/opkg/info/busybox-syslog.prerm  
+-rwxr-xr-x root       root              322 ./var/lib/opkg/info/busybox-syslog.prerm  
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/libcom-err2.list  
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/wpa-supplicant-passphrase.list  
 -rw-r--r-- root       root              473 ./var/lib/opkg/info/e-wm-sysactions.control  
@@ -13749,7 +13749,7 @@ drwxr-xr-x root       root            36864 ./var/lib/opkg/info
 -rw-r--r-- root       root              493 ./var/lib/opkg/info/cpufrequtils.control  
 -rw-r--r-- root       root              299 ./var/lib/opkg/info/dbus-systemd.list  
 -rw-r--r-- root       root              873 ./var/lib/opkg/info/util-linux-fsck.control  
--rw-r--r-- root       root            95992 ./var/lib/opkg/status  
+-rw-r--r-- root       root            96000 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives  
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/ps  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/tr  
@@ -13776,6 +13776,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/loadfont  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/less  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/which  
+-rw-r--r-- root       root               56 ./var/lib/opkg/alternatives/syslog-startup-conf  
 -rw-r--r-- root       root               25 ./var/lib/opkg/alternatives/hostname  
 -rw-r--r-- root       root               23 ./var/lib/opkg/alternatives/gunzip  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/users  
@@ -13893,7 +13894,6 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               28 ./var/lib/opkg/alternatives/login  
 -rw-r--r-- root       root               55 ./var/lib/opkg/alternatives/groups  
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/dd  
--rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/syslog-conf  
 -rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/start-stop-daemon  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/chmod  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/tftp  
