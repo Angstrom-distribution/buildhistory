@@ -2,11 +2,13 @@ drwxr-xr-x root       root             4096 .
 drwxr-xr-x root       root             4096 ./sbin  
 -rwxr-xr-x root       root            27004 ./sbin/blkid.util-linux  
 lrwxrwxrwx root       root                6 ./sbin/getty -> agetty
+-rwxr-xr-x root       root          1331992 ./sbin/dhclient  
 lrwxrwxrwx root       root               11 ./sbin/vigr -> vigr.shadow
 lrwxrwxrwx root       root               15 ./sbin/insmod -> /sbin/insmod.26
 lrwxrwxrwx root       root               14 ./sbin/loadkmap -> ../bin/busybox
 -rwxr-xr-x root       root            32296 ./sbin/vipw.shadow  
 -rwxr-xr-x root       root            24272 ./sbin/fsck.util-linux  
+-rwxr-xr-x root       root             8838 ./sbin/dhclient-script  
 lrwxrwxrwx root       root               14 ./sbin/sulogin -> /bin/tinylogin
 -rwxr-xr-x root       root            14108 ./sbin/dumpe2fs  
 -rwxr-xr-x root       root            24232 ./sbin/agetty  
@@ -166,7 +168,7 @@ drwxr-xr-x root       root             4096 ./media/net
 drwxr-xr-x root       root             4096 ./media/mmc1  
 drwxrwxrwt root       root             4096 ./tmp  
 drwxr-xr-x root       root             4096 ./etc  
--rw-r--r-- root       root            15270 ./etc/ld.so.cache  
+-rw-r--r-- root       root            15611 ./etc/ld.so.cache  
 drwxr-xr-x root       root             4096 ./etc/opkg  
 -rw-r--r-- root       root               85 ./etc/opkg/base-feed.conf  
 -rw-r--r-- root       root              107 ./etc/opkg/beagleboard-feed.conf  
@@ -196,6 +198,7 @@ drwxr-xr-x root       root             4096 ./etc/gconf/schemas
 -rw-r--r-- root       root           163165 ./etc/gconf/schemas/fontilus.schemas  
 -rw-r--r-- root       root           287873 ./etc/gconf/schemas/desktop_gnome_peripherals_keyboard_xkb.schemas  
 -rw-r--r-- root       root            30274 ./etc/gconf/schemas/panel-default-setup.entries  
+-rw-r--r-- root       root            81934 ./etc/gconf/schemas/nm-applet.schemas  
 -rw-r--r-- root       root          2409015 ./etc/gconf/schemas/apps_nautilus_preferences.schemas  
 -rw-r--r-- root       root          1947226 ./etc/gconf/schemas/metacity.schemas  
 -rw-r--r-- root       root            19677 ./etc/gconf/schemas/desktop_gnome_keybindings.schemas  
@@ -265,6 +268,7 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rwxr-xr-x root       root             1627 ./etc/init.d/syslog.busybox  
 lrwxrwxrwx root       root               14 ./etc/init.d/syslog -> syslog.busybox
 -rwxr-xr-x root       root             1449 ./etc/init.d/networking  
+-rwxr-xr-x root       root             1812 ./etc/init.d/NetworkManager  
 -rwxr-xr-x root       root             4380 ./etc/init.d/avahi-daemon  
 -rwxr-xr-x root       root             2498 ./etc/init.d/gdm  
 -rwxr-xr-x root       root              516 ./etc/init.d/ofono  
@@ -272,6 +276,8 @@ lrwxrwxrwx root       root               14 ./etc/init.d/syslog -> syslog.busybo
 drwxr-xr-x root       root             4096 ./etc/udhcpc.d  
 -rwxr-xr-x root       root             2239 ./etc/udhcpc.d/50default  
 drwxr-xr-x root       root             4096 ./etc/rsyslog  
+drwxr-xr-x root       root             4096 ./etc/dhcp  
+-rw-r--r-- root       root             1566 ./etc/dhcp/dhclient.conf  
 drwxr-xr-x root       root             4096 ./etc/xinetd.d  
 drwxr-xr-x root       root             4096 ./etc/skel  
 -rwxr-xr-x root       root              152 ./etc/skel/.profile  
@@ -283,11 +289,13 @@ drwxr-xr-x root       root             4096 ./etc/ssh
 -rw-r--r-- root       root             1494 ./etc/ssh/ssh_config  
 drwxr-xr-x root       root             4096 ./etc/dbus-1  
 -rw-r--r-- root       root             2771 ./etc/dbus-1/session.conf  
+drwxr-xr-x root       root             4096 ./etc/dbus-1/event.d  
 drwxr-xr-x root       root             4096 ./etc/dbus-1/session.d  
 -rw-r--r-- root       root             2990 ./etc/dbus-1/system.conf  
 drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d  
 -rw-r--r-- root       root              632 ./etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf  
 -rw-r--r-- root       root              928 ./etc/dbus-1/system.d/org.freedesktop.locale1.conf  
+-rw-r--r-- root       root             6074 ./etc/dbus-1/system.d/NetworkManager.conf  
 -rw-r--r-- root       root              624 ./etc/dbus-1/system.d/org.gnome.SettingsDaemon.DateTimeMechanism.conf  
 -rw-r--r-- root       root              877 ./etc/dbus-1/system.d/ofono.conf  
 -rw-r--r-- root       root             1241 ./etc/dbus-1/system.d/org.freedesktop.UDisks.conf  
@@ -297,7 +305,10 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d
 -rw-r--r-- root       root              524 ./etc/dbus-1/system.d/bluetooth.conf  
 -rw-r--r-- root       root             1232 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf  
 -rw-r--r-- root       root              938 ./etc/dbus-1/system.d/org.freedesktop.hostname1.conf  
+-rw-r--r-- root       root              475 ./etc/dbus-1/system.d/nm-avahi-autoipd.conf  
+-rw-r--r-- root       root              467 ./etc/dbus-1/system.d/nm-dispatcher.conf  
 -rw-r--r-- root       root             1675 ./etc/dbus-1/system.d/org.freedesktop.UPower.conf  
+-rw-r--r-- root       root              455 ./etc/dbus-1/system.d/nm-dhcp-client.conf  
 -rw-r--r-- root       root              872 ./etc/dbus-1/system.d/connman.conf  
 -rw-r--r-- root       root              938 ./etc/dbus-1/system.d/org.freedesktop.timedate1.conf  
 -rw-r--r-- root       root             1138 ./etc/dbus-1/system.d/avahi-dbus.conf  
@@ -361,6 +372,7 @@ drwxr-xr-x root       root             4096 ./etc/xdg/systemd
 lrwxrwxrwx root       root               17 ./etc/xdg/systemd/user -> /etc/systemd/user
 drwxr-xr-x root       root             4096 ./etc/xdg/autostart  
 -rw-r--r-- root       root             3384 ./etc/xdg/autostart/gnome-keyring-gpg.desktop  
+-rw-r--r-- root       root             4293 ./etc/xdg/autostart/nm-applet.desktop  
 -rw-r--r-- root       root             5013 ./etc/xdg/autostart/gnome-keyring-secrets.desktop  
 -rw-r--r-- root       root             5262 ./etc/xdg/autostart/gnome-keyring-pkcs11.desktop  
 -rw-r--r-- root       root             2906 ./etc/xdg/autostart/gnome-settings-daemon.desktop  
@@ -510,7 +522,6 @@ drwxr-xr-x root       root             4096 ./etc/systemd/system/getty.target.wa
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyO2.service -> /lib/systemd/system/serial-getty@.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/multi-user.target.wants  
-lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/connman.service -> /lib/systemd/system/connman.service
 lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> /lib/systemd/system/remote-fs.target
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/rsyslog.service -> /lib/systemd/system/rsyslog.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants  
@@ -541,6 +552,10 @@ drwxr-xr-x root       root             4096 ./etc/libnl
 -rw-r--r-- root       root             1532 ./etc/libnl/pktloc  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
 -rwxr-xr-x root       root             2509 ./etc/rsyslog.conf  
+drwxr-xr-x root       root             4096 ./etc/NetworkManager  
+drwxr-xr-x root       root             4096 ./etc/NetworkManager/VPN  
+drwxr-xr-x root       root             4096 ./etc/NetworkManager/system-connections  
+drwxr-xr-x root       root             4096 ./etc/NetworkManager/dispatcher.d  
 drwxr-xr-x root       root             4096 ./etc/obex-data-server  
 -rw-r--r-- root       root              359 ./etc/obex-data-server/capability.xml  
 -rw-r--r-- root       root              272 ./etc/obex-data-server/imaging_capabilities.xml  
@@ -673,6 +688,7 @@ lrwxrwxrwx root       root               13 ./usr/sbin/ip6tables-restore -> xtab
 -rwxr-xr-x root       root            16616 ./usr/sbin/wpa_passphrase  
 lrwxrwxrwx root       root               13 ./usr/sbin/ip6tables-save -> xtables-multi
 -rwxr-xr-x root       root           906152 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root           719720 ./usr/sbin/NetworkManager  
 -rwxr-xr-x root       root            33172 ./usr/sbin/groupdel  
 -rwxr-xr-x root       root             6892 ./usr/sbin/rfkill  
 -rwxr-xr-x root       root            68500 ./usr/sbin/usermod  
@@ -697,11 +713,14 @@ drwxr-xr-x root       root             4096 ./usr/libexec
 -rwxr-xr-x root       root            44516 ./usr/libexec/gdm-simple-chooser  
 -rwxr-xr-x root       root           115060 ./usr/libexec/gvfsd-localtest  
 -rwxr-xr-x root       root            86596 ./usr/libexec/gdm-xdmcp-chooser-slave  
+-rwxr-xr-x root       root            22588 ./usr/libexec/nm-dispatcher.action  
+-rwxr-xr-x root       root             6572 ./usr/libexec/nm-dhcp-client.action  
 -rwxr-sr-x root       utmp            10088 ./usr/libexec/gnome-pty-helper  
 -rwsr-xr-x root       root             9604 ./usr/libexec/pt_chown  
 -rwxr-xr-x root       root            21540 ./usr/libexec/gconf-defaults-mechanism  
 -rwxr-xr-x root       root            13092 ./usr/libexec/ck-collect-session-info  
 -rwxr-xr-x root       root            37024 ./usr/libexec/gdm-host-chooser  
+-rwxr-xr-x root       root             5812 ./usr/libexec/nm-avahi-autoipd.action  
 -rwxr-xr-x root       root            11886 ./usr/libexec/gnome-panel-add  
 -rwxr-xr-x root       root             8112 ./usr/libexec/polkitd  
 -rwxr-xr-x root       root             7504 ./usr/libexec/udisks-helper-linux-md-check  
@@ -749,6 +768,7 @@ drwxr-xr-x root       root             4096 ./usr/libexec/gedit-2
 -rwxr-xr-x root       root             1578 ./usr/libexec/gedit-2/gedit-bugreport.sh  
 -rwxr-xr-x root       root             5064 ./usr/libexec/udisks-helper-ata-smart-selftest  
 -rwxr-xr-x root       root           126852 ./usr/libexec/gdm-factory-slave  
+-rwxr-xr-x root       root             3868 ./usr/libexec/nm-crash-logger  
 -rwxr-xr-x root       root            11740 ./usr/libexec/udisks-helper-mkfs  
 -rwxr-xr-x root       root           130248 ./usr/libexec/gvfsd-gphoto2  
 -rwxr-xr-x root       root           113876 ./usr/libexec/gvfsd-computer  
@@ -1158,6 +1178,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/i
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/animations  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/emblems  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/apps  
+-rw-r--r-- root       root           119570 ./usr/share/icons/hicolor/scalable/apps/nm-device-wired.svg  
 -rw-r--r-- root       root           120755 ./usr/share/icons/hicolor/scalable/apps/gdu-expander.svg  
 -rw-r--r-- root       root            27128 ./usr/share/icons/hicolor/scalable/apps/gnome-panel-drawer.svg  
 -rw-r--r-- root       root            28664 ./usr/share/icons/hicolor/scalable/apps/gnome-network-properties.svg  
@@ -1205,6 +1226,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/a
 -rw-r--r-- root       root           120755 ./usr/share/icons/hicolor/scalable/apps/gdu-raid-array.svg  
 -rw-r--r-- root       root            21122 ./usr/share/icons/hicolor/scalable/apps/session-properties.svg  
 -rw-r--r-- root       root            73328 ./usr/share/icons/hicolor/scalable/apps/gdu-info.svg  
+-rw-r--r-- root       root           123984 ./usr/share/icons/hicolor/scalable/apps/nm-no-connection.svg  
 -rw-r--r-- root       root             8645 ./usr/share/icons/hicolor/scalable/apps/gdu-category-peripheral.svg  
 -rw-r--r-- root       root            73567 ./usr/share/icons/hicolor/scalable/apps/gdu-check-disk.svg  
 -rw-r--r-- root       root             4927 ./usr/share/icons/hicolor/scalable/apps/gdu-emblem-raid6.svg  
@@ -1295,6 +1317,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/apps
 -rw-r--r-- root       root             2591 ./usr/share/icons/hicolor/48x48/apps/gnome-inhibit-applet.png  
 -rw-r--r-- root       root             2324 ./usr/share/icons/hicolor/48x48/apps/gdu-smart-unknown.png  
 -rw-r--r-- root       root             2844 ./usr/share/icons/hicolor/48x48/apps/gnome-brightness-applet.png  
+-rw-r--r-- root       root             1752 ./usr/share/icons/hicolor/48x48/apps/nm-device-wireless.png  
 -rw-r--r-- root       root             1729 ./usr/share/icons/hicolor/48x48/apps/gdu-emblem-raid0.png  
 -rw-r--r-- root       root             2485 ./usr/share/icons/hicolor/48x48/apps/gdu-expander.png  
 -rw-r--r-- root       root             1523 ./usr/share/icons/hicolor/48x48/apps/gnome-panel.png  
@@ -1402,6 +1425,8 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/apps
 -rw-r--r-- root       root              597 ./usr/share/icons/hicolor/16x16/apps/gdu-emblem-raid5.png  
 -rw-r--r-- root       root              613 ./usr/share/icons/hicolor/16x16/apps/gsd-xrandr.png  
 -rw-r--r-- root       root              887 ./usr/share/icons/hicolor/16x16/apps/gnome-panel-clock.png  
+-rw-r--r-- root       root              473 ./usr/share/icons/hicolor/16x16/apps/nm-device-wired.png  
+-rw-r--r-- root       root              601 ./usr/share/icons/hicolor/16x16/apps/nm-no-connection.png  
 -rw-r--r-- root       root              160 ./usr/share/icons/hicolor/16x16/apps/gnome-panel-separator.png  
 -rw-r--r-- root       root              748 ./usr/share/icons/hicolor/16x16/apps/gnome-settings-default-applications.png  
 -rw-r--r-- root       root              866 ./usr/share/icons/hicolor/16x16/apps/gdu-check-disk.png  
@@ -1411,6 +1436,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/apps
 -rw-r--r-- root       root              709 ./usr/share/icons/hicolor/16x16/apps/gdu-encrypted-lock.png  
 -rw-r--r-- root       root              594 ./usr/share/icons/hicolor/16x16/apps/gdu-detach.png  
 -rw-r--r-- root       root              768 ./usr/share/icons/hicolor/16x16/apps/nautilus-gdu.png  
+-rw-r--r-- root       root              595 ./usr/share/icons/hicolor/16x16/apps/nm-vpn-standalone-lock.png  
 -rw-r--r-- root       root              571 ./usr/share/icons/hicolor/16x16/apps/gnome-panel-launcher.png  
 -rw-r--r-- root       root              721 ./usr/share/icons/hicolor/16x16/apps/gdu-unmount.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/emotes  
@@ -1467,6 +1493,8 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/apps
 -rw-r--r-- root       root             1785 ./usr/share/icons/hicolor/32x32/apps/gnome-panel-fish.png  
 -rw-r--r-- root       root             1602 ./usr/share/icons/hicolor/32x32/apps/gsd-xrandr.png  
 -rw-r--r-- root       root             2177 ./usr/share/icons/hicolor/32x32/apps/gnome-panel-clock.png  
+-rw-r--r-- root       root              989 ./usr/share/icons/hicolor/32x32/apps/nm-device-wired.png  
+-rw-r--r-- root       root             1143 ./usr/share/icons/hicolor/32x32/apps/nm-no-connection.png  
 -rw-r--r-- root       root              176 ./usr/share/icons/hicolor/32x32/apps/gnome-panel-separator.png  
 -rw-r--r-- root       root             1727 ./usr/share/icons/hicolor/32x32/apps/gnome-settings-default-applications.png  
 -rw-r--r-- root       root             1777 ./usr/share/icons/hicolor/32x32/apps/gnome-panel-launcher.png  
@@ -1657,7 +1685,8 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/acti
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/intl  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/animations  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/emblems  
-drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/apps  
+drwxr-xr-x root       root            12288 ./usr/share/icons/hicolor/22x22/apps  
+-rw-r--r-- root       root              470 ./usr/share/icons/hicolor/22x22/apps/nm-signal-75.png  
 -rw-r--r-- root       root             1897 ./usr/share/icons/hicolor/22x22/apps/gnome-power-manager.png  
 -rw-r--r-- root       root              806 ./usr/share/icons/hicolor/22x22/apps/connman-detect-13.png  
 -rw-r--r-- root       root             1102 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-30.png  
@@ -1670,29 +1699,41 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/apps
 -rw-r--r-- root       root             1235 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-26.png  
 -rw-r--r-- root       root             1120 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-29.png  
 -rw-r--r-- root       root             1174 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-23.png  
+-rw-r--r-- root       root             1204 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting03.png  
 -rw-r--r-- root       root              990 ./usr/share/icons/hicolor/22x22/apps/gdu-raid-array-start.png  
+-rw-r--r-- root       root             1156 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting07.png  
 -rw-r--r-- root       root             1146 ./usr/share/icons/hicolor/22x22/apps/connman-type-none.png  
 -rw-r--r-- root       root              774 ./usr/share/icons/hicolor/22x22/apps/connman-detect-11.png  
 -rw-r--r-- root       root             1043 ./usr/share/icons/hicolor/22x22/apps/gdu-eject.png  
 -rw-r--r-- root       root             1066 ./usr/share/icons/hicolor/22x22/apps/gdu-mount.png  
 -rw-r--r-- root       root             1214 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-24.png  
+-rw-r--r-- root       root              267 ./usr/share/icons/hicolor/22x22/apps/nm-mb-roam.png  
 -rw-r--r-- root       root             1173 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-17.png  
 -rw-r--r-- root       root             1144 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-06.png  
 -rw-r--r-- root       root              880 ./usr/share/icons/hicolor/22x22/apps/gdu-raid-array-stop.png  
+-rw-r--r-- root       root             1198 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting02.png  
 -rw-r--r-- root       root              951 ./usr/share/icons/hicolor/22x22/apps/gdu-category-peripheral.png  
 -rw-r--r-- root       root              978 ./usr/share/icons/hicolor/22x22/apps/gdu-category-multidisk.png  
+-rw-r--r-- root       root              335 ./usr/share/icons/hicolor/22x22/apps/nm-secure-lock.png  
 -rw-r--r-- root       root              711 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid4.png  
 -rw-r--r-- root       root             1024 ./usr/share/icons/hicolor/22x22/apps/gdu-category-multipath.png  
+-rw-r--r-- root       root              981 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting02.png  
+-rw-r--r-- root       root             1301 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting06.png  
 -rw-r--r-- root       root             1216 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-32.png  
 -rw-r--r-- root       root             1168 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-01.png  
 -rw-r--r-- root       root             1076 ./usr/share/icons/hicolor/22x22/apps/gdu-hba.png  
 -rw-r--r-- root       root             1092 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-08.png  
 -rw-r--r-- root       root              658 ./usr/share/icons/hicolor/22x22/apps/connman-detect-01.png  
+-rw-r--r-- root       root             1131 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting08.png  
 -rw-r--r-- root       root              496 ./usr/share/icons/hicolor/22x22/apps/connman-signal-02.png  
+-rw-r--r-- root       root             1188 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting09.png  
+-rw-r--r-- root       root             1092 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting08.png  
 -rw-r--r-- root       root              925 ./usr/share/icons/hicolor/22x22/apps/gdu-raid-array.png  
 -rw-r--r-- root       root              858 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid10.png  
 -rw-r--r-- root       root             1270 ./usr/share/icons/hicolor/22x22/apps/nautilus.png  
 -rw-r--r-- root       root             1279 ./usr/share/icons/hicolor/22x22/apps/palimpsest.png  
+-rw-r--r-- root       root             1286 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting05.png  
+-rw-r--r-- root       root             1102 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting08.png  
 -rw-r--r-- root       root              799 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-lvm-lv.png  
 -rw-r--r-- root       root             1204 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-14.png  
 -rw-r--r-- root       root             1194 ./usr/share/icons/hicolor/22x22/apps/gdu-multidisk-drive.png  
@@ -1700,80 +1741,134 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/apps
 -rw-r--r-- root       root             1157 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-09.png  
 -rw-r--r-- root       root              835 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-mp.png  
 -rw-r--r-- root       root             1190 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-12.png  
+-rw-r--r-- root       root             1142 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting04.png  
+-rw-r--r-- root       root             1218 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting05.png  
 -rw-r--r-- root       root             1152 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-11.png  
 -rw-r--r-- root       root              610 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid1.png  
+-rw-r--r-- root       root             1207 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting03.png  
+-rw-r--r-- root       root             1201 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting11.png  
+-rw-r--r-- root       root             1139 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting07.png  
 -rw-r--r-- root       root              816 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid6.png  
+-rw-r--r-- root       root             1046 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting08.png  
 -rw-r--r-- root       root             1225 ./usr/share/icons/hicolor/22x22/apps/gdu-info.png  
 -rw-r--r-- root       root              981 ./usr/share/icons/hicolor/22x22/apps/gdu-smart-threshold.png  
+-rw-r--r-- root       root             1152 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting11.png  
+-rw-r--r-- root       root             1200 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting05.png  
 -rw-r--r-- root       root              802 ./usr/share/icons/hicolor/22x22/apps/connman-detect-08.png  
+-rw-r--r-- root       root              227 ./usr/share/icons/hicolor/22x22/apps/nm-wwan-tower.png  
 -rw-r--r-- root       root             1032 ./usr/share/icons/hicolor/22x22/apps/gnome-inhibit-applet.png  
 -rw-r--r-- root       root              748 ./usr/share/icons/hicolor/22x22/apps/connman-type-adhoc.png  
+-rw-r--r-- root       root             1188 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting02.png  
 -rw-r--r-- root       root             1267 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-notification-area.png  
 -rw-r--r-- root       root              922 ./usr/share/icons/hicolor/22x22/apps/gdu-smart-unknown.png  
 -rw-r--r-- root       root              492 ./usr/share/icons/hicolor/22x22/apps/connman-signal-03.png  
 -rw-r--r-- root       root             1157 ./usr/share/icons/hicolor/22x22/apps/gnome-brightness-applet.png  
 -rw-r--r-- root       root              609 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-window-list.png  
+-rw-r--r-- root       root             1156 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting06.png  
 -rw-r--r-- root       root              805 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid0.png  
 -rw-r--r-- root       root             1018 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-force-quit.png  
+-rw-r--r-- root       root             1120 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting07.png  
 -rw-r--r-- root       root              925 ./usr/share/icons/hicolor/22x22/apps/gdu-expander.png  
+-rw-r--r-- root       root             1258 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting04.png  
 -rw-r--r-- root       root              537 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-workspace-switcher.png  
 -rw-r--r-- root       root              394 ./usr/share/icons/hicolor/22x22/apps/gnome-panel.png  
 -rw-r--r-- root       root              957 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-lvm-vg.png  
 -rw-r--r-- root       root              785 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid3.png  
 -rw-r--r-- root       root              794 ./usr/share/icons/hicolor/22x22/apps/connman-detect-14.png  
 -rw-r--r-- root       root             1002 ./usr/share/icons/hicolor/22x22/apps/gnome-power-statistics.png  
+-rw-r--r-- root       root              496 ./usr/share/icons/hicolor/22x22/apps/nm-signal-25.png  
 -rw-r--r-- root       root             1585 ./usr/share/icons/hicolor/22x22/apps/gnome-web-browser.png  
 -rw-r--r-- root       root              490 ./usr/share/icons/hicolor/22x22/apps/connman-signal-01.png  
+-rw-r--r-- root       root             1229 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting10.png  
+-rw-r--r-- root       root             1220 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting04.png  
+-rw-r--r-- root       root              490 ./usr/share/icons/hicolor/22x22/apps/nm-signal-00.png  
 -rw-r--r-- root       root              994 ./usr/share/icons/hicolor/22x22/apps/bluetooth.png  
 -rw-r--r-- root       root              800 ./usr/share/icons/hicolor/22x22/apps/connman-detect-06.png  
+-rw-r--r-- root       root              748 ./usr/share/icons/hicolor/22x22/apps/nm-adhoc.png  
+-rw-r--r-- root       root              554 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting11.png  
 -rw-r--r-- root       root             1207 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-25.png  
+-rw-r--r-- root       root             1209 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting09.png  
 -rw-r--r-- root       root             1237 ./usr/share/icons/hicolor/22x22/apps/gdu-error.png  
 -rw-r--r-- root       root             1201 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-22.png  
+-rw-r--r-- root       root              578 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting13.png  
+-rw-r--r-- root       root              213 ./usr/share/icons/hicolor/22x22/apps/nm-tech-hspa.png  
 -rw-r--r-- root       root             1009 ./usr/share/icons/hicolor/22x22/apps/gdu-unmountable.png  
 -rw-r--r-- root       root              701 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-window-menu.png  
+-rw-r--r-- root       root              212 ./usr/share/icons/hicolor/22x22/apps/nm-tech-cdma-1x.png  
+-rw-r--r-- root       root             1204 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting05.png  
 -rw-r--r-- root       root             1156 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-28.png  
+-rw-r--r-- root       root              575 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting14.png  
+-rw-r--r-- root       root             1157 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting09.png  
 -rw-r--r-- root       root             1081 ./usr/share/icons/hicolor/22x22/apps/gnome-network-properties.png  
+-rw-r--r-- root       root              209 ./usr/share/icons/hicolor/22x22/apps/nm-tech-3g.png  
 -rw-r--r-- root       root             1131 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-19.png  
+-rw-r--r-- root       root              791 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting10.png  
 -rw-r--r-- root       root             1258 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-15.png  
 -rw-r--r-- root       root             1198 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-13.png  
 -rw-r--r-- root       root              827 ./usr/share/icons/hicolor/22x22/apps/connman-detect-10.png  
 -rw-r--r-- root       root              866 ./usr/share/icons/hicolor/22x22/apps/preferences-desktop-display.png  
 -rw-r--r-- root       root              996 ./usr/share/icons/hicolor/22x22/apps/gdu-smart-healthy.png  
+-rw-r--r-- root       root             1185 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting11.png  
 -rw-r--r-- root       root             1156 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-18.png  
 -rw-r--r-- root       root             1220 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-04.png  
 -rw-r--r-- root       root              754 ./usr/share/icons/hicolor/22x22/apps/session-properties.png  
 -rw-r--r-- root       root             1461 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-fish.png  
 -rw-r--r-- root       root              968 ./usr/share/icons/hicolor/22x22/apps/gdu-smart-failing.png  
+-rw-r--r-- root       root              409 ./usr/share/icons/hicolor/22x22/apps/nm-signal-100.png  
+-rw-r--r-- root       root              817 ./usr/share/icons/hicolor/22x22/apps/nm-device-wwan.png  
 -rw-r--r-- root       root             1218 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-16.png  
+-rw-r--r-- root       root             1206 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting03.png  
 -rw-r--r-- root       root              757 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-mp-component.png  
+-rw-r--r-- root       root              215 ./usr/share/icons/hicolor/22x22/apps/nm-tech-evdo.png  
 -rw-r--r-- root       root              741 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid5.png  
 -rw-r--r-- root       root              866 ./usr/share/icons/hicolor/22x22/apps/gsd-xrandr.png  
+-rw-r--r-- root       root             1259 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting07.png  
 -rw-r--r-- root       root              751 ./usr/share/icons/hicolor/22x22/apps/connman-detect-07.png  
 -rw-r--r-- root       root             1459 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-clock.png  
 -rw-r--r-- root       root              470 ./usr/share/icons/hicolor/22x22/apps/connman-signal-04.png  
+-rw-r--r-- root       root              672 ./usr/share/icons/hicolor/22x22/apps/nm-device-wired.png  
+-rw-r--r-- root       root              207 ./usr/share/icons/hicolor/22x22/apps/nm-tech-gprs.png  
+-rw-r--r-- root       root              811 ./usr/share/icons/hicolor/22x22/apps/nm-no-connection.png  
+-rw-r--r-- root       root             1205 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting10.png  
 -rw-r--r-- root       root             1204 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-27.png  
 -rw-r--r-- root       root              165 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-separator.png  
+-rw-r--r-- root       root             1216 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting10.png  
 -rw-r--r-- root       root             1310 ./usr/share/icons/hicolor/22x22/apps/gnome-settings-default-applications.png  
 -rw-r--r-- root       root             1491 ./usr/share/icons/hicolor/22x22/apps/gdu-check-disk.png  
 -rw-r--r-- root       root             1188 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-31.png  
 -rw-r--r-- root       root              952 ./usr/share/icons/hicolor/22x22/apps/gdu-encrypted-unlock.png  
 -rw-r--r-- root       root              780 ./usr/share/icons/hicolor/22x22/apps/connman-detect-09.png  
+-rw-r--r-- root       root             1235 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting04.png  
 -rw-r--r-- root       root             1162 ./usr/share/icons/hicolor/22x22/apps/gdu-warning.png  
+-rw-r--r-- root       root              560 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-active-lock.png  
 -rw-r--r-- root       root              812 ./usr/share/icons/hicolor/22x22/apps/connman-detect-12.png  
+-rw-r--r-- root       root             1168 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting01.png  
 -rw-r--r-- root       root              554 ./usr/share/icons/hicolor/22x22/apps/gdu-emblem-raid-linear.png  
+-rw-r--r-- root       root              196 ./usr/share/icons/hicolor/22x22/apps/nm-tech-umts.png  
+-rw-r--r-- root       root              571 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting12.png  
 -rw-r--r-- root       root              913 ./usr/share/icons/hicolor/22x22/apps/gdu-encrypted-lock.png  
+-rw-r--r-- root       root              911 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting09.png  
+-rw-r--r-- root       root              205 ./usr/share/icons/hicolor/22x22/apps/nm-tech-edge.png  
 -rw-r--r-- root       root              409 ./usr/share/icons/hicolor/22x22/apps/connman-signal-05.png  
 -rw-r--r-- root       root              923 ./usr/share/icons/hicolor/22x22/apps/connman-detect-15.png  
 -rw-r--r-- root       root              971 ./usr/share/icons/hicolor/22x22/apps/gdu-detach.png  
 -rw-r--r-- root       root             1188 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-02.png  
+-rw-r--r-- root       root             1190 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting01.png  
 -rw-r--r-- root       root             1229 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-21.png  
 -rw-r--r-- root       root              664 ./usr/share/icons/hicolor/22x22/apps/connman-notifier-unavailable.png  
+-rw-r--r-- root       root              492 ./usr/share/icons/hicolor/22x22/apps/nm-signal-50.png  
 -rw-r--r-- root       root             1185 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-33.png  
 -rw-r--r-- root       root             1205 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-10.png  
 -rw-r--r-- root       root              746 ./usr/share/icons/hicolor/22x22/apps/connman-detect-04.png  
+-rw-r--r-- root       root             1109 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting03.png  
+-rw-r--r-- root       root             1174 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting01.png  
+-rw-r--r-- root       root              890 ./usr/share/icons/hicolor/22x22/apps/nm-vpn-connecting01.png  
 -rw-r--r-- root       root             1052 ./usr/share/icons/hicolor/22x22/apps/nautilus-gdu.png  
 -rw-r--r-- root       root              955 ./usr/share/icons/hicolor/22x22/apps/gnome-panel-launcher.png  
+-rw-r--r-- root       root             1144 ./usr/share/icons/hicolor/22x22/apps/nm-stage01-connecting06.png  
 -rw-r--r-- root       root              743 ./usr/share/icons/hicolor/22x22/apps/connman-detect-02.png  
+-rw-r--r-- root       root             1173 ./usr/share/icons/hicolor/22x22/apps/nm-stage02-connecting06.png  
+-rw-r--r-- root       root             1214 ./usr/share/icons/hicolor/22x22/apps/nm-stage03-connecting02.png  
 -rw-r--r-- root       root             1140 ./usr/share/icons/hicolor/22x22/apps/gdu-unmount.png  
 -rw-r--r-- root       root             1209 ./usr/share/icons/hicolor/22x22/apps/connman-connecting-20.png  
 -rw-r--r-- root       root              760 ./usr/share/icons/hicolor/22x22/apps/connman-detect-03.png  
@@ -10501,6 +10596,8 @@ drwxr-xr-x root       root             4096 ./usr/share/webkitgtk-1.0/images
 drwxr-xr-x root       root             4096 ./usr/share/metacity  
 drwxr-xr-x root       root             4096 ./usr/share/metacity/icons  
 -rw-r--r-- root       root             3453 ./usr/share/metacity/icons/metacity-window-demo.png  
+drwxr-xr-x root       root             4096 ./usr/share/libnm-gtk  
+-rw-r--r-- root       root            10201 ./usr/share/libnm-gtk/wifi.ui  
 drwxr-xr-x root       root             4096 ./usr/share/vte  
 drwxr-xr-x root       root             4096 ./usr/share/vte/termcap-0.0  
 -rw-r--r-- root       root             1584 ./usr/share/vte/termcap-0.0/xterm  
@@ -10510,11 +10607,13 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services
 -rw-r--r-- root       root               81 ./usr/share/dbus-1/system-services/org.freedesktop.UPower.service  
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service  
 -rw-r--r-- root       root              355 ./usr/share/dbus-1/system-services/org.freedesktop.systemd1.service  
+-rw-r--r-- root       root              101 ./usr/share/dbus-1/system-services/org.freedesktop.nm_dispatcher.service  
 -rw-r--r-- root       root              115 ./usr/share/dbus-1/system-services/org.gnome.SettingsDaemon.DateTimeMechanism.service  
 -rw-r--r-- root       root               95 ./usr/share/dbus-1/system-services/org.freedesktop.PolicyKit1.service  
 -rw-r--r-- root       root              123 ./usr/share/dbus-1/system-services/org.freedesktop.UDisks.service  
 -rw-r--r-- root       root               99 ./usr/share/dbus-1/system-services/org.gnome.GConf.Defaults.service  
 -rw-r--r-- root       root              410 ./usr/share/dbus-1/system-services/org.freedesktop.timedate1.service  
+-rw-r--r-- root       root              459 ./usr/share/dbus-1/system-services/org.freedesktop.NetworkManager.service  
 -rw-r--r-- root       root              971 ./usr/share/dbus-1/system-services/org.freedesktop.Avahi.service  
 -rw-r--r-- root       root              410 ./usr/share/dbus-1/system-services/org.freedesktop.hostname1.service  
 -rw-r--r-- root       root              404 ./usr/share/dbus-1/system-services/org.freedesktop.login1.service  
@@ -10558,6 +10657,35 @@ drwxr-xr-x root       root             4096 ./usr/share/enchant
 -rw-r--r-- root       root              167 ./usr/share/enchant/enchant.ordering  
 drwxr-xr-x root       root             4096 ./usr/share/pkgconfig  
 -rw-r--r-- root       root              133 ./usr/share/pkgconfig/gnome-icon-theme.pc  
+drwxr-xr-x root       root             4096 ./usr/share/nm-applet  
+-rw-r--r-- root       root             4535 ./usr/share/nm-applet/eap-method-leap.ui  
+-rw-r--r-- root       root            19322 ./usr/share/nm-applet/ce-page-mobile.ui  
+-rw-r--r-- root       root             7553 ./usr/share/nm-applet/wired-8021x.ui  
+-rw-r--r-- root       root             9392 ./usr/share/nm-applet/ce-ppp-auth-methods.ui  
+-rw-r--r-- root       root             4574 ./usr/share/nm-applet/ws-leap.ui  
+-rw-r--r-- root       root             2437 ./usr/share/nm-applet/ce-page-wireless-security.ui  
+-rw-r--r-- root       root             5237 ./usr/share/nm-applet/ce-page-dsl.ui  
+-rw-r--r-- root       root            15309 ./usr/share/nm-applet/gsm-unlock.ui  
+-rw-r--r-- root       root             5663 ./usr/share/nm-applet/info.ui  
+-rw-r--r-- root       root             6100 ./usr/share/nm-applet/eap-method-ttls.ui  
+-rw-r--r-- root       root            19030 ./usr/share/nm-applet/ce-page-ip4.ui  
+-rw-r--r-- root       root             6017 ./usr/share/nm-applet/eap-method-simple.ui  
+-rw-r--r-- root       root             3181 ./usr/share/nm-applet/ws-wpa-eap.ui  
+-rw-r--r-- root       root            29421 ./usr/share/nm-applet/nm-connection-editor.ui  
+-rw-r--r-- root       root             7600 ./usr/share/nm-applet/ws-wep-key.ui  
+-rw-r--r-- root       root             8595 ./usr/share/nm-applet/ce-ip6-routes.ui  
+-rw-r--r-- root       root             4942 ./usr/share/nm-applet/ws-wpa-psk.ui  
+-rw-r--r-- root       root             8833 ./usr/share/nm-applet/nag-user-dialog.ui  
+-rw-r--r-- root       root             3130 ./usr/share/nm-applet/keyring.png  
+-rw-r--r-- root       root            17086 ./usr/share/nm-applet/ce-page-ip6.ui  
+-rw-r--r-- root       root            11112 ./usr/share/nm-applet/ce-page-wired.ui  
+-rw-r--r-- root       root             8652 ./usr/share/nm-applet/ce-ip4-routes.ui  
+-rw-r--r-- root       root            18604 ./usr/share/nm-applet/ce-page-wireless.ui  
+-rw-r--r-- root       root             8736 ./usr/share/nm-applet/eap-method-tls.ui  
+-rw-r--r-- root       root             3387 ./usr/share/nm-applet/ws-dynamic-wep.ui  
+-rw-r--r-- root       root             7709 ./usr/share/nm-applet/ce-vpn-wizard.ui  
+-rw-r--r-- root       root            15338 ./usr/share/nm-applet/ce-page-ppp.ui  
+-rw-r--r-- root       root             8074 ./usr/share/nm-applet/eap-method-peap.ui  
 drwxr-xr-x root       root             4096 ./usr/share/omf  
 drwxr-xr-x root       root             4096 ./usr/share/omf/palimpsest  
 -rw-r--r-- root       root              823 ./usr/share/omf/palimpsest/palimpsest-C.omf  
@@ -11130,6 +11258,7 @@ drwxr-xr-x root       root             4096 ./usr/share/readline
 drwxr-xr-x root       root             4096 ./usr/share/dict  
 drwxr-xr-x root       root             4096 ./usr/share/polkit-1  
 drwxr-xr-x root       root             4096 ./usr/share/polkit-1/actions  
+-rw-r--r-- root       root            90544 ./usr/share/polkit-1/actions/org.freedesktop.NetworkManager.policy  
 -rw-r--r-- root       root             1564 ./usr/share/polkit-1/actions/org.freedesktop.locale1.policy  
 -rw-r--r-- root       root             5133 ./usr/share/polkit-1/actions/org.freedesktop.upower.qos.policy  
 -rw-r--r-- root       root            11060 ./usr/share/polkit-1/actions/org.freedesktop.udisks.policy  
@@ -11596,6 +11725,7 @@ drwxr-xr-x root       root             4096 ./usr/share/man/man1
 -rw-r--r-- root       root             1874 ./usr/share/man/man1/ucs2any.1  
 drwxr-xr-x root       root             4096 ./usr/share/applications  
 -rw-r--r-- root       root             7925 ./usr/share/applications/nautilus-home.desktop  
+-rw-r--r-- root       root             4293 ./usr/share/applications/nm-applet.desktop  
 -rw-r--r-- root       root             6133 ./usr/share/applications/gnome-font-viewer.desktop  
 -rw-r--r-- root       root              208 ./usr/share/applications/gpe-scap.desktop  
 -rw-r--r-- root       root             3142 ./usr/share/applications/nautilus-folder-handler.desktop  
@@ -11608,6 +11738,7 @@ drwxr-xr-x root       root             4096 ./usr/share/applications
 -rw-r--r-- root       root             3501 ./usr/share/applications/nautilus-autorun-software.desktop  
 -rw-r--r-- root       root             2434 ./usr/share/applications/metacity.desktop  
 -rw-r--r-- root       root             5800 ./usr/share/applications/palimpsest.desktop  
+-rw-r--r-- root       root             8646 ./usr/share/applications/nm-connection-editor.desktop  
 -rw-r--r-- root       root             8325 ./usr/share/applications/keyboard.desktop  
 -rw-r--r-- root       root            13121 ./usr/share/applications/epiphany.desktop  
 -rw-r--r-- root       root             6826 ./usr/share/applications/gnome-power-statistics.desktop  
@@ -16539,6 +16670,7 @@ lrwxrwxrwx root       root               16 ./usr/lib/liblzo2.so.2 -> liblzo2.so
 -rwxr-xr-x root       root            24716 ./usr/lib/libSM.so.6.0.1  
 lrwxrwxrwx root       root               23 ./usr/lib/libglib-2.0.so.0 -> libglib-2.0.so.0.3000.2
 -rwxr-xr-x root       root            89916 ./usr/lib/libxklavier.so.16.0.0  
+lrwxrwxrwx root       root               24 ./usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.3.0
 -rwxr-xr-x root       root         18237468 ./usr/lib/libwebkitgtk-1.0.so.0.11.2  
 -rwxr-xr-x root       root            43304 ./usr/lib/libgstapp-0.10.so.0.24.0  
 lrwxrwxrwx root       root               33 ./usr/lib/libgstdataprotocol-0.10.so.0 -> libgstdataprotocol-0.10.so.0.29.0
@@ -16697,8 +16829,12 @@ drwxr-xr-x root       root             4096 ./usr/lib/gnome-bluetooth
 drwxr-xr-x root       root             4096 ./usr/lib/gnome-bluetooth/plugins  
 -rwxr-xr-x root       root             2272 ./usr/lib/gnome-bluetooth/plugins/libgbtgeoclue.la  
 -rwxr-xr-x root       root             6628 ./usr/lib/gnome-bluetooth/plugins/libgbtgeoclue.so  
+-rwxr-xr-x root       root            50008 ./usr/lib/gnome-bluetooth/plugins/libnma.so  
 lrwxrwxrwx root       root               18 ./usr/lib/libnl-3.so.200 -> libnl-3.so.200.3.0
 lrwxrwxrwx root       root               16 ./usr/lib/libicuuc.so.36 -> libicuuc.so.36.0
+drwxr-xr-x root       root             4096 ./usr/lib/pppd  
+drwxr-xr-x root       root             4096 ./usr/lib/pppd/2.4.5  
+-rwxr-xr-x root       root             9972 ./usr/lib/pppd/2.4.5/nm-pppd-plugin.so  
 -rwxr-xr-x root       root            65360 ./usr/lib/libicalss.so.0.48.0  
 lrwxrwxrwx root       root               15 ./usr/lib/libXau.so.6 -> libXau.so.6.0.0
 lrwxrwxrwx root       root               18 ./usr/lib/libXrandr.so.2 -> libXrandr.so.2.2.0
@@ -16715,10 +16851,13 @@ lrwxrwxrwx root       root               17 ./usr/lib/libncurses.so.5 -> libncur
 lrwxrwxrwx root       root               20 ./usr/lib/libopenobex.so.1 -> libopenobex.so.1.4.1
 lrwxrwxrwx root       root               26 ./usr/lib/libgnutls-extra.so.26 -> libgnutls-extra.so.26.21.8
 lrwxrwxrwx root       root               19 ./usr/lib/libXdamage.so.1 -> libXdamage.so.1.1.0
+lrwxrwxrwx root       root               19 ./usr/lib/libnm-glib.so.4 -> libnm-glib.so.4.2.0
 -rwxr-xr-x root       root             7040 ./usr/lib/libXau.so.6.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libsigc-2.0.so.0 -> libsigc-2.0.so.0.0.0
 lrwxrwxrwx root       root               18 ./usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.5.8
+-rwxr-xr-x root       root           130948 ./usr/lib/libnm-gtk.so.0.0.0  
 -rwxr-xr-x root       root            23252 ./usr/lib/libhistory.so.6.2  
+-rwxr-xr-x root       root           203220 ./usr/lib/libnl-route-3.so.200.3.0  
 drwxr-xr-x root       root             4096 ./usr/lib/enchant  
 -rwxr-xr-x root       root             5980 ./usr/lib/enchant/libenchant_aspell.so  
 -rwxr-xr-x root       root           225364 ./usr/lib/enchant/libenchant_myspell.so  
@@ -16735,6 +16874,7 @@ lrwxrwxrwx root       root               16 ./usr/lib/libltdl.so.7 -> libltdl.so
 lrwxrwxrwx root       root               20 ./usr/lib/libgnutls.so.26 -> libgnutls.so.26.21.8
 -rwxr-xr-x root       root            14056 ./usr/lib/libgthread-2.0.so.0.3000.2  
 lrwxrwxrwx root       root               14 ./usr/lib/libXt.so.6 -> libXt.so.6.0.0
+-rwxr-xr-x root       root            23632 ./usr/lib/libnm-glib-vpn.so.1.1.0  
 lrwxrwxrwx root       root               19 ./usr/lib/libaspell.so.15 -> libaspell.so.15.1.5
 -rwxr-xr-x root       root            60060 ./usr/lib/libcanberra.so.0.2.4  
 -rwxr-xr-x root       root            23168 ./usr/lib/libgstnet-0.10.so.0.29.0  
@@ -16744,6 +16884,7 @@ lrwxrwxrwx root       root               16 ./usr/lib/libfuse.so.2 -> libfuse.so
 lrwxrwxrwx root       root               17 ./usr/lib/libip4tc.so.0 -> libip4tc.so.0.0.0
 lrwxrwxrwx root       root               21 ./usr/lib/libgtkmm-2.4.so.1 -> libgtkmm-2.4.so.1.1.0
 -rwxr-xr-x root       root           192428 ./usr/lib/libreadline.so.6.2  
+-rwxr-xr-x root       root           282460 ./usr/lib/libnm-util.so.2.2.0  
 lrwxrwxrwx root       root               22 ./usr/lib/libXfontcache.so.1 -> libXfontcache.so.1.0.0
 -rwxr-xr-x root       root            80768 ./usr/lib/libpolkit-backend-1.so.0.0.0  
 -rwxr-xr-x root       root            16392 ./usr/lib/libXfixes.so.3.1.0  
@@ -17003,6 +17144,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/GConf
 drwxr-xr-x root       root             4096 ./usr/lib/GConf/2  
 -rwxr-xr-x root       root            43400 ./usr/lib/GConf/2/libgconfbackend-oldxml.so  
 -rwxr-xr-x root       root            47944 ./usr/lib/GConf/2/libgconfbackend-xml.so  
+lrwxrwxrwx root       root               23 ./usr/lib/libnm-glib-vpn.so.1 -> libnm-glib-vpn.so.1.1.0
 lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.11.4
 lrwxrwxrwx root       root               21 ./usr/lib/libgiomm-2.4.so.1 -> libgiomm-2.4.so.1.3.0
 -rwxr-xr-x root       root             8932 ./usr/lib/libXxf86misc.so.1.1.0  
@@ -17044,6 +17186,7 @@ lrwxrwxrwx root       root               25 ./usr/lib/libpangox-1.0.so.0 -> libp
 -rwxr-xr-x root       root            12016 ./usr/lib/libsoup-gnome-2.4.so.1.4.0  
 -rwxr-xr-x root       root            77604 ./usr/lib/libz.so.1.2.5  
 lrwxrwxrwx root       root               24 ./usr/lib/libgstnet-0.10.so.0 -> libgstnet-0.10.so.0.29.0
+lrwxrwxrwx root       root               18 ./usr/lib/libnm-gtk.so.0 -> libnm-gtk.so.0.0.0
 lrwxrwxrwx root       root               15 ./usr/lib/libdrm.so.2 -> libdrm.so.2.4.0
 lrwxrwxrwx root       root               16 ./usr/lib/libgp11.so.0 -> libgp11.so.0.0.0
 lrwxrwxrwx root       root               21 ./usr/lib/libglade-2.0.so.0 -> libglade-2.0.so.0.0.7
@@ -17075,11 +17218,13 @@ lrwxrwxrwx root       root               23 ./usr/lib/libatk-1.0.so.0 -> libatk-
 -rwxr-xr-x root       root            26600 ./usr/lib/libgphoto2_port.so.0.8.0  
 -rwxr-xr-x root       root           347948 ./usr/lib/libtiff.so.3.9.5  
 lrwxrwxrwx root       root               16 ./usr/lib/libxml2.so.2 -> libxml2.so.2.7.8
+lrwxrwxrwx root       root               19 ./usr/lib/libnm-util.so.2 -> libnm-util.so.2.2.0
 -rwxr-xr-x root       root            55972 ./usr/lib/libgtop-2.0.so.7.2.0  
 drwxr-xr-x root       root             4096 ./usr/lib/window-manager-settings  
 -rwxr-xr-x root       root            10672 ./usr/lib/window-manager-settings/libmetacity.so  
 -rwxr-xr-x root       root           119160 ./usr/lib/libgstpbutils-0.10.so.0.24.0  
 lrwxrwxrwx root       root               24 ./usr/lib/libpolkit-gtk-1.so.0 -> libpolkit-gtk-1.so.0.0.0
+-rwxr-xr-x root       root           163252 ./usr/lib/libnm-glib.so.4.2.0  
 -rwxr-xr-x root       root           139888 ./usr/lib/libfuse.so.2.8.6  
 -rwxr-xr-x root       root            40532 ./usr/lib/libavahi-common.so.3.5.3  
 -rwxr-xr-x root       root           561312 ./usr/lib/libvte.so.9.2800.2  
@@ -17892,6 +18037,8 @@ lrwxrwxrwx root       root               16 ./usr/lib/libtiff.so.3 -> libtiff.so
 -rwxr-xr-x root       root            25672 ./usr/lib/libXrandr.so.2.2.0  
 -rwxr-xr-x root       root            18304 ./usr/lib/libdaemon.so.0.5.0  
 lrwxrwxrwx root       root               16 ./usr/lib/libXtst.so.6 -> libXtst.so.6.1.0
+drwxr-xr-x root       root             4096 ./usr/lib/NetworkManager  
+-rwxr-xr-x root       root            37792 ./usr/lib/NetworkManager/libnm-settings-plugin-ifupdown.so  
 -rwxr-xr-x root       root           579716 ./usr/lib/libgdk-x11-2.0.so.0.2400.8  
 -rwxr-xr-x root       root            35872 ./usr/lib/libavahi-ui.so.0.1.4  
 lrwxrwxrwx root       root               19 ./usr/lib/libXcursor.so.1 -> libXcursor.so.1.0.2
@@ -18153,6 +18300,7 @@ lrwxrwxrwx root       root               13 ./usr/bin/sg -> newgrp.shadow
 lrwxrwxrwx root       root               17 ./usr/bin/awk -> ../../bin/busybox
 -rwxr-xr-x root       root             8116 ./usr/bin/sg_rtpg  
 -rwxr-xr-x root       root           102044 ./usr/bin/palimpsest  
+-rwxr-xr-x root       root           102984 ./usr/bin/nmcli  
 -rwxr-xr-x root       root             7576 ./usr/bin/chattr  
 -rwxr-xr-x root       root            81848 ./usr/bin/bluetooth-applet  
 -rwxr-xr-x root       root            10384 ./usr/bin/enchant  
@@ -18168,6 +18316,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/awk -> ../../bin/busybox
 -rwsr-xr-x root       root            27124 ./usr/bin/su  
 -rwxr-xr-x root       root           348004 ./usr/bin/ssh.openssh  
 -rwxr-xr-x root       root             8392 ./usr/bin/avahi-set-host-name  
+-rwxr-xr-x root       root           301920 ./usr/bin/nm-applet  
 -rwxr-xr-x root       root            28015 ./usr/bin/xdg-mime  
 lrwxrwxrwx root       root               17 ./usr/bin/strings -> ../../bin/busybox
 -rwsr-xr-x root       root            23312 ./usr/bin/newgrp.shadow  
@@ -18344,6 +18493,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/nslookup -> ../../bin/busy
 -rwxr-xr-x root       root            16911 ./usr/bin/glib-mkenums  
 -rwxr-xr-x root       root            37928 ./usr/bin/udisks  
 lrwxrwxrwx root       root                4 ./usr/bin/X -> Xorg
+-rwxr-xr-x root       root             5248 ./usr/bin/libnm-glib-test  
 -rwxr-xr-x root       root           208092 ./usr/bin/gnome-system-monitor  
 lrwxrwxrwx root       root               13 ./usr/bin/groups -> groups.shadow
 -rwxr-xr-x root       root            20368 ./usr/bin/glib-genmarshal  
@@ -18443,6 +18593,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/[ -> ../../bin/busybox
 -rwxr-xr-x root       root             4532 ./usr/bin/chvt.kbd  
 -rwxr-xr-x root       root           172260 ./usr/bin/gnome-session  
 lrwxrwxrwx root       root               11 ./usr/bin/chsh -> chsh.shadow
+-rwxr-xr-x root       root           229632 ./usr/bin/nm-connection-editor  
 -rwsr-xr-x root       root            23788 ./usr/bin/chsh.shadow  
 lrwxrwxrwx root       root               17 ./usr/bin/logname -> ../../bin/busybox
 -rwxr-xr-x root       root            11144 ./usr/bin/sg_raw  
@@ -18473,6 +18624,7 @@ drwxr-xr-x root       root             4096 ./lib/udev/rules.d
 -rw-r--r-- root       root              354 ./lib/udev/rules.d/95-upower-wup.rules  
 -rw-r--r-- root       root              774 ./lib/udev/rules.d/95-upower-battery-recall-lenovo.rules  
 -rw-r--r-- root       root             2445 ./lib/udev/rules.d/70-uaccess.rules  
+-rw-r--r-- root       root              284 ./lib/udev/rules.d/77-nm-olpc-mesh.rules  
 -rw-r--r-- root       root             2866 ./lib/udev/rules.d/95-upower-battery-recall-dell.rules  
 -rw-r--r-- root       root              259 ./lib/udev/rules.d/97-bluetooth.rules  
 -rw-r--r-- root       root             1622 ./lib/udev/rules.d/95-upower-csr.rules  
@@ -19902,7 +20054,6 @@ lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel5.targe
 -rw-r--r-- root       root              470 ./lib/systemd/system/systemd-localed.service  
 -rw-r--r-- root       root              462 ./lib/systemd/system/sys-kernel-debug.mount  
 -rw-r--r-- root       root              407 ./lib/systemd/system/local-fs.target  
--rw-r--r-- root       root              169 ./lib/systemd/system/connman.service  
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.target -> reboot.target
 -rw-r--r-- root       root              648 ./lib/systemd/system/systemd-ask-password-wall.service  
 -rw-r--r-- root       root              469 ./lib/systemd/system/reboot.target  
@@ -19911,6 +20062,7 @@ lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.targe
 -rw-r--r-- root       root              518 ./lib/systemd/system/sys-fs-fuse-connections.mount  
 -rw-r--r-- root       root              519 ./lib/systemd/system/systemd-random-seed-save.service  
 -rw-r--r-- root       root              655 ./lib/systemd/system/syslog.target  
+-rw-r--r-- root       root              256 ./lib/systemd/system/NetworkManager-wait-online.service  
 -rw-r--r-- root       root              369 ./lib/systemd/system/printer.target  
 drwxr-xr-x root       root             4096 ./lib/systemd/system/runlevel4.target.wants  
 lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel4.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
@@ -20030,6 +20182,7 @@ lrwxrwxrwx root       root               15 ./lib/systemd/system/multi-user.targ
 drwxr-xr-x root       root             4096 ./lib/systemd/system/dbus.target.wants  
 lrwxrwxrwx root       root               14 ./lib/systemd/system/dbus.target.wants/dbus.socket -> ../dbus.socket
 lrwxrwxrwx root       root               22 ./lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
+-rw-r--r-- root       root              293 ./lib/systemd/system/NetworkManager.service  
 -rw-r--r-- root       root              491 ./lib/systemd/system/systemd-timedated.service  
 lrwxrwxrwx root       root               17 ./lib/systemd/system/runlevel4.target -> multi-user.target
 -rw-r--r-- root       root             1285 ./lib/systemd/system/getty@.service  
@@ -20279,7 +20432,7 @@ drwxr-xr-x root       root             4096 ./var/log/ConsoleKit
 drwxr-xr-x root       root             4096 ./var/log/gdm  
 drwxr-xr-x root       root             4096 ./var/cache  
 drwx------ root       root             4096 ./var/cache/ldconfig  
--rw------- root       root            14904 ./var/cache/ldconfig/aux-cache  
+-rw------- root       root            15232 ./var/cache/ldconfig/aux-cache  
 drwxr-xr-t root       root             4096 ./var/cache/gdm  
 drwxr-xr-x root       root             4096 ./var/backups  
 drwxr-xr-x root       root             4096 ./var/lock  
@@ -20298,7 +20451,7 @@ drwxr-sr-x root       root             4096 ./var/local
 drwxr-xr-x root       root             4096 ./var/lib  
 drwxr-xr-x root       root             4096 ./var/lib/opkg  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
-drwxr-xr-x root       root           262144 ./var/lib/opkg/info  
+drwxr-xr-x root       root           270336 ./var/lib/opkg/info  
 -rw-r--r-- root       root               62 ./var/lib/opkg/info/kernel-module-iuu-phoenix.list  
 -rw-r--r-- root       root               62 ./var/lib/opkg/info/kernel-module-adxl34x-i2c.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-wimax.postrm  
@@ -20374,6 +20527,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-ks959-sir.postinst  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-ocfs2-stackglue.postinst  
 -rw-r--r-- root       root               57 ./var/lib/opkg/info/kernel-module-tuner.list  
+-rwxr-xr-x root       root              135 ./var/lib/opkg/info/network-manager-applet.postrm  
 -rw-r--r-- root       root            16389 ./var/lib/opkg/info/kernel-module-rc-terratec-slim-2.control  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-rc-budget-ci-old.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-dm-mod.postrm  
@@ -20388,6 +20542,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root              437 ./var/lib/opkg/info/gnome-theme-highcontrastlargeprint.control  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/kernel-module-mpoa.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-mailbox.postinst  
+-rwxr-xr-x root       root              285 ./var/lib/opkg/info/network-manager-applet.prerm  
 -rw-r--r-- root       root            16350 ./var/lib/opkg/info/kernel-module-nls-koi8-r.control  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-dvb-usb-az6027.postinst  
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/avahi-daemon.conffiles  
@@ -20531,7 +20686,9 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-rc-pctv-sedna.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-pac7311.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-finepix.postrm  
+-rw-r--r-- root       root               64 ./var/lib/opkg/info/libnl-route-3-200.list  
 -rw-r--r-- root       root            16365 ./var/lib/opkg/info/kernel-module-g-ffs.control  
+-rwxr-xr-x root       root              661 ./var/lib/opkg/info/network-manager-applet.postinst  
 -rw-r--r-- root       root            16390 ./var/lib/opkg/info/kernel-module-clip.control  
 -rw-r--r-- root       root              156 ./var/lib/opkg/info/kernel-module-rpcsec-gss-krb5.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nls-cp865.postrm  
@@ -21008,6 +21165,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root               68 ./var/lib/opkg/info/netbase.prerm  
 -rw-r--r-- root       root              816 ./var/lib/opkg/info/wpa-supplicant.control  
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/kernel-module-tcp-bic.list  
+-rw-r--r-- root       root               54 ./var/lib/opkg/info/libnm-util2.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-l2tp-core.postrm  
 -rw-r--r-- root       root               55 ./var/lib/opkg/info/kernel-module-hid-uclogic.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-lib80211-crypt-wep.postrm  
@@ -21229,6 +21387,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root            16502 ./var/lib/opkg/info/kernel-module-ip-vs-ftp.control  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-dib7000p.postinst  
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/kernel-module-algif-skcipher.list  
+-rw-r--r-- root       root               72 ./var/lib/opkg/info/dhcp-client.list  
 -rw-r--r-- root       root            16386 ./var/lib/opkg/info/kernel-module-zl10353.control  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-l2tp-netlink.postinst  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-rt2500usb.postinst  
@@ -21592,7 +21751,6 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-uas.postinst  
 -rw-r--r-- root       root            16374 ./var/lib/opkg/info/kernel-module-khazad.control  
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/gtk-theme-redmond.list  
--rw-r--r-- root       root              990 ./var/lib/opkg/info/connman-systemd.control  
 -rw-r--r-- root       root               27 ./var/lib/opkg/info/pam-plugin-group.list  
 -rw-r--r-- root       root            16426 ./var/lib/opkg/info/kernel-module-async-xor.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-i2400m-usb.postrm  
@@ -22088,12 +22246,13 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/kernel-module-cls-fw.list  
 -rw-r--r-- root       root            16394 ./var/lib/opkg/info/kernel-module-tmp102.control  
 -rw-r--r-- root       root              817 ./var/lib/opkg/info/dbus-1.control  
--rw-r--r-- root       root             2244 ./var/lib/opkg/info/gnome-bluetooth.list  
+-rw-r--r-- root       root             2230 ./var/lib/opkg/info/gnome-bluetooth.list  
 -rw-r--r-- root       root              699 ./var/lib/opkg/info/udev-utils.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-async-raid6-recov.postrm  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-btwilink.postinst  
 -rw-r--r-- root       root            16360 ./var/lib/opkg/info/kernel-module-ctr.control  
 -rw-r--r-- root       root               55 ./var/lib/opkg/info/kernel-module-ppp-synctty.list  
+-rw-r--r-- root       root             1346 ./var/lib/opkg/info/network-manager-applet.control  
 -rw-r--r-- root       root            16389 ./var/lib/opkg/info/kernel-module-rc-avermedia-rm-ks.control  
 -rw-r--r-- root       root            16529 ./var/lib/opkg/info/kernel-module-ipt-netmap.control  
 -rw-r--r-- root       root               74 ./var/lib/opkg/info/kernel-module-rc-pixelview-mk12.list  
@@ -22283,6 +22442,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-logfs.postinst  
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/kernel-module-sir-dev.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-st-drv.postinst  
+-rw-r--r-- root       root              737 ./var/lib/opkg/info/libnm-util2.control  
 -rwxr-xr-x root       root               13 ./var/lib/opkg/info/ttf-liberation-sans.postinst  
 -rw-r--r-- root       root              718 ./var/lib/opkg/info/xf86-video-omapfb.control  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-cls-flow.postinst  
@@ -22343,7 +22503,6 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root              581 ./var/lib/opkg/info/glibmm.control  
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/kernel-module-br2684.list  
 -rw-r--r-- root       root               63 ./var/lib/opkg/info/kernel-module-nf-conntrack-tftp.list  
--rw-r--r-- root       root               36 ./var/lib/opkg/info/connman-systemd.list  
 -rw-r--r-- root       root            16359 ./var/lib/opkg/info/kernel-module-l2tp-core.control  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-xfs.postinst  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-ip6table-raw.postinst  
@@ -22540,6 +22699,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-uio-pdrv-genirq.postrm  
 -rw-r--r-- root       root              709 ./var/lib/opkg/info/alsa-utils-alsamixer.control  
 -rw-r--r-- root       root            16513 ./var/lib/opkg/info/kernel-module-cx231xx-dvb.control  
+-rwxr-xr-x root       root              121 ./var/lib/opkg/info/networkmanager.postinst  
 -rwxr-xr-x root       root              351 ./var/lib/opkg/info/gnome-disk-utility.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ssu100.postrm  
 -rw-r--r-- root       root            16516 ./var/lib/opkg/info/kernel-module-ocfs2-stack-o2cb.control  
@@ -22781,6 +22941,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root            16392 ./var/lib/opkg/info/kernel-module-ov7670.control  
 -rw-r--r-- root       root              513 ./var/lib/opkg/info/pam-plugin-rootok.control  
 -rw-r--r-- root       root              467 ./var/lib/opkg/info/font-util.control  
+-rw-r--r-- root       root              909 ./var/lib/opkg/info/dhcp-client.control  
 -rw-r--r-- root       root              866 ./var/lib/opkg/info/libblkid1.control  
 -rw-r--r-- root       root              171 ./var/lib/opkg/info/kernel-module-nxt200x.list  
 -rw-r--r-- root       root              500 ./var/lib/opkg/info/libical.control  
@@ -22880,6 +23041,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root              103 ./var/lib/opkg/info/iso-codes-locale-en.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nf-nat-ftp.postrm  
 -rw-r--r-- root       root            16389 ./var/lib/opkg/info/kernel-module-cuse.control  
+-rw-r--r-- root       root             1205 ./var/lib/opkg/info/networkmanager.list  
 -rw-r--r-- root       root            16387 ./var/lib/opkg/info/kernel-module-bh1780gli.control  
 -rw-r--r-- root       root            16385 ./var/lib/opkg/info/kernel-module-rc-pixelview-new.control  
 -rw-r--r-- root       root               91 ./var/lib/opkg/info/kernel-module-sm-ftl.list  
@@ -22967,7 +23129,6 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root              467 ./var/lib/opkg/info/gvfsd-trash.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-xt-time.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-cypress-cy7c63.postrm  
--rwxr-xr-x root       root              165 ./var/lib/opkg/info/connman-systemd.postinst  
 -rw-r--r-- root       root               63 ./var/lib/opkg/info/kernel-module-hid-roccat-kovaplus.list  
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/kernel-module-nls-cp860.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-ip6t-hbh.postinst  
@@ -22982,6 +23143,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root              130 ./var/lib/opkg/info/kernel-module-usbvision.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-cramfs.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-dm-round-robin.postrm  
+-rwxr-xr-x root       root              122 ./var/lib/opkg/info/networkmanager.prerm  
 -rw-r--r-- root       root            16384 ./var/lib/opkg/info/kernel-module-bpa10x.control  
 -rw-r--r-- root       root               72 ./var/lib/opkg/info/kernel-module-tuner-simple.list  
 -rw-r--r-- root       root              481 ./var/lib/opkg/info/linux-firmware-wl12xx.control  
@@ -23096,6 +23258,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-nfnetlink.postinst  
 -rw-r--r-- root       root               98 ./var/lib/opkg/info/kernel-module-slcan.list  
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/libdrm2.list  
+-rw-r--r-- root       root              473 ./var/lib/opkg/info/libnl-route-3-200.control  
 -rw-r--r-- root       root              186 ./var/lib/opkg/info/gdk-pixbuf.list  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/kernel-module-gre.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-cx24123.postinst  
@@ -23867,7 +24030,6 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root            16452 ./var/lib/opkg/info/kernel-module-gpio-charger.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-rc-proteus-2309.postrm  
 -rw-r--r-- root       root            16424 ./var/lib/opkg/info/kernel-module-gspca-t613.control  
--rwxr-xr-x root       root               69 ./var/lib/opkg/info/connman-systemd.prerm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ipt-redirect.postrm  
 -rwxr-xr-x root       root              351 ./var/lib/opkg/info/gnome-theme-crux.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-faulty.postrm  
@@ -24170,7 +24332,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root              115 ./var/lib/opkg/info/kernel-module-w35und.list  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-xfrm6-mode-transport.postinst  
 -rw-r--r-- root       root            16387 ./var/lib/opkg/info/kernel-module-leds-regulator.control  
--rw-r--r-- root       root             2070 ./var/lib/opkg/info/gnome-keyring.list  
+-rw-r--r-- root       root             2024 ./var/lib/opkg/info/gnome-keyring.list  
 -rw-r--r-- root       root            16399 ./var/lib/opkg/info/kernel-module-hp4x.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-old-belkin-sir.postrm  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-adt7411.postinst  
@@ -24545,7 +24707,6 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root              766 ./var/lib/opkg/info/udev.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-sr030pc30.postrm  
 -rw-r--r-- root       root            16431 ./var/lib/opkg/info/kernel-module-nf-conntrack-amanda.control  
--rwxr-xr-x root       root               44 ./var/lib/opkg/info/connman-systemd.postrm  
 -rw-r--r-- root       root              791 ./var/lib/opkg/info/gnome-session.control  
 -rw-r--r-- root       root            16381 ./var/lib/opkg/info/kernel-module-rc-em-terratec.control  
 -rw-r--r-- root       root            16386 ./var/lib/opkg/info/kernel-module-kafs.control  
@@ -24996,6 +25157,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-snd-aloop.postrm  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-rc-tt-1500.postinst  
 -rw-r--r-- root       root               73 ./var/lib/opkg/info/libnotify.list  
+-rw-r--r-- root       root             6004 ./var/lib/opkg/info/network-manager-applet.list  
 -rw-r--r-- root       root            16414 ./var/lib/opkg/info/kernel-module-ocfs2-nodemanager.control  
 -rw-r--r-- root       root               62 ./var/lib/opkg/info/kernel-module-adxl34x-spi.list  
 -rw-r--r-- root       root             5860 ./var/lib/opkg/info/epiphany.list  
@@ -25075,6 +25237,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rw-r--r-- root       root            16336 ./var/lib/opkg/info/kernel-module-atm.control  
 -rw-r--r-- root       root            16424 ./var/lib/opkg/info/kernel-module-ma600-sir.control  
 -rw-r--r-- root       root               19 ./var/lib/opkg/info/mkfontdir.list  
+-rw-r--r-- root       root              952 ./var/lib/opkg/info/networkmanager.control  
 -rw-r--r-- root       root            16472 ./var/lib/opkg/info/kernel-module-dvb-usb-gl861.control  
 -rw-r--r-- root       root               69 ./var/lib/opkg/info/kernel-module-gspca-cpia1.list  
 -rw-r--r-- root       root               71 ./var/lib/opkg/info/kernel-module-nf-nat-proto-udplite.list  
@@ -25201,7 +25364,7 @@ drwxr-xr-x root       root           262144 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-wl12xx-spi.postrm  
 -rwxr-xr-x root       root              223 ./var/lib/opkg/info/kernel-module-nls-iso8859-4.postinst  
 -rw-r--r-- root       root              873 ./var/lib/opkg/info/util-linux-fsck.control  
--rw-r--r-- root       root           361600 ./var/lib/opkg/status  
+-rw-r--r-- root       root           363942 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives  
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/ps  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/tr  
@@ -25393,6 +25556,7 @@ drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/30
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/90-mandatory.d  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/50-local.d  
 drwx------ root       root             4096 ./var/lib/udisks  
+drwx------ root       root             4096 ./var/lib/NetworkManager  
 drwxr-xr-x root       root             4096 ./var/lib/upower  
 drwxr-xr-x messagebus messagebus       4096 ./var/lib/dbus  
 drwxr-xr-x root       root             4096 ./var/lib/gdm  
@@ -25407,6 +25571,7 @@ drwxr-xr-x root       root             4096 ./var/lib/gdm/.local/share/applicati
 drwxr-xr-x root       root             4096 ./var/lib/ofono  
 drwxr-xr-x root       root             4096 ./var/run  
 drwxr-xr-x root       root             4096 ./var/run/ConsoleKit  
+drwx------ root       root             4096 ./var/run/NetworkManager  
 drwxr-xr-x messagebus messagebus       4096 ./var/run/dbus  
 drwx--x--x root       root             4096 ./var/run/gdm  
 drwxr-xr-x root       root             4096 ./var/run/gdm/greeter  
