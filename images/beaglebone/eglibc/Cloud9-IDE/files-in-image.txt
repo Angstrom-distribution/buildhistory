@@ -506,7 +506,17 @@ drwxr-xr-x root       root             4096 ./media/net
 drwxr-xr-x root       root             4096 ./media/mmc1  
 drwxrwxrwt root       root             4096 ./tmp  
 drwxr-xr-x root       root             4096 ./etc  
--rw-r--r-- root       root            23491 ./etc/ld.so.cache  
+-rw-r--r-- root       root            23477 ./etc/ld.so.cache  
+drwxr-xr-x root       root             4096 ./etc/opkg  
+-rw-r--r-- root       root               85 ./etc/opkg/base-feed.conf  
+-rw-r--r-- root       root              417 ./etc/opkg/arch.conf  
+-rw-r--r-- root       root               95 ./etc/opkg/gstreamer-feed.conf  
+-rw-r--r-- root       root               89 ./etc/opkg/python-feed.conf  
+-rw-r--r-- root       root               87 ./etc/opkg/debug-feed.conf  
+-rw-r--r-- root       root               77 ./etc/opkg/sdk-feed.conf  
+-rw-r--r-- root       root              105 ./etc/opkg/beaglebone-feed.conf  
+-rw-r--r-- root       root               85 ./etc/opkg/perl-feed.conf  
+-rw-r--r-- root       root               80 ./etc/opkg/noarch-feed.conf  
 drwxr-xr-x root       root             4096 ./etc/cron.monthly  
 -rw-r--r-- root       root               38 ./etc/filesystems  
 drwxr-xr-x root       root             4096 ./etc/modprobe.d  
@@ -773,6 +783,7 @@ drwxr-xr-x root       root             4096 ./etc/bash_completion.d
 -rw-r--r-- root       root            10664 ./etc/bash_completion.d/systemd-bash-completion.sh  
 -rw-r--r-- root       root              935 ./etc/bash_completion.d/gdbus-bash-completion.sh  
 drwxr-xr-x root       root             4096 ./etc/rcS.d  
+-rwxr-xr-x root       root               60 ./etc/rcS.d/S98configure  
 lrwxrwxrwx root       root               20 ./etc/rcS.d/S40networking -> ../init.d/networking
 -rw-r--r-- root       root              649 ./etc/syslog-startup.conf.busybox  
 -rw-r--r-- root       root             1633 ./etc/inputrc  
@@ -1134,6 +1145,11 @@ drwxr-xr-x root       root             4096 ./usr/libexec/systemd/user-generator
 -rwxr-xr-x root       root            14084 ./usr/libexec/frcode  
 lrwxrwxrwx root       root                7 ./usr/libexec/rmt -> rmt.tar
 drwxr-xr-x root       root             4096 ./usr/share  
+drwxr-xr-x root       root             4096 ./usr/share/opkg  
+drwxr-xr-x root       root             4096 ./usr/share/opkg/intercept  
+-rwxr-xr-x root       root              309 ./usr/share/opkg/intercept/depmod  
+-rwxr-xr-x root       root              175 ./usr/share/opkg/intercept/update-modules  
+-rwxr-xr-x root       root              151 ./usr/share/opkg/intercept/ldconfig  
 drwxr-xr-x root       root             4096 ./usr/share/glib-2.0  
 drwxr-xr-x root       root             4096 ./usr/share/glib-2.0/schemas  
 -rw-r--r-- root       root             2820 ./usr/share/glib-2.0/schemas/gschema.dtd  
@@ -16614,6 +16630,7 @@ lrwxrwxrwx root       root               22 ./usr/lib/libxcb-record.so -> libxcb
 lrwxrwxrwx root       root               17 ./usr/lib/libgmpxx.so.4 -> libgmpxx.so.4.2.2
 lrwxrwxrwx root       root               19 ./usr/lib/libstdc++.so.6 -> libstdc++.so.6.0.14
 lrwxrwxrwx root       root               21 ./usr/lib/libvorbisenc.so.2 -> libvorbisenc.so.2.0.8
+-rwxr-xr-x root       root           151784 ./usr/lib/libopkg.so.1.0.0  
 -rwxr-xr-x root       root             1102 ./usr/lib/libXcomposite.la  
 drwxr-xr-x root       root             4096 ./usr/lib/rsyslog  
 -rwxr-xr-x root       root              907 ./usr/lib/rsyslog/lmtcpsrv.la  
@@ -19024,6 +19041,7 @@ lrwxrwxrwx root       root               26 ./usr/lib/libgmodule-2.0.so -> libgm
 lrwxrwxrwx root       root               18 ./usr/lib/libxcb-xv.so -> libxcb-xv.so.0.0.0
 lrwxrwxrwx root       root               31 ./usr/lib/libgstcontroller-0.10.so -> libgstcontroller-0.10.so.0.29.0
 lrwxrwxrwx root       root               21 ./usr/lib/libtheoraenc.so.1 -> libtheoraenc.so.1.1.2
+lrwxrwxrwx root       root               16 ./usr/lib/libopkg.so.1 -> libopkg.so.1.0.0
 -rwxr-xr-x root       root            75004 ./usr/lib/libICE.so.6.3.0  
 -rwxr-xr-x root       root             1008 ./usr/lib/libxcb-randr.la  
 lrwxrwxrwx root       root               16 ./usr/lib/libjpeg.so -> libjpeg.so.8.0.2
@@ -20232,7 +20250,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/lib-dynload
 -rwxr-xr-x root       root            40160 ./usr/lib/python2.7/lib-dynload/cmath.so  
 -rwxr-xr-x root       root           136072 ./usr/lib/python2.7/lib-dynload/_io.so  
 -rwxr-xr-x root       root           119664 ./usr/lib/python2.7/lib-dynload/_codecs_kr.so  
--rwxr-xr-x root       root            40624 ./usr/lib/python2.7/lib-dynload/_elementtree.so  
 -rwxr-xr-x root       root            25728 ./usr/lib/python2.7/lib-dynload/operator.so  
 -rwxr-xr-x root       root            45800 ./usr/lib/python2.7/lib-dynload/itertools.so  
 -rwxr-xr-x root       root            21488 ./usr/lib/python2.7/lib-dynload/readline.so  
@@ -20258,7 +20275,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/lib-dynload
 -rwxr-xr-x root       root             9232 ./usr/lib/python2.7/lib-dynload/_functools.so  
 -rwxr-xr-x root       root           126864 ./usr/lib/python2.7/lib-dynload/_codecs_cn.so  
 -rwxr-xr-x root       root            32624 ./usr/lib/python2.7/lib-dynload/array.so  
--rwxr-xr-x root       root           207328 ./usr/lib/python2.7/lib-dynload/pyexpat.so  
 -rwxr-xr-x root       root             4940 ./usr/lib/python2.7/lib-dynload/future_builtins.so  
 -rwxr-xr-x root       root            94672 ./usr/lib/python2.7/lib-dynload/_codecs_tw.so  
 -rwxr-xr-x root       root            40748 ./usr/lib/python2.7/lib-dynload/_testcapi.so  
@@ -20343,7 +20359,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/lib-dynload
 -rw-r--r-- root       root            20756 ./usr/lib/python2.7/string.py  
 -rw-r--r-- root       root            30156 ./usr/lib/python2.7/trace.py  
 -rw-r--r-- root       root            33434 ./usr/lib/python2.7/mhlib.py  
--rw-r--r-- root       root            26658 ./usr/lib/python2.7/xmllib.pyo  
 -rw-r--r-- root       root            45095 ./usr/lib/python2.7/pickle.py  
 -rw-r--r-- root       root            23703 ./usr/lib/python2.7/ftplib.pyo  
 -rw-r--r-- root       root            15611 ./usr/lib/python2.7/ssl.py  
@@ -20945,74 +20960,9 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/nu
 -rw-r--r-- root       root             1231 ./usr/lib/python2.7/site-packages/numpy/oldnumeric/ufuncs.py  
 -rw-r--r-- root       root              783 ./usr/lib/python2.7/site-packages/numpy/README.txt  
 -rw-r--r-- root       root            12888 ./usr/lib/python2.7/site-packages/numpy/_import_tools.py  
--rw-r--r-- root       root              185 ./usr/lib/python2.7/site-packages/dbus_bindings.pyo  
 -rw-r--r-- root       root              580 ./usr/lib/python2.7/site-packages/pyOpenSSL-0.13-py2.7.egg-info  
 -rw-r--r-- root       root              119 ./usr/lib/python2.7/site-packages/README  
 -rw-r--r-- root       root             1403 ./usr/lib/python2.7/site-packages/simplejson-2.2.1-py2.7.egg-info  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/cairo  
--rw-r--r-- root       root              285 ./usr/lib/python2.7/site-packages/cairo/__init__.pyc  
--rw-r--r-- root       root               21 ./usr/lib/python2.7/site-packages/cairo/__init__.py  
--rwxr-xr-x root       root            71752 ./usr/lib/python2.7/site-packages/cairo/_cairo.so  
--rw-r--r-- root       root              285 ./usr/lib/python2.7/site-packages/cairo/__init__.pyo  
--rw-r--r-- root       root              185 ./usr/lib/python2.7/site-packages/dbus_bindings.pyc  
--rwxr-xr-x root       root           126776 ./usr/lib/python2.7/site-packages/_dbus_bindings.so  
--rw-r--r-- root       root               33 ./usr/lib/python2.7/site-packages/dbus_bindings.py  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/dbus  
--rw-r--r-- root       root             1928 ./usr/lib/python2.7/site-packages/dbus/server.pyo  
--rw-r--r-- root       root             1459 ./usr/lib/python2.7/site-packages/dbus/gobject_service.pyo  
--rw-r--r-- root       root            12247 ./usr/lib/python2.7/site-packages/dbus/decorators.pyc  
--rw-r--r-- root       root             3330 ./usr/lib/python2.7/site-packages/dbus/__init__.pyc  
--rw-r--r-- root       root             3164 ./usr/lib/python2.7/site-packages/dbus/gobject_service.py  
--rw-r--r-- root       root             5076 ./usr/lib/python2.7/site-packages/dbus/decorators.pyo  
--rw-r--r-- root       root            15574 ./usr/lib/python2.7/site-packages/dbus/bus.pyc  
--rw-r--r-- root       root              758 ./usr/lib/python2.7/site-packages/dbus/glib.pyc  
--rw-r--r-- root       root              109 ./usr/lib/python2.7/site-packages/dbus/_version.py  
--rw-r--r-- root       root             2363 ./usr/lib/python2.7/site-packages/dbus/_expat_introspect_parser.pyo  
--rw-r--r-- root       root            27242 ./usr/lib/python2.7/site-packages/dbus/connection.py  
--rw-r--r-- root       root              219 ./usr/lib/python2.7/site-packages/dbus/_version.pyc  
--rw-r--r-- root       root              913 ./usr/lib/python2.7/site-packages/dbus/types.pyc  
--rw-r--r-- root       root             4200 ./usr/lib/python2.7/site-packages/dbus/__init__.py  
--rw-r--r-- root       root            14775 ./usr/lib/python2.7/site-packages/dbus/connection.pyo  
--rw-r--r-- root       root             4624 ./usr/lib/python2.7/site-packages/dbus/server.py  
--rw-r--r-- root       root             5735 ./usr/lib/python2.7/site-packages/dbus/_dbus.pyo  
--rw-r--r-- root       root             1078 ./usr/lib/python2.7/site-packages/dbus/lowlevel.pyc  
--rw-r--r-- root       root             1440 ./usr/lib/python2.7/site-packages/dbus/dbus_bindings.pyo  
--rw-r--r-- root       root             1795 ./usr/lib/python2.7/site-packages/dbus/glib.py  
--rw-r--r-- root       root              347 ./usr/lib/python2.7/site-packages/dbus/glib.pyo  
--rw-r--r-- root       root             9510 ./usr/lib/python2.7/site-packages/dbus/_dbus.pyc  
--rw-r--r-- root       root            18006 ./usr/lib/python2.7/site-packages/dbus/bus.py  
--rw-r--r-- root       root             2044 ./usr/lib/python2.7/site-packages/dbus/lowlevel.py  
--rw-r--r-- root       root            13354 ./usr/lib/python2.7/site-packages/dbus/proxies.pyo  
--rw-r--r-- root       root              913 ./usr/lib/python2.7/site-packages/dbus/types.pyo  
--rw-r--r-- root       root             3386 ./usr/lib/python2.7/site-packages/dbus/_expat_introspect_parser.py  
--rw-r--r-- root       root              219 ./usr/lib/python2.7/site-packages/dbus/_version.pyo  
--rw-r--r-- root       root             4484 ./usr/lib/python2.7/site-packages/dbus/exceptions.pyo  
--rw-r--r-- root       root              535 ./usr/lib/python2.7/site-packages/dbus/types.py  
--rw-r--r-- root       root             3816 ./usr/lib/python2.7/site-packages/dbus/server.pyc  
--rw-r--r-- root       root            20028 ./usr/lib/python2.7/site-packages/dbus/proxies.pyc  
--rw-r--r-- root       root             1440 ./usr/lib/python2.7/site-packages/dbus/dbus_bindings.pyc  
--rw-r--r-- root       root            24774 ./usr/lib/python2.7/site-packages/dbus/proxies.py  
--rw-r--r-- root       root            16859 ./usr/lib/python2.7/site-packages/dbus/service.pyo  
--rw-r--r-- root       root             3901 ./usr/lib/python2.7/site-packages/dbus/exceptions.py  
--rw-r--r-- root       root             1150 ./usr/lib/python2.7/site-packages/dbus/dbus_bindings.py  
--rw-r--r-- root       root             1024 ./usr/lib/python2.7/site-packages/dbus/lowlevel.pyo  
--rw-r--r-- root       root             9831 ./usr/lib/python2.7/site-packages/dbus/bus.pyo  
--rw-r--r-- root       root             4526 ./usr/lib/python2.7/site-packages/dbus/exceptions.pyc  
--rw-r--r-- root       root             9582 ./usr/lib/python2.7/site-packages/dbus/_dbus.py  
--rw-r--r-- root       root            20628 ./usr/lib/python2.7/site-packages/dbus/connection.pyc  
--rw-r--r-- root       root             3081 ./usr/lib/python2.7/site-packages/dbus/__init__.pyo  
--rw-r--r-- root       root             2643 ./usr/lib/python2.7/site-packages/dbus/gobject_service.pyc  
--rw-r--r-- root       root            25452 ./usr/lib/python2.7/site-packages/dbus/service.pyc  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/dbus/mainloop  
--rw-r--r-- root       root              614 ./usr/lib/python2.7/site-packages/dbus/mainloop/__init__.pyc  
--rw-r--r-- root       root              807 ./usr/lib/python2.7/site-packages/dbus/mainloop/glib.pyc  
--rw-r--r-- root       root             2336 ./usr/lib/python2.7/site-packages/dbus/mainloop/__init__.py  
--rw-r--r-- root       root             1773 ./usr/lib/python2.7/site-packages/dbus/mainloop/glib.py  
--rw-r--r-- root       root              562 ./usr/lib/python2.7/site-packages/dbus/mainloop/glib.pyo  
--rw-r--r-- root       root              538 ./usr/lib/python2.7/site-packages/dbus/mainloop/__init__.pyo  
--rw-r--r-- root       root             2847 ./usr/lib/python2.7/site-packages/dbus/_expat_introspect_parser.pyc  
--rw-r--r-- root       root            14670 ./usr/lib/python2.7/site-packages/dbus/decorators.py  
--rw-r--r-- root       root            35225 ./usr/lib/python2.7/site-packages/dbus/service.py  
 drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/simplejson  
 -rw-r--r-- root       root             1021 ./usr/lib/python2.7/site-packages/simplejson/tool.py  
 -rw-r--r-- root       root             3370 ./usr/lib/python2.7/site-packages/simplejson/ordered_dict.py  
@@ -21051,7 +21001,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/Op
 -rw-r--r-- root       root             1010 ./usr/lib/python2.7/site-packages/OpenSSL/tsafe.py  
 -rwxr-xr-x root       root            69588 ./usr/lib/python2.7/site-packages/OpenSSL/crypto.so  
 -rw-r--r-- root       root              176 ./usr/lib/python2.7/site-packages/OpenSSL/version.py  
--rwxr-xr-x root       root             6228 ./usr/lib/python2.7/site-packages/_dbus_glib_bindings.so  
 drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/tornado-2.1.1git-py2.7.egg-info  
 -rw-r--r-- root       root                1 ./usr/lib/python2.7/site-packages/tornado-2.1.1git-py2.7.egg-info/dependency_links.txt  
 -rw-r--r-- root       root              449 ./usr/lib/python2.7/site-packages/tornado-2.1.1git-py2.7.egg-info/PKG-INFO  
@@ -21117,7 +21066,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/site-packages/to
 -rw-r--r-- root       root            11978 ./usr/lib/python2.7/site-packages/tornado/escape.py  
 -rw-r--r-- root       root            17965 ./usr/lib/python2.7/site-packages/tornado/httpserver.py  
 -rw-r--r-- root       root            28308 ./usr/lib/python2.7/site-packages/tornado/iostream.py  
--rw-r--r-- root       root            34865 ./usr/lib/python2.7/xmllib.py  
 drwxr-xr-x root       root             4096 ./usr/lib/python2.7/plat-linux2  
 -rw-r--r-- root       root             5035 ./usr/lib/python2.7/plat-linux2/CDROM.py  
 -rwxr-xr-x root       root              195 ./usr/lib/python2.7/plat-linux2/regen  
@@ -21133,55 +21081,6 @@ drwxr-xr-x root       root             4096 ./usr/lib/python2.7/plat-linux2
 -rw-r--r-- root       root            18207 ./usr/lib/python2.7/htmllib.pyo  
 -rw-r--r-- root       root            19050 ./usr/lib/python2.7/sets.py  
 -rw-r--r-- root       root             4923 ./usr/lib/python2.7/functools.pyo  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/xml  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/xml/dom  
--rw-r--r-- root       root             3330 ./usr/lib/python2.7/xml/dom/minicompat.py  
--rw-r--r-- root       root            66009 ./usr/lib/python2.7/xml/dom/minidom.py  
--rw-r--r-- root       root            63488 ./usr/lib/python2.7/xml/dom/minidom.pyo  
--rw-r--r-- root       root             3478 ./usr/lib/python2.7/xml/dom/domreg.py  
--rw-r--r-- root       root             2088 ./usr/lib/python2.7/xml/dom/domreg.pyo  
--rw-r--r-- root       root            11974 ./usr/lib/python2.7/xml/dom/pulldom.py  
--rw-r--r-- root       root             3998 ./usr/lib/python2.7/xml/dom/__init__.py  
--rw-r--r-- root       root            36382 ./usr/lib/python2.7/xml/dom/expatbuilder.py  
--rw-r--r-- root       root            12337 ./usr/lib/python2.7/xml/dom/xmlbuilder.py  
--rw-r--r-- root       root            12548 ./usr/lib/python2.7/xml/dom/pulldom.pyo  
--rw-r--r-- root       root              937 ./usr/lib/python2.7/xml/dom/NodeFilter.py  
--rw-r--r-- root       root            15908 ./usr/lib/python2.7/xml/dom/xmlbuilder.pyo  
--rw-r--r-- root       root             5620 ./usr/lib/python2.7/xml/dom/__init__.pyo  
--rw-r--r-- root       root            29648 ./usr/lib/python2.7/xml/dom/expatbuilder.pyo  
--rw-r--r-- root       root             1019 ./usr/lib/python2.7/xml/dom/NodeFilter.pyo  
--rw-r--r-- root       root             3343 ./usr/lib/python2.7/xml/dom/minicompat.pyo  
--rw-r--r-- root       root              980 ./usr/lib/python2.7/xml/__init__.py  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/xml/sax  
--rw-r--r-- root       root            11585 ./usr/lib/python2.7/xml/sax/saxutils.pyo  
--rw-r--r-- root       root             5120 ./usr/lib/python2.7/xml/sax/handler.pyo  
--rw-r--r-- root       root            12632 ./usr/lib/python2.7/xml/sax/xmlreader.py  
--rw-r--r-- root       root            13849 ./usr/lib/python2.7/xml/sax/expatreader.pyo  
--rw-r--r-- root       root            14565 ./usr/lib/python2.7/xml/sax/expatreader.py  
--rw-r--r-- root       root             3581 ./usr/lib/python2.7/xml/sax/__init__.py  
--rw-r--r-- root       root             3407 ./usr/lib/python2.7/xml/sax/_exceptions.pyo  
--rw-r--r-- root       root             9823 ./usr/lib/python2.7/xml/sax/saxutils.py  
--rw-r--r-- root       root            13921 ./usr/lib/python2.7/xml/sax/handler.py  
--rw-r--r-- root       root            12520 ./usr/lib/python2.7/xml/sax/xmlreader.pyo  
--rw-r--r-- root       root             2632 ./usr/lib/python2.7/xml/sax/__init__.pyo  
--rw-r--r-- root       root             4785 ./usr/lib/python2.7/xml/sax/_exceptions.py  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/xml/parsers  
--rw-r--r-- root       root              167 ./usr/lib/python2.7/xml/parsers/__init__.py  
--rw-r--r-- root       root              203 ./usr/lib/python2.7/xml/parsers/expat.pyo  
--rw-r--r-- root       root              131 ./usr/lib/python2.7/xml/parsers/__init__.pyo  
--rw-r--r-- root       root              106 ./usr/lib/python2.7/xml/parsers/expat.py  
--rw-r--r-- root       root              548 ./usr/lib/python2.7/xml/__init__.pyo  
-drwxr-xr-x root       root             4096 ./usr/lib/python2.7/xml/etree  
--rw-r--r-- root       root            55924 ./usr/lib/python2.7/xml/etree/ElementTree.py  
--rw-r--r-- root       root               62 ./usr/lib/python2.7/xml/etree/cElementTree.py  
--rw-r--r-- root       root             1604 ./usr/lib/python2.7/xml/etree/__init__.py  
--rw-r--r-- root       root             1972 ./usr/lib/python2.7/xml/etree/ElementInclude.pyo  
--rw-r--r-- root       root             5062 ./usr/lib/python2.7/xml/etree/ElementInclude.py  
--rw-r--r-- root       root             9475 ./usr/lib/python2.7/xml/etree/ElementPath.py  
--rw-r--r-- root       root            33928 ./usr/lib/python2.7/xml/etree/ElementTree.pyo  
--rw-r--r-- root       root             7566 ./usr/lib/python2.7/xml/etree/ElementPath.pyo  
--rw-r--r-- root       root              127 ./usr/lib/python2.7/xml/etree/__init__.pyo  
--rw-r--r-- root       root              174 ./usr/lib/python2.7/xml/etree/cElementTree.pyo  
 lrwxrwxrwx root       root               22 ./usr/lib/libvorbisfile.so.3 -> libvorbisfile.so.3.3.4
 lrwxrwxrwx root       root               22 ./usr/lib/libavcodec.so.52 -> libavcodec.so.52.115.0
 lrwxrwxrwx root       root               15 ./usr/lib/libXau.so -> libXau.so.6.0.0
@@ -21251,7 +21150,6 @@ lrwxrwxrwx root       root               15 ./usr/lib/libbz2.so -> libbz2.so.0.0
 -rwxr-xr-x root       root           667628 ./usr/lib/libgnutls.so.26.21.8  
 -rwxr-xr-x root       root              947 ./usr/lib/libtheora.la  
 lrwxrwxrwx root       root               26 ./usr/lib/libopencv_highgui.so.2.3 -> libopencv_highgui.so.2.3.1
-lrwxrwxrwx root       root               23 ./usr/lib/libdbus-glib-1.so.2 -> libdbus-glib-1.so.2.1.0
 -rwxr-xr-x root       root             1015 ./usr/lib/libxcb-render.la  
 -rwxr-xr-x root       root              904 ./usr/lib/libogg.la  
 -rwxr-xr-x root       root             1001 ./usr/lib/libxcb-dpms.la  
@@ -21269,7 +21167,6 @@ lrwxrwxrwx root       root               26 ./usr/lib/libopencv_objdetect.so -> 
 drwxr-xr-x root       root             4096 ./usr/lib/X11  
 -rw-r--r-- root       root             1723 ./usr/lib/X11/Xcms.txt  
 -rwxr-xr-x root       root            16448 ./usr/lib/libxcb-xv.so.0.0.0  
--rwxr-xr-x root       root           118496 ./usr/lib/libdbus-glib-1.so.2.1.0  
 -rwxr-xr-x root       root           360296 ./usr/lib/libgmp.so.10.0.2  
 -rw-r--r-- root       root             5043 ./usr/lib/gcrt1.o  
 lrwxrwxrwx root       root               24 ./usr/lib/libopencv_calib3d.so -> libopencv_calib3d.so.2.3
@@ -21357,6 +21254,7 @@ lrwxrwxrwx root       root               12 ./usr/bin/tr -> tr.coreutils
 -rwxr-xr-x root       root             1792 ./usr/bin/gpg-error-config  
 -rwxr-xr-x root       root            14340 ./usr/bin/getfattr  
 lrwxrwxrwx root       root               11 ./usr/bin/patch -> patch.patch
+lrwxrwxrwx root       root               16 ./usr/bin/opkg -> /usr/bin/opkg-cl
 -rwxr-xr-x root       root            31824 ./usr/bin/gst-inspect-0.10  
 -rwxr-xr-x root       root            12688 ./usr/bin/signaltest  
 -rwxr-xr-x root       root            33368 ./usr/bin/pkg-config  
@@ -21394,6 +21292,7 @@ lrwxrwxrwx root       root               29 ./usr/bin/nm -> arm-angstrom-linux-g
 -rwxr-xr-x root       root             5308 ./usr/bin/getkeycodes  
 -rwxr-xr-x root       root            20588 ./usr/bin/yes.coreutils  
 -rwxr-xr-x root       root            30600 ./usr/bin/pinky.coreutils  
+-rwxr-xr-x root       root             1671 ./usr/bin/opkg-key  
 -rwxr-xr-x root       root           103240 ./usr/bin/sha384sum.coreutils  
 -rwxr-xr-x root       root           213864 ./usr/bin/arm-angstrom-linux-gnueabi-cpp  
 -rwxr-xr-x root       root           106464 ./usr/bin/patch.patch  
@@ -21783,6 +21682,7 @@ lrwxrwxrwx root       root               15 ./usr/bin/bzegrep -> /usr/bin/bzgrep
 -rwxr-xr-x root       root            94648 ./usr/bin/eu-elflint  
 -rwxr-xr-x root       root             1798 ./usr/bin/zless  
 -rwxr-xr-x root       root            15136 ./usr/bin/chrt.util-linux  
+-rwxr-xr-x root       root            12220 ./usr/bin/opkg-cl  
 -rwxr-xr-x root       root            42972 ./usr/bin/arm-angstrom-linux-gnueabi-ar  
 -rwxr-xr-x root       root            64815 ./usr/bin/decode-dimms  
 -rwxr-xr-x root       root            20848 ./usr/bin/whoami.coreutils  
@@ -21896,6 +21796,7 @@ lrwxrwxrwx root       root               15 ./usr/bin/chrt -> chrt.util-linux
 -rwxr-xr-x root       root             1618 ./usr/bin/python2.7-config  
 lrwxrwxrwx root       root               17 ./usr/bin/unzip -> ../../bin/busybox
 -rwxr-xr-x root       root            14654 ./usr/bin/autoconf  
+-rwxr-xr-x root       root             4524 ./usr/bin/update-alternatives  
 -rwxr-xr-x root       root            34664 ./usr/bin/wc.coreutils  
 lrwxrwxrwx root       root               16 ./usr/bin/csplit -> csplit.coreutils
 -rwxr-xr-x root       root            12052 ./usr/bin/lmbench  
@@ -23435,7 +23336,7 @@ drwxr-xr-x root       root             4096 ./var/log
 drwxr-xr-x root       root             4096 ./var/log/gateone  
 drwxr-xr-x root       root             4096 ./var/cache  
 drwx------ root       root             4096 ./var/cache/ldconfig  
--rw------- root       root            13485 ./var/cache/ldconfig/aux-cache  
+-rw------- root       root            13478 ./var/cache/ldconfig/aux-cache  
 drwxr-xr-x root       root             4096 ./var/backups  
 drwxr-xr-x root       root             4096 ./var/lock  
 drwxr-xr-x root       root             4096 ./var/lock/subsys  
@@ -23479,6 +23380,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               73 ./var/lib/opkg/info/connman.list  
 -rw-r--r-- root       root             2363 ./var/lib/opkg/info/perl-module-encode-jp-jis7.control  
 -rw-r--r-- root       root              168 ./var/lib/opkg/info/perl-module-filter.list  
+-rw-r--r-- root       root               29 ./var/lib/opkg/info/update-alternatives-cworth.list  
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/perl-module-tap-parser-sourcehandler-executable.list  
 -rw-r--r-- root       root             2782 ./var/lib/opkg/info/kernel-module-smsc95xx.control  
 -rw-r--r-- root       root              114 ./var/lib/opkg/info/gnu-config.list  
@@ -23512,7 +23414,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root             2765 ./var/lib/opkg/info/kernel-module-tda826x.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-dib3000mb.postrm  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-adm1031.postinst  
--rw-r--r-- root       root              511 ./var/lib/opkg/info/python-pycairo.control  
 -rw-r--r-- root       root             2355 ./var/lib/opkg/info/perl-module-pod-simple.control  
 -rw-r--r-- root       root             2379 ./var/lib/opkg/info/perl-module-unicode-collate-locale.control  
 -rw-r--r-- root       root             2395 ./var/lib/opkg/info/perl-module-io-compress-deflate.control  
@@ -23606,7 +23507,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-cx24116.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ix2505v.postrm  
 -rw-r--r-- root       root              621 ./var/lib/opkg/info/libcom-err2.control  
--rw-r--r-- root       root               62 ./var/lib/opkg/info/libdbus-glib-1-2.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-sq905.postrm  
 -rw-r--r-- root       root              898 ./var/lib/opkg/info/libxfixes-dev.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-cfg80211.postinst  
@@ -23721,6 +23621,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/perl-module-b-deparse.list  
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/alsa-utils-alsaucm.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-zio.postinst  
+-rw-r--r-- root       root              215 ./var/lib/opkg/info/angstrom-feed-configs.conffiles  
 -rw-r--r-- root       root              843 ./var/lib/opkg/info/libuuid1.control  
 -rw-r--r-- root       root             2787 ./var/lib/opkg/info/kernel-module-g-file-storage.control  
 -rw-r--r-- root       root               41 ./var/lib/opkg/info/perl-module-thread-semaphore.list  
@@ -23816,6 +23717,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/libavutil-dev.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-cx24110.postinst  
 -rw-r--r-- root       root               41 ./var/lib/opkg/info/perl-module-pluggable.pm.list  
+-rw-r--r-- root       root              544 ./var/lib/opkg/info/angstrom-feed-configs.control  
 -rw-r--r-- root       root              118 ./var/lib/opkg/info/bigreqsproto-dev.list  
 -rw-r--r-- root       root             2351 ./var/lib/opkg/info/perl-module-cacheout.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-raid456.postrm  
@@ -23935,7 +23837,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               28 ./var/lib/opkg/info/pam-plugin-limits.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-tda9887.postinst  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/perl-module-unicode-collate-locale-lv.list  
--rw-r--r-- root       root               55 ./var/lib/opkg/info/kernel-module-smsc95xx.list  
+-rw-r--r-- root       root              139 ./var/lib/opkg/info/kernel-module-smsc95xx.list  
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/perl-module-io-compress-rawdeflate.list  
 -rw-r--r-- root       root              696 ./var/lib/opkg/info/libvorbis-dev.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/task-sdk-target.list  
@@ -24099,7 +24001,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root              642 ./var/lib/opkg/info/libss2.control  
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/kernel-module-msp3400.list  
 -rw-r--r-- root       root             2862 ./var/lib/opkg/info/kernel-module-poseidon.control  
--rw-r--r-- root       root              101 ./var/lib/opkg/info/kernel-module-sierra-net.list  
+-rw-r--r-- root       root               57 ./var/lib/opkg/info/kernel-module-sierra-net.list  
 -rw-r--r-- root       root             2385 ./var/lib/opkg/info/perl-module-unicode-collate-locale-sw.control  
 -rw-r--r-- root       root             2373 ./var/lib/opkg/info/perl-module-test-builder-tester.control  
 -rw-r--r-- root       root              927 ./var/lib/opkg/info/util-linux-blkid.control  
@@ -25176,6 +25078,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root              625 ./var/lib/opkg/info/shadow-sysroot-dev.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/alsa-utils.list  
 -rw-r--r-- root       root              140 ./var/lib/opkg/info/kernel-module-gspca-stv06xx.list  
+-rw-r--r-- root       root               20 ./var/lib/opkg/info/opkg-config-base.conffiles  
 -rw-r--r-- root       root               67 ./var/lib/opkg/info/kernel-module-tda10048.list  
 -rw-r--r-- root       root              120 ./var/lib/opkg/info/libgmp-dev.list  
 -rw-r--r-- root       root             2783 ./var/lib/opkg/info/kernel-module-inet-lro.control  
@@ -25454,7 +25357,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/perl-module-file-temp.list  
 -rw-r--r-- root       root             2359 ./var/lib/opkg/info/perl-module-b-lint-debug.control  
 -rwxr-xr-x root       root               95 ./var/lib/opkg/info/pango-module-basic-fc.postinst  
--rw-r--r-- root       root               47 ./var/lib/opkg/info/python-elementtree.list  
 -rw-r--r-- root       root              435 ./var/lib/opkg/info/libvpx.control  
 -rw-r--r-- root       root               57 ./var/lib/opkg/info/libpixman-1-0.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-w83793.postinst  
@@ -25692,7 +25594,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root              617 ./var/lib/opkg/info/libe2p2.control  
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/pam-plugin-motd.list  
 -rw-r--r-- root       root             2361 ./var/lib/opkg/info/perl-module-pod-plaintext.control  
--rw-r--r-- root       root              980 ./var/lib/opkg/info/python-xml.control  
 -rw-r--r-- root       root               32 ./var/lib/opkg/info/libvpx.list  
 -rw-r--r-- root       root              939 ./var/lib/opkg/info/python-threading.control  
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/kernel-module-max6639.list  
@@ -26131,6 +26032,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root             2800 ./var/lib/opkg/info/kernel-module-dm-flakey.control  
 -rw-r--r-- root       root               70 ./var/lib/opkg/info/pam-plugin-unix.list  
 -rw-r--r-- root       root              519 ./var/lib/opkg/info/zip-dev.control  
+-rw-r--r-- root       root              541 ./var/lib/opkg/info/libopkg1.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-tda8261.postinst  
 -rw-r--r-- root       root             2382 ./var/lib/opkg/info/perl-module-extutils-my.control  
 -rw-r--r-- root       root              608 ./var/lib/opkg/info/libpng-dev.control  
@@ -26236,7 +26138,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-slcan.postrm  
 -rw-r--r-- root       root              101 ./var/lib/opkg/info/perl-module-tap-parser-sourcehandler-perl.list  
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/perl-module-base.list  
--rw-r--r-- root       root              949 ./var/lib/opkg/info/python-elementtree.control  
 -rw-r--r-- root       root               43 ./var/lib/opkg/info/perl-module-memoize-expirefile.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-nfc.postinst  
 -rw-r--r-- root       root              673 ./var/lib/opkg/info/libavformat-dev.control  
@@ -26320,6 +26221,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-w83l786ng.postinst  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-stv0367.postinst  
 -rw-r--r-- root       root             2797 ./var/lib/opkg/info/kernel-module-lineage-pem.control  
+-rw-r--r-- root       root              588 ./var/lib/opkg/info/update-alternatives-cworth.control  
 -rw-r--r-- root       root              125 ./var/lib/opkg/info/kernel-module-et61x251.list  
 -rw-r--r-- root       root              164 ./var/lib/opkg/info/libxft-dev.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-gspca-jeilinj.postinst  
@@ -26396,6 +26298,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/kernel-module-irtty-sir.list  
 -rw-r--r-- root       root             2751 ./var/lib/opkg/info/kernel-module-sch-multiq.control  
 -rw-r--r-- root       root               57 ./var/lib/opkg/info/kernel-module-mpu3050.list  
+-rwxr-xr-x root       root              340 ./var/lib/opkg/info/opkg.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-snd-soc-tlv320aic3x.postrm  
 -rw-r--r-- root       root             2773 ./var/lib/opkg/info/kernel-module-tcp-highspeed.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-inet-lro.postinst  
@@ -26421,6 +26324,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-dummy.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-tda10048.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ati-remote2.postrm  
+-rw-r--r-- root       root               20 ./var/lib/opkg/info/opkg-config-base.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-p8022.postrm  
 -rw-r--r-- root       root              911 ./var/lib/opkg/info/python-image.control  
 -rw-r--r-- root       root               67 ./var/lib/opkg/info/kernel-module-rtlwifi.list  
@@ -26515,6 +26419,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/kernel-module-cypress-m8.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-emc6w201.postrm  
 -rw-r--r-- root       root             2767 ./var/lib/opkg/info/kernel-module-ftdi-elan.control  
+-rwxr-xr-x root       root               61 ./var/lib/opkg/info/opkg.postrm  
 -rw-r--r-- root       root               41 ./var/lib/opkg/info/perl-module-pod-simple-xhtml.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-ad714x.postinst  
 -rw-r--r-- root       root             2760 ./var/lib/opkg/info/kernel-module-tcp-hybla.control  
@@ -26814,6 +26719,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root             2359 ./var/lib/opkg/info/perl-module-list-util-xs.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-ads7871.postinst  
 -rw-r--r-- root       root               76 ./var/lib/opkg/info/perl-module-sdbm.list  
+-rw-r--r-- root       root               63 ./var/lib/opkg/info/libopkg1.list  
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/perl-module-universal.list  
 -rw-r--r-- root       root              643 ./var/lib/opkg/info/libopencv-features2d2.3.control  
 -rw-r--r-- root       root              444 ./var/lib/opkg/info/libtic5.control  
@@ -26868,7 +26774,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ch341.postrm  
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/perl-module-pod-simple-htmllegacy.list  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/kernel-module-esp4.list  
--rw-r--r-- root       root              637 ./var/lib/opkg/info/libdbus-glib-1-2.control  
 -rw-r--r-- root       root               64 ./var/lib/opkg/info/perl-module-getopt-std.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-tuner-types.postrm  
 -rwxr-xr-x root       root               66 ./var/lib/opkg/info/dropbear.prerm  
@@ -27134,6 +27039,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-async-pq.postinst  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/perl-module-unicode-collate-locale-et.list  
 -rw-r--r-- root       root             2375 ./var/lib/opkg/info/perl-module-pod-simple-transcode.control  
+-rw-r--r-- root       root              407 ./var/lib/opkg/info/opkg-config-base.control  
 -rw-r--r-- root       root             2776 ./var/lib/opkg/info/kernel-module-authenc.control  
 -rw-r--r-- root       root               64 ./var/lib/opkg/info/perl-module-test-harness.list  
 -rw-r--r-- root       root             2365 ./var/lib/opkg/info/perl-module-pod-simple-html.control  
@@ -27240,6 +27146,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gre.postrm  
 -rw-r--r-- root       root             2817 ./var/lib/opkg/info/kernel-module-gspca-finepix.control  
 -rw-r--r-- root       root             2807 ./var/lib/opkg/info/kernel-module-mos7840.control  
+-rw-r--r-- root       root              188 ./var/lib/opkg/info/opkg.list  
 -rw-r--r-- root       root               33 ./var/lib/opkg/info/perl-module-net-time.list  
 -rw-r--r-- root       root             2872 ./var/lib/opkg/info/kernel-module-em28xx.control  
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/pam-plugin-deny.list  
@@ -27408,7 +27315,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               55 ./var/lib/opkg/info/kernel-module-smsc47m192.list  
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/perl-module-b-showlex.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-r8712u.postinst  
--rw-r--r-- root       root              244 ./var/lib/opkg/info/python-pycairo.list  
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/libasound2.control  
 -rw-r--r-- root       root             2805 ./var/lib/opkg/info/kernel-module-snd-soc-davinci-mcasp.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-ov534.postrm  
@@ -27533,7 +27439,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root             2355 ./var/lib/opkg/info/perl-module-encode--pm.control  
 -rw-r--r-- root       root             2777 ./var/lib/opkg/info/kernel-module-lm93.control  
 -rw-r--r-- root       root              311 ./var/lib/opkg/info/python-re.list  
--rw-r--r-- root       root             2059 ./var/lib/opkg/info/python-xml.list  
 -rwxr-xr-x root       root              126 ./var/lib/opkg/info/connman.postinst  
 -rw-r--r-- root       root              518 ./var/lib/opkg/info/libgcc-s-dev.list  
 -rw-r--r-- root       root             2345 ./var/lib/opkg/info/perl-module-ctime.control  
@@ -27553,7 +27458,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               48 ./var/lib/opkg/info/libgmp10.list  
 -rw-r--r-- root       root               41 ./var/lib/opkg/info/perl-module-extutils-mm-beos.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-it87.postrm  
--rw-r--r-- root       root             3169 ./var/lib/opkg/info/python-dbus.list  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/perl-module-unicode-collate-locale-to.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-sn9c2028.postrm  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/kernel-module-sht21.list  
@@ -27846,6 +27750,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               59 ./var/lib/opkg/info/kernel-module-g-printer.list  
 -rw-r--r-- root       root             3563 ./var/lib/opkg/info/iptables.list  
 -rwxr-xr-x root       root               69 ./var/lib/opkg/info/kernel-3.1.0+.postrm  
+-rw-r--r-- root       root              226 ./var/lib/opkg/info/angstrom-feed-configs.list  
 -rw-r--r-- root       root             2399 ./var/lib/opkg/info/perl-module-io-uncompress-inflate.control  
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/perl-module-overloading.list  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/perl-module-pod-parser.list  
@@ -27919,7 +27824,6 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root              347 ./var/lib/opkg/info/curl-dev.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-async-memcpy.postinst  
 -rw-r--r-- root       root              131 ./var/lib/opkg/info/kernel-module-irnet.list  
--rw-r--r-- root       root              672 ./var/lib/opkg/info/python-dbus.control  
 -rw-r--r-- root       root             2847 ./var/lib/opkg/info/kernel-module-w35und.control  
 -rw-r--r-- root       root             2377 ./var/lib/opkg/info/perl-module-locale-codes-currency.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-ad7414.postinst  
@@ -28342,7 +28246,8 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               70 ./var/lib/opkg/info/kernel-module-gspca-pac7311.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-smsc47m192.postrm  
 -rw-r--r-- root       root             2768 ./var/lib/opkg/info/kernel-module-g-webcam.control  
--rw-r--r-- root       root              201 ./var/lib/opkg/info/kernel-module-d-can-platform.list  
+-rw-r--r-- root       root              603 ./var/lib/opkg/info/opkg.control  
+-rw-r--r-- root       root              161 ./var/lib/opkg/info/kernel-module-d-can-platform.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-dm-mirror.postinst  
 -rw-r--r-- root       root             2761 ./var/lib/opkg/info/kernel-module-adm1029.control  
 -rw-r--r-- root       root              615 ./var/lib/opkg/info/libxcb-xevie0.control  
@@ -28372,7 +28277,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               69 ./var/lib/opkg/info/kernel-module-gspca-sq905c.list  
 -rw-r--r-- root       root              873 ./var/lib/opkg/info/util-linux-fsck.control  
 -rw-r--r-- root       root             2816 ./var/lib/opkg/info/kernel-module-gspca-sn9c20x.control  
--rw-r--r-- root       root           438964 ./var/lib/opkg/status  
+-rw-r--r-- root       root           439288 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/expand  
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/ps  
@@ -28380,6 +28285,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               50 ./var/lib/opkg/alternatives/tr  
 -rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/echo  
 -rw-r--r-- root       root               52 ./var/lib/opkg/alternatives/patch  
+-rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/opkg  
 -rw-r--r-- root       root               45 ./var/lib/opkg/alternatives/df  
 -rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/chgrp  
 -rw-r--r-- root       root               56 ./var/lib/opkg/alternatives/xargs  
