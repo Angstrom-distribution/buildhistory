@@ -570,7 +570,6 @@ lrwxrwxrwx root       root               14 ./etc/init.d/syslog -> syslog.busybo
 -rw-r--r-- root       root              167 ./etc/angstrom-version  
 drwxr-xr-x root       root             4096 ./etc/udhcpc.d  
 -rwxr-xr-x root       root             2239 ./etc/udhcpc.d/50default  
-drwxr-xr-x root       root             4096 ./etc/rsyslog  
 -rw-r--r-- root       root                0 ./etc/cron.deny  
 drwxr-xr-x root       root             4096 ./etc/skel  
 -rwxr-xr-x root       root              152 ./etc/skel/.profile  
@@ -717,6 +716,7 @@ lrwxrwxrwx root       root               20 ./etc/rc0.d/K40networking -> ../init
 lrwxrwxrwx root       root               15 ./etc/rc0.d/K60crond -> ../init.d/crond
 lrwxrwxrwx root       root               17 ./etc/rc0.d/K22connman -> ../init.d/connman
 -rw-r--r-- root       root              887 ./etc/rpc  
+drwxr-xr-x root       root             4096 ./etc/usb_modeswitch.d  
 drwxr-xr-x root       root             4096 ./etc/gtk-2.0  
 -rw-r--r-- root       root              890 ./etc/gtk-2.0/im-multipress.conf  
 drwxr-xr-x root       root             4096 ./etc/default  
@@ -777,7 +777,6 @@ lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               39 ./etc/systemd/system/multi-user.target.wants/dropbearkey.service -> /lib/systemd/system/dropbearkey.service
 lrwxrwxrwx root       root               33 ./etc/systemd/system/multi-user.target.wants/crond.service -> /lib/systemd/system/crond.service
 lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> /lib/systemd/system/remote-fs.target
-lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/rsyslog.service -> /lib/systemd/system/rsyslog.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants  
 -rw-r--r-- root       root              620 ./etc/systemd/systemd-journald.conf  
 -rw-r--r-- root       root              636 ./etc/systemd/system.conf  
@@ -805,10 +804,10 @@ drwxr-xr-x root       root             4096 ./etc/sysctl.d
 drwxr-xr-x root       root             4096 ./etc/libnl  
 -rw-r--r-- root       root             1532 ./etc/libnl/pktloc  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
--rwxr-xr-x root       root             2509 ./etc/rsyslog.conf  
 drwxr-xr-x root       root             4096 ./etc/cron.d  
 -rw-r--r-- root       root            21373 ./etc/mime.types  
 -rw-r--r-- root       root              449 ./etc/mailcap.order  
+-rw-r--r-- root       root              572 ./etc/usb_modeswitch.conf  
 drwxr-xr-x root       root             4096 ./etc/rc1.d  
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20dbus-1 -> ../init.d/dbus-1
@@ -902,6 +901,8 @@ lrwxrwxrwx root       root               13 ./usr/sbin/iptables-restore -> xtabl
 -rwxr-xr-x root       root             4056 ./usr/sbin/findfs  
 -rwxr-xr-x root       root             4292 ./usr/sbin/cracklib-packer  
 -rwxr-xr-x root       root            39080 ./usr/sbin/crond  
+-rwxr-xr-x root       root            43456 ./usr/sbin/usb_modeswitch  
+-rwxr-xr-x root       root            26997 ./usr/sbin/usb_modeswitch_dispatcher  
 lrwxrwxrwx root       root               13 ./usr/sbin/ip6tables -> xtables-multi
 -rwxr-xr-x root       root             8584 ./usr/sbin/eeprom  
 lrwxrwxrwx root       root               17 ./usr/sbin/udhcpd -> ../../bin/busybox
@@ -911,7 +912,6 @@ lrwxrwxrwx root       root               15 ./usr/sbin/dropbear -> ./dropbearmul
 -rwxr-xr-x root       root            67868 ./usr/sbin/hciattach  
 -rwxr-xr-x root       root              693 ./usr/sbin/add-shell.debianutils  
 -rwxr-xr-x root       root            68720 ./usr/sbin/useradd  
--rwxr-xr-x root       root           321976 ./usr/sbin/rsyslogd  
 -rwxr-xr-x root       root             6270 ./usr/sbin/update-mime  
 -rwxr-xr-x root       root              218 ./usr/sbin/cracklib-format  
 lrwxrwxrwx root       root               17 ./usr/sbin/fbset -> ../../bin/busybox
@@ -1144,6 +1144,7 @@ drwxr-xr-x root       root             4096 ./usr/libexec/systemd
 drwxr-xr-x root       root             4096 ./usr/libexec/systemd/user-generators  
 -rwxr-xr-x root       root            43604 ./usr/libexec/rmt.tar  
 -rwxr-xr-x root       root             9924 ./usr/libexec/bigram  
+-rwxr-xr-x root       root            55252 ./usr/libexec/sftp-server  
 -rwxr-xr-x root       root            14084 ./usr/libexec/frcode  
 lrwxrwxrwx root       root                7 ./usr/libexec/rmt -> rmt.tar
 drwxr-xr-x root       root             4096 ./usr/share  
@@ -1592,6 +1593,230 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 drwxr-xr-x root       root             4096 ./usr/share/pkgconfig  
 -rw-r--r-- root       root              211 ./usr/share/pkgconfig/xtrans.pc  
 -rw-r--r-- root       root              384 ./usr/share/pkgconfig/xorg-macros.pc  
+drwxr-xr-x root       root            12288 ./usr/share/usb_modeswitch  
+-rw-r--r-- root       root              115 ./usr/share/usb_modeswitch/1c9e:9e00  
+-rw-r--r-- root       root              142 ./usr/share/usb_modeswitch/1f28:0021  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6731  
+-rw-r--r-- root       root              203 ./usr/share/usb_modeswitch/05c6:2000  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:1171  
+-rw-r--r-- root       root              154 ./usr/share/usb_modeswitch/19d2:1520  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7111  
+-rw-r--r-- root       root              167 ./usr/share/usb_modeswitch/1410:5010  
+-rw-r--r-- root       root              146 ./usr/share/usb_modeswitch/05c6:6503  
+-rw-r--r-- root       root              370 ./usr/share/usb_modeswitch/1199:0fff  
+-rw-r--r-- root       root              149 ./usr/share/usb_modeswitch/198a:0003  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d155  
+-rw-r--r-- root       root               74 ./usr/share/usb_modeswitch/1033:0035  
+-rw-r--r-- root       root              220 ./usr/share/usb_modeswitch/12d1:1031  
+-rw-r--r-- root       root              154 ./usr/share/usb_modeswitch/12d1:14b5  
+-rw-r--r-- root       root              184 ./usr/share/usb_modeswitch/1410:5041  
+-rw-r--r-- root       root              142 ./usr/share/usb_modeswitch/05c6:1000:uMa=DGT  
+-rw-r--r-- root       root              193 ./usr/share/usb_modeswitch/19d2:0003  
+-rw-r--r-- root       root              142 ./usr/share/usb_modeswitch/1410:5030  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6811  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7071  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7901  
+-rw-r--r-- root       root              170 ./usr/share/usb_modeswitch/21f5:1000  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:1009  
+-rw-r--r-- root       root              148 ./usr/share/usb_modeswitch/03f0:002a  
+-rw-r--r-- root       root              142 ./usr/share/usb_modeswitch/12d1:1553  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:1179  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6951  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8400  
+-rw-r--r-- root       root              234 ./usr/share/usb_modeswitch/1004:614e  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:1007  
+-rw-r--r-- root       root              178 ./usr/share/usb_modeswitch/0b3c:f000  
+-rw-r--r-- root       root               65 ./usr/share/usb_modeswitch/12d1:1003  
+-rw-r--r-- root       root              135 ./usr/share/usb_modeswitch/1410:5020  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/07d1:a800  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7311  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8600  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d058  
+-rw-r--r-- root       root              326 ./usr/share/usb_modeswitch/19d2:0149  
+-rw-r--r-- root       root              166 ./usr/share/usb_modeswitch/04e8:689a  
+-rw-r--r-- root       root              248 ./usr/share/usb_modeswitch/1a8d:2000  
+-rw-r--r-- root       root              165 ./usr/share/usb_modeswitch/19d2:ffde  
+-rw-r--r-- root       root              360 ./usr/share/usb_modeswitch/1266:1000  
+-rw-r--r-- root       root               56 ./usr/share/usb_modeswitch/230d:0007  
+-rw-r--r-- root       root              183 ./usr/share/usb_modeswitch/19d2:0110  
+-rw-r--r-- root       root              129 ./usr/share/usb_modeswitch/0471:1210:uMa=Philips  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7a01  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8201  
+-rw-r--r-- root       root               84 ./usr/share/usb_modeswitch/0d46:45a1  
+-rw-r--r-- root       root              186 ./usr/share/usb_modeswitch/148f:2578  
+-rw-r--r-- root       root              183 ./usr/share/usb_modeswitch/05c6:1000:uMa=Option  
+-rw-r--r-- root       root              165 ./usr/share/usb_modeswitch/19d2:0013  
+-rw-r--r-- root       root              120 ./usr/share/usb_modeswitch/16d8:6281  
+-rw-r--r-- root       root              151 ./usr/share/usb_modeswitch/12d1:14d1  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:0101  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:1001  
+-rw-r--r-- root       root              154 ./usr/share/usb_modeswitch/2020:f00e  
+-rw-r--r-- root       root              120 ./usr/share/usb_modeswitch/16d8:6804  
+-rw-r--r-- root       root              252 ./usr/share/usb_modeswitch/0e8d:7109  
+-rw-r--r-- root       root               69 ./usr/share/usb_modeswitch/0fce:d0e1  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6751  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/0421:0610  
+-rw-r--r-- root       root              155 ./usr/share/usb_modeswitch/12d1:1505  
+-rw-r--r-- root       root              235 ./usr/share/usb_modeswitch/19d2:1224  
+-rw-r--r-- root       root              169 ./usr/share/usb_modeswitch/19d2:ffe6  
+-rw-r--r-- root       root              119 ./usr/share/usb_modeswitch/1c9e:9800  
+-rw-r--r-- root       root               47 ./usr/share/usb_modeswitch/12d1:1414  
+-rw-r--r-- root       root              155 ./usr/share/usb_modeswitch/19d2:0026  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d013  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d255  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7401  
+-rw-r--r-- root       root               47 ./usr/share/usb_modeswitch/12d1:1001  
+-rw-r--r-- root       root              120 ./usr/share/usb_modeswitch/16d8:700a  
+-rw-r--r-- root       root              153 ./usr/share/usb_modeswitch/1004:613a  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/12d1:1557  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7701  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/106c:3b03  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8300  
+-rw-r--r-- root       root              152 ./usr/share/usb_modeswitch/1c9e:1001  
+-rw-r--r-- root       root              142 ./usr/share/usb_modeswitch/12d1:1520  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d357  
+-rw-r--r-- root       root              142 ./usr/share/usb_modeswitch/12d1:1521  
+-rw-r--r-- root       root              146 ./usr/share/usb_modeswitch/1bbb:f052  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7801  
+-rw-r--r-- root       root              158 ./usr/share/usb_modeswitch/05c6:f000  
+-rw-r--r-- root       root              108 ./usr/share/usb_modeswitch/1307:1169  
+-rw-r--r-- root       root              246 ./usr/share/usb_modeswitch/19d2:0053  
+-rw-r--r-- root       root              160 ./usr/share/usb_modeswitch/05c6:1000:uMa=AnyDATA  
+-rw-r--r-- root       root              155 ./usr/share/usb_modeswitch/19d2:0115  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d033  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7271  
+-rw-r--r-- root       root              163 ./usr/share/usb_modeswitch/0ace:20ff  
+-rw-r--r-- root       root              130 ./usr/share/usb_modeswitch/16d8:700b  
+-rw-r--r-- root       root              157 ./usr/share/usb_modeswitch/1ee8:0009  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8800  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7601  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:1013  
+-rw-r--r-- root       root              166 ./usr/share/usb_modeswitch/07d1:a804  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6971  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7501  
+-rw-r--r-- root       root               62 ./usr/share/usb_modeswitch/0482:024d  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d057  
+-rw-r--r-- root       root              223 ./usr/share/usb_modeswitch/072f:100d  
+-rw-r--r-- root       root               51 ./usr/share/usb_modeswitch/12d1:1d50  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7251  
+-rw-r--r-- root       root               54 ./usr/share/usb_modeswitch/1edf:6003  
+-rw-r--r-- root       root              148 ./usr/share/usb_modeswitch/05c6:1000:uMa=SAMSUNG  
+-rw-r--r-- root       root              164 ./usr/share/usb_modeswitch/05c7:1000  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8900  
+-rw-r--r-- root       root              153 ./usr/share/usb_modeswitch/12d1:14b7  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/1004:61e7  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d031  
+-rw-r--r-- root       root              166 ./usr/share/usb_modeswitch/1004:61eb  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6711  
+-rw-r--r-- root       root              162 ./usr/share/usb_modeswitch/19d2:fff5  
+-rw-r--r-- root       root              190 ./usr/share/usb_modeswitch/1b7d:0700  
+-rw-r--r-- root       root              139 ./usr/share/usb_modeswitch/19d2:1216  
+-rw-r--r-- root       root              215 ./usr/share/usb_modeswitch/0cf3:20ff  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7301  
+-rw-r--r-- root       root              155 ./usr/share/usb_modeswitch/12d1:14fe  
+-rw-r--r-- root       root              304 ./usr/share/usb_modeswitch/1a8d:1000  
+-rw-r--r-- root       root              154 ./usr/share/usb_modeswitch/19d2:0169  
+-rw-r--r-- root       root              153 ./usr/share/usb_modeswitch/12d1:14c5  
+-rw-r--r-- root       root              163 ./usr/share/usb_modeswitch/19d2:bccd  
+-rw-r--r-- root       root              163 ./usr/share/usb_modeswitch/05c6:1000:uMa=SSE  
+-rw-r--r-- root       root              162 ./usr/share/usb_modeswitch/1bbb:f000  
+-rw-r--r-- root       root              169 ./usr/share/usb_modeswitch/106c:3b06  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/12d1:1449  
+-rw-r--r-- root       root              146 ./usr/share/usb_modeswitch/19d2:0166  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:9000  
+-rw-r--r-- root       root              153 ./usr/share/usb_modeswitch/12d1:14c1  
+-rw-r--r-- root       root              211 ./usr/share/usb_modeswitch/16d8:f000  
+-rw-r--r-- root       root              156 ./usr/share/usb_modeswitch/05c6:1000:uMa=Vertex  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8302  
+-rw-r--r-- root       root              180 ./usr/share/usb_modeswitch/05c6:1000:sVe=Option  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6911  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7211  
+-rw-r--r-- root       root              189 ./usr/share/usb_modeswitch/05c6:2001  
+-rw-r--r-- root       root               72 ./usr/share/usb_modeswitch/12d1:1da1  
+-rw-r--r-- root       root              172 ./usr/share/usb_modeswitch/1410:5059  
+-rw-r--r-- root       root              413 ./usr/share/usb_modeswitch/19d2:2000  
+-rw-r--r-- root       root              172 ./usr/share/usb_modeswitch/1c9e:9200  
+-rw-r--r-- root       root              136 ./usr/share/usb_modeswitch/0af0:7a05  
+-rw-r--r-- root       root              159 ./usr/share/usb_modeswitch/1ee8:0040  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d055  
+-rw-r--r-- root       root              220 ./usr/share/usb_modeswitch/12d1:380b  
+-rw-r--r-- root       root              142 ./usr/share/usb_modeswitch/04e8:f000:sMo=U209  
+-rw-r--r-- root       root               84 ./usr/share/usb_modeswitch/0d46:45a5  
+-rw-r--r-- root       root              197 ./usr/share/usb_modeswitch/12d1:1030  
+-rw-r--r-- root       root              175 ./usr/share/usb_modeswitch/057c:84ff  
+-rw-r--r-- root       root              165 ./usr/share/usb_modeswitch/19d2:0083  
+-rw-r--r-- root       root              132 ./usr/share/usb_modeswitch/16d8:6803  
+-rw-r--r-- root       root               72 ./usr/share/usb_modeswitch/12d1:1009  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8200  
+-rw-r--r-- root       root               71 ./usr/share/usb_modeswitch/1fac:0032  
+-rw-r--r-- root       root              215 ./usr/share/usb_modeswitch/201e:2009  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7706  
+-rw-r--r-- root       root              150 ./usr/share/usb_modeswitch/19d2:0040  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7031  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6771  
+-rw-r--r-- root       root              146 ./usr/share/usb_modeswitch/1410:5031  
+-rw-r--r-- root       root              130 ./usr/share/usb_modeswitch/1004:1000  
+-rw-r--r-- root       root              166 ./usr/share/usb_modeswitch/106c:3b05  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d257  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/0421:060c  
+-rw-r--r-- root       root              174 ./usr/share/usb_modeswitch/8888:6500  
+-rw-r--r-- root       root              123 ./usr/share/usb_modeswitch/12d1:101e  
+-rw-r--r-- root       root              164 ./usr/share/usb_modeswitch/19d2:0146  
+-rw-r--r-- root       root              236 ./usr/share/usb_modeswitch/19d2:0103  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/0421:0627  
+-rw-r--r-- root       root              117 ./usr/share/usb_modeswitch/1c9e:6061  
+-rw-r--r-- root       root              177 ./usr/share/usb_modeswitch/1c9e:f000  
+-rw-r--r-- root       root               85 ./usr/share/usb_modeswitch/1da5:f000  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7381  
+-rw-r--r-- root       root              198 ./usr/share/usb_modeswitch/12d1:1446  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7011  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:6791  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/1004:6190  
+-rw-r--r-- root       root              157 ./usr/share/usb_modeswitch/1004:61dd  
+-rw-r--r-- root       root              146 ./usr/share/usb_modeswitch/1ab7:5700  
+-rw-r--r-- root       root              149 ./usr/share/usb_modeswitch/19d2:fff6  
+-rw-r--r-- root       root              151 ./usr/share/usb_modeswitch/04bb:bccd  
+-rw-r--r-- root       root              160 ./usr/share/usb_modeswitch/1de1:1101  
+-rw-r--r-- root       root               70 ./usr/share/usb_modeswitch/0fce:d103  
+-rw-r--r-- root       root              189 ./usr/share/usb_modeswitch/0b3c:c700  
+-rw-r--r-- root       root               73 ./usr/share/usb_modeswitch/230d:0001  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:c031  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/0421:0622  
+-rw-r--r-- root       root              166 ./usr/share/usb_modeswitch/12d1:1f01  
+-rw-r--r-- root       root              212 ./usr/share/usb_modeswitch/1e0e:f000  
+-rw-r--r-- root       root               60 ./usr/share/usb_modeswitch/0fd1:1000  
+-rw-r--r-- root       root              186 ./usr/share/usb_modeswitch/1004:613f  
+-rw-r--r-- root       root              178 ./usr/share/usb_modeswitch/0471:1210:uMa=Wisue  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/0421:062c  
+-rw-r--r-- root       root               82 ./usr/share/usb_modeswitch/1076:7f40  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7361  
+-rw-r--r-- root       root              145 ./usr/share/usb_modeswitch/1e89:f000  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:8304  
+-rw-r--r-- root       root              244 ./usr/share/usb_modeswitch/201e:1023  
+-rw-r--r-- root       root              163 ./usr/share/usb_modeswitch/198f:bccd  
+-rw-r--r-- root       root              163 ./usr/share/usb_modeswitch/0ace:2011  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d157  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:c100  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:d035  
+-rw-r--r-- root       root              161 ./usr/share/usb_modeswitch/19d2:1201  
+-rw-r--r-- root       root              152 ./usr/share/usb_modeswitch/1fac:0130  
+-rw-r--r-- root       root               89 ./usr/share/usb_modeswitch/0df7:0800  
+-rw-r--r-- root       root               78 ./usr/share/usb_modeswitch/0fce:d0cf  
+-rw-r--r-- root       root              151 ./usr/share/usb_modeswitch/12d1:14c4  
+-rw-r--r-- root       root              157 ./usr/share/usb_modeswitch/1ee8:0013  
+-rw-r--r-- root       root              157 ./usr/share/usb_modeswitch/0930:0d46  
+-rw-r--r-- root       root              153 ./usr/share/usb_modeswitch/12d1:14ad  
+-rw-r--r-- root       root              202 ./usr/share/usb_modeswitch/0471:1237  
+-rw-r--r-- root       root              162 ./usr/share/usb_modeswitch/1004:607f  
+-rw-r--r-- root       root              161 ./usr/share/usb_modeswitch/1dd6:1000  
+-rw-r--r-- root       root              168 ./usr/share/usb_modeswitch/19d2:1175  
+-rw-r--r-- root       root              138 ./usr/share/usb_modeswitch/0af0:7051  
+-rw-r--r-- root       root               79 ./usr/share/usb_modeswitch/148e:a000  
+-rw-r--r-- root       root              155 ./usr/share/usb_modeswitch/12d1:1c0b  
+-rw-r--r-- root       root              174 ./usr/share/usb_modeswitch/0af0:d001  
+-rw-r--r-- root       root              245 ./usr/share/usb_modeswitch/19d2:1517  
+-rw-r--r-- root       root              171 ./usr/share/usb_modeswitch/05c6:1000:sVe=GT  
+-rw-r--r-- root       root              141 ./usr/share/usb_modeswitch/12d1:1523  
 drwxr-xr-x root       root             4096 ./usr/share/misc  
 -rw-r--r-- root       root          2096584 ./usr/share/misc/magic.mgc  
 drwxr-xr-x root       root             4096 ./usr/share/sounds  
@@ -15682,7 +15907,7 @@ drwxr-xr-x root       root             4096 ./usr/include/pango-1.0/pango
 -rw-r--r-- root       root            12787 ./usr/include/pango-1.0/pango/pango-layout.h  
 -rw-r--r-- root       root             6130 ./usr/include/pango-1.0/pango/pango-script.h  
 -rw-r--r-- root       root             1610 ./usr/include/pty.h  
--rw-r--r-- root       root            86466 ./usr/include/gmp.h  
+-rw-r--r-- root       root            86438 ./usr/include/gmp.h  
 -rw-r--r-- root       root             4702 ./usr/include/libintl.h  
 drwxr-xr-x root       root             4096 ./usr/include/db51  
 -r--r--r-- root       root           112872 ./usr/include/db51/db.h  
@@ -16360,40 +16585,234 @@ lrwxrwxrwx root       root               20 ./usr/lib/libxcb-dpms.so -> libxcb-d
 lrwxrwxrwx root       root               22 ./usr/lib/libxcb-record.so -> libxcb-record.so.0.0.0
 -rwxr-xr-x root       root            12400 ./usr/lib/libxcb-sync.so.0.0.0  
 lrwxrwxrwx root       root               17 ./usr/lib/libgmpxx.so.4 -> libgmpxx.so.4.2.2
+drwxr-xr-x root       root             4096 ./usr/lib/tcl8.5  
+-rw-r--r-- root       root             6379 ./usr/lib/tcl8.5/tclIndex  
+-rw-r--r-- root       root             4650 ./usr/lib/tcl8.5/tclAppInit.c  
+-rw-r--r-- root       root            20314 ./usr/lib/tcl8.5/auto.tcl  
+drwxr-xr-x root       root             4096 ./usr/lib/tcl8.5/encoding  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/tis-620.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp860.enc  
+-rw-r--r-- root       root            70974 ./usr/lib/tcl8.5/encoding/jis0212.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1257.enc  
+-rw-r--r-- root       root            82537 ./usr/lib/tcl8.5/encoding/euc-jp.enc  
+-rw-r--r-- root       root            93918 ./usr/lib/tcl8.5/encoding/euc-kr.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1256.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1255.enc  
+-rw-r--r-- root       root           130423 ./usr/lib/tcl8.5/encoding/cp949.enc  
+-rw-r--r-- root       root           132509 ./usr/lib/tcl8.5/encoding/cp936.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/iso8859-16.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1251.enc  
+-rw-r--r-- root       root            48207 ./usr/lib/tcl8.5/encoding/cp932.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-1.enc  
+-rw-r--r-- root       root            92877 ./usr/lib/tcl8.5/encoding/ksc5601.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1252.enc  
+-rw-r--r-- root       root             1096 ./usr/lib/tcl8.5/encoding/macCentEuro.enc  
+-rw-r--r-- root       root            84532 ./usr/lib/tcl8.5/encoding/gb2312-raw.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp850.enc  
+-rw-r--r-- root       root             1096 ./usr/lib/tcl8.5/encoding/macCroatian.enc  
+-rw-r--r-- root       root            85574 ./usr/lib/tcl8.5/encoding/euc-cn.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-4.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-5.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/macTurkish.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-9.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp852.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-2.enc  
+-rw-r--r-- root       root            41862 ./usr/lib/tcl8.5/encoding/shiftjis.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp869.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp874.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-7.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/ascii.enc  
+-rw-r--r-- root       root             1092 ./usr/lib/tcl8.5/encoding/macThai.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/symbol.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp855.enc  
+-rw-r--r-- root       root             1093 ./usr/lib/tcl8.5/encoding/macGreek.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp866.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-8.enc  
+-rw-r--r-- root       root             1096 ./usr/lib/tcl8.5/encoding/macCyrillic.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-3.enc  
+-rw-r--r-- root       root            85574 ./usr/lib/tcl8.5/encoding/gb2312.enc  
+-rw-r--r-- root       root            91831 ./usr/lib/tcl8.5/encoding/cp950.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp437.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp865.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/macRomania.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/iso8859-13.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1254.enc  
+-rw-r--r-- root       root              226 ./usr/lib/tcl8.5/encoding/iso2022.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp737.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp775.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1258.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/gb1988.enc  
+-rw-r--r-- root       root            86619 ./usr/lib/tcl8.5/encoding/gb12345.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp862.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp863.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/iso8859-14.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1253.enc  
+-rw-r--r-- root       root             1094 ./usr/lib/tcl8.5/encoding/iso8859-6.enc  
+-rw-r--r-- root       root            80459 ./usr/lib/tcl8.5/encoding/jis0208.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/macIceland.enc  
+-rw-r--r-- root       root            48028 ./usr/lib/tcl8.5/encoding/macJapan.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp857.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/iso8859-15.enc  
+-rw-r--r-- root       root            92873 ./usr/lib/tcl8.5/encoding/big5.enc  
+-rw-r--r-- root       root             1093 ./usr/lib/tcl8.5/encoding/macRoman.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/cp1250.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/macUkraine.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/koi8-r.enc  
+-rw-r--r-- root       root             1095 ./usr/lib/tcl8.5/encoding/iso8859-10.enc  
+-rw-r--r-- root       root             1096 ./usr/lib/tcl8.5/encoding/macDingbats.enc  
+-rw-r--r-- root       root             1091 ./usr/lib/tcl8.5/encoding/koi8-u.enc  
+-rw-r--r-- root       root             1092 ./usr/lib/tcl8.5/encoding/jis0201.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp864.enc  
+-rw-r--r-- root       root             1090 ./usr/lib/tcl8.5/encoding/cp861.enc  
+-rw-r--r-- root       root             1093 ./usr/lib/tcl8.5/encoding/dingbats.enc  
+-rw-r--r-- root       root              192 ./usr/lib/tcl8.5/encoding/iso2022-jp.enc  
+-rw-r--r-- root       root             1054 ./usr/lib/tcl8.5/encoding/ebcdic.enc  
+-rw-r--r-- root       root              115 ./usr/lib/tcl8.5/encoding/iso2022-kr.enc  
+-rw-r--r-- root       root              803 ./usr/lib/tcl8.5/parray.tcl  
+drwxr-xr-x root       root             4096 ./usr/lib/tcl8.5/opt0.4  
+-rw-r--r-- root       root            32944 ./usr/lib/tcl8.5/opt0.4/optparse.tcl  
+-rw-r--r-- root       root              607 ./usr/lib/tcl8.5/opt0.4/pkgIndex.tcl  
+drwxr-xr-x root       root             4096 ./usr/lib/tcl8.5/http1.0  
+-rw-r--r-- root       root             9693 ./usr/lib/tcl8.5/http1.0/http.tcl  
+-rw-r--r-- root       root              735 ./usr/lib/tcl8.5/http1.0/pkgIndex.tcl  
+-rw-r--r-- root       root            24968 ./usr/lib/tcl8.5/init.tcl  
+-rw-r--r-- root       root            23571 ./usr/lib/tcl8.5/package.tcl  
+-rw-r--r-- root       root           130216 ./usr/lib/tcl8.5/clock.tcl  
+-rw-r--r-- root       root             8965 ./usr/lib/tcl8.5/history.tcl  
+-rw-r--r-- root       root            11432 ./usr/lib/tcl8.5/tm.tcl  
+drwxr-xr-x root       root             4096 ./usr/lib/tcl8.5/msgs  
+-rw-r--r-- root       root              300 ./usr/lib/tcl8.5/msgs/en_au.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/en_sg.msg  
+-rw-r--r-- root       root              244 ./usr/lib/tcl8.5/msgs/it_ch.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/af_za.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_pr.msg  
+-rw-r--r-- root       root             1255 ./usr/lib/tcl8.5/msgs/lt.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/gl_es.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_cl.msg  
+-rw-r--r-- root       root              914 ./usr/lib/tcl8.5/msgs/id.msg  
+-rw-r--r-- root       root             2105 ./usr/lib/tcl8.5/msgs/be.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_hn.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/ga_ie.msg  
+-rw-r--r-- root       root              411 ./usr/lib/tcl8.5/msgs/te_in.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/nl_be.msg  
+-rw-r--r-- root       root             1145 ./usr/lib/tcl8.5/msgs/fi.msg  
+-rw-r--r-- root       root             1421 ./usr/lib/tcl8.5/msgs/vi.msg  
+-rw-r--r-- root       root              346 ./usr/lib/tcl8.5/msgs/zh_tw.msg  
+-rw-r--r-- root       root             1079 ./usr/lib/tcl8.5/msgs/nl.msg  
+-rw-r--r-- root       root             1148 ./usr/lib/tcl8.5/msgs/nn.msg  
+-rw-r--r-- root       root             1222 ./usr/lib/tcl8.5/msgs/de.msg  
+-rw-r--r-- root       root             1203 ./usr/lib/tcl8.5/msgs/sk.msg  
+-rw-r--r-- root       root              910 ./usr/lib/tcl8.5/msgs/ms.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_sv.msg  
+-rw-r--r-- root       root             1219 ./usr/lib/tcl8.5/msgs/lv.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_ve.msg  
+-rw-r--r-- root       root             1300 ./usr/lib/tcl8.5/msgs/cs.msg  
+-rw-r--r-- root       root              300 ./usr/lib/tcl8.5/msgs/en_nz.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_pa.msg  
+-rw-r--r-- root       root              242 ./usr/lib/tcl8.5/msgs/es_ar.msg  
+-rw-r--r-- root       root             2039 ./usr/lib/tcl8.5/msgs/ru.msg  
+-rw-r--r-- root       root             1167 ./usr/lib/tcl8.5/msgs/sv.msg  
+-rw-r--r-- root       root              752 ./usr/lib/tcl8.5/msgs/zh_hk.msg  
+-rw-r--r-- root       root             1156 ./usr/lib/tcl8.5/msgs/da.msg  
+-rw-r--r-- root       root              989 ./usr/lib/tcl8.5/msgs/af.msg  
+-rw-r--r-- root       root              312 ./usr/lib/tcl8.5/msgs/zh_cn.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_uy.msg  
+-rw-r--r-- root       root              417 ./usr/lib/tcl8.5/msgs/fa_ir.msg  
+-rw-r--r-- root       root              991 ./usr/lib/tcl8.5/msgs/sw.msg  
+-rw-r--r-- root       root              242 ./usr/lib/tcl8.5/msgs/ru_ua.msg  
+-rw-r--r-- root       root             1566 ./usr/lib/tcl8.5/msgs/ko.msg  
+-rw-r--r-- root       root             1664 ./usr/lib/tcl8.5/msgs/ja.msg  
+-rw-r--r-- root       root             1958 ./usr/lib/tcl8.5/msgs/kok.msg  
+-rw-r--r-- root       root              812 ./usr/lib/tcl8.5/msgs/de_at.msg  
+-rw-r--r-- root       root             1157 ./usr/lib/tcl8.5/msgs/nb.msg  
+-rw-r--r-- root       root             1211 ./usr/lib/tcl8.5/msgs/pl.msg  
+-rw-r--r-- root       root             1037 ./usr/lib/tcl8.5/msgs/gv.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/kl_gl.msg  
+-rw-r--r-- root       root              966 ./usr/lib/tcl8.5/msgs/kw.msg  
+-rw-r--r-- root       root              321 ./usr/lib/tcl8.5/msgs/en_ph.msg  
+-rw-r--r-- root       root             1160 ./usr/lib/tcl8.5/msgs/sh.msg  
+-rw-r--r-- root       root              978 ./usr/lib/tcl8.5/msgs/kl.msg  
+-rw-r--r-- root       root              985 ./usr/lib/tcl8.5/msgs/eu.msg  
+-rw-r--r-- root       root             1205 ./usr/lib/tcl8.5/msgs/fr.msg  
+-rw-r--r-- root       root              346 ./usr/lib/tcl8.5/msgs/ko_kr.msg  
+-rw-r--r-- root       root              245 ./usr/lib/tcl8.5/msgs/en_za.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/id_id.msg  
+-rw-r--r-- root       root             1738 ./usr/lib/tcl8.5/msgs/hi.msg  
+-rw-r--r-- root       root             1835 ./usr/lib/tcl8.5/msgs/ta.msg  
+-rw-r--r-- root       root              259 ./usr/lib/tcl8.5/msgs/ms_my.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_gt.msg  
+-rw-r--r-- root       root              321 ./usr/lib/tcl8.5/msgs/en_hk.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_mx.msg  
+-rw-r--r-- root       root             1812 ./usr/lib/tcl8.5/msgs/ar_sy.msg  
+-rw-r--r-- root       root             1240 ./usr/lib/tcl8.5/msgs/it.msg  
+-rw-r--r-- root       root             1819 ./usr/lib/tcl8.5/msgs/bg.msg  
+-rw-r--r-- root       root             1812 ./usr/lib/tcl8.5/msgs/ar_jo.msg  
+-rw-r--r-- root       root             1812 ./usr/lib/tcl8.5/msgs/ar_lb.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_co.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/gv_gb.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/mr_in.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/fo_fo.msg  
+-rw-r--r-- root       root             2113 ./usr/lib/tcl8.5/msgs/uk.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_bo.msg  
+-rw-r--r-- root       root             1664 ./usr/lib/tcl8.5/msgs/fa.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_ec.msg  
+-rw-r--r-- root       root             1267 ./usr/lib/tcl8.5/msgs/sq.msg  
+-rw-r--r-- root       root             1206 ./usr/lib/tcl8.5/msgs/et.msg  
+-rw-r--r-- root       root             2252 ./usr/lib/tcl8.5/msgs/el.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_do.msg  
+-rw-r--r-- root       root             1180 ./usr/lib/tcl8.5/msgs/es.msg  
+-rw-r--r-- root       root             1938 ./usr/lib/tcl8.5/msgs/he.msg  
+-rw-r--r-- root       root              690 ./usr/lib/tcl8.5/msgs/mt.msg  
+-rw-r--r-- root       root             1957 ./usr/lib/tcl8.5/msgs/fa_in.msg  
+-rw-r--r-- root       root              305 ./usr/lib/tcl8.5/msgs/en_be.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/en_gb.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/en_bw.msg  
+-rw-r--r-- root       root             1231 ./usr/lib/tcl8.5/msgs/eo.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_ni.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/en_ie.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/ta_in.msg  
+-rw-r--r-- root       root              281 ./usr/lib/tcl8.5/msgs/fr_ch.msg  
+-rw-r--r-- root       root             1121 ./usr/lib/tcl8.5/msgs/hr.msg  
+-rw-r--r-- root       root             2102 ./usr/lib/tcl8.5/msgs/te.msg  
+-rw-r--r-- root       root             2286 ./usr/lib/tcl8.5/msgs/bn.msg  
+-rw-r--r-- root       root             1964 ./usr/lib/tcl8.5/msgs/ar.msg  
+-rw-r--r-- root       root             1133 ./usr/lib/tcl8.5/msgs/tr.msg  
+-rw-r--r-- root       root              950 ./usr/lib/tcl8.5/msgs/gl.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_pe.msg  
+-rw-r--r-- root       root             1164 ./usr/lib/tcl8.5/msgs/sl.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/hi_in.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/en_zw.msg  
+-rw-r--r-- root       root             1255 ./usr/lib/tcl8.5/msgs/is.msg  
+-rw-r--r-- root       root              339 ./usr/lib/tcl8.5/msgs/zh_sg.msg  
+-rw-r--r-- root       root             1141 ./usr/lib/tcl8.5/msgs/ga.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_cr.msg  
+-rw-r--r-- root       root             1223 ./usr/lib/tcl8.5/msgs/de_be.msg  
+-rw-r--r-- root       root             2035 ./usr/lib/tcl8.5/msgs/sr.msg  
+-rw-r--r-- root       root              288 ./usr/lib/tcl8.5/msgs/en_ca.msg  
+-rw-r--r-- root       root             1807 ./usr/lib/tcl8.5/msgs/mr.msg  
+-rw-r--r-- root       root             1102 ./usr/lib/tcl8.5/msgs/ca.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/kw_gb.msg  
+-rw-r--r-- root       root              986 ./usr/lib/tcl8.5/msgs/fo.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/fr_ca.msg  
+-rw-r--r-- root       root              254 ./usr/lib/tcl8.5/msgs/kok_in.msg  
+-rw-r--r-- root       root              259 ./usr/lib/tcl8.5/msgs/bn_in.msg  
+-rw-r--r-- root       root             1172 ./usr/lib/tcl8.5/msgs/ro.msg  
+-rw-r--r-- root       root             1327 ./usr/lib/tcl8.5/msgs/hu.msg  
+-rw-r--r-- root       root              259 ./usr/lib/tcl8.5/msgs/ar_in.msg  
+-rw-r--r-- root       root             3330 ./usr/lib/tcl8.5/msgs/zh.msg  
+-rw-r--r-- root       root              310 ./usr/lib/tcl8.5/msgs/en_in.msg  
+-rw-r--r-- root       root             2105 ./usr/lib/tcl8.5/msgs/mk.msg  
+-rw-r--r-- root       root             2305 ./usr/lib/tcl8.5/msgs/th.msg  
+-rw-r--r-- root       root              251 ./usr/lib/tcl8.5/msgs/es_py.msg  
+-rw-r--r-- root       root              287 ./usr/lib/tcl8.5/msgs/eu_es.msg  
+-rw-r--r-- root       root             1127 ./usr/lib/tcl8.5/msgs/pt.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/pt_br.msg  
+-rw-r--r-- root       root              279 ./usr/lib/tcl8.5/msgs/fr_be.msg  
+-rw-r--r-- root       root             4659 ./usr/lib/tcl8.5/word.tcl  
+-rw-r--r-- root       root            32771 ./usr/lib/tcl8.5/safe.tcl  
 lrwxrwxrwx root       root               19 ./usr/lib/libstdc++.so.6 -> libstdc++.so.6.0.14
 -rwxr-xr-x root       root           151784 ./usr/lib/libopkg.so.1.0.0  
 -rwxr-xr-x root       root             1102 ./usr/lib/libXcomposite.la  
-drwxr-xr-x root       root             4096 ./usr/lib/rsyslog  
--rwxr-xr-x root       root              907 ./usr/lib/rsyslog/lmtcpsrv.la  
--rwxr-xr-x root       root              913 ./usr/lib/rsyslog/omtesting.la  
--rwxr-xr-x root       root           279168 ./usr/lib/rsyslog/imuxsock.so  
--rwxr-xr-x root       root            11672 ./usr/lib/rsyslog/lmnetstrms.so  
--rwxr-xr-x root       root             6184 ./usr/lib/rsyslog/lmtcpclt.so  
--rwxr-xr-x root       root              907 ./usr/lib/rsyslog/lmtcpclt.la  
--rwxr-xr-x root       root              895 ./usr/lib/rsyslog/immark.la  
--rwxr-xr-x root       root            19500 ./usr/lib/rsyslog/imklog.so  
--rwxr-xr-x root       root              919 ./usr/lib/rsyslog/lmnetstrms.la  
--rwxr-xr-x root       root              889 ./usr/lib/rsyslog/imtcp.la  
--rwxr-xr-x root       root            18336 ./usr/lib/rsyslog/lmnet.so  
--rwxr-xr-x root       root             4012 ./usr/lib/rsyslog/lmregexp.so  
--rwxr-xr-x root       root              895 ./usr/lib/rsyslog/imklog.la  
--rwxr-xr-x root       root            14836 ./usr/lib/rsyslog/lmstrmsrv.so  
--rwxr-xr-x root       root            17184 ./usr/lib/rsyslog/lmnsd_ptcp.so  
--rwxr-xr-x root       root             4140 ./usr/lib/rsyslog/lmzlibw.so  
--rwxr-xr-x root       root            12116 ./usr/lib/rsyslog/imudp.so  
--rwxr-xr-x root       root              919 ./usr/lib/rsyslog/lmnsd_ptcp.la  
--rwxr-xr-x root       root              913 ./usr/lib/rsyslog/omruleset.la  
--rwxr-xr-x root       root             7756 ./usr/lib/rsyslog/imtcp.so  
--rwxr-xr-x root       root              889 ./usr/lib/rsyslog/imudp.la  
--rwxr-xr-x root       root            19248 ./usr/lib/rsyslog/lmtcpsrv.so  
--rwxr-xr-x root       root             7788 ./usr/lib/rsyslog/omtesting.so  
--rwxr-xr-x root       root              901 ./usr/lib/rsyslog/lmzlibw.la  
--rwxr-xr-x root       root              889 ./usr/lib/rsyslog/lmnet.la  
--rwxr-xr-x root       root              917 ./usr/lib/rsyslog/imuxsock.la  
--rwxr-xr-x root       root             6436 ./usr/lib/rsyslog/omruleset.so  
--rwxr-xr-x root       root              907 ./usr/lib/rsyslog/lmregexp.la  
--rwxr-xr-x root       root             4612 ./usr/lib/rsyslog/immark.so  
--rwxr-xr-x root       root              913 ./usr/lib/rsyslog/lmstrmsrv.la  
 -rwxr-xr-x root       root             4484 ./usr/lib/libxcb-xtest.so.0.0.0  
 -rwxr-xr-x root       root             1230 ./usr/lib/libXft.la  
 lrwxrwxrwx root       root               19 ./usr/lib/libsqlite3.so.0 -> libsqlite3.so.0.8.6
@@ -16590,7 +17009,7 @@ lrwxrwxrwx root       root               20 ./usr/lib/libgnutls.so.26 -> libgnut
 lrwxrwxrwx root       root               15 ./usr/lib/libmpc.so.2 -> libmpc.so.2.0.0
 -rwxr-xr-x root       root             1286 ./usr/lib/libgstnet-0.10.la  
 drwxr-xr-x root       root             4096 ./usr/lib/perl  
--rwxr-xr-x root       root            36940 ./usr/lib/perl/config.sh  
+-rwxr-xr-x root       root            36803 ./usr/lib/perl/config.sh  
 drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2  
 drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2/B  
 -r--r--r-- root       root            58838 ./usr/lib/perl/5.14.2/B/Concise.pm  
@@ -16807,7 +17226,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2/ExtUtils/MakeM
 -r--r--r-- root       root            16446 ./usr/lib/perl/5.14.2/ExtUtils/MakeMaker/YAML.pm  
 -r--r--r-- root       root              570 ./usr/lib/perl/5.14.2/ExtUtils/MakeMaker/Config.pm  
 drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2/ExtUtils/Liblist  
--r--r--r-- root       root            19198 ./usr/lib/perl/5.14.2/ExtUtils/Liblist/Kid.pm  
+-r--r--r-- root       root            19199 ./usr/lib/perl/5.14.2/ExtUtils/Liblist/Kid.pm  
 -r--r--r-- root       root              985 ./usr/lib/perl/5.14.2/ExtUtils/MM_BeOS.pm  
 -r--r--r-- root       root             2115 ./usr/lib/perl/5.14.2/ExtUtils/MM.pm  
 -r--r--r-- root       root              653 ./usr/lib/perl/5.14.2/ExtUtils/MY.pm  
@@ -17510,7 +17929,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2/Hash/Util
 -r--r--r-- root       root            29761 ./usr/lib/perl/5.14.2/Hash/Util/FieldHash.pm  
 -r--r--r-- root       root            17853 ./usr/lib/perl/5.14.2/bigint.pm  
 -r--r--r-- root       root             6990 ./usr/lib/perl/5.14.2/base.pm  
--r--r--r-- root       root             4558 ./usr/lib/perl/5.14.2/Config.pm  
+-r--r--r-- root       root             4502 ./usr/lib/perl/5.14.2/Config.pm  
 -r--r--r-- root       root            30155 ./usr/lib/perl/5.14.2/Encode.pm  
 -r--r--r-- root       root             3266 ./usr/lib/perl/5.14.2/integer.pm  
 drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2/Search  
@@ -17577,7 +17996,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2/Test/Builder/T
 -r--r--r-- root       root             1556 ./usr/lib/perl/5.14.2/DirHandle.pm  
 -r--r--r-- root       root              495 ./usr/lib/perl/5.14.2/tainted.pl  
 -r--r--r-- root       root              516 ./usr/lib/perl/5.14.2/open3.pl  
--r--r--r-- root       root            44765 ./usr/lib/perl/5.14.2/Config_heavy.pl  
+-r--r--r-- root       root            44628 ./usr/lib/perl/5.14.2/Config_heavy.pl  
 lrwxrwxrwx root       root               15 ./usr/lib/perl/5.14.2/Config_heavy-target.pl -> Config_heavy.pl
 drwxr-xr-x root       root             4096 ./usr/lib/perl/5.14.2/Filter  
 -r--r--r-- root       root            23531 ./usr/lib/perl/5.14.2/Filter/Simple.pm  
@@ -18831,7 +19250,7 @@ drwxr-xr-x 1000       crontab          4096 ./usr/lib/arm-angstrom-linux-gnueabi
 -rw-r--r-- 1000       crontab          1656 ./usr/lib/arm-angstrom-linux-gnueabi/4.5.4/crtbegin.o  
 -rw-r--r-- 1000       crontab           883 ./usr/lib/arm-angstrom-linux-gnueabi/4.5.4/crtend.o  
 -rw-r--r-- 1000       crontab         67320 ./usr/lib/arm-angstrom-linux-gnueabi/4.5.4/libgcc_eh.a  
--rw-r--r-- 1000       crontab        132656 ./usr/lib/arm-angstrom-linux-gnueabi/4.5.4/libgcov.a  
+-rw-r--r-- 1000       crontab        132684 ./usr/lib/arm-angstrom-linux-gnueabi/4.5.4/libgcov.a  
 -rw-r--r-- 1000       crontab        421624 ./usr/lib/arm-angstrom-linux-gnueabi/4.5.4/libgcc.a  
 -rwxr-xr-x root       root           105936 ./usr/lib/libgdk_pixbuf-2.0.so.0.2400.0  
 lrwxrwxrwx root       root               15 ./usr/lib/libXft.so.2 -> libXft.so.2.2.0
@@ -19186,8 +19605,8 @@ drwxr-xr-x root       root             4096 ./usr/lib/pango/1.6.0/modules
 lrwxrwxrwx root       root               19 ./usr/lib/libsqlite3.so -> libsqlite3.so.0.8.6
 -rwxr-xr-x root       root            64100 ./usr/lib/libXft.so.2.2.0  
 -rwxr-xr-x root       root             2308 ./usr/lib/libgailutil.la  
-drwxr-xr-x 1000       crontab          4096 ./usr/lib/gconv  
--rwxr-xr-x 1000       crontab          9520 ./usr/lib/gconv/ISO8859-1.so  
+drwxr-xr-x root       root             4096 ./usr/lib/gconv  
+-rwxr-xr-x root       root             9520 ./usr/lib/gconv/ISO8859-1.so  
 -rw-r--r-- root       root            56028 ./usr/lib/gconv/gconv-modules  
 lrwxrwxrwx root       root               19 ./usr/lib/libXrender.so -> libXrender.so.1.3.0
 lrwxrwxrwx root       root               25 ./usr/lib/libgstbase-0.10.so.0 -> libgstbase-0.10.so.0.29.0
@@ -19624,7 +20043,7 @@ drwxr-xr-x root       root            12288 ./usr/lib/python2.7/encodings
 -rw-r--r-- root       root            51126 ./usr/lib/python2.7/urllib2.py  
 -rw-r--r-- root       root             6370 ./usr/lib/python2.7/StringIO.pyo  
 drwxr-xr-x root       root             4096 ./usr/lib/python2.7/config  
--rw-r--r-- root       root            47362 ./usr/lib/python2.7/config/Makefile  
+-rw-r--r-- root       root            47251 ./usr/lib/python2.7/config/Makefile  
 -rw-r--r-- root       root             6800 ./usr/lib/python2.7/copy_reg.py  
 -rw-r--r-- root       root              419 ./usr/lib/python2.7/sha.pyo  
 -rw-r--r-- root       root             5467 ./usr/lib/python2.7/macpath.pyo  
@@ -21008,7 +21427,7 @@ lrwxrwxrwx root       root               29 ./usr/bin/nm -> arm-angstrom-linux-g
 -rwxr-xr-x root       root            30600 ./usr/bin/pinky.coreutils  
 -rwxr-xr-x root       root             1671 ./usr/bin/opkg-key  
 -rwxr-xr-x root       root           103240 ./usr/bin/sha384sum.coreutils  
--rwxr-xr-x root       root           213864 ./usr/bin/arm-angstrom-linux-gnueabi-cpp  
+-rwxr-xr-x root       root           213868 ./usr/bin/arm-angstrom-linux-gnueabi-cpp  
 -rwxr-xr-x root       root           106464 ./usr/bin/patch.patch  
 -rwxr-xr-x root       root            32388 ./usr/bin/sum.coreutils  
 lrwxrwxrwx root       root               15 ./usr/bin/cksum -> cksum.coreutils
@@ -21056,7 +21475,7 @@ lrwxrwxrwx root       root               13 ./usr/bin/fmt -> fmt.coreutils
 lrwxrwxrwx root       root               15 ./usr/bin/users -> users.coreutils
 lrwxrwxrwx root       root               14 ./usr/bin/bunzip2.bzip2 -> /usr/bin/bzip2
 -rwxr-xr-x root       root            51704 ./usr/bin/alsamixer  
--rwxr-xr-x root       root             6067 ./usr/bin/curl-config  
+-rwxr-xr-x root       root             5984 ./usr/bin/curl-config  
 -rwxr-xr-x root       root             5080 ./usr/bin/mesg.util-linux  
 -rwxr-xr-x root       root            22744 ./usr/bin/nproc.coreutils  
 lrwxrwxrwx root       root               14 ./usr/bin/fold -> fold.coreutils
@@ -21089,6 +21508,7 @@ lrwxrwxrwx root       root               23 ./usr/bin/scp -> /usr/sbin/dropbearm
 -rwxr-xr-x root       root             2268 ./usr/bin/pilconvert.py  
 -rwxr-xr-x root       root             5104 ./usr/bin/rename  
 lrwxrwxrwx root       root               17 ./usr/bin/wget -> ../../bin/busybox
+lrwxrwxrwx root       root               10 ./usr/bin/tclsh -> ./tclsh8.5
 -rwxr-xr-x root       root            30672 ./usr/bin/lat_connect  
 lrwxrwxrwx root       root               15 ./usr/bin/last -> last.util-linux
 lrwxrwxrwx root       root               15 ./usr/bin/wall -> wall.util-linux
@@ -21371,6 +21791,7 @@ lrwxrwxrwx root       root               13 ./usr/bin/seq -> seq.coreutils
 lrwxrwxrwx root       root               15 ./usr/bin/bzegrep -> /usr/bin/bzgrep
 -rwxr-xr-x root       root             5650 ./usr/bin/decode-vaio  
 -rwxr-xr-x root       root            10296 ./usr/bin/script  
+-rwxr-xr-x root       root             3728 ./usr/bin/tclsh8.5  
 -rwxr-xr-x root       root            26904 ./usr/bin/unexpand.coreutils  
 -rwxr-xr-x root       root            92316 ./usr/bin/sftp  
 -rwxr-xr-x root       root            94648 ./usr/bin/eu-elflint  
@@ -21553,10 +21974,10 @@ lrwxrwxrwx root       root               11 ./usr/bin/chsh -> chsh.shadow
 -rwxr-xr-x root       root            21244 ./usr/bin/dirname.coreutils  
 -rwxr-xr-x root       root           363920 ./usr/bin/gawk-4.0.0  
 lrwxrwxrwx root       root               15 ./usr/bin/paste -> paste.coreutils
--rwxr-xr-x root       root           215784 ./usr/bin/arm-angstrom-linux-gnueabi-g++  
+-rwxr-xr-x root       root           215788 ./usr/bin/arm-angstrom-linux-gnueabi-g++  
 -rwxr-xr-x root       root           212616 ./usr/bin/arm-angstrom-linux-gnueabi-gcc  
 lrwxrwxrwx root       root               32 ./usr/bin/gprof -> arm-angstrom-linux-gnueabi-gprof
--rwxr-xr-x root       root            16994 ./usr/bin/arm-angstrom-linux-gnueabi-gccbug  
+-rwxr-xr-x root       root            16996 ./usr/bin/arm-angstrom-linux-gnueabi-gccbug  
 -rwxr-xr-x root       root             2080 ./usr/bin/zforce  
 -rwsr-xr-x root       root            23788 ./usr/bin/chsh.shadow  
 lrwxrwxrwx root       root               17 ./usr/bin/logname -> logname.coreutils
@@ -21597,6 +22018,7 @@ drwxr-xr-x root       root             4096 ./lib/udev
 -rwxr-xr-x root       root            27208 ./lib/udev/cdrom_id  
 drwxr-xr-x root       root             4096 ./lib/udev/devices  
 drwxr-xr-x root       root             4096 ./lib/udev/rules.d  
+-rw-r--r-- root       root            24406 ./lib/udev/rules.d/40-usb_modeswitch.rules  
 -rw-r--r-- root       root            11131 ./lib/udev/rules.d/95-keymap.rules  
 -rw-r--r-- root       root             2445 ./lib/udev/rules.d/70-uaccess.rules  
 -rw-r--r-- root       root              259 ./lib/udev/rules.d/97-bluetooth.rules  
@@ -21623,6 +22045,7 @@ drwxr-xr-x root       root             4096 ./lib/udev/rules.d
 -rw-r--r-- root       root             3320 ./lib/udev/rules.d/95-keyboard-force-release.rules  
 -rw-r--r-- root       root             2400 ./lib/udev/rules.d/60-persistent-input.rules  
 -rw-r--r-- root       root             3615 ./lib/udev/rules.d/50-udev-default.rules  
+-rwxr-xr-x root       root             1658 ./lib/udev/usb_modeswitch  
 -rwxr-xr-x root       root             8384 ./lib/udev/hid2hci  
 -rwxr-xr-x root       root              502 ./lib/udev/keyboard-force-release.sh  
 drwxr-xr-x root       root             4096 ./lib/udev/keymaps  
@@ -22574,7 +22997,7 @@ lrwxrwxrwx root       root               12 ./lib/libticw.so -> libticw.so.5
 lrwxrwxrwx root       root               21 ./lib/libpam_misc.so.0 -> libpam_misc.so.0.82.0
 lrwxrwxrwx root       root               17 ./lib/libmount.so.1 -> libmount.so.1.1.0
 lrwxrwxrwx root       root               14 ./lib/libform.so.5 -> libform.so.5.9
--rw-r--r-- root       root            53010 ./lib/libcap.so.2.22  
+-rw-r--r-- root       root            53030 ./lib/libcap.so.2.22  
 lrwxrwxrwx root       root               17 ./lib/libcidn.so.1 -> libcidn-2.12.2.so
 -rw-r--r-- root       root               63 ./lib/libncursesw.so  
 lrwxrwxrwx root       root               19 ./lib/libusb-1.0.so.0 -> libusb-1.0.so.0.0.0
@@ -22812,7 +23235,6 @@ lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel1.targe
 -rw-r--r-- root       root              464 ./lib/systemd/system/systemd-initctl.service  
 -rw-r--r-- root       root              385 ./lib/systemd/system/systemd-tmpfiles-clean.timer  
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel1.target -> rescue.target
--rw-r--r-- root       root              211 ./lib/systemd/system/rsyslog.service  
 lrwxrwxrwx root       root               25 ./lib/systemd/system/dbus-org.freedesktop.hostname1.service -> systemd-hostnamed.service
 lrwxrwxrwx root       root               15 ./lib/systemd/system/runlevel0.target -> poweroff.target
 lrwxrwxrwx root       root               16 ./lib/systemd/system/default.target -> graphical.target
@@ -22833,7 +23255,7 @@ drwxr-xr-x root       root             4096 ./lib/systemd/system-generators
 lrwxrwxrwx root       root               14 ./lib/libpanelw.so -> libpanelw.so.5
 -rwxr-xr-x root       root             7140 ./lib/libnss_mdns.so.2  
 -rwxr-xr-x root       root           122212 ./lib/ld-2.12.2.so  
--rw-r--r-- root       root            48894 ./lib/libattr.so.1.1.0  
+-rw-r--r-- root       root            48902 ./lib/libattr.so.1.1.0  
 lrwxrwxrwx root       root               15 ./lib/libtinfo.so.5 -> libtinfo.so.5.9
 lrwxrwxrwx root       root               16 ./lib/libext2fs.so.2 -> libext2fs.so.2.4
 lrwxrwxrwx root       root               12 ./lib/libform.so -> libform.so.5
@@ -22886,10 +23308,10 @@ lrwxrwxrwx root       root               15 ./lib/libdl.so.2 -> libdl-2.12.2.so
 lrwxrwxrwx root       root               26 ./lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.0
 -rwxr-xr-x root       root             7596 ./lib/libpam_misc.so.0.82.0  
 lrwxrwxrwx root       root               15 ./lib/libcom_err.so -> libcom_err.so.2
--rw-r--r-- 1000       crontab        182393 ./lib/libgcc_s.so.1  
+-rw-r--r-- 1000       crontab        182397 ./lib/libgcc_s.so.1  
 lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3.0
 lrwxrwxrwx root       root               19 ./lib/libresolv.so.2 -> libresolv-2.12.2.so
--rw-r--r-- root       root           175251 ./lib/libacl.so.1.1.0  
+-rw-r--r-- root       root           175355 ./lib/libacl.so.1.1.0  
 drwxr-xr-x root       root             4096 ./run  
 drwxr-xr-x root       root             4096 ./bin  
 lrwxrwxrwx root       root               14 ./bin/ps -> /bin/ps.procps
@@ -22982,7 +23404,7 @@ lrwxrwxrwx root       root                9 ./bin/grep -> grep.grep
 lrwxrwxrwx root       root               12 ./bin/login -> login.shadow
 lrwxrwxrwx root       root               12 ./bin/dd -> dd.coreutils
 -rwxr-xr-x root       root            28048 ./bin/pwd.coreutils  
--r-xr-xr-x root       root             7112 ./bin/bashbug  
+-r-xr-xr-x root       root             7084 ./bin/bashbug  
 -rwxr-xr-x root       root            31212 ./bin/login.shadow  
 lrwxrwxrwx root       root               15 ./bin/chmod -> chmod.coreutils
 -rwxr-xr-x root       root            96352 ./bin/cp.coreutils  
@@ -23188,7 +23610,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root              129 ./var/lib/opkg/info/libpam.list  
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/perl-module-next.list  
 -rw-r--r-- root       root             1546 ./var/lib/opkg/info/binutils.control  
--rw-r--r-- root       root              819 ./var/lib/opkg/info/systemd.control  
+-rw-r--r-- root       root              856 ./var/lib/opkg/info/systemd.control  
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/perl-module-unicode-collate-cjk-jisx0208.list  
 -rw-r--r-- root       root             3217 ./var/lib/opkg/info/kernel-module-tunnel6.control  
 -rw-r--r-- root       root             3290 ./var/lib/opkg/info/kernel-module-adxl34x-i2c.control  
@@ -23438,6 +23860,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/perl-module-pod-escapes.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-qt1010.postinst  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-panel-nec-nl8048hl11-01b.postinst  
+-rw-r--r-- root       root             7232 ./var/lib/opkg/info/tcl.list  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/perl-module-exceptions.list  
 -rw-r--r-- root       root             2377 ./var/lib/opkg/info/perl-module-getopt-std.control  
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/libxcb-randr0.list  
@@ -23468,7 +23891,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-fuse.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-emc1403.postrm  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-eeprom-93cx6.postinst  
--rw-r--r-- root       root              713 ./var/lib/opkg/info/task-basic.control  
+-rw-r--r-- root       root              696 ./var/lib/opkg/info/task-basic.control  
 -rw-r--r-- root       root             3197 ./var/lib/opkg/info/kernel-module-sch-red.control  
 -rw-r--r-- root       root             2383 ./var/lib/opkg/info/perl-module-tap-parser-resultfactory.control  
 -rw-r--r-- root       root               99 ./var/lib/opkg/info/kernel-module-scsi-wait-scan.list  
@@ -24074,7 +24497,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root              366 ./var/lib/opkg/info/sed.control  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/kernel-module-tcp-vegas.list  
 -rw-r--r-- root       root             2446 ./var/lib/opkg/info/perl-module-extutils-mm-vms.control  
--rw-r--r-- root       root            11199 ./var/lib/opkg/info/systemd.list  
+-rw-r--r-- root       root            11205 ./var/lib/opkg/info/systemd.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-gspca-finepix.postinst  
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/libffi5.list  
 -rw-r--r-- root       root              327 ./var/lib/opkg/info/libreadline-dev.list  
@@ -24126,7 +24549,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root            20598 ./var/lib/opkg/info/perl-modules.control  
 -rw-r--r-- root       root             2411 ./var/lib/opkg/info/perl-module-extutils-cbuilder-platform-windows-bcc.control  
 -rw-r--r-- root       root             3258 ./var/lib/opkg/info/kernel-module-serqt-usb2.control  
--rw-r--r-- root       root              447 ./var/lib/opkg/info/rsyslog.control  
 -rw-r--r-- root       root              913 ./var/lib/opkg/info/libavahi-common3.control  
 -rw-r--r-- root       root             3220 ./var/lib/opkg/info/kernel-module-lm95241.control  
 -rw-r--r-- root       root             2403 ./var/lib/opkg/info/perl-module-b-lint.control  
@@ -24134,7 +24556,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root              421 ./var/lib/opkg/info/liblzo2-2.control  
 -rw-r--r-- root       root             3248 ./var/lib/opkg/info/kernel-module-lnbp21.control  
 -rw-r--r-- root       root               32 ./var/lib/opkg/info/perl-module-b-debug.list  
--rw-r--r-- root       root               28 ./var/lib/opkg/info/util-linux-mount.list  
+-rw-r--r-- root       root               22 ./var/lib/opkg/info/util-linux-mount.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-g-ncm.postinst  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-or51211.postinst  
 -rw-r--r-- root       root             2377 ./var/lib/opkg/info/perl-module-pod-simple-pullparser.control  
@@ -24390,7 +24812,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-spca500.postrm  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-dvb-core.postinst  
 -rw-r--r-- root       root             2349 ./var/lib/opkg/info/perl-module-integer.control  
--rw-r--r-- root       root               36 ./var/lib/opkg/info/rsyslog-systemd.list  
 -rw-r--r-- root       root             2359 ./var/lib/opkg/info/perl-module-pluggable.pm.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-dm-zero.postinst  
 -rw-r--r-- root       root             2389 ./var/lib/opkg/info/perl-module-file-spec-os2.control  
@@ -24899,6 +25320,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root              386 ./var/lib/opkg/info/bc.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-async-raid6-recov.postrm  
 -rw-r--r-- root       root             3235 ./var/lib/opkg/info/kernel-module-w83795.control  
+-rw-r--r-- root       root              111 ./var/lib/opkg/info/usb-modeswitch.list  
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/kernel-module-ppp-synctty.list  
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/perl-module-autodie-hints.list  
 -rw-r--r-- root       root              819 ./var/lib/opkg/info/libltdl-dev.control  
@@ -25530,7 +25952,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root             3226 ./var/lib/opkg/info/kernel-module-smsc47b397.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nbd.postrm  
 -rw-r--r-- root       root             2357 ./var/lib/opkg/info/perl-module-anydbm-file.control  
--rw-r--r-- root       root              925 ./var/lib/opkg/info/rsyslog.list  
 -rw-r--r-- root       root              690 ./var/lib/opkg/info/udev-systemd.control  
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/perl-module-digest-file.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-snd-seq-midi.postinst  
@@ -25971,7 +26392,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/kernel-module-adm1031.list  
 -rw-r--r-- root       root             3269 ./var/lib/opkg/info/kernel-module-rfcomm.control  
 -rw-r--r-- root       root               65 ./var/lib/opkg/info/kernel-module-xc5000.list  
--rw-r--r-- root       root               18 ./var/lib/opkg/info/rsyslog.conffiles  
 -rw-r--r-- root       root              588 ./var/lib/opkg/info/libtasn1-dev.control  
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/kernel-module-irtty-sir.list  
 -rw-r--r-- root       root             3203 ./var/lib/opkg/info/kernel-module-sch-multiq.control  
@@ -26281,7 +26701,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root             2422 ./var/lib/opkg/info/perl-module-errno.control  
 -rw-r--r-- root       root             2347 ./var/lib/opkg/info/perl-module-locale.control  
 -rw-r--r-- root       root              976 ./var/lib/opkg/info/python-datetime.control  
--rwxr-xr-x root       root               44 ./var/lib/opkg/info/rsyslog-systemd.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-libertas-sdio.postrm  
 -rw-r--r-- root       root              267 ./var/lib/opkg/info/libice-dev.list  
 -rw-r--r-- root       root              613 ./var/lib/opkg/info/gtk-doc-dev.control  
@@ -26565,6 +26984,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-zl10036.postinst  
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/usbutils-ids.list  
 -rw-r--r-- root       root             2385 ./var/lib/opkg/info/perl-module-unicode-collate-locale-wo.control  
+-rw-r--r-- root       root              732 ./var/lib/opkg/info/openssh-sftp-server.control  
 -rw-r--r-- root       root             2366 ./var/lib/opkg/info/perl-module-unicode.control  
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/perl-module-memoize-ndbm-file.list  
 -rw-r--r-- root       root             3222 ./var/lib/opkg/info/kernel-module-ipv6.control  
@@ -26677,7 +27097,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root               31 ./var/lib/opkg/info/perl-module-io-dir.list  
 -rw-r--r-- root       root               61 ./var/lib/opkg/info/kernel-module-safe-serial.list  
 -rw-r--r-- root       root              615 ./var/lib/opkg/info/libxcb-shape0.control  
--rwxr-xr-x root       root              165 ./var/lib/opkg/info/rsyslog-systemd.postinst  
 -rw-r--r-- root       root             3267 ./var/lib/opkg/info/kernel-module-gspca-gl860.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-smm665.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-rndis-host.postrm  
@@ -26844,6 +27263,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-mt352.postinst  
 -rw-r--r-- root       root              734 ./var/lib/opkg/info/ncurses-terminfo-base.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-drxk.postrm  
+-rw-r--r-- root       root              632 ./var/lib/opkg/info/usb-modeswitch.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-serqt-usb2.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-dm-log-userspace.postrm  
 -rw-r--r-- root       root              593 ./var/lib/opkg/info/tzdata.control  
@@ -26932,6 +27352,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root             2391 ./var/lib/opkg/info/perl-module-unicode-collate-cjk-jisx0208.control  
 -rw-r--r-- root       root              671 ./var/lib/opkg/info/attr-dev.control  
 -rw-r--r-- root       root               24 ./var/lib/opkg/info/util-linux-swaponoff.list  
+-rw-r--r-- root       root              422 ./var/lib/opkg/info/usb-modeswitch-data.control  
 -rw-r--r-- root       root             2357 ./var/lib/opkg/info/perl-module-net-hostent.control  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-twl6040-vibra.postrm  
 -rw-r--r-- root       root              102 ./var/lib/opkg/info/perl-module-math-bigint-calc.list  
@@ -27190,7 +27611,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-rotary-encoder.postrm  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-lp.postrm  
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/kernel-module-ipcomp.list  
--rwxr-xr-x root       root               69 ./var/lib/opkg/info/rsyslog-systemd.prerm  
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/kernel-module-ads7871.list  
 -rw-r--r-- root       root               30 ./var/lib/opkg/info/libopencv-imgproc-dev.list  
 -rw-r--r-- root       root              113 ./var/lib/opkg/info/perl-module-encode-kr.list  
@@ -27251,6 +27671,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-quota-tree.postinst  
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/kernel-module-g-zero.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-dm-crypt.postinst  
+-rw-r--r-- root       root              447 ./var/lib/opkg/info/tcl.control  
 -rw-r--r-- root       root             2395 ./var/lib/opkg/info/perl-module-unicode-collate-locale-zh-big5.control  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/kernel-module-raid456.list  
 -rw-r--r-- root       root             3229 ./var/lib/opkg/info/kernel-module-cytherm.control  
@@ -27363,6 +27784,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root               32 ./var/lib/opkg/info/perl-module-version.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-gspca-stv0680.postrm  
 -rw-r--r-- root       root               66 ./var/lib/opkg/info/kernel-module-itd1000.list  
+-rw-r--r-- root       root             8231 ./var/lib/opkg/info/usb-modeswitch-data.list  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/kernel-module-ds620.list  
 -rw-r--r-- root       root             3213 ./var/lib/opkg/info/kernel-module-cm109.control  
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/perl-module-pod-functions.list  
@@ -27649,7 +28071,6 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-tda8261.postrm  
 -rw-r--r-- root       root             3277 ./var/lib/opkg/info/kernel-module-tuner-simple.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-tcp-lp.postinst  
--rw-r--r-- root       root              438 ./var/lib/opkg/info/rsyslog-systemd.control  
 -rw-r--r-- root       root             2411 ./var/lib/opkg/info/perl-module-extutils-constant-xs.control  
 -rw-r--r-- root       root               72 ./var/lib/opkg/info/perl-module-unicode-normalize.list  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-ltc4261.postinst  
@@ -27877,6 +28298,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root             2387 ./var/lib/opkg/info/perl-module-unicode-collate-locale-fil.control  
 -rwxr-xr-x root       root              220 ./var/lib/opkg/info/kernel-module-af9013.postinst  
 -rw-r--r-- root       root              629 ./var/lib/opkg/info/libpam-runtime.control  
+-rw-r--r-- root       root               25 ./var/lib/opkg/info/openssh-sftp-server.list  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-pn544.postrm  
 -rw-r--r-- root       root              616 ./var/lib/opkg/info/libxcb-xprint0.control  
 -rw-r--r-- root       root               91 ./var/lib/opkg/info/perl-module-tap-parser-yamlish-reader.list  
@@ -27936,7 +28358,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root               69 ./var/lib/opkg/info/kernel-module-gspca-sq905c.list  
 -rw-r--r-- root       root              879 ./var/lib/opkg/info/util-linux-fsck.control  
 -rw-r--r-- root       root             3268 ./var/lib/opkg/info/kernel-module-gspca-sn9c20x.control  
--rw-r--r-- root       root           434261 ./var/lib/opkg/status  
+-rw-r--r-- root       root           434622 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/expand  
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/ps  
