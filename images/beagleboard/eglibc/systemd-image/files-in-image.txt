@@ -5,7 +5,7 @@ lrwxrwxrwx root       root               14 ./bin/adduser -> /bin/tinylogin
 lrwxrwxrwx root       root                7 ./bin/ash -> busybox
 -rwxr-xr-x root       root           797492 ./bin/bash  
 -r-xr-xr-x root       root             7084 ./bin/bashbug  
--rwsr-xr-x root       root           516088 ./bin/busybox  
+-rwsr-xr-x root       root           516612 ./bin/busybox  
 lrwxrwxrwx root       root                7 ./bin/cat -> busybox
 lrwxrwxrwx root       root                7 ./bin/chattr -> busybox
 lrwxrwxrwx root       root                7 ./bin/chgrp -> busybox
@@ -81,7 +81,7 @@ lrwxrwxrwx root       root                7 ./bin/watch -> busybox
 lrwxrwxrwx root       root                7 ./bin/zcat -> busybox
 drwxr-xr-x root       root             4096 ./boot  
 lrwxrwxrwx root       root               14 ./boot/uImage -> uImage-3.0.17+
--rw-r--r-- root       root          3373136 ./boot/uImage-3.0.17+  
+-rw-r--r-- root       root          3373140 ./boot/uImage-3.0.17+  
 drwxr-xr-x root       root             4096 ./dev  
 crw-rw---- root       plugdev             0 ./dev/apm_bios  
 crw-rw--w- root       tty                 0 ./dev/console  
@@ -162,7 +162,7 @@ crw-r----- root       root                0 ./dev/ttySA0
 crw-r--r-- root       root                0 ./dev/urandom  
 crw-r--r-- root       root                0 ./dev/zero  
 drwxr-xr-x root       root             4096 ./etc  
--rw-r--r-- root       root             1098 ./etc/angstrom-build-info  
+-rw-r--r-- root       root             1106 ./etc/angstrom-build-info  
 -rw-r--r-- root       root              167 ./etc/angstrom-version  
 drwxr-xr-x root       root             4096 ./etc/avahi  
 -rw-r--r-- root       root             1749 ./etc/avahi/avahi-daemon.conf  
@@ -181,7 +181,7 @@ drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root             2507 ./etc/bluetooth/main.conf  
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf  
 -rw-r--r-- root       root              297 ./etc/bluetooth/rfcomm.conf  
--rw-r--r-- root       root             2094 ./etc/busybox.links  
+-rw-r--r-- root       root             2109 ./etc/busybox.links  
 drwxr-xr-x root       root             4096 ./etc/dbus-1  
 -rw-r--r-- root       root             2771 ./etc/dbus-1/session.conf  
 drwxr-xr-x root       root             4096 ./etc/dbus-1/session.d  
@@ -576,6 +576,7 @@ lrwxrwxrwx root       root               15 ./lib/systemd/system/basic.target.wa
 lrwxrwxrwx root       root               31 ./lib/systemd/system/basic.target.wants/systemd-tmpfiles-clean.timer -> ../systemd-tmpfiles-clean.timer
 lrwxrwxrwx root       root               23 ./lib/systemd/system/basic.target.wants/udev-trigger.service -> ../udev-trigger.service
 lrwxrwxrwx root       root               15 ./lib/systemd/system/basic.target.wants/udev.service -> ../udev.service
+-rw-r--r-- root       root              189 ./lib/systemd/system/bluetooth.service  
 -rw-r--r-- root       root              371 ./lib/systemd/system/bluetooth.target  
 lrwxrwxrwx root       root                9 ./lib/systemd/system/busybox-udhcpc.service -> /dev/null
 -rw-r--r-- root       root              169 ./lib/systemd/system/connman.service  
@@ -1019,6 +1020,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/env -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/expr -> ../../bin/busybox
 -rwxr-xr-x root       root            13336 ./usr/bin/faillog  
 lrwxrwxrwx root       root               17 ./usr/bin/find -> ../../bin/busybox
+lrwxrwxrwx root       root               17 ./usr/bin/flock -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/free -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/fuser -> ../../bin/busybox
 -rwxr-xr-x root       root           117988 ./usr/bin/gatttool  
@@ -1136,7 +1138,7 @@ lrwxrwxrwx root       root               16 ./usr/lib/libffi.so.5 -> libffi.so.5
 lrwxrwxrwx root       root               19 ./usr/lib/libgcrypt.so.11 -> libgcrypt.so.11.7.0
 -rwxr-xr-x root       root           467892 ./usr/lib/libgcrypt.so.11.7.0  
 lrwxrwxrwx root       root               22 ./usr/lib/libgio-2.0.so.0 -> libgio-2.0.so.0.3000.2
--rwxr-xr-x root       root           812740 ./usr/lib/libgio-2.0.so.0.3000.2  
+-rwxr-xr-x root       root           812780 ./usr/lib/libgio-2.0.so.0.3000.2  
 lrwxrwxrwx root       root               23 ./usr/lib/libglib-2.0.so.0 -> libglib-2.0.so.0.3000.2
 -rwxr-xr-x root       root           908544 ./usr/lib/libglib-2.0.so.0.3000.2  
 lrwxrwxrwx root       root               26 ./usr/lib/libgmodule-2.0.so.0 -> libgmodule-2.0.so.0.3000.2
@@ -1173,8 +1175,8 @@ lrwxrwxrwx root       root               18 ./usr/lib/libtasn1.so.3 -> libtasn1.
 -rwxr-xr-x root       root            52784 ./usr/lib/libtasn1.so.3.1.13  
 lrwxrwxrwx root       root               19 ./usr/lib/libxtables.so.7 -> libxtables.so.7.0.0
 -rwxr-xr-x root       root            35664 ./usr/lib/libxtables.so.7.0.0  
-lrwxrwxrwx root       root               13 ./usr/lib/libz.so.1 -> libz.so.1.2.5
--rwxr-xr-x root       root            77604 ./usr/lib/libz.so.1.2.5  
+lrwxrwxrwx root       root               13 ./usr/lib/libz.so.1 -> libz.so.1.2.6
+-rwxr-xr-x root       root            77508 ./usr/lib/libz.so.1.2.6  
 drwxr-xr-x root       root             4096 ./usr/lib/locale  
 drwxr-xr-x root       root             4096 ./usr/lib/locale/en_US  
 -rw-r--r-- root       root              155 ./usr/lib/locale/en_US/LC_ADDRESS  
@@ -1340,7 +1342,7 @@ lrwxrwxrwx root       root               13 ./usr/sbin/iptables-save -> xtables-
 -rwxr-xr-x root       root            85456 ./usr/sbin/iw  
 lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/busybox
 -rwxr-xr-x root       root             8500 ./usr/sbin/logoutd  
--rwxr-xr-x root       root            85476 ./usr/sbin/lsusb  
+-rwxr-xr-x root       root            85520 ./usr/sbin/lsusb  
 -rwxr-xr-x root       root            43644 ./usr/sbin/newusers  
 -rwxr-xr-x root       root             3120 ./usr/sbin/nologin  
 -rwxr-xr-x root       root            27072 ./usr/sbin/pwck  
@@ -4236,6 +4238,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               30 ./var/lib/opkg/alternatives/fdisk  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/fgrep  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/find  
+-rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/flock  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/free  
 -rw-r--r-- root       root               49 ./var/lib/opkg/alternatives/fsck  
 -rw-r--r-- root       root               61 ./var/lib/opkg/alternatives/fsck.minix  
@@ -4404,7 +4407,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rwxr-xr-x root       root              210 ./var/lib/opkg/info/bash.postinst  
 -rwxr-xr-x root       root               52 ./var/lib/opkg/info/bash.postrm  
 -rw-r--r-- root       root              654 ./var/lib/opkg/info/bluez4.control  
--rw-r--r-- root       root              558 ./var/lib/opkg/info/bluez4.list  
+-rw-r--r-- root       root              596 ./var/lib/opkg/info/bluez4.list  
 -rw-r--r-- root       root               33 ./var/lib/opkg/info/busybox-syslog.conffiles  
 -rw-r--r-- root       root             1579 ./var/lib/opkg/info/busybox-syslog.control  
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/busybox-syslog.list  
@@ -4613,7 +4616,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/libuuid1.list  
 -rw-r--r-- root       root             1093 ./var/lib/opkg/info/libwrap0.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/libwrap0.list  
--rw-r--r-- root       root              510 ./var/lib/opkg/info/libz1.control  
+-rw-r--r-- root       root              435 ./var/lib/opkg/info/libz1.control  
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/libz1.list  
 -rw-r--r-- root       root              501 ./var/lib/opkg/info/locale-base-en-us.control  
 -rw-r--r-- root       root                2 ./var/lib/opkg/info/locale-base-en-us.list  
