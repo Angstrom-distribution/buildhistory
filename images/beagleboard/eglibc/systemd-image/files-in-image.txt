@@ -4,7 +4,7 @@ lrwxrwxrwx root       root               14 ./bin/addgroup -> /bin/tinylogin
 lrwxrwxrwx root       root               14 ./bin/adduser -> /bin/tinylogin
 lrwxrwxrwx root       root                7 ./bin/ash -> busybox
 -rwxr-xr-x root       root           797492 ./bin/bash  
--r-xr-xr-x root       root             7095 ./bin/bashbug  
+-r-xr-xr-x root       root             7096 ./bin/bashbug  
 -rwsr-xr-x root       root           519160 ./bin/busybox  
 lrwxrwxrwx root       root                7 ./bin/cat -> busybox
 lrwxrwxrwx root       root                7 ./bin/chattr -> busybox
@@ -79,8 +79,8 @@ lrwxrwxrwx root       root                7 ./bin/vi -> busybox
 lrwxrwxrwx root       root                7 ./bin/watch -> busybox
 lrwxrwxrwx root       root                7 ./bin/zcat -> busybox
 drwxr-xr-x root       root             4096 ./boot  
-lrwxrwxrwx root       root               14 ./boot/uImage -> uImage-3.0.23+
--rw-r--r-- root       1000          3375400 ./boot/uImage-3.0.23+  
+lrwxrwxrwx root       root               14 ./boot/uImage -> uImage-3.0.25+
+-rw-r--r-- root       root          3376388 ./boot/uImage-3.0.25+  
 drwxr-xr-x root       root             4096 ./dev  
 crw-rw---- root       plugdev             0 ./dev/apm_bios  
 crw-rw--w- root       tty                 0 ./dev/console  
@@ -161,7 +161,7 @@ crw-r----- root       root                0 ./dev/ttySA0
 crw-r--r-- root       root                0 ./dev/urandom  
 crw-r--r-- root       root                0 ./dev/zero  
 drwxr-xr-x root       root             4096 ./etc  
--rw-r--r-- root       root             1047 ./etc/angstrom-build-info  
+-rw-r--r-- root       root             1134 ./etc/angstrom-build-info  
 -rw-r--r-- root       root              157 ./etc/angstrom-version  
 drwxr-xr-x root       root             4096 ./etc/avahi  
 -rw-r--r-- root       root             1749 ./etc/avahi/avahi-daemon.conf  
@@ -235,8 +235,9 @@ drwxr-xr-x root       root             4096 ./etc/libnl
 -rw-r--r-- root       root              118 ./etc/localtime  
 -rw-r--r-- root       root            10612 ./etc/login.defs  
 drwxr-xr-x root       root             4096 ./etc/modules-load.d  
-drwxr-xr-x root       1000             4096 ./etc/modutils  
--rw-r--r-- root       1000                5 ./etc/modutils/ipv6  
+-rw-r--r-- root       root                5 ./etc/modules-load.d/ipv6.conf  
+drwxr-xr-x root       root             4096 ./etc/modutils  
+-rw-r--r-- root       root                5 ./etc/modutils/ipv6  
 -rw-r--r-- root       root                0 ./etc/motd  
 lrwxrwxrwx root       root               12 ./etc/mtab -> /proc/mounts
 drwxr-xr-x root       root             4096 ./etc/network  
@@ -355,12 +356,12 @@ drwxr-xr-x root       root             4096 ./etc/skel
 drwxr-xr-x root       root             4096 ./etc/sysctl.d  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
-drwxr-xr-x root       1000             4096 ./etc/systemd  
-drwxr-xr-x root       1000             4096 ./etc/systemd/system  
+drwxr-xr-x root       root             4096 ./etc/systemd  
+drwxr-xr-x root       root             4096 ./etc/systemd/system  
 -rw-r--r-- root       root              636 ./etc/systemd/system.conf  
 drwxr-xr-x root       root             4096 ./etc/systemd/system/basic.target.wants  
 lrwxrwxrwx root       root               37 ./etc/systemd/system/basic.target.wants/timestamp.service -> /lib/systemd/system/timestamp.service
-drwxr-xr-x root       1000             4096 ./etc/systemd/system/getty.target.wants  
+drwxr-xr-x root       root             4096 ./etc/systemd/system/getty.target.wants  
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyO2.service -> /lib/systemd/system/serial-getty@.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants  
@@ -420,17 +421,17 @@ lrwxrwxrwx root       root               12 ./lib/ld-linux.so.3 -> ld-2.12.2.so
 -rwxr-xr-x root       root             5532 ./lib/libBrokenLocale-2.12.2.so  
 lrwxrwxrwx root       root               25 ./lib/libBrokenLocale.so.1 -> libBrokenLocale-2.12.2.so
 lrwxrwxrwx root       root               15 ./lib/libacl.so.1 -> libacl.so.1.1.0
--rw-r--r-- root       root           177123 ./lib/libacl.so.1.1.0  
+-rw-r--r-- root       root           177227 ./lib/libacl.so.1.1.0  
 -rwxr-xr-x root       root             9852 ./lib/libanl-2.12.2.so  
 lrwxrwxrwx root       root               16 ./lib/libanl.so.1 -> libanl-2.12.2.so
 lrwxrwxrwx root       root               16 ./lib/libattr.so.1 -> libattr.so.1.1.0
--rw-r--r-- root       root            49050 ./lib/libattr.so.1.1.0  
+-rw-r--r-- root       root            49058 ./lib/libattr.so.1.1.0  
 lrwxrwxrwx root       root               17 ./lib/libblkid.so.1 -> libblkid.so.1.1.0
 -rwxr-xr-x root       root           134708 ./lib/libblkid.so.1.1.0  
 -rwxr-xr-x root       root          1184972 ./lib/libc-2.12.2.so  
 lrwxrwxrwx root       root               14 ./lib/libc.so.6 -> libc-2.12.2.so
 lrwxrwxrwx root       root               14 ./lib/libcap.so.2 -> libcap.so.2.22
--rw-r--r-- root       root            53490 ./lib/libcap.so.2.22  
+-rw-r--r-- root       root            53510 ./lib/libcap.so.2.22  
 lrwxrwxrwx root       root               17 ./lib/libcom_err.so.2 -> libcom_err.so.2.1
 -rwxr-xr-x root       root             8520 ./lib/libcom_err.so.2.1  
 -rwxr-xr-x root       root            30172 ./lib/libcrypt-2.12.2.so  
@@ -441,7 +442,7 @@ lrwxrwxrwx root       root               13 ./lib/libe2p.so.2 -> libe2p.so.2.3
 -rwxr-xr-x root       root            22896 ./lib/libe2p.so.2.3  
 lrwxrwxrwx root       root               16 ./lib/libext2fs.so.2 -> libext2fs.so.2.4
 -rwxr-xr-x root       root           217380 ./lib/libext2fs.so.2.4  
--rw-r--r-- 1000       1000           184509 ./lib/libgcc_s.so.1  
+-rw-r--r-- root       1000           184509 ./lib/libgcc_s.so.1  
 -rwxr-xr-x root       root           427528 ./lib/libm-2.12.2.so  
 lrwxrwxrwx root       root               14 ./lib/libm.so.6 -> libm-2.12.2.so
 lrwxrwxrwx root       root               17 ./lib/libncurses.so.5 -> libncurses.so.5.9
@@ -498,45 +499,45 @@ lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3
 -rwxr-xr-x root       root            14196 ./lib/libuuid.so.1.3.0  
 lrwxrwxrwx root       root               16 ./lib/libwrap.so.0 -> libwrap.so.0.7.6
 -rwxr-xr-x root       root            27088 ./lib/libwrap.so.0.7.6  
-drwxr-xr-x root       1000             4096 ./lib/modules  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/drivers  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/drivers/usb  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/drivers/usb/gadget  
--rw-r--r-- root       1000            53602 ./lib/modules/3.0.23+/kernel/drivers/usb/gadget/g_ether.ko  
--rw-r--r-- root       1000            46979 ./lib/modules/3.0.23+/kernel/drivers/usb/gadget/g_mass_storage.ko  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/net  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/net/ipv4  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter  
--rw-r--r-- root       1000            19314 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter/ip_tables.ko  
--rw-r--r-- root       1000             6014 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter/ipt_MASQUERADE.ko  
--rw-r--r-- root       1000             6082 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter/iptable_filter.ko  
--rw-r--r-- root       1000             9931 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter/iptable_nat.ko  
--rw-r--r-- root       1000            23973 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko  
--rw-r--r-- root       1000             5004 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko  
--rw-r--r-- root       1000            26630 ./lib/modules/3.0.23+/kernel/net/ipv4/netfilter/nf_nat.ko  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/net/ipv6  
--rw-r--r-- root       1000           349657 ./lib/modules/3.0.23+/kernel/net/ipv6/ipv6.ko  
-drwxr-xr-x root       1000             4096 ./lib/modules/3.0.23+/kernel/net/netfilter  
--rw-r--r-- root       1000            96894 ./lib/modules/3.0.23+/kernel/net/netfilter/nf_conntrack.ko  
--rw-r--r-- root       1000            27112 ./lib/modules/3.0.23+/kernel/net/netfilter/x_tables.ko  
--rw-r--r-- root       root              192 ./lib/modules/3.0.23+/modules.alias  
--rw-r--r-- root       root              292 ./lib/modules/3.0.23+/modules.alias.bin  
--rw-r--r-- root       root               69 ./lib/modules/3.0.23+/modules.ccwmap  
--rw-r--r-- root       root             1229 ./lib/modules/3.0.23+/modules.dep  
--rw-r--r-- root       root             1749 ./lib/modules/3.0.23+/modules.dep.bin  
--rw-r--r-- root       root               52 ./lib/modules/3.0.23+/modules.devname  
--rw-r--r-- root       root               73 ./lib/modules/3.0.23+/modules.ieee1394map  
--rw-r--r-- root       root              141 ./lib/modules/3.0.23+/modules.inputmap  
--rw-r--r-- root       root               81 ./lib/modules/3.0.23+/modules.isapnpmap  
--rw-r--r-- root       root               74 ./lib/modules/3.0.23+/modules.ofmap  
--rw-r--r-- root       root               99 ./lib/modules/3.0.23+/modules.pcimap  
--rw-r--r-- root       root               43 ./lib/modules/3.0.23+/modules.seriomap  
--rw-r--r-- root       root              131 ./lib/modules/3.0.23+/modules.softdep  
--rw-r--r-- root       root             8035 ./lib/modules/3.0.23+/modules.symbols  
--rw-r--r-- root       root             9889 ./lib/modules/3.0.23+/modules.symbols.bin  
--rw-r--r-- root       root              189 ./lib/modules/3.0.23+/modules.usbmap  
+drwxr-xr-x root       root             4096 ./lib/modules  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/drivers  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/drivers/usb  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/drivers/usb/gadget  
+-rw-r--r-- root       root            53602 ./lib/modules/3.0.25+/kernel/drivers/usb/gadget/g_ether.ko  
+-rw-r--r-- root       root            46979 ./lib/modules/3.0.25+/kernel/drivers/usb/gadget/g_mass_storage.ko  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/net  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/net/ipv4  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter  
+-rw-r--r-- root       root            19314 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter/ip_tables.ko  
+-rw-r--r-- root       root             6014 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter/ipt_MASQUERADE.ko  
+-rw-r--r-- root       root             6082 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter/iptable_filter.ko  
+-rw-r--r-- root       root             9931 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter/iptable_nat.ko  
+-rw-r--r-- root       root            23973 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko  
+-rw-r--r-- root       root             5004 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko  
+-rw-r--r-- root       root            26630 ./lib/modules/3.0.25+/kernel/net/ipv4/netfilter/nf_nat.ko  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/net/ipv6  
+-rw-r--r-- root       root           349721 ./lib/modules/3.0.25+/kernel/net/ipv6/ipv6.ko  
+drwxr-xr-x root       root             4096 ./lib/modules/3.0.25+/kernel/net/netfilter  
+-rw-r--r-- root       root            96894 ./lib/modules/3.0.25+/kernel/net/netfilter/nf_conntrack.ko  
+-rw-r--r-- root       root            27112 ./lib/modules/3.0.25+/kernel/net/netfilter/x_tables.ko  
+-rw-r--r-- root       root              192 ./lib/modules/3.0.25+/modules.alias  
+-rw-r--r-- root       root              292 ./lib/modules/3.0.25+/modules.alias.bin  
+-rw-r--r-- root       root               69 ./lib/modules/3.0.25+/modules.ccwmap  
+-rw-r--r-- root       root             1229 ./lib/modules/3.0.25+/modules.dep  
+-rw-r--r-- root       root             1749 ./lib/modules/3.0.25+/modules.dep.bin  
+-rw-r--r-- root       root               52 ./lib/modules/3.0.25+/modules.devname  
+-rw-r--r-- root       root               73 ./lib/modules/3.0.25+/modules.ieee1394map  
+-rw-r--r-- root       root              141 ./lib/modules/3.0.25+/modules.inputmap  
+-rw-r--r-- root       root               81 ./lib/modules/3.0.25+/modules.isapnpmap  
+-rw-r--r-- root       root               74 ./lib/modules/3.0.25+/modules.ofmap  
+-rw-r--r-- root       root               99 ./lib/modules/3.0.25+/modules.pcimap  
+-rw-r--r-- root       root               43 ./lib/modules/3.0.25+/modules.seriomap  
+-rw-r--r-- root       root              131 ./lib/modules/3.0.25+/modules.softdep  
+-rw-r--r-- root       root             8035 ./lib/modules/3.0.25+/modules.symbols  
+-rw-r--r-- root       root             9889 ./lib/modules/3.0.25+/modules.symbols.bin  
+-rw-r--r-- root       root              189 ./lib/modules/3.0.25+/modules.usbmap  
 drwxr-xr-x root       root             4096 ./lib/security  
 -rwxr-xr-x root       root             5652 ./lib/security/pam_cap.so  
 -rwxr-xr-x root       root             2536 ./lib/security/pam_deny.so  
@@ -663,7 +664,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/runlevel5.targe
 drwxr-xr-x root       root             4096 ./lib/systemd/system/runlevel5.target.wants  
 lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel5.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.target -> reboot.target
--rwxr-xr-x root       1000              853 ./lib/systemd/system/serial-getty@.service  
+-rwxr-xr-x root       root              918 ./lib/systemd/system/serial-getty@.service  
 -rw-r--r-- root       root              394 ./lib/systemd/system/shutdown.target  
 drwxr-xr-x root       root             4096 ./lib/systemd/system/shutdown.target.wants  
 lrwxrwxrwx root       root               35 ./lib/systemd/system/shutdown.target.wants/systemd-random-seed-save.service -> ../systemd-random-seed-save.service
@@ -1108,7 +1109,6 @@ lrwxrwxrwx root       root               17 ./usr/bin/whoami -> ../../bin/busybo
 lrwxrwxrwx root       root               17 ./usr/bin/xargs -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/yes -> ../../bin/busybox
 drwxr-xr-x root       root             4096 ./usr/games  
-drwxr-xr-x root       root             4096 ./usr/include  
 drwxr-xr-x root       root             4096 ./usr/lib  
 drwxr-xr-x root       root             4096 ./usr/lib/binfmt.d  
 drwxr-xr-x root       root             4096 ./usr/lib/bluetooth  
@@ -4097,7 +4097,7 @@ drwxr-xr-x root       root             4096 ./usr/share/terminfo/z
 -rw-r--r-- root       root              535 ./usr/share/terminfo/z/ztx11  
 drwxr-xr-x root       root             4096 ./usr/share/udhcpc  
 -rwxr-xr-x root       root               49 ./usr/share/udhcpc/default.script  
--rw-r--r-- root       root           124101 ./usr/share/usb.ids.gz  
+-rw-r--r-- root       root           124206 ./usr/share/usb.ids.gz  
 drwxr-xr-x root       root             4096 ./usr/share/zoneinfo  
 drwxr-xr-x root       root             4096 ./usr/share/zoneinfo/Africa  
 -rw-r--r-- root       root             1901 ./usr/share/zoneinfo/Africa/Cairo  
@@ -4411,7 +4411,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root              253 ./var/lib/opkg/info/avahi-utils.list  
 -rw-rw-r-- root       root               25 ./var/lib/opkg/info/base-files.conffiles  
 -rw-rw-r-- root       root              672 ./var/lib/opkg/info/base-files.control  
--rw-r--r-- root       root              765 ./var/lib/opkg/info/base-files.list  
+-rw-r--r-- root       root              751 ./var/lib/opkg/info/base-files.list  
 -rw-rw-r-- root       root              583 ./var/lib/opkg/info/base-passwd.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/base-passwd.list  
 -rwxr-xr-x root       root             1307 ./var/lib/opkg/info/base-passwd.preinst  
@@ -4488,13 +4488,13 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root             3563 ./var/lib/opkg/info/iptables.list  
 -rw-rw-r-- root       root              536 ./var/lib/opkg/info/iw.control  
 -rw-r--r-- root       root               13 ./var/lib/opkg/info/iw.list  
--rw-rw-r-- root       root            16465 ./var/lib/opkg/info/kernel-3.0.23+.control  
--rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel-3.0.23+.list  
--rwxr-xr-x root       root               87 ./var/lib/opkg/info/kernel-3.0.23+.postinst  
--rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-3.0.23+.postrm  
--rw-rw-r-- root       root            16441 ./var/lib/opkg/info/kernel-image-3.0.23+.control  
--rw-r--r-- root       root               28 ./var/lib/opkg/info/kernel-image-3.0.23+.list  
--rwxr-xr-x root       root              279 ./var/lib/opkg/info/kernel-image-3.0.23+.postinst  
+-rw-rw-r-- root       root            16465 ./var/lib/opkg/info/kernel-3.0.25+.control  
+-rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel-3.0.25+.list  
+-rwxr-xr-x root       root               87 ./var/lib/opkg/info/kernel-3.0.25+.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-3.0.25+.postrm  
+-rw-rw-r-- root       root            16441 ./var/lib/opkg/info/kernel-image-3.0.25+.control  
+-rw-r--r-- root       root               28 ./var/lib/opkg/info/kernel-image-3.0.25+.list  
+-rwxr-xr-x root       root              279 ./var/lib/opkg/info/kernel-image-3.0.25+.postinst  
 -rw-rw-r-- root       root            16496 ./var/lib/opkg/info/kernel-module-g-ether.control  
 -rw-r--r-- root       root              184 ./var/lib/opkg/info/kernel-module-g-ether.list  
 -rwxr-xr-x root       root              235 ./var/lib/opkg/info/kernel-module-g-ether.postinst  
@@ -4520,7 +4520,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rwxr-xr-x root       root              235 ./var/lib/opkg/info/kernel-module-iptable-nat.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-iptable-nat.postrm  
 -rw-rw-r-- root       root            16498 ./var/lib/opkg/info/kernel-module-ipv6.control  
--rw-r--r-- root       root              215 ./var/lib/opkg/info/kernel-module-ipv6.list  
+-rw-r--r-- root       root              245 ./var/lib/opkg/info/kernel-module-ipv6.list  
 -rwxr-xr-x root       root              286 ./var/lib/opkg/info/kernel-module-ipv6.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ipv6.postrm  
 -rw-rw-r-- root       root            16551 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.control  
