@@ -4,7 +4,7 @@ lrwxrwxrwx root       root               14 ./bin/addgroup -> /bin/tinylogin
 lrwxrwxrwx root       root               14 ./bin/adduser -> /bin/tinylogin
 lrwxrwxrwx root       root                7 ./bin/ash -> busybox
 -rwxr-xr-x root       root           797492 ./bin/bash  
--r-xr-xr-x root       root             7094 ./bin/bashbug  
+-r-xr-xr-x root       root             7095 ./bin/bashbug  
 -rwsr-xr-x root       root           519160 ./bin/busybox  
 lrwxrwxrwx root       root                7 ./bin/cat -> busybox
 lrwxrwxrwx root       root                7 ./bin/chattr -> busybox
@@ -160,7 +160,7 @@ crw-r----- root       root                0 ./dev/ttySA0
 crw-r--r-- root       root                0 ./dev/urandom  
 crw-r--r-- root       root                0 ./dev/zero  
 drwxr-xr-x root       root             4096 ./etc  
--rw-r--r-- root       root             1153 ./etc/angstrom-build-info  
+-rw-r--r-- root       root             1289 ./etc/angstrom-build-info  
 -rw-r--r-- root       root              157 ./etc/angstrom-version  
 drwxr-xr-x root       root             4096 ./etc/avahi  
 -rw-r--r-- root       root             1749 ./etc/avahi/avahi-daemon.conf  
@@ -289,6 +289,7 @@ drwxr-xr-x root       root             4096 ./etc/pam.d
 -rw-r--r-- root       root             2933 ./etc/protocols  
 drwxr-xr-x root       root             4096 ./etc/rc0.d  
 lrwxrwxrwx root       root               18 ./etc/rc0.d/K10dropbear -> ../init.d/dropbear
+lrwxrwxrwx root       root               22 ./etc/rc0.d/K19avahi-daemon -> ../init.d/avahi-daemon
 lrwxrwxrwx root       root               24 ./etc/rc0.d/K20busybox-udhcpc -> ../init.d/busybox-udhcpc
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc0.d/K20syslog -> ../init.d/syslog
@@ -296,6 +297,7 @@ lrwxrwxrwx root       root               17 ./etc/rc0.d/K22connman -> ../init.d/
 lrwxrwxrwx root       root               20 ./etc/rc0.d/K40networking -> ../init.d/networking
 drwxr-xr-x root       root             4096 ./etc/rc1.d  
 lrwxrwxrwx root       root               18 ./etc/rc1.d/K10dropbear -> ../init.d/dropbear
+lrwxrwxrwx root       root               22 ./etc/rc1.d/K19avahi-daemon -> ../init.d/avahi-daemon
 lrwxrwxrwx root       root               24 ./etc/rc1.d/K20busybox-udhcpc -> ../init.d/busybox-udhcpc
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/syslog
@@ -307,24 +309,29 @@ lrwxrwxrwx root       root               17 ./etc/rc2.d/S05connman -> ../init.d/
 lrwxrwxrwx root       root               18 ./etc/rc2.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               24 ./etc/rc2.d/S20busybox-udhcpc -> ../init.d/busybox-udhcpc
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S20syslog -> ../init.d/syslog
+lrwxrwxrwx root       root               22 ./etc/rc2.d/S21avahi-daemon -> ../init.d/avahi-daemon
 drwxr-xr-x root       root             4096 ./etc/rc3.d  
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               17 ./etc/rc3.d/S05connman -> ../init.d/connman
 lrwxrwxrwx root       root               18 ./etc/rc3.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               24 ./etc/rc3.d/S20busybox-udhcpc -> ../init.d/busybox-udhcpc
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S20syslog -> ../init.d/syslog
+lrwxrwxrwx root       root               22 ./etc/rc3.d/S21avahi-daemon -> ../init.d/avahi-daemon
 drwxr-xr-x root       root             4096 ./etc/rc4.d  
 lrwxrwxrwx root       root               18 ./etc/rc4.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               24 ./etc/rc4.d/S20busybox-udhcpc -> ../init.d/busybox-udhcpc
 lrwxrwxrwx root       root               16 ./etc/rc4.d/S20syslog -> ../init.d/syslog
+lrwxrwxrwx root       root               22 ./etc/rc4.d/S21avahi-daemon -> ../init.d/avahi-daemon
 drwxr-xr-x root       root             4096 ./etc/rc5.d  
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               17 ./etc/rc5.d/S05connman -> ../init.d/connman
 lrwxrwxrwx root       root               18 ./etc/rc5.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               24 ./etc/rc5.d/S20busybox-udhcpc -> ../init.d/busybox-udhcpc
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S20syslog -> ../init.d/syslog
+lrwxrwxrwx root       root               22 ./etc/rc5.d/S21avahi-daemon -> ../init.d/avahi-daemon
 drwxr-xr-x root       root             4096 ./etc/rc6.d  
 lrwxrwxrwx root       root               18 ./etc/rc6.d/K10dropbear -> ../init.d/dropbear
+lrwxrwxrwx root       root               22 ./etc/rc6.d/K19avahi-daemon -> ../init.d/avahi-daemon
 lrwxrwxrwx root       root               24 ./etc/rc6.d/K20busybox-udhcpc -> ../init.d/busybox-udhcpc
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               16 ./etc/rc6.d/K20syslog -> ../init.d/syslog
@@ -354,14 +361,14 @@ drwxr-xr-x root       root             4096 ./etc/skel
 drwxr-xr-x root       root             4096 ./etc/sysctl.d  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
-drwxr-xr-x root       1000             4096 ./etc/systemd  
+drwxr-xr-x root       root             4096 ./etc/systemd  
 -rw-r--r-- root       root              620 ./etc/systemd/journald.conf  
 -rw-r--r-- root       root              435 ./etc/systemd/logind.conf  
-drwxr-xr-x root       1000             4096 ./etc/systemd/system  
+drwxr-xr-x root       root             4096 ./etc/systemd/system  
 -rw-r--r-- root       root              636 ./etc/systemd/system.conf  
 drwxr-xr-x root       root             4096 ./etc/systemd/system/basic.target.wants  
 lrwxrwxrwx root       root               37 ./etc/systemd/system/basic.target.wants/timestamp.service -> /lib/systemd/system/timestamp.service
-drwxr-xr-x root       1000             4096 ./etc/systemd/system/getty.target.wants  
+drwxr-xr-x root       root             4096 ./etc/systemd/system/getty.target.wants  
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyO0.service -> /lib/systemd/system/serial-getty@.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants  
@@ -419,17 +426,17 @@ lrwxrwxrwx root       root               12 ./lib/ld-linux.so.3 -> ld-2.12.2.so
 -rwxr-xr-x root       root             5532 ./lib/libBrokenLocale-2.12.2.so  
 lrwxrwxrwx root       root               25 ./lib/libBrokenLocale.so.1 -> libBrokenLocale-2.12.2.so
 lrwxrwxrwx root       root               15 ./lib/libacl.so.1 -> libacl.so.1.1.0
--rw-r--r-- root       root           177123 ./lib/libacl.so.1.1.0  
+-rw-r--r-- root       root           177227 ./lib/libacl.so.1.1.0  
 -rwxr-xr-x root       root             9852 ./lib/libanl-2.12.2.so  
 lrwxrwxrwx root       root               16 ./lib/libanl.so.1 -> libanl-2.12.2.so
 lrwxrwxrwx root       root               16 ./lib/libattr.so.1 -> libattr.so.1.1.0
--rw-r--r-- root       root            49050 ./lib/libattr.so.1.1.0  
+-rw-r--r-- root       root            49058 ./lib/libattr.so.1.1.0  
 lrwxrwxrwx root       root               17 ./lib/libblkid.so.1 -> libblkid.so.1.1.0
 -rwxr-xr-x root       root           134708 ./lib/libblkid.so.1.1.0  
 -rwxr-xr-x root       root          1184972 ./lib/libc-2.12.2.so  
 lrwxrwxrwx root       root               14 ./lib/libc.so.6 -> libc-2.12.2.so
 lrwxrwxrwx root       root               14 ./lib/libcap.so.2 -> libcap.so.2.22
--rw-r--r-- root       root            53490 ./lib/libcap.so.2.22  
+-rw-r--r-- root       root            53510 ./lib/libcap.so.2.22  
 lrwxrwxrwx root       root               17 ./lib/libcom_err.so.2 -> libcom_err.so.2.1
 -rwxr-xr-x root       root             8520 ./lib/libcom_err.so.2.1  
 -rwxr-xr-x root       root            30172 ./lib/libcrypt-2.12.2.so  
@@ -653,7 +660,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/runlevel5.targe
 drwxr-xr-x root       root             4096 ./lib/systemd/system/runlevel5.target.wants  
 lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel5.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.target -> reboot.target
--rwxr-xr-x root       1000              918 ./lib/systemd/system/serial-getty@.service  
+-rwxr-xr-x root       root              918 ./lib/systemd/system/serial-getty@.service  
 -rw-r--r-- root       root              394 ./lib/systemd/system/shutdown.target  
 drwxr-xr-x root       root             4096 ./lib/systemd/system/shutdown.target.wants  
 lrwxrwxrwx root       root               35 ./lib/systemd/system/shutdown.target.wants/systemd-random-seed-save.service -> ../systemd-random-seed-save.service
@@ -4387,7 +4394,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/avahi-daemon.conffiles  
 -rw-r--r-- root       root             1078 ./var/lib/opkg/info/avahi-daemon.control  
 -rw-r--r-- root       root              381 ./var/lib/opkg/info/avahi-daemon.list  
--rwxr-xr-x root       root              245 ./var/lib/opkg/info/avahi-daemon.postinst  
+-rwxr-xr-x root       root              228 ./var/lib/opkg/info/avahi-daemon.postinst  
 -rwxr-xr-x root       root               82 ./var/lib/opkg/info/avahi-daemon.postrm  
 -rwxr-xr-x root       root             3262 ./var/lib/opkg/info/avahi-daemon.preinst  
 -rwxr-xr-x root       root               70 ./var/lib/opkg/info/avahi-daemon.prerm  
