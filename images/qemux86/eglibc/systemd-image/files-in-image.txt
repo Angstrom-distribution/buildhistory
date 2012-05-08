@@ -406,6 +406,7 @@ lrwxrwxrwx root       root               11 ./etc/terminfo/x/xterm -> xterm-colo
 -rw-r--r-- root       root               13 ./etc/timestamp  
 -rw-r--r-- root       root               10 ./etc/timezone  
 drwxr-xr-x root       root             4096 ./etc/tmpfiles.d  
+-rw-r--r-- root       root               40 ./etc/tmpfiles.d/var-run.conf  
 drwxr-xr-x root       root             4096 ./etc/udev  
 drwxr-xr-x root       root             4096 ./etc/udev/rules.d  
 -rw-r--r-- root       root              728 ./etc/udev/rules.d/modprobe.rules  
@@ -426,11 +427,11 @@ lrwxrwxrwx root       root               12 ./lib/ld-linux.so.2 -> ld-2.12.2.so
 -rwxr-xr-x root       root             5488 ./lib/libBrokenLocale-2.12.2.so  
 lrwxrwxrwx root       root               25 ./lib/libBrokenLocale.so.1 -> libBrokenLocale-2.12.2.so
 lrwxrwxrwx root       root               15 ./lib/libacl.so.1 -> libacl.so.1.1.0
--rw-r--r-- root       root           176596 ./lib/libacl.so.1.1.0  
+-rw-r--r-- root       root           176628 ./lib/libacl.so.1.1.0  
 -rwxr-xr-x root       root             9804 ./lib/libanl-2.12.2.so  
 lrwxrwxrwx root       root               16 ./lib/libanl.so.1 -> libanl-2.12.2.so
 lrwxrwxrwx root       root               16 ./lib/libattr.so.1 -> libattr.so.1.1.0
--rw-r--r-- root       root            46954 ./lib/libattr.so.1.1.0  
+-rw-r--r-- root       root            47030 ./lib/libattr.so.1.1.0  
 lrwxrwxrwx root       root               17 ./lib/libblkid.so.1 -> libblkid.so.1.1.0
 -rwxr-xr-x root       root           134788 ./lib/libblkid.so.1.1.0  
 -rwxr-xr-x root       root          1282224 ./lib/libc-2.12.2.so  
@@ -1110,7 +1111,6 @@ lrwxrwxrwx root       root               17 ./usr/bin/whoami -> ../../bin/busybo
 lrwxrwxrwx root       root               17 ./usr/bin/xargs -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/yes -> ../../bin/busybox
 drwxr-xr-x root       root             4096 ./usr/games  
-drwxr-xr-x root       root             4096 ./usr/include  
 drwxr-xr-x root       root             4096 ./usr/lib  
 drwxr-xr-x root       root             4096 ./usr/lib/binfmt.d  
 drwxr-xr-x root       root             4096 ./usr/lib/bluetooth  
@@ -4409,8 +4409,8 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root              928 ./var/lib/opkg/info/avahi-utils.control  
 -rw-r--r-- root       root              253 ./var/lib/opkg/info/avahi-utils.list  
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/base-files.conffiles  
--rw-r--r-- root       root              668 ./var/lib/opkg/info/base-files.control  
--rw-r--r-- root       root              772 ./var/lib/opkg/info/base-files.list  
+-rw-r--r-- root       root              688 ./var/lib/opkg/info/base-files.control  
+-rw-r--r-- root       root              787 ./var/lib/opkg/info/base-files.list  
 -rw-r--r-- root       root              581 ./var/lib/opkg/info/base-passwd.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/base-passwd.list  
 -rwxr-xr-x root       root             1307 ./var/lib/opkg/info/base-passwd.preinst  
@@ -4493,63 +4493,63 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rwxr-xr-x root       root               86 ./var/lib/opkg/info/kernel-3.2.11-yocto-standard.postrm  
 -rw-r--r-- root       root              662 ./var/lib/opkg/info/kernel-module-autofs4.control  
 -rw-r--r-- root       root              257 ./var/lib/opkg/info/kernel-module-autofs4.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-autofs4.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-autofs4.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-autofs4.postrm  
 -rw-r--r-- root       root              709 ./var/lib/opkg/info/kernel-module-cfbcopyarea.control  
 -rw-r--r-- root       root               71 ./var/lib/opkg/info/kernel-module-cfbcopyarea.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-cfbcopyarea.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-cfbcopyarea.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-cfbcopyarea.postrm  
 -rw-r--r-- root       root              715 ./var/lib/opkg/info/kernel-module-cfbfillrect.control  
 -rw-r--r-- root       root               71 ./var/lib/opkg/info/kernel-module-cfbfillrect.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-cfbfillrect.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-cfbfillrect.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-cfbfillrect.postrm  
 -rw-r--r-- root       root              712 ./var/lib/opkg/info/kernel-module-cfbimgblt.control  
 -rw-r--r-- root       root               69 ./var/lib/opkg/info/kernel-module-cfbimgblt.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-cfbimgblt.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-cfbimgblt.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-cfbimgblt.postrm  
 -rw-r--r-- root       root              710 ./var/lib/opkg/info/kernel-module-ip-tables.control  
 -rw-r--r-- root       root               74 ./var/lib/opkg/info/kernel-module-ip-tables.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-ip-tables.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-ip-tables.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ip-tables.postrm  
 -rw-r--r-- root       root              846 ./var/lib/opkg/info/kernel-module-ipt-masquerade.control  
 -rw-r--r-- root       root               79 ./var/lib/opkg/info/kernel-module-ipt-masquerade.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-ipt-masquerade.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-ipt-masquerade.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ipt-masquerade.postrm  
 -rw-r--r-- root       root              748 ./var/lib/opkg/info/kernel-module-iptable-filter.control  
 -rw-r--r-- root       root               79 ./var/lib/opkg/info/kernel-module-iptable-filter.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-iptable-filter.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-iptable-filter.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-iptable-filter.postrm  
 -rw-r--r-- root       root              832 ./var/lib/opkg/info/kernel-module-iptable-nat.control  
 -rw-r--r-- root       root               76 ./var/lib/opkg/info/kernel-module-iptable-nat.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-iptable-nat.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-iptable-nat.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-iptable-nat.postrm  
 -rw-r--r-- root       root              687 ./var/lib/opkg/info/kernel-module-ipv6.control  
 -rw-r--r-- root       root              188 ./var/lib/opkg/info/kernel-module-ipv6.list  
--rwxr-xr-x root       root              305 ./var/lib/opkg/info/kernel-module-ipv6.postinst  
+-rwxr-xr-x root       root              121 ./var/lib/opkg/info/kernel-module-ipv6.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-ipv6.postrm  
 -rw-r--r-- root       root              740 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.control  
 -rw-r--r-- root       root               82 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nf-conntrack-ipv4.postrm  
 -rw-r--r-- root       root              672 ./var/lib/opkg/info/kernel-module-nf-conntrack.control  
 -rw-r--r-- root       root              129 ./var/lib/opkg/info/kernel-module-nf-conntrack.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-nf-conntrack.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-nf-conntrack.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nf-conntrack.postrm  
 -rw-r--r-- root       root              676 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.control  
 -rw-r--r-- root       root              193 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postrm  
 -rw-r--r-- root       root              751 ./var/lib/opkg/info/kernel-module-nf-nat.control  
 -rw-r--r-- root       root               71 ./var/lib/opkg/info/kernel-module-nf-nat.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-nf-nat.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-nf-nat.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nf-nat.postrm  
 -rw-r--r-- root       root              800 ./var/lib/opkg/info/kernel-module-uvesafb.control  
 -rw-r--r-- root       root              175 ./var/lib/opkg/info/kernel-module-uvesafb.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-uvesafb.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-uvesafb.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-uvesafb.postrm  
 -rw-r--r-- root       root              703 ./var/lib/opkg/info/kernel-module-x-tables.control  
 -rw-r--r-- root       root               68 ./var/lib/opkg/info/kernel-module-x-tables.list  
--rwxr-xr-x root       root              254 ./var/lib/opkg/info/kernel-module-x-tables.postinst  
+-rwxr-xr-x root       root               70 ./var/lib/opkg/info/kernel-module-x-tables.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-x-tables.postrm  
 -rw-r--r-- root       root              622 ./var/lib/opkg/info/kernel.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel.list  
