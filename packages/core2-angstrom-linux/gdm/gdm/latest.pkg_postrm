@@ -1,0 +1,9 @@
+    deluser gdm || true
+    delgroup gdm || true
+	sed -i /gdm/d /etc/X11/default-display-manager || true
+update-rc.d $D gdm remove
+for icondir in /usr/share/icons/* ; do
+    if [ -d $icondir ] ; then
+        gtk-update-icon-cache -qt  $icondir
+    fi
+done
