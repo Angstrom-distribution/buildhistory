@@ -1,0 +1,8 @@
+if [ ! -e "$D/lib/modules/3.7.0" ]; then
+	mkdir -p $D/lib/modules/3.7.0
+fi
+if [ -n "$D" ]; then
+	depmod -a -b $D -F /home/koen/v2012.12/build/tmp-angstrom_v2012_12-eglibc/sysroots/beagleboard/usr/src/kernel/System.map-3.7.0 3.7.0
+else
+	depmod -a 3.7.0
+fi
