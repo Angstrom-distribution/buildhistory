@@ -2,6 +2,7 @@ drwxr-xr-x root       root             4096 .
 drwxr-xr-x root       root             4096 ./bin  
 lrwxrwxrwx root       root               14 ./bin/addgroup -> /bin/tinylogin
 lrwxrwxrwx root       root               14 ./bin/adduser -> /bin/tinylogin
+-rwxr-xr-x root       root            15496 ./bin/arping  
 lrwxrwxrwx root       root                7 ./bin/ash -> busybox
 -rwxr-xr-x root       root           914016 ./bin/bash  
 -rwsr-xr-x root       root           564436 ./bin/busybox  
@@ -18,7 +19,10 @@ lrwxrwxrwx root       root               14 ./bin/delgroup -> /bin/tinylogin
 lrwxrwxrwx root       root               14 ./bin/deluser -> /bin/tinylogin
 lrwxrwxrwx root       root                7 ./bin/df -> busybox
 lrwxrwxrwx root       root                7 ./bin/dmesg -> busybox
-lrwxrwxrwx root       root                7 ./bin/dnsdomainname -> busybox
+lrwxrwxrwx root       root               23 ./bin/dnsdomainname -> dnsdomainname.net-tools
+lrwxrwxrwx root       root               18 ./bin/dnsdomainname.net-tools -> hostname.net-tools
+lrwxrwxrwx root       root               20 ./bin/domainname -> domainname.net-tools
+lrwxrwxrwx root       root               18 ./bin/domainname.net-tools -> hostname.net-tools
 lrwxrwxrwx root       root                7 ./bin/dumpkmap -> busybox
 lrwxrwxrwx root       root                7 ./bin/echo -> busybox
 lrwxrwxrwx root       root               10 ./bin/egrep -> egrep.grep
@@ -30,7 +34,8 @@ lrwxrwxrwx root       root                9 ./bin/grep -> grep.grep
 -rwxr-xr-x root       root           195884 ./bin/grep.grep  
 lrwxrwxrwx root       root                7 ./bin/gunzip -> busybox
 lrwxrwxrwx root       root                7 ./bin/gzip -> busybox
-lrwxrwxrwx root       root                7 ./bin/hostname -> busybox
+lrwxrwxrwx root       root               18 ./bin/hostname -> hostname.net-tools
+-rwxr-xr-x root       root            12140 ./bin/hostname.net-tools  
 lrwxrwxrwx root       root               19 ./bin/ip -> ../sbin/ip.iproute2
 -rwxr-xr-x root       root           201072 ./bin/journalctl  
 lrwxrwxrwx root       root                7 ./bin/kill -> busybox
@@ -49,11 +54,16 @@ lrwxrwxrwx root       root                7 ./bin/more -> busybox
 lrwxrwxrwx root       root               16 ./bin/mount -> mount.util-linux
 -rwsr-xr-x root       root            85560 ./bin/mount.util-linux  
 lrwxrwxrwx root       root                7 ./bin/mv -> busybox
-lrwxrwxrwx root       root                7 ./bin/netstat -> busybox
+lrwxrwxrwx root       root               17 ./bin/netstat -> netstat.net-tools
+-rwxr-xr-x root       root           101396 ./bin/netstat.net-tools  
+lrwxrwxrwx root       root               23 ./bin/nisdomainname -> nisdomainname.net-tools
+lrwxrwxrwx root       root               18 ./bin/nisdomainname.net-tools -> hostname.net-tools
 lrwxrwxrwx root       root               14 ./bin/pidof -> pidof.sysvinit
 lrwxrwxrwx root       root               14 ./bin/pidof.sysvinit -> /sbin/killall5
-lrwxrwxrwx root       root                7 ./bin/ping -> busybox
-lrwxrwxrwx root       root                7 ./bin/ping6 -> busybox
+lrwxrwxrwx root       root               12 ./bin/ping -> ping.iputils
+-r-sr-xr-x root       root            32072 ./bin/ping.iputils  
+lrwxrwxrwx root       root               13 ./bin/ping6 -> ping6.iputils
+-r-sr-xr-x root       root           177844 ./bin/ping6.iputils  
 lrwxrwxrwx root       root                7 ./bin/ps -> busybox
 lrwxrwxrwx root       root                7 ./bin/pwd -> busybox
 lrwxrwxrwx root       root                7 ./bin/rm -> busybox
@@ -74,12 +84,17 @@ lrwxrwxrwx root       root                7 ./bin/sync -> busybox
 lrwxrwxrwx root       root                7 ./bin/tar -> busybox
 -rwsr-xr-x root       root            45164 ./bin/tinylogin  
 lrwxrwxrwx root       root                7 ./bin/touch -> busybox
+-rwxr-xr-x root       root            12560 ./bin/tracepath  
+-rwxr-xr-x root       root            13168 ./bin/tracepath6  
+-r-sr-xr-x root       root            15436 ./bin/traceroute6  
 lrwxrwxrwx root       root                7 ./bin/true -> busybox
 lrwxrwxrwx root       root               17 ./bin/umount -> umount.util-linux
 -rwsr-xr-x root       root            65056 ./bin/umount.util-linux  
 lrwxrwxrwx root       root                7 ./bin/uname -> busybox
 lrwxrwxrwx root       root                7 ./bin/usleep -> busybox
 lrwxrwxrwx root       root                7 ./bin/vi -> busybox
+lrwxrwxrwx root       root               22 ./bin/ypdomainname -> ypdomainname.net-tools
+lrwxrwxrwx root       root               18 ./bin/ypdomainname.net-tools -> hostname.net-tools
 lrwxrwxrwx root       root                7 ./bin/zcat -> busybox
 drwxr-xr-x root       root             4096 ./boot  
 lrwxrwxrwx root       root               29 ./boot/bzImage -> bzImage-3.4.11-yocto-standard
@@ -173,7 +188,7 @@ drwxr-xr-x root       root             4096 ./etc/acpi/lib
 drwxr-xr-x root       root             4096 ./etc/acpi/lib/udev  
 drwxr-xr-x root       root             4096 ./etc/acpi/lib/udev/rules.d  
 -rw-r--r-- root       root               76 ./etc/acpi/lib/udev/rules.d/eeepc-acpi-scripts.rules  
--rw-r--r-- root       root             1430 ./etc/angstrom-build-info  
+-rw-r--r-- root       root             1498 ./etc/angstrom-build-info  
 -rw-r--r-- root       root              144 ./etc/angstrom-version  
 drwxr-xr-x root       root             4096 ./etc/avahi  
 -rw-r--r-- root       root             1749 ./etc/avahi/avahi-daemon.conf  
@@ -224,6 +239,7 @@ drwxr-xr-x root       root             4096 ./etc/default/volatiles
 -rw-r--r-- root       root               48 ./etc/default/volatiles/99_dbus  
 -rw-r--r-- root       root               40 ./etc/default/volatiles/99_pam  
 -rw-r--r-- root       root               46 ./etc/default/volatiles/99_wpa_supplicant  
+-rw-r--r-- root       root               90 ./etc/default/volatiles/volatiles.03_radvd  
 drwxr-xr-x root       root             4096 ./etc/depmod.d  
 -rwxr-xr-x root       root             6666 ./etc/device_table  
 drwxr-xr-x root       root             4096 ./etc/dhcp  
@@ -324,6 +340,7 @@ lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.
 -rwxr-xr-x root       root             5249 ./etc/init.d/populate-volatile.sh  
 -rwxr-xr-x root       root             1116 ./etc/init.d/ppp  
 -rwxr-xr-x xuser      xuser            1406 ./etc/init.d/pppoe-server  
+-rwxr-xr-x root       root             2792 ./etc/init.d/radvd  
 -rwxr-xr-x root       root              289 ./etc/init.d/reboot  
 -rwxr-xr-x root       root              585 ./etc/init.d/rmnologin.sh  
 -rwxr-xr-x root       root              321 ./etc/init.d/save-rtc.sh  
@@ -410,8 +427,8 @@ drwxr-xr-x root       root             4096 ./etc/pam.d
 -rw-r--r-- root       root              107 ./etc/pam.d/usermod  
 drwxr-xr-x root       root             4096 ./etc/pango  
 -rw-r--r-- root       root            11446 ./etc/pango/pangox.aliases  
--rw-r--r-- root       root              856 ./etc/passwd  
--rw------- root       root              855 ./etc/passwd-  
+-rw-r--r-- root       root              899 ./etc/passwd  
+-rw------- root       root              898 ./etc/passwd-  
 drwxr-xr-x root       root             4096 ./etc/pm  
 drwxr-xr-x root       root             4096 ./etc/pm/config.d  
 drwxr-xr-x root       root             4096 ./etc/pm/power.d  
@@ -451,6 +468,7 @@ lrwxrwxrwx root       root               16 ./etc/rc0.d/K20syslog -> ../init.d/s
 lrwxrwxrwx root       root               17 ./etc/rc0.d/K22connman -> ../init.d/connman
 lrwxrwxrwx root       root               15 ./etc/rc0.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc0.d/K40networking -> ../init.d/networking
+lrwxrwxrwx root       root               15 ./etc/rc0.d/K80radvd -> ../init.d/radvd
 lrwxrwxrwx root       root               18 ./etc/rc0.d/S20sendsigs -> ../init.d/sendsigs
 lrwxrwxrwx root       root               21 ./etc/rc0.d/S25save-rtc.sh -> ../init.d/save-rtc.sh
 lrwxrwxrwx root       root               22 ./etc/rc0.d/S31umountnfs.sh -> ../init.d/umountnfs.sh
@@ -467,12 +485,14 @@ lrwxrwxrwx root       root               16 ./etc/rc1.d/K20syslog -> ../init.d/s
 lrwxrwxrwx root       root               17 ./etc/rc1.d/K22connman -> ../init.d/connman
 lrwxrwxrwx root       root               15 ./etc/rc1.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc1.d/K40networking -> ../init.d/networking
+lrwxrwxrwx root       root               15 ./etc/rc1.d/K80radvd -> ../init.d/radvd
 drwxr-xr-x root       root             4096 ./etc/rc2.d  
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S02dbus-1 -> ../init.d/dbus-1
 lrwxrwxrwx root       root               17 ./etc/rc2.d/S05connman -> ../init.d/connman
 lrwxrwxrwx root       root               18 ./etc/rc2.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               17 ./etc/rc2.d/S20netperf -> ../init.d/netperf
 lrwxrwxrwx root       root               14 ./etc/rc2.d/S20ntpd -> ../init.d/ntpd
+lrwxrwxrwx root       root               15 ./etc/rc2.d/S20radvd -> ../init.d/radvd
 lrwxrwxrwx root       root               16 ./etc/rc2.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc2.d/S21avahi-daemon -> ../init.d/avahi-daemon
 lrwxrwxrwx root       root               15 ./etc/rc2.d/S22ofono -> ../init.d/ofono
@@ -484,6 +504,7 @@ lrwxrwxrwx root       root               17 ./etc/rc3.d/S05connman -> ../init.d/
 lrwxrwxrwx root       root               18 ./etc/rc3.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               17 ./etc/rc3.d/S20netperf -> ../init.d/netperf
 lrwxrwxrwx root       root               14 ./etc/rc3.d/S20ntpd -> ../init.d/ntpd
+lrwxrwxrwx root       root               15 ./etc/rc3.d/S20radvd -> ../init.d/radvd
 lrwxrwxrwx root       root               16 ./etc/rc3.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc3.d/S21avahi-daemon -> ../init.d/avahi-daemon
 lrwxrwxrwx root       root               15 ./etc/rc3.d/S22ofono -> ../init.d/ofono
@@ -493,6 +514,7 @@ drwxr-xr-x root       root             4096 ./etc/rc4.d
 lrwxrwxrwx root       root               18 ./etc/rc4.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               17 ./etc/rc4.d/S20netperf -> ../init.d/netperf
 lrwxrwxrwx root       root               14 ./etc/rc4.d/S20ntpd -> ../init.d/ntpd
+lrwxrwxrwx root       root               15 ./etc/rc4.d/S20radvd -> ../init.d/radvd
 lrwxrwxrwx root       root               16 ./etc/rc4.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc4.d/S21avahi-daemon -> ../init.d/avahi-daemon
 lrwxrwxrwx root       root               15 ./etc/rc4.d/S22ofono -> ../init.d/ofono
@@ -504,6 +526,7 @@ lrwxrwxrwx root       root               17 ./etc/rc5.d/S05connman -> ../init.d/
 lrwxrwxrwx root       root               18 ./etc/rc5.d/S10dropbear -> ../init.d/dropbear
 lrwxrwxrwx root       root               17 ./etc/rc5.d/S20netperf -> ../init.d/netperf
 lrwxrwxrwx root       root               14 ./etc/rc5.d/S20ntpd -> ../init.d/ntpd
+lrwxrwxrwx root       root               15 ./etc/rc5.d/S20radvd -> ../init.d/radvd
 lrwxrwxrwx root       root               16 ./etc/rc5.d/S20syslog -> ../init.d/syslog
 lrwxrwxrwx root       root               22 ./etc/rc5.d/S21avahi-daemon -> ../init.d/avahi-daemon
 lrwxrwxrwx root       root               15 ./etc/rc5.d/S22ofono -> ../init.d/ofono
@@ -520,6 +543,7 @@ lrwxrwxrwx root       root               16 ./etc/rc6.d/K20syslog -> ../init.d/s
 lrwxrwxrwx root       root               17 ./etc/rc6.d/K22connman -> ../init.d/connman
 lrwxrwxrwx root       root               15 ./etc/rc6.d/K22ofono -> ../init.d/ofono
 lrwxrwxrwx root       root               20 ./etc/rc6.d/K40networking -> ../init.d/networking
+lrwxrwxrwx root       root               15 ./etc/rc6.d/K80radvd -> ../init.d/radvd
 lrwxrwxrwx root       root               18 ./etc/rc6.d/S20sendsigs -> ../init.d/sendsigs
 lrwxrwxrwx root       root               21 ./etc/rc6.d/S25save-rtc.sh -> ../init.d/save-rtc.sh
 lrwxrwxrwx root       root               22 ./etc/rc6.d/S31umountnfs.sh -> ../init.d/umountnfs.sh
@@ -552,7 +576,7 @@ drwxr-xr-x root       root             4096 ./etc/security/namespace.d
 -rw-r--r-- root       root             2972 ./etc/security/pam_env.conf  
 -rw-r--r-- root       root             2179 ./etc/security/time.conf  
 -rw-r--r-- root       root            19398 ./etc/services  
--r-------- root       root              560 ./etc/shadow  
+-r-------- root       root              587 ./etc/shadow  
 -rw-r--r-- root       root              109 ./etc/shells  
 drwxr-xr-x root       root             4096 ./etc/skel  
 -rwxr-xr-x root       root              410 ./etc/skel/.bashrc  
@@ -641,7 +665,7 @@ drwxr-sr-x root       root             4096 ./home
 drwxr-xr-x root       root             4096 ./home/root  
 drwxr-xr-x xuser      xuser            4096 ./home/xuser  
 -rw-r--r-- root       root                0 ./init  
-drwxr-xr-x root       xuser            4096 ./lib  
+drwxr-xr-x root       root             4096 ./lib  
 drwxr-xr-x root       root             4096 ./lib/depmod.d  
 -rw-r--r-- root       root               71 ./lib/depmod.d/search.conf  
 drwxr-xr-x root       root             4096 ./lib/firmware  
@@ -1037,8 +1061,8 @@ drwxr-xr-x root       root             4096 ./lib/security
 -rwxr-xr-x root       root            46504 ./lib/security/pam_systemd.so  
 -rwxr-xr-x root       root            43672 ./lib/security/pam_unix.so  
 -rwxr-xr-x root       root             4532 ./lib/security/pam_warn.so  
-drwxr-xr-x root       xuser            4096 ./lib/systemd  
-drwxr-xr-x root       xuser           12288 ./lib/systemd/system  
+drwxr-xr-x root       root             4096 ./lib/systemd  
+drwxr-xr-x root       root            12288 ./lib/systemd/system  
 drwxr-xr-x root       root             4096 ./lib/systemd/system-generators  
 -rwxr-xr-x root       root            48508 ./lib/systemd/system-generators/systemd-fstab-generator  
 -rwxr-xr-x root       root            36096 ./lib/systemd/system-generators/systemd-getty-generator  
@@ -1401,6 +1425,8 @@ drwxr-xr-x root       root             4096 ./proc
 drwxr-xr-x root       root             4096 ./run  
 drwxr-xr-x root       root             4096 ./sbin  
 -rwxr-xr-x root       root            24964 ./sbin/agetty  
+lrwxrwxrwx root       root               13 ./sbin/arp -> arp.net-tools
+-rwxr-xr-x root       root            43436 ./sbin/arp.net-tools  
 lrwxrwxrwx root       root               11 ./sbin/depmod -> depmod.kmod
 lrwxrwxrwx root       root               11 ./sbin/depmod.kmod -> ../bin/kmod
 -rwxr-xr-x root       root          1652888 ./sbin/dhclient  
@@ -1420,13 +1446,18 @@ lrwxrwxrwx root       root               14 ./sbin/getty.tinylogin -> /bin/tinyl
 lrwxrwxrwx root       root               14 ./sbin/halt -> /bin/systemctl
 lrwxrwxrwx root       root               14 ./sbin/hwclock -> ../bin/busybox
 -rwxr-xr-x root       root             3056 ./sbin/ifcfg  
-lrwxrwxrwx root       root               14 ./sbin/ifconfig -> ../bin/busybox
+lrwxrwxrwx root       root               18 ./sbin/ifconfig -> ifconfig.net-tools
+-rwxr-xr-x root       root            60324 ./sbin/ifconfig.net-tools  
 lrwxrwxrwx root       root               14 ./sbin/ifdown -> ../bin/busybox
 lrwxrwxrwx root       root               14 ./sbin/ifup -> ../bin/busybox
 lrwxrwxrwx root       root               20 ./sbin/init -> /lib/systemd/systemd
 lrwxrwxrwx root       root               11 ./sbin/insmod -> insmod.kmod
 lrwxrwxrwx root       root               11 ./sbin/insmod.kmod -> ../bin/kmod
 -rwxr-xr-x root       root           259088 ./sbin/ip.iproute2  
+lrwxrwxrwx root       root               17 ./sbin/ipmaddr -> ipmaddr.net-tools
+-rwxr-xr-x root       root            14996 ./sbin/ipmaddr.net-tools  
+lrwxrwxrwx root       root               18 ./sbin/iptunnel -> iptunnel.net-tools
+-rwxr-xr-x root       root            19032 ./sbin/iptunnel.net-tools  
 -rwxr-xr-x root       root            17712 ./sbin/killall5  
 lrwxrwxrwx root       root               14 ./sbin/klogd -> ../bin/busybox
 -rwxr-xr-x root       root           688700 ./sbin/ldconfig  
@@ -1434,25 +1465,36 @@ lrwxrwxrwx root       root               14 ./sbin/loadkmap -> ../bin/busybox
 lrwxrwxrwx root       root               14 ./sbin/logread -> ../bin/busybox
 lrwxrwxrwx root       root               14 ./sbin/losetup -> ../bin/busybox
 lrwxrwxrwx root       root               17 ./sbin/lsmod -> ../bin/lsmod.kmod
+lrwxrwxrwx root       root               18 ./sbin/mii-tool -> mii-tool.net-tools
+-rwxr-xr-x root       root            15184 ./sbin/mii-tool.net-tools  
 lrwxrwxrwx root       root               14 ./sbin/mkfs.minix -> ../bin/busybox
 lrwxrwxrwx root       root               14 ./sbin/mkswap -> ../bin/busybox
 lrwxrwxrwx root       root               12 ./sbin/modinfo -> modinfo.kmod
 lrwxrwxrwx root       root               11 ./sbin/modinfo.kmod -> ../bin/kmod
 lrwxrwxrwx root       root               13 ./sbin/modprobe -> modprobe.kmod
 lrwxrwxrwx root       root               11 ./sbin/modprobe.kmod -> ../bin/kmod
+lrwxrwxrwx root       root               16 ./sbin/nameif -> nameif.net-tools
+-rwxr-xr-x root       root            10588 ./sbin/nameif.net-tools  
 -rwxr-xr-x root       root             5820 ./sbin/nologin  
 lrwxrwxrwx root       root               14 ./sbin/pivot_root -> ../bin/busybox
+lrwxrwxrwx root       root               20 ./sbin/plipconfig -> plipconfig.net-tools
+-rwxr-xr-x root       root             7516 ./sbin/plipconfig.net-tools  
 lrwxrwxrwx root       root               14 ./sbin/poweroff -> /bin/systemctl
+lrwxrwxrwx root       root               14 ./sbin/rarp -> rarp.net-tools
+-rwxr-xr-x root       root            19744 ./sbin/rarp.net-tools  
 lrwxrwxrwx root       root               14 ./sbin/reboot -> /bin/systemctl
 lrwxrwxrwx root       root               10 ./sbin/rmmod -> rmmod.kmod
 lrwxrwxrwx root       root               11 ./sbin/rmmod.kmod -> ../bin/kmod
-lrwxrwxrwx root       root               14 ./sbin/route -> ../bin/busybox
+lrwxrwxrwx root       root               15 ./sbin/route -> route.net-tools
+-rwxr-xr-x root       root            46556 ./sbin/route.net-tools  
 -rwxr-xr-x root       root              173 ./sbin/routef  
 -rwxr-xr-x root       root             1262 ./sbin/routel  
 -rwxr-xr-x root       root            35448 ./sbin/rtmon  
 -rwxr-xr-x root       root               37 ./sbin/rtpr  
 lrwxrwxrwx root       root               14 ./sbin/setconsole -> ../bin/busybox
 lrwxrwxrwx root       root               14 ./sbin/shutdown -> /bin/systemctl
+lrwxrwxrwx root       root               18 ./sbin/slattach -> slattach.net-tools
+-rwxr-xr-x root       root            20280 ./sbin/slattach.net-tools  
 lrwxrwxrwx root       root               14 ./sbin/start-stop-daemon -> ../bin/busybox
 lrwxrwxrwx root       root               14 ./sbin/sulogin -> /bin/tinylogin
 lrwxrwxrwx root       root               18 ./sbin/swapoff -> swapoff.util-linux
@@ -2730,6 +2772,8 @@ lrwxrwxrwx root       root               31 ./usr/sbin/pm-suspend-hybrid -> /usr
 -rwxr-xr-x root       root            35876 ./usr/sbin/pwck  
 -rwxr-xr-x root       root            31800 ./usr/sbin/pwconv  
 -rwxr-xr-x root       root            27440 ./usr/sbin/pwunconv  
+-rwxr-xr-x root       root            77112 ./usr/sbin/radvd  
+-rwxr-xr-x root       root            19224 ./usr/sbin/radvdump  
 lrwxrwxrwx root       root               17 ./usr/sbin/rdate -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/sbin/rfkill -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/sbin/udhcpd -> ../../bin/busybox
@@ -2897,6 +2941,19 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iptables
 -rw-r--r-- root       root            18092 ./usr/share/common-licenses/iptables/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/iptables/generic_GPLv2 -> ../generic_GPLv2
 -rw-r--r-- root       root            53390 ./usr/share/common-licenses/iptables/iptables.c  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iputils  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iputils-arping  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iputils-ping  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iputils-ping6  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iputils-tracepath  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iputils-tracepath6  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iputils-traceroute6  
+-rw-r--r-- root       root            14573 ./usr/share/common-licenses/iputils/arping.c  
+lrwxrwxrwx root       root               14 ./usr/share/common-licenses/iputils/generic_BSD -> ../generic_BSD
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/iputils/generic_GPLv2 -> ../generic_GPLv2
+-rw-r--r-- root       root            32598 ./usr/share/common-licenses/iputils/ping.c  
+-rw-r--r-- root       root            13149 ./usr/share/common-licenses/iputils/tftpd.c  
+-rw-r--r-- root       root             7940 ./usr/share/common-licenses/iputils/tracepath.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/iw  
 -rw-r--r-- root       root              849 ./usr/share/common-licenses/iw/COPYING  
 lrwxrwxrwx root       root               14 ./usr/share/common-licenses/iw/generic_BSD -> ../generic_BSD
@@ -3270,10 +3327,14 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxrend
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxv1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86vm1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root            49095 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root            61938 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/linux-firmware-iwlwifi-6000g2a-5  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo-base  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/net-tools  
+-rw-r--r-- root       root            17982 ./usr/share/common-licenses/net-tools/COPYING  
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/net-tools/generic_GPLv2 -> ../generic_GPLv2
+-rw-r--r-- root       root            29502 ./usr/share/common-licenses/net-tools/ifconfig.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/netbase  
 -rw-r--r-- root       root              535 ./usr/share/common-licenses/netbase/copyright  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/netbase/generic_GPLv2 -> ../generic_GPLv2
@@ -3354,6 +3415,8 @@ lrwxrwxrwx root       root               17 ./usr/share/common-licenses/ppp/gene
 lrwxrwxrwx root       root               13 ./usr/share/common-licenses/ppp/generic_PD -> ../generic_PD
 -rw-r--r-- root       root             2451 ./usr/share/common-licenses/ppp/passprompt.c  
 -rw-r--r-- root       root            54593 ./usr/share/common-licenses/ppp/tdb.c  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/radvd  
+-rw-r--r-- root       root             2189 ./usr/share/common-licenses/radvd/COPYRIGHT  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/rp-pppoe  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/rp-pppoe-relay  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/rp-pppoe-server  
@@ -6251,6 +6314,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg
 drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/[[  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/ar  
+-rw-r--r-- root       root               28 ./var/lib/opkg/alternatives/arp  
 -rw-r--r-- root       root               20 ./var/lib/opkg/alternatives/ash  
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/awk  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/basename  
@@ -6282,7 +6346,8 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               54 ./var/lib/opkg/alternatives/diff  
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/dirname  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/dmesg  
--rw-r--r-- root       root               30 ./var/lib/opkg/alternatives/dnsdomainname  
+-rw-r--r-- root       root               58 ./var/lib/opkg/alternatives/dnsdomainname  
+-rw-r--r-- root       root               41 ./var/lib/opkg/alternatives/domainname  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/dpkg-deb  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/du  
 -rw-r--r-- root       root               25 ./var/lib/opkg/alternatives/dumpkmap  
@@ -6311,15 +6376,17 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               48 ./var/lib/opkg/alternatives/halt  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/head  
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/hexdump  
--rw-r--r-- root       root               25 ./var/lib/opkg/alternatives/hostname  
+-rw-r--r-- root       root               48 ./var/lib/opkg/alternatives/hostname  
 -rw-r--r-- root       root               32 ./var/lib/opkg/alternatives/hwclock  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/id  
--rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/ifconfig  
+-rw-r--r-- root       root               56 ./var/lib/opkg/alternatives/ifconfig  
 -rw-r--r-- root       root               31 ./var/lib/opkg/alternatives/ifdown  
 -rw-r--r-- root       root               29 ./var/lib/opkg/alternatives/ifup  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/init  
 -rw-r--r-- root       root               46 ./var/lib/opkg/alternatives/insmod  
 -rw-r--r-- root       root               43 ./var/lib/opkg/alternatives/ip  
+-rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/ipmaddr  
+-rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/iptunnel  
 -rw-r--r-- root       root               21 ./var/lib/opkg/alternatives/kill  
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/killall  
 -rw-r--r-- root       root               30 ./var/lib/opkg/alternatives/klogd  
@@ -6337,6 +6404,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               51 ./var/lib/opkg/alternatives/lsmod  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/md5sum  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/microcom  
+-rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/mii-tool  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/mkdir  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/mkfifo  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/mkfs.minix  
@@ -6348,9 +6416,11 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               21 ./var/lib/opkg/alternatives/more  
 -rw-r--r-- root       root               43 ./var/lib/opkg/alternatives/mount  
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/mv  
+-rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/nameif  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/nc  
--rw-r--r-- root       root               24 ./var/lib/opkg/alternatives/netstat  
+-rw-r--r-- root       root               46 ./var/lib/opkg/alternatives/netstat  
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/newgrp  
+-rw-r--r-- root       root               47 ./var/lib/opkg/alternatives/nisdomainname  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/nohup  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/nslookup  
 -rw-r--r-- root       root               33 ./var/lib/opkg/alternatives/od  
@@ -6359,13 +6429,15 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/passwd  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/patch  
 -rw-r--r-- root       root               41 ./var/lib/opkg/alternatives/pidof  
--rw-r--r-- root       root               21 ./var/lib/opkg/alternatives/ping  
--rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/ping6  
+-rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/ping  
+-rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/ping6  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/pivot_root  
+-rw-r--r-- root       root               42 ./var/lib/opkg/alternatives/plipconfig  
 -rw-r--r-- root       root               52 ./var/lib/opkg/alternatives/poweroff  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/printf  
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/ps  
 -rw-r--r-- root       root               20 ./var/lib/opkg/alternatives/pwd  
+-rw-r--r-- root       root               30 ./var/lib/opkg/alternatives/rarp  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/rdate  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/readlink  
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/realpath  
@@ -6376,7 +6448,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               19 ./var/lib/opkg/alternatives/rm  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/rmdir  
 -rw-r--r-- root       root               44 ./var/lib/opkg/alternatives/rmmod  
--rw-r--r-- root       root               30 ./var/lib/opkg/alternatives/route  
+-rw-r--r-- root       root               50 ./var/lib/opkg/alternatives/route  
 -rw-r--r-- root       root               40 ./var/lib/opkg/alternatives/run-parts  
 -rw-r--r-- root       root               53 ./var/lib/opkg/alternatives/scp  
 -rw-r--r-- root       root               20 ./var/lib/opkg/alternatives/sed  
@@ -6384,6 +6456,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/setconsole  
 -rw-r--r-- root       root               28 ./var/lib/opkg/alternatives/sh  
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/shutdown  
+-rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/slattach  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/sleep  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/sort  
 -rw-r--r-- root       root               53 ./var/lib/opkg/alternatives/ssh  
@@ -6431,8 +6504,9 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/whoami  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/xargs  
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/yes  
+-rw-r--r-- root       root               45 ./var/lib/opkg/alternatives/ypdomainname  
 -rw-r--r-- root       root               21 ./var/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root            77824 ./var/lib/opkg/info  
+drwxr-xr-x root       root            81920 ./var/lib/opkg/info  
 -rw-r--r-- root       root              418 ./var/lib/opkg/info/alsa-conf-base.control  
 -rw-r--r-- root       root              217 ./var/lib/opkg/info/alsa-conf-base.list  
 -rw-r--r-- root       root              700 ./var/lib/opkg/info/alsa-utils-alsamixer.control  
@@ -6597,6 +6671,24 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root              841 ./var/lib/opkg/info/iptables.control  
 -rw-r--r-- root       root             3661 ./var/lib/opkg/info/iptables.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/iptables.postinst  
+-rw-r--r-- root       root              748 ./var/lib/opkg/info/iputils-arping.control  
+-rw-r--r-- root       root               12 ./var/lib/opkg/info/iputils-arping.list  
+-rw-r--r-- root       root              746 ./var/lib/opkg/info/iputils-ping.control  
+-rw-r--r-- root       root               18 ./var/lib/opkg/info/iputils-ping.list  
+-rwxr-xr-x root       root               73 ./var/lib/opkg/info/iputils-ping.postinst  
+-rwxr-xr-x root       root               59 ./var/lib/opkg/info/iputils-ping.postrm  
+-rw-r--r-- root       root              775 ./var/lib/opkg/info/iputils-ping6.control  
+-rw-r--r-- root       root               19 ./var/lib/opkg/info/iputils-ping6.list  
+-rwxr-xr-x root       root               76 ./var/lib/opkg/info/iputils-ping6.postinst  
+-rwxr-xr-x root       root               61 ./var/lib/opkg/info/iputils-ping6.postrm  
+-rw-r--r-- root       root              751 ./var/lib/opkg/info/iputils-tracepath.control  
+-rw-r--r-- root       root               15 ./var/lib/opkg/info/iputils-tracepath.list  
+-rw-r--r-- root       root              752 ./var/lib/opkg/info/iputils-tracepath6.control  
+-rw-r--r-- root       root               16 ./var/lib/opkg/info/iputils-tracepath6.list  
+-rw-r--r-- root       root              753 ./var/lib/opkg/info/iputils-traceroute6.control  
+-rw-r--r-- root       root               17 ./var/lib/opkg/info/iputils-traceroute6.list  
+-rw-r--r-- root       root              829 ./var/lib/opkg/info/iputils.control  
+-rw-r--r-- root       root                0 ./var/lib/opkg/info/iputils.list  
 -rw-r--r-- root       root              669 ./var/lib/opkg/info/iw.control  
 -rw-r--r-- root       root               13 ./var/lib/opkg/info/iw.list  
 -rw-r--r-- root       root              456 ./var/lib/opkg/info/kbd.control  
@@ -7862,6 +7954,10 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/ncurses-terminfo-base.list  
 -rw-r--r-- root       root              760 ./var/lib/opkg/info/ncurses-terminfo.control  
 -rw-r--r-- root       root            82894 ./var/lib/opkg/info/ncurses-terminfo.list  
+-rw-r--r-- root       root              659 ./var/lib/opkg/info/net-tools.control  
+-rw-r--r-- root       root              396 ./var/lib/opkg/info/net-tools.list  
+-rwxr-xr-x root       root             1258 ./var/lib/opkg/info/net-tools.postinst  
+-rwxr-xr-x root       root              958 ./var/lib/opkg/info/net-tools.postrm  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/netbase.conffiles  
 -rw-r--r-- root       root              514 ./var/lib/opkg/info/netbase.control  
 -rw-r--r-- root       root              129 ./var/lib/opkg/info/netbase.list  
@@ -7990,6 +8086,12 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/ppp.conffiles  
 -rw-r--r-- root       root              811 ./var/lib/opkg/info/ppp.control  
 -rw-r--r-- root       root              272 ./var/lib/opkg/info/ppp.list  
+-rw-r--r-- root       root              498 ./var/lib/opkg/info/radvd.control  
+-rw-r--r-- root       root               95 ./var/lib/opkg/info/radvd.list  
+-rwxr-xr-x root       root              136 ./var/lib/opkg/info/radvd.postinst  
+-rwxr-xr-x root       root               38 ./var/lib/opkg/info/radvd.postrm  
+-rwxr-xr-x root       root             3060 ./var/lib/opkg/info/radvd.preinst  
+-rwxr-xr-x root       root               63 ./var/lib/opkg/info/radvd.prerm  
 -rw-r--r-- root       root              724 ./var/lib/opkg/info/rp-pppoe-relay.control  
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/rp-pppoe-relay.list  
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/rp-pppoe-server.conffiles  
@@ -8087,7 +8189,7 @@ drwxr-xr-x root       root            77824 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/wpa-supplicant.list  
 -rwxr-xr-x root       root              191 ./var/lib/opkg/info/wpa-supplicant.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           139310 ./var/lib/opkg/status  
+-rw-r--r-- root       root           141012 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/systemd  
 drwxr-sr-x root       root             4096 ./var/local  
 drwxr-xr-x root       root             4096 ./var/lock  
