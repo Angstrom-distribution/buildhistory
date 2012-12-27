@@ -1,0 +1,6 @@
+if ! grep -q '^hosts:.*\<mdns4\>' $D/etc/nsswitch.conf; then
+	sed -e 's/^hosts:.*/& mdns4/' -i $D/etc/nsswitch.conf
+fi
+if [ x"$D" = "x" ]; then
+	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
+fi
