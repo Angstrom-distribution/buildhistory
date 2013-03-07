@@ -4,6 +4,6 @@ else
         if ! grep -q -s ntpdate /var/spool/cron/root; then
                 echo "adding crontab"
                 test -d /var/spool/cron || mkdir -p /var/spool/cron
-                echo "30 * * * *    /usr/bin/ntpdate -b -s -u pool.ntp.org" >> /var/spool/cron/root
+                echo "30 * * * *    /usr/bin/ntpdate-sync silent" >> /var/spool/cron/root
         fi
 fi
