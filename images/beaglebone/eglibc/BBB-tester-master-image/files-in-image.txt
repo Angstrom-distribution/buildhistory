@@ -215,6 +215,7 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d
 -rw-r--r-- root       root              947 ./etc/dbus-1/system.d/org.freedesktop.timedate1.conf  
 drwxr-xr-x root       root             4096 ./etc/default  
 -rw-r--r-- root       root               15 ./etc/default/busybox-syslog  
+-rw-r--r-- root       root              146 ./etc/default/ntpdate  
 -rw-r--r-- root       root                0 ./etc/default/usbd  
 -rw-r--r-- root       root              117 ./etc/default/useradd  
 drwxr-xr-x root       root             4096 ./etc/default/volatiles  
@@ -269,6 +270,7 @@ drwxr-xr-x root       root             4096 ./etc/network/if-pre-up.d
 -rwxr-xr-x root       root              809 ./etc/network/if-pre-up.d/nfsroot  
 -rwxr-xr-x root       root             1951 ./etc/network/if-pre-up.d/wpa-supplicant  
 drwxr-xr-x root       root             4096 ./etc/network/if-up.d  
+lrwxrwxrwx root       root               21 ./etc/network/if-up.d/ntpdate-sync -> /usr/bin/ntpdate-sync
 -rw-r--r-- root       root              615 ./etc/network/interfaces  
 -rw-r--r-- root       root              503 ./etc/nsswitch.conf  
 drwxr-xr-x root       root             4096 ./etc/ofono  
@@ -409,6 +411,7 @@ lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
 lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/connman.service -> /lib/systemd/system/connman.service
 lrwxrwxrwx root       root               39 ./etc/systemd/system/multi-user.target.wants/dropbearkey.service -> /lib/systemd/system/dropbearkey.service
+lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/ntpdate.service -> /lib/systemd/system/ntpdate.service
 lrwxrwxrwx root       root               36 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> /lib/systemd/system/remote-fs.target
 lrwxrwxrwx root       root                9 ./etc/systemd/system/networking.service -> /dev/null
 drwxr-xr-x root       root             4096 ./etc/systemd/system/sockets.target.wants  
@@ -1954,6 +1957,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              356 ./lib/systemd/system/network.target  
 -rw-r--r-- root       root              513 ./lib/systemd/system/nss-lookup.target  
 -rw-r--r-- root       root              472 ./lib/systemd/system/nss-user-lookup.target  
+-rw-r--r-- root       root              205 ./lib/systemd/system/ntpdate.service  
 -rw-r--r-- root       root              164 ./lib/systemd/system/ofono.service  
 -rw-r--r-- root       root              500 ./lib/systemd/system/poweroff.target  
 -rw-r--r-- root       root              377 ./lib/systemd/system/printer.target  
@@ -2462,6 +2466,8 @@ lrwxrwxrwx root       root               13 ./usr/bin/newgrp -> newgrp.shadow
 -rwsr-xr-x root       root            23324 ./usr/bin/newgrp.shadow  
 lrwxrwxrwx root       root               17 ./usr/bin/nohup -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/nslookup -> ../../bin/busybox
+-rwxr-xr-x root       root            75212 ./usr/bin/ntpdate  
+-rwxr-xr-x root       root             1086 ./usr/bin/ntpdate-sync  
 lrwxrwxrwx root       root               17 ./usr/bin/od -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/openvt -> ../../bin/busybox
 lrwxrwxrwx root       root                7 ./usr/bin/opkg -> opkg-cl
@@ -4135,7 +4141,7 @@ lrwxrwxrwx root       root               14 ./usr/share/common-licenses/libxml2/
 -rw-r--r-- root       root            16395 ./usr/share/common-licenses/libxml2/list.c  
 -rw-r--r-- root       root           159510 ./usr/share/common-licenses/libxml2/trio.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root           125765 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root           125921 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/lmbench  
 -rw-r--r-- root       root            17982 ./usr/share/common-licenses/lmbench/COPYING  
 -rw-r--r-- root       root             5728 ./usr/share/common-licenses/lmbench/COPYING-2  
@@ -4146,6 +4152,8 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/netbase  
 -rw-r--r-- root       root              535 ./usr/share/common-licenses/netbase/copyright  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/netbase/generic_GPLv2 -> ../generic_GPLv2
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ntpdate  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ntpdate-systemd  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ofono  
 -rw-r--r-- root       root            18011 ./usr/share/common-licenses/ofono/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/ofono/generic_GPLv2 -> ../generic_GPLv2
@@ -12303,10 +12311,19 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root            82894 ./var/lib/opkg/info/ncurses-terminfo.list  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/netbase.conffiles  
 -rw-r--r-- root       root              529 ./var/lib/opkg/info/netbase.control  
--rw-r--r-- root       root              151 ./var/lib/opkg/info/netbase.list  
+-rw-r--r-- root       root              129 ./var/lib/opkg/info/netbase.list  
 -rwxr-xr-x root       root              125 ./var/lib/opkg/info/netbase.postinst  
 -rwxr-xr-x root       root               43 ./var/lib/opkg/info/netbase.postrm  
 -rwxr-xr-x root       root               68 ./var/lib/opkg/info/netbase.prerm  
+-rw-r--r-- root       root              790 ./var/lib/opkg/info/ntpdate-systemd.control  
+-rw-r--r-- root       root               36 ./var/lib/opkg/info/ntpdate-systemd.list  
+-rwxr-xr-x root       root              186 ./var/lib/opkg/info/ntpdate-systemd.postinst  
+-rwxr-xr-x root       root               44 ./var/lib/opkg/info/ntpdate-systemd.postrm  
+-rwxr-xr-x root       root               69 ./var/lib/opkg/info/ntpdate-systemd.prerm  
+-rw-r--r-- root       root               21 ./var/lib/opkg/info/ntpdate.conffiles  
+-rw-r--r-- root       root              834 ./var/lib/opkg/info/ntpdate.control  
+-rw-r--r-- root       root              116 ./var/lib/opkg/info/ntpdate.list  
+-rwxr-xr-x root       root              316 ./var/lib/opkg/info/ntpdate.postinst  
 -rw-r--r-- root       root              648 ./var/lib/opkg/info/ofono.control  
 -rw-r--r-- root       root              173 ./var/lib/opkg/info/ofono.list  
 -rwxr-xr-x root       root              103 ./var/lib/opkg/info/ofono.postinst  
@@ -12442,7 +12459,7 @@ drwxr-xr-x root       root           253952 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/wpa-supplicant.list  
 -rwxr-xr-x root       root              191 ./var/lib/opkg/info/wpa-supplicant.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           300496 ./var/lib/opkg/status  
+-rw-r--r-- root       root           300993 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/systemd  
 drwxr-sr-x root       root             4096 ./var/local  
 drwxr-xr-x root       root             4096 ./var/lock  
