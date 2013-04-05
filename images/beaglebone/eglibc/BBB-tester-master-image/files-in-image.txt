@@ -243,7 +243,7 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rw-r--r-- root       root             1633 ./etc/inputrc  
 -rw-r--r-- root       root              427 ./etc/issue  
 -rw-r--r-- root       root              413 ./etc/issue.net  
--rw-r--r-- root       root             5505 ./etc/ld.so.cache  
+-rw-r--r-- root       root             5651 ./etc/ld.so.cache  
 -rw-r--r-- root       root                0 ./etc/ld.so.conf  
 drwxr-xr-x root       root             4096 ./etc/libnl  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
@@ -2263,7 +2263,8 @@ drwxr-xr-x root       root             4096 ./sbin
 lrwxrwxrwx root       root               11 ./sbin/depmod -> depmod.kmod
 lrwxrwxrwx root       root               11 ./sbin/depmod.kmod -> ../bin/kmod
 -rwxr-xr-x root       root           202656 ./sbin/e2fsck  
-lrwxrwxrwx root       root               14 ./sbin/fdisk -> ../bin/busybox
+lrwxrwxrwx root       root               16 ./sbin/fdisk -> fdisk.util-linux
+-rwxr-xr-x root       root            89952 ./sbin/fdisk.util-linux  
 lrwxrwxrwx root       root               15 ./sbin/fsck -> fsck.util-linux
 -rwxr-xr-x root       root           202656 ./sbin/fsck.ext2  
 -rwxr-xr-x root       root           202656 ./sbin/fsck.ext3  
@@ -2652,6 +2653,10 @@ lrwxrwxrwx root       root               16 ./usr/lib/libopkg.so.1 -> libopkg.so
 -rwxr-xr-x root       root           151716 ./usr/lib/libopkg.so.1.0.0  
 lrwxrwxrwx root       root               16 ./usr/lib/libpanelw.so.5 -> libpanelw.so.5.9
 -rwxr-xr-x root       root             8448 ./usr/lib/libpanelw.so.5.9  
+lrwxrwxrwx root       root               28 ./usr/lib/libparted-fs-resize.so.0 -> libparted-fs-resize.so.0.0.0
+-rwxr-xr-x root       root            83872 ./usr/lib/libparted-fs-resize.so.0.0.0  
+lrwxrwxrwx root       root               18 ./usr/lib/libparted.so.2 -> libparted.so.2.0.0
+-rwxr-xr-x root       root           298008 ./usr/lib/libparted.so.2.0.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libreadline.so.6 -> libreadline.so.6.2
 -rwxr-xr-x root       root           192484 ./usr/lib/libreadline.so.6.2  
 lrwxrwxrwx root       root               22 ./usr/lib/libsamplerate.so.0 -> libsamplerate.so.0.1.8
@@ -2822,6 +2827,7 @@ lrwxrwxrwx root       root               15 ./usr/sbin/chpasswd -> chpasswd.shad
 -rwxr-xr-x root       root             8064 ./usr/sbin/chpasswd.shadow  
 lrwxrwxrwx root       root               17 ./usr/sbin/chroot -> ../../bin/busybox
 -rwxr-xr-x root       root           500100 ./usr/sbin/connmand  
+-rwxr-xr-x root       root            41976 ./usr/sbin/dosfsck  
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbear -> ./dropbearmulti
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbearconvert -> ./dropbearmulti
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbearkey -> ./dropbearmulti
@@ -2830,6 +2836,8 @@ lrwxrwxrwx root       root               15 ./usr/sbin/dropbearkey -> ./dropbear
 -rwxr-xr-x root       root             8816 ./usr/sbin/eeprom  
 -rwxr-xr-x root       root             8668 ./usr/sbin/eepromer  
 lrwxrwxrwx root       root               17 ./usr/sbin/fbset -> ../../bin/busybox
+lrwxrwxrwx root       root                7 ./usr/sbin/fsck.msdos -> dosfsck
+lrwxrwxrwx root       root                7 ./usr/sbin/fsck.vfat -> dosfsck
 -rwxr-xr-x root       root             4800 ./usr/sbin/genl-ctrl-list  
 -rwxr-xr-x root       root            33412 ./usr/sbin/groupadd  
 -rwxr-xr-x root       root            29812 ./usr/sbin/groupdel  
@@ -2857,6 +2865,9 @@ lrwxrwxrwx root       root               13 ./usr/sbin/iptables-save -> xtables-
 lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/busybox
 -rwxr-xr-x root       root             8492 ./usr/sbin/logoutd  
 -rwxr-xr-x root       root            11178 ./usr/sbin/mkboot.debianutils  
+-rwxr-xr-x root       root            31328 ./usr/sbin/mkdosfs  
+lrwxrwxrwx root       root                7 ./usr/sbin/mkfs.msdos -> mkdosfs
+lrwxrwxrwx root       root                7 ./usr/sbin/mkfs.vfat -> mkdosfs
 -rwxr-xr-x root       root            41120 ./usr/sbin/newusers  
 -rwxr-xr-x root       root             7732 ./usr/sbin/nl-class-add  
 -rwxr-xr-x root       root             6656 ./usr/sbin/nl-class-delete  
@@ -2871,6 +2882,8 @@ lrwxrwxrwx root       root               17 ./usr/sbin/loadfont -> ../../bin/bus
 -rwxr-xr-x root       root             6760 ./usr/sbin/nl-qdisc-delete  
 -rwxr-xr-x root       root             7376 ./usr/sbin/nl-qdisc-list  
 -rwxr-xr-x root       root           981640 ./usr/sbin/ofonod  
+-rwxr-xr-x root       root            63796 ./usr/sbin/parted  
+-rwxr-xr-x root       root             6996 ./usr/sbin/partprobe  
 -rwxr-xr-x root       root            26456 ./usr/sbin/pwck  
 -rwxr-xr-x root       root            22872 ./usr/sbin/pwconv  
 -rwxr-xr-x root       root            20464 ./usr/sbin/pwunconv  
@@ -3000,6 +3013,9 @@ lrwxrwxrwx root       root               16 ./usr/share/common-licenses/debianut
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/devmem2  
 -rw-r--r-- root       root             4522 ./usr/share/common-licenses/devmem2/devmem2.c  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/devmem2/generic_GPLv2 -> ../generic_GPLv2
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/dosfstools  
+-rw-r--r-- root       root            18194 ./usr/share/common-licenses/dosfstools/COPYING  
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/dosfstools/generic_GPLv2 -> ../generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/dropbear  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/dropbear-systemd  
 -rw-r--r-- root       root             3619 ./usr/share/common-licenses/dropbear/LICENSE  
@@ -4164,7 +4180,7 @@ lrwxrwxrwx root       root               14 ./usr/share/common-licenses/libxml2/
 -rw-r--r-- root       root            16395 ./usr/share/common-licenses/libxml2/list.c  
 -rw-r--r-- root       root           159510 ./usr/share/common-licenses/libxml2/trio.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root           126525 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root           126801 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/lmbench  
 -rw-r--r-- root       root            17982 ./usr/share/common-licenses/lmbench/COPYING  
 -rw-r--r-- root       root             5728 ./usr/share/common-licenses/lmbench/COPYING-2  
@@ -4211,6 +4227,9 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/pam-plug
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/pam-plugin-shells  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/pam-plugin-unix  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/pam-plugin-warn  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/parted  
+-rw-r--r-- root       root            35064 ./usr/share/common-licenses/parted/COPYING  
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/parted/generic_GPLv3 -> ../generic_GPLv3
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ranpwd  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/ranpwd/generic_GPLv2 -> ../generic_GPLv2
 -rw-r--r-- root       root            11437 ./usr/share/common-licenses/ranpwd/ranpwd.c  
@@ -4263,6 +4282,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/usbutils
 -rw-r--r-- root       root            17992 ./usr/share/common-licenses/usbutils/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/usbutils/generic_GPLv2 -> ../generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/util-linux-agetty  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/util-linux-fdisk  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/util-linux-fsck  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/util-linux-mount  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/util-linux-swaponoff  
@@ -7926,7 +7946,7 @@ drwxr-xr-x root       root             4096 ./var
 drwxr-xr-x root       root             4096 ./var/backups  
 drwxr-xr-x root       root             4096 ./var/cache  
 drwx------ root       root             4096 ./var/cache/ldconfig  
--rw------- root       root             5586 ./var/cache/ldconfig/aux-cache  
+-rw------- root       root             5722 ./var/cache/ldconfig/aux-cache  
 drwxr-xr-x root       root             4096 ./var/lib  
 drwxr-xr-x root       root             4096 ./var/lib/alsa  
 -rw-r--r-- root       root               28 ./var/lib/alsa/asound.state  
@@ -7977,7 +7997,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/expr  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/false  
 -rw-r--r-- root       root               37 ./var/lib/opkg/alternatives/fbset  
--rw-r--r-- root       root               30 ./var/lib/opkg/alternatives/fdisk  
+-rw-r--r-- root       root               51 ./var/lib/opkg/alternatives/fdisk  
 -rw-r--r-- root       root               22 ./var/lib/opkg/alternatives/fgrep  
 -rw-r--r-- root       root               35 ./var/lib/opkg/alternatives/find  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/flock  
@@ -8116,7 +8136,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/xargs  
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/yes  
 -rw-r--r-- root       root               21 ./var/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root           249856 ./var/lib/opkg/info  
+drwxr-xr-x root       root           258048 ./var/lib/opkg/info  
 -rw-r--r-- root       root              430 ./var/lib/opkg/info/alsa-conf-base.control  
 -rw-r--r-- root       root              217 ./var/lib/opkg/info/alsa-conf-base.list  
 -rw-r--r-- root       root              478 ./var/lib/opkg/info/alsa-states.control  
@@ -8218,7 +8238,7 @@ drwxr-xr-x root       root           249856 ./var/lib/opkg/info
 -rwxr-xr-x root       root               44 ./var/lib/opkg/info/connman-systemd.postrm  
 -rwxr-xr-x root       root               69 ./var/lib/opkg/info/connman-systemd.prerm  
 -rw-r--r-- root       root             1475 ./var/lib/opkg/info/connman.control  
--rw-r--r-- root       root              132 ./var/lib/opkg/info/connman.list  
+-rw-r--r-- root       root              121 ./var/lib/opkg/info/connman.list  
 -rwxr-xr-x root       root              126 ./var/lib/opkg/info/connman.postinst  
 -rwxr-xr-x root       root               40 ./var/lib/opkg/info/connman.postrm  
 -rwxr-xr-x root       root             3164 ./var/lib/opkg/info/connman.preinst  
@@ -8228,7 +8248,7 @@ drwxr-xr-x root       root           249856 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/cpufrequtils.postinst  
 -rw-r--r-- root       root               49 ./var/lib/opkg/info/dbus-1.conffiles  
 -rw-r--r-- root       root              929 ./var/lib/opkg/info/dbus-1.control  
--rw-r--r-- root       root              484 ./var/lib/opkg/info/dbus-1.list  
+-rw-r--r-- root       root              472 ./var/lib/opkg/info/dbus-1.list  
 -rwxr-xr-x root       root              227 ./var/lib/opkg/info/dbus-1.postinst  
 -rwxr-xr-x root       root               39 ./var/lib/opkg/info/dbus-1.postrm  
 -rwxr-xr-x root       root             3229 ./var/lib/opkg/info/dbus-1.preinst  
@@ -8241,6 +8261,8 @@ drwxr-xr-x root       root           249856 ./var/lib/opkg/info
 -rwxr-xr-x root       root              298 ./var/lib/opkg/info/debianutils.prerm  
 -rw-r--r-- root       root              446 ./var/lib/opkg/info/devmem2.control  
 -rw-r--r-- root       root               27 ./var/lib/opkg/info/devmem2.list  
+-rw-r--r-- root       root              694 ./var/lib/opkg/info/dosfstools.control  
+-rw-r--r-- root       root              118 ./var/lib/opkg/info/dosfstools.list  
 -rw-r--r-- root       root              837 ./var/lib/opkg/info/dropbear-systemd.control  
 -rw-r--r-- root       root              151 ./var/lib/opkg/info/dropbear-systemd.list  
 -rwxr-xr-x root       root              186 ./var/lib/opkg/info/dropbear-systemd.postinst  
@@ -12290,7 +12312,7 @@ drwxr-xr-x root       root           249856 ./var/lib/opkg/info
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libpanelw5.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libpanelw5.postinst  
 -rw-r--r-- root       root              833 ./var/lib/opkg/info/libreadline6.control  
--rw-r--r-- root       root              460 ./var/lib/opkg/info/libreadline6.list  
+-rw-r--r-- root       root              472 ./var/lib/opkg/info/libreadline6.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libreadline6.postinst  
 -rw-r--r-- root       root              430 ./var/lib/opkg/info/libsamplerate0.control  
 -rw-r--r-- root       root               86 ./var/lib/opkg/info/libsamplerate0.list  
@@ -12419,6 +12441,9 @@ drwxr-xr-x root       root           249856 ./var/lib/opkg/info
 -rw-r--r-- root       root               70 ./var/lib/opkg/info/pam-plugin-unix.list  
 -rw-r--r-- root       root              522 ./var/lib/opkg/info/pam-plugin-warn.control  
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/pam-plugin-warn.list  
+-rw-r--r-- root       root              637 ./var/lib/opkg/info/parted.control  
+-rw-r--r-- root       root              172 ./var/lib/opkg/info/parted.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/parted.postinst  
 -rw-r--r-- root       root              457 ./var/lib/opkg/info/ranpwd.control  
 -rw-r--r-- root       root               16 ./var/lib/opkg/info/ranpwd.list  
 -rw-r--r-- root       root              622 ./var/lib/opkg/info/rt-tests.control  
@@ -12474,6 +12499,10 @@ drwxr-xr-x root       root           249856 ./var/lib/opkg/info
 -rw-r--r-- root       root               13 ./var/lib/opkg/info/util-linux-agetty.list  
 -rwxr-xr-x root       root               70 ./var/lib/opkg/info/util-linux-agetty.postinst  
 -rwxr-xr-x root       root               54 ./var/lib/opkg/info/util-linux-agetty.postrm  
+-rw-r--r-- root       root              947 ./var/lib/opkg/info/util-linux-fdisk.control  
+-rw-r--r-- root       root               23 ./var/lib/opkg/info/util-linux-fdisk.list  
+-rwxr-xr-x root       root               80 ./var/lib/opkg/info/util-linux-fdisk.postinst  
+-rwxr-xr-x root       root               64 ./var/lib/opkg/info/util-linux-fdisk.postrm  
 -rw-r--r-- root       root              921 ./var/lib/opkg/info/util-linux-fsck.control  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/util-linux-fsck.list  
 -rwxr-xr-x root       root              162 ./var/lib/opkg/info/util-linux-fsck.postinst  
@@ -12504,7 +12533,7 @@ drwxr-xr-x root       root           249856 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/wpa-supplicant.list  
 -rwxr-xr-x root       root              191 ./var/lib/opkg/info/wpa-supplicant.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           302380 ./var/lib/opkg/status  
+-rw-r--r-- root       root           303058 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/systemd  
 drwxr-sr-x root       root             4096 ./var/local  
 drwxr-xr-x root       root             4096 ./var/lock  
