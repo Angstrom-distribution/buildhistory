@@ -1,0 +1,9 @@
+    grep mysql /etc/passwd && deluser mysql
+if test "$D" != ""; then
+	OPT="-f -r $D"
+else
+	OPT=""
+fi
+if type update-rc.d >/dev/null 2>/dev/null; then
+	update-rc.d $OPT mysqld remove
+fi

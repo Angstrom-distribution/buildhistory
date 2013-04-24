@@ -1,0 +1,22 @@
+    if [ "x$D" != "x" ]; then
+        exit 1
+    fi
+
+    grep mysql /etc/passwd || adduser --disabled-password --home=/var/mysql --ingroup nogroup mysql
+
+    #Install the database
+    test -d /usr/bin || mkdir -p /usr/bin
+    test -e /usr/bin/hostname || ln -s /bin/hostname /usr/bin/hostname
+    mkdir /var/lib/mysql
+    chown mysql.nogroup /var/lib/mysql
+
+    mysql_install_db
+
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+if type update-rc.d >/dev/null 2>/dev/null; then
+	update-rc.d $OPT mysqld start 45 5 . stop 45 0 6 1 .
+fi
