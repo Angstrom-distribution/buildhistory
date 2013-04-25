@@ -5,10 +5,12 @@ if [ -n "$D" ]; then
     OPTS="--root=$D"
 fi
 
-systemctl $OPTS enable NetworkManager.service
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable NetworkManager.service
 
-if [ -z "$D" -a enable = "enable" ]; then
-    systemctl start NetworkManager.service
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart NetworkManager.service
+	fi
 fi
 if [ x"$D" = "x" ]; then
 	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi

@@ -1,4 +1,8 @@
 #!/bin/sh
-if [ -z "$D" ]; then
-    systemctl stop NetworkManager.service
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop NetworkManager.service
+	fi
+
+	systemctl disable NetworkManager.service
 fi
