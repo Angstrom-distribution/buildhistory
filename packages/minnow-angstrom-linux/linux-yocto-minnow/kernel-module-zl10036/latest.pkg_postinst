@@ -1,6 +1,7 @@
 #!/bin/sh
 if [ -z "$D" ]; then
-	depmod -a 3.8.0-yocto-standard
-	update-modules || true
+	depmod -a 3.8.4-yocto-standard
+else
+	depmodwrapper -a -b $D 3.8.4-yocto-standard
 fi
 
