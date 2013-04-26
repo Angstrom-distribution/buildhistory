@@ -5,8 +5,10 @@ if [ -n "$D" ]; then
     OPTS="--root=$D"
 fi
 
-systemctl $OPTS enable cloud9.service
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable cloud9.service
 
-if [ -z "$D" -a enable = "enable" ]; then
-    systemctl start cloud9.service
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart cloud9.service
+	fi
 fi
