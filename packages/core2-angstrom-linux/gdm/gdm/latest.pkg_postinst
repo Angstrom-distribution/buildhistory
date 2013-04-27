@@ -1,19 +1,6 @@
-    # can't do this offline
-    if [ "x$D" != "x" ]; then
-        exit 1
-    fi
-    grep "^gdm:" /etc/group > /dev/null || addgroup gdm
-    grep "^gdm:" /etc/passwd > /dev/null || adduser --disabled-password --system --home /var/lib/gdm gdm --ingroup gdm -g gdm
-
-if [ -d /var/lib/gdm ]; then
-    chown -R gdm:gdm /var/lib/gdm
-    chmod 0750 /var/lib/gdm
-fi
-
 # Register up as default dm
-mkdir -p /etc/X11/
-echo "/usr/bin/gdm" > /etc/X11/default-display-manager
-
+mkdir -p $D/etc/X11/
+echo "/usr/bin/gdm" > $D/etc/X11/default-display-manager
 OPTS=""
 
 if [ -n "$D" ]; then
