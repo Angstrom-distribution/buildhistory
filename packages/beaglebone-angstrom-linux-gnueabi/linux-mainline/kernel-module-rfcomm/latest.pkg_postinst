@@ -1,9 +1,7 @@
 #!/bin/sh
 if [ -z "$D" ]; then
-	depmod -a 3.8.8
-	update-modules || true
+	depmod -a 3.8.10
+else
+	depmodwrapper -a -b $D 3.8.10
 fi
 
-if [ x"$D" = "x" ]; then
-	modprobe rfcomm || true
-fi
