@@ -4,25 +4,29 @@ fi
 
 glib-compile-schemas /usr/share/glib-2.0/schemas
 if [ "x$D" != "x" ]; then
-        exit 1
+	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} libdir=/usr/lib \
+		base_libdir=/lib
+else
+
+	# Update the pixbuf loaders in case they haven't been registered yet
+	GDK_PIXBUF_MODULEDIR=/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders gdk-pixbuf-query-loaders --update-cache
+
+	for icondir in /usr/share/icons/* ; do
+		if [ -d $icondir ] ; then
+			gtk-update-icon-cache -fqt  $icondir
+		fi
+	done
 fi
-
-# Update the pixbuf loaders in case they haven't been registered yet
-GDK_PIXBUF_MODULEDIR=/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders gdk-pixbuf-query-loaders --update-cache
-
-for icondir in /usr/share/icons/* ; do
-    if [ -d $icondir ] ; then
-        gtk-update-icon-cache -fqt  $icondir
-    fi
-done
 if [ "x$D" != "x" ]; then
-	exit 1
+	export GCONF_CONFIG_SOURCE="xml::$D/etc/gconf/gconf.xml.defaults"
+else
+	export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
 fi
-SCHEMA_LOCATION=/etc/gconf/schemas
-for SCHEMA in evince-thumbnailer.schemas evince-thumbnailer-comics.schemas; do
+
+SCHEMA_LOCATION=$D/etc/gconf/schemas
+for SCHEMA in evince-thumbnailer-comics.schemas evince-thumbnailer.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
-		HOME=/root GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
-			gconftool-2 \
+		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
 	fi
 done
