@@ -1,0 +1,14 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS disable udisks-daemon.service
+
+	if [ -z "$D" -a "disable" = "enable" ]; then
+		systemctl restart udisks-daemon.service
+	fi
+fi
