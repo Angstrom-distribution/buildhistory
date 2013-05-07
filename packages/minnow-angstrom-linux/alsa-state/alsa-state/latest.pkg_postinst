@@ -1,0 +1,17 @@
+	if test -z "$D"
+	then
+		if test -x /usr/sbin/alsactl
+		then
+			/usr/sbin/alsactl -f /var/lib/alsa/asound.state restore
+		fi
+		# INITSCRIPT_PARAMS changed, so remove the old and
+		# install the new setting.
+		update-rc.d -f alsa-state remove
+		update-rc.d alsa-state start 39 S . stop 31 0 6 .
+	fi
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+update-rc.d $OPT alsa-state start 39 S . stop 31 0 6 .
