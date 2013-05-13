@@ -82,7 +82,8 @@ lrwxrwxrwx root       root                7 ./bin/vi -> busybox
 lrwxrwxrwx root       root                7 ./bin/zcat -> busybox
 drwxr-xr-x root       root             4096 ./boot  
 lrwxrwxrwx root       root               28 ./boot/bzImage -> bzImage-3.8.4-yocto-standard
--rw-r--r-- root       root          5342992 ./boot/bzImage-3.8.4-yocto-standard  
+-rw-r--r-- root       root          5421424 ./boot/bzImage-3.8.0-yocto-standard  
+-rw-r--r-- root       root          5344240 ./boot/bzImage-3.8.4-yocto-standard  
 drwxr-xr-x root       root             4096 ./dev  
 crw-rw---- root       plugdev             0 ./dev/apm_bios  
 crw-rw--w- root       tty                 0 ./dev/console  
@@ -481,7 +482,6 @@ drwxr-xr-x root       root             4096 ./etc/udev
 drwxr-xr-x root       root             4096 ./etc/udev/hwdb.d  
 drwxr-xr-x root       root             4096 ./etc/udev/rules.d  
 -rw-r--r-- root       root               28 ./etc/udev/rules.d/99-fuse.rules  
--rw-r--r-- root       root               98 ./etc/udev/rules.d/fixmac.rules  
 -rw-r--r-- root       root              728 ./etc/udev/rules.d/modprobe.rules  
 -rw-r--r-- root       root              855 ./etc/udev/rules.d/touchscreen.rules  
 -rw-r--r-- root       root               44 ./etc/udev/udev.conf  
@@ -584,6 +584,20 @@ lrwxrwxrwx root       root               16 ./lib/libuuid.so.1 -> libuuid.so.1.3
 -rwxr-xr-x root       root            14844 ./lib/libuuid.so.1.3.0  
 drwxr-xr-x root       root             4096 ./lib/modprobe.d  
 drwxr-xr-x root       root             4096 ./lib/modules  
+drwxr-xr-x root       root             4096 ./lib/modules/3.8.0-yocto-standard  
+drwxr-xr-x root       root             4096 ./lib/modules/3.8.0-yocto-standard/kernel  
+drwxr-xr-x root       root             4096 ./lib/modules/3.8.0-yocto-standard/kernel/fs  
+drwxr-xr-x root       root             4096 ./lib/modules/3.8.0-yocto-standard/kernel/fs/autofs4  
+-rw-r--r-- root       root            40576 ./lib/modules/3.8.0-yocto-standard/kernel/fs/autofs4/autofs4.ko  
+-rw-r--r-- root       root              106 ./lib/modules/3.8.0-yocto-standard/modules.alias  
+-rw-r--r-- root       root               85 ./lib/modules/3.8.0-yocto-standard/modules.alias.bin  
+-rw-r--r-- root       root                0 ./lib/modules/3.8.0-yocto-standard/modules.builtin.bin  
+-rw-r--r-- root       root               30 ./lib/modules/3.8.0-yocto-standard/modules.dep  
+-rw-r--r-- root       root               63 ./lib/modules/3.8.0-yocto-standard/modules.dep.bin  
+-rw-r--r-- root       root               75 ./lib/modules/3.8.0-yocto-standard/modules.devname  
+-rw-r--r-- root       root              131 ./lib/modules/3.8.0-yocto-standard/modules.softdep  
+-rw-r--r-- root       root               49 ./lib/modules/3.8.0-yocto-standard/modules.symbols  
+-rw-r--r-- root       root               12 ./lib/modules/3.8.0-yocto-standard/modules.symbols.bin  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard/kernel  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard/kernel/crypto  
@@ -1801,7 +1815,6 @@ lrwxrwxrwx root       root               17 ./usr/bin/expr -> ../../bin/busybox
 lrwxrwxrwx root       root               13 ./usr/bin/fgconsole -> fgconsole.kbd
 -rwxr-xr-x root       root             6080 ./usr/bin/fgconsole.kbd  
 lrwxrwxrwx root       root               17 ./usr/bin/find -> ../../bin/busybox
--rwxr-xr-x root       root              188 ./usr/bin/fixmac.sh  
 lrwxrwxrwx root       root               17 ./usr/bin/flock -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/free -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/fuser -> ../../bin/busybox
@@ -2408,7 +2421,7 @@ lrwxrwxrwx root       root               22 ./usr/lib/libavahi-core.so.7 -> liba
 lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.13.0
 -rwxr-xr-x root       root           100860 ./usr/lib/libbluetooth.so.3.13.0  
 lrwxrwxrwx root       root               19 ./usr/lib/libcpufreq.so.0 -> libcpufreq.so.0.0.0
--rwxr-xr-x xuser      xuser           14456 ./usr/lib/libcpufreq.so.0.0.0  
+-rwxr-xr-x root       xuser           14456 ./usr/lib/libcpufreq.so.0.0.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libdaemon.so.0 -> libdaemon.so.0.5.0
 -rwxr-xr-x root       root            22496 ./usr/lib/libdaemon.so.0.5.0  
 lrwxrwxrwx root       root               18 ./usr/lib/libdbus-1.so.3 -> libdbus-1.so.3.7.2
@@ -2810,9 +2823,6 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/eee-acpi
 -rw-r--r-- root       root              842 ./usr/share/common-licenses/eee-acpi-scripts/copyright  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/eee-acpi-scripts/generic_GPLv2 -> ../generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/eglibc-binary-localedata-en-us  
-drwxr-xr-x root       root             4096 ./usr/share/common-licenses/fixmac  
--rw-r--r-- root       root              545 ./usr/share/common-licenses/fixmac/LICENSE  
-lrwxrwxrwx root       root               14 ./usr/share/common-licenses/fixmac/generic_MIT -> ../generic_MIT
 -rw-r--r-- root       root             4785 ./usr/share/common-licenses/generic_Artistic-1.0  
 -rw-r--r-- root       root             1499 ./usr/share/common-licenses/generic_BSD  
 -rw-r--r-- root       root            17611 ./usr/share/common-licenses/generic_GPL-2.0  
@@ -2849,10 +2859,12 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kbd
 -rw-r--r-- root       root             1154 ./usr/share/common-licenses/kbd/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/kbd/generic_GPLv2 -> ../generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-3.8.0-yocto-standard  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-3.8.4-yocto-standard  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-firmware-bootcode  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-firmware-dspbootcode  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-firmware-stv0672-vp4  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-image-3.8.0-yocto-standard  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-image-3.8.4-yocto-standard  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-8021q  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-a8293  
@@ -2877,6 +2889,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-m
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-au8522-common  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-au8522-decoder  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-au8522-dig  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-autofs4  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-b2c2-flexcop  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-b2c2-flexcop-pci  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-b2c2-flexcop-usb  
@@ -3503,7 +3516,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxau6
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxcb1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxdmcp6  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root            86835 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root            87244 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/locale-base-en-us  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo-base  
@@ -3582,6 +3595,9 @@ lrwxrwxrwx root       root               13 ./usr/share/common-licenses/tzdata/g
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/udev  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/udev-systemd  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/udev-utils  
+-rw-r--r-- root       root            26526 ./usr/share/common-licenses/udev/COPYING  
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/udev/generic_GPLv2 -> ../generic_GPLv2
+lrwxrwxrwx root       root               19 ./usr/share/common-licenses/udev/generic_LGPLv2.1 -> ../generic_LGPLv2.1
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/update-alternatives-cworth  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/update-modules  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/update-modules-dev  
@@ -6433,7 +6449,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               39 ./var/lib/opkg/alternatives/basename  
 -rw-r--r-- root       root               25 ./var/lib/opkg/alternatives/bin-lsmod  
 -rw-r--r-- root       root               38 ./var/lib/opkg/alternatives/bunzip2  
--rw-r--r-- root       root               49 ./var/lib/opkg/alternatives/bzImage  
+-rw-r--r-- root       root               84 ./var/lib/opkg/alternatives/bzImage  
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/bzcat  
 -rw-r--r-- root       root               20 ./var/lib/opkg/alternatives/cat  
 -rw-r--r-- root       root               23 ./var/lib/opkg/alternatives/chattr  
@@ -6609,7 +6625,7 @@ drwxr-xr-x root       root             4096 ./var/lib/opkg/alternatives
 -rw-r--r-- root       root               36 ./var/lib/opkg/alternatives/xargs  
 -rw-r--r-- root       root               34 ./var/lib/opkg/alternatives/yes  
 -rw-r--r-- root       root               21 ./var/lib/opkg/alternatives/zcat  
-drwxr-xr-x root       root           147456 ./var/lib/opkg/info  
+drwxr-xr-x root       root           143360 ./var/lib/opkg/info  
 -rw-r--r-- root       root              420 ./var/lib/opkg/info/alsa-conf-base.control  
 -rw-r--r-- root       root              217 ./var/lib/opkg/info/alsa-conf-base.list  
 -rw-r--r-- root       root              702 ./var/lib/opkg/info/alsa-utils-alsamixer.control  
@@ -6705,8 +6721,6 @@ drwxr-xr-x root       root           147456 ./var/lib/opkg/info
 -rw-r--r-- root       root              493 ./var/lib/opkg/info/eee-acpi-scripts.list  
 -rw-r--r-- root       root              338 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.control  
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.list  
--rw-r--r-- root       root              422 ./var/lib/opkg/info/fixmac.control  
--rw-r--r-- root       root               50 ./var/lib/opkg/info/fixmac.list  
 -rw-r--r-- root       root              351 ./var/lib/opkg/info/genmac.control  
 -rw-r--r-- root       root               19 ./var/lib/opkg/info/genmac.list  
 -rwxr-xr-x root       root              105 ./var/lib/opkg/info/genmac.postinst  
@@ -6733,6 +6747,10 @@ drwxr-xr-x root       root           147456 ./var/lib/opkg/info
 -rw-r--r-- root       root              480 ./var/lib/opkg/info/kbd.list  
 -rwxr-xr-x root       root              298 ./var/lib/opkg/info/kbd.postinst  
 -rwxr-xr-x root       root              214 ./var/lib/opkg/info/kbd.postrm  
+-rw-r--r-- root       root              550 ./var/lib/opkg/info/kernel-3.8.0-yocto-standard.control  
+-rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel-3.8.0-yocto-standard.list  
+-rwxr-xr-x root       root              106 ./var/lib/opkg/info/kernel-3.8.0-yocto-standard.postinst  
+-rwxr-xr-x root       root               85 ./var/lib/opkg/info/kernel-3.8.0-yocto-standard.postrm  
 -rw-r--r-- root       root              767 ./var/lib/opkg/info/kernel-3.8.4-yocto-standard.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel-3.8.4-yocto-standard.list  
 -rwxr-xr-x root       root              106 ./var/lib/opkg/info/kernel-3.8.4-yocto-standard.postinst  
@@ -6743,8 +6761,11 @@ drwxr-xr-x root       root           147456 ./var/lib/opkg/info
 -rw-r--r-- root       root               71 ./var/lib/opkg/info/kernel-firmware-dspbootcode.list  
 -rw-r--r-- root       root              698 ./var/lib/opkg/info/kernel-firmware-stv0672-vp4.control  
 -rw-r--r-- root       root               72 ./var/lib/opkg/info/kernel-firmware-stv0672-vp4.list  
+-rw-r--r-- root       root              475 ./var/lib/opkg/info/kernel-image-3.8.0-yocto-standard.control  
+-rw-r--r-- root       root               42 ./var/lib/opkg/info/kernel-image-3.8.0-yocto-standard.list  
+-rwxr-xr-x root       root              321 ./var/lib/opkg/info/kernel-image-3.8.0-yocto-standard.postinst  
 -rw-r--r-- root       root              692 ./var/lib/opkg/info/kernel-image-3.8.4-yocto-standard.control  
--rw-r--r-- root       root               42 ./var/lib/opkg/info/kernel-image-3.8.4-yocto-standard.list  
+-rw-r--r-- root       root               35 ./var/lib/opkg/info/kernel-image-3.8.4-yocto-standard.list  
 -rwxr-xr-x root       root              321 ./var/lib/opkg/info/kernel-image-3.8.4-yocto-standard.postinst  
 -rw-r--r-- root       root              738 ./var/lib/opkg/info/kernel-module-8021q.control  
 -rw-r--r-- root       root              112 ./var/lib/opkg/info/kernel-module-8021q.list  
@@ -6838,6 +6859,10 @@ drwxr-xr-x root       root           147456 ./var/lib/opkg/info
 -rw-r--r-- root       root               83 ./var/lib/opkg/info/kernel-module-au8522-dig.list  
 -rwxr-xr-x root       root               91 ./var/lib/opkg/info/kernel-module-au8522-dig.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-au8522-dig.postrm  
+-rw-r--r-- root       root              525 ./var/lib/opkg/info/kernel-module-autofs4.control  
+-rw-r--r-- root       root              252 ./var/lib/opkg/info/kernel-module-autofs4.list  
+-rwxr-xr-x root       root               91 ./var/lib/opkg/info/kernel-module-autofs4.postinst  
+-rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-autofs4.postrm  
 -rw-r--r-- root       root              900 ./var/lib/opkg/info/kernel-module-b2c2-flexcop-pci.control  
 -rw-r--r-- root       root              149 ./var/lib/opkg/info/kernel-module-b2c2-flexcop-pci.list  
 -rwxr-xr-x root       root               91 ./var/lib/opkg/info/kernel-module-b2c2-flexcop-pci.postinst  
@@ -8003,7 +8028,7 @@ drwxr-xr-x root       root           147456 ./var/lib/opkg/info
 -rwxr-xr-x root       root               91 ./var/lib/opkg/info/kernel-module-nf-conntrack.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nf-conntrack.postrm  
 -rw-r--r-- root       root              756 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.control  
--rw-r--r-- root       root              327 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.list  
+-rw-r--r-- root       root              313 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.list  
 -rwxr-xr-x root       root               91 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-nf-defrag-ipv4.postrm  
 -rw-r--r-- root       root              808 ./var/lib/opkg/info/kernel-module-nfnetlink-log.control  
@@ -9281,7 +9306,7 @@ drwxr-xr-x root       root           147456 ./var/lib/opkg/info
 -rwxr-xr-x root       root               54 ./var/lib/opkg/info/opkg.postrm  
 -rw-r--r-- root       root              712 ./var/lib/opkg/info/packagegroup-basic.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-basic.list  
--rw-r--r-- root       root              797 ./var/lib/opkg/info/packagegroup-boot.control  
+-rw-r--r-- root       root              789 ./var/lib/opkg/info/packagegroup-boot.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-boot.list  
 -rw-r--r-- root       root              512 ./var/lib/opkg/info/pam-plugin-deny.control  
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/pam-plugin-deny.list  
@@ -9398,7 +9423,7 @@ drwxr-xr-x root       root           147456 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/wpa-supplicant.list  
 -rwxr-xr-x root       root              191 ./var/lib/opkg/info/wpa-supplicant.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           246937 ./var/lib/opkg/status  
+-rw-r--r-- root       root           247397 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/systemd  
 drwxr-sr-x root       root             4096 ./var/local  
 drwxr-xr-x root       root             4096 ./var/lock  
