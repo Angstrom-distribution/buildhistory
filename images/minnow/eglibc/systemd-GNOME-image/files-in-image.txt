@@ -84,7 +84,7 @@ lrwxrwxrwx root       root                7 ./bin/zcat -> busybox
 drwxr-xr-x root       root             4096 ./boot  
 lrwxrwxrwx root       root               28 ./boot/bzImage -> bzImage-3.8.4-yocto-standard
 -rw-r--r-- root       root          5421424 ./boot/bzImage-3.8.0-yocto-standard  
--rw-r--r-- root       root          5344240 ./boot/bzImage-3.8.4-yocto-standard  
+-rw-r--r-- root       root          5344432 ./boot/bzImage-3.8.4-yocto-standard  
 drwxr-xr-x root       root             4096 ./dev  
 crw-rw---- root       plugdev             0 ./dev/apm_bios  
 crw-rw--w- root       tty                 0 ./dev/console  
@@ -422,7 +422,6 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.initscripts
 -rw-r--r-- xuser      xuser            1123 ./etc/init.d/functions.initscripts  
 -rwxr-xr-x root       root             2498 ./etc/init.d/gdm  
--rwxr-xr-x root       root             1064 ./etc/init.d/genmac  
 -rwxr-xr-x xuser      xuser             289 ./etc/init.d/reboot  
 -rwxr-xr-x xuser      xuser             578 ./etc/init.d/single  
 -rwxr-xr-x root       root             1454 ./etc/init.d/xinetd  
@@ -603,7 +602,6 @@ lrwxrwxrwx root       root               22 ./etc/rcS.d/S10checkroot.sh -> ../in
 lrwxrwxrwx root       root               21 ./etc/rcS.d/S35mountall.sh -> ../init.d/mountall.sh
 lrwxrwxrwx root       root               30 ./etc/rcS.d/S37populate-volatile.sh -> ../init.d/populate-volatile.sh
 lrwxrwxrwx root       root               19 ./etc/rcS.d/S38devpts.sh -> ../init.d/devpts.sh
-lrwxrwxrwx root       root               16 ./etc/rcS.d/S39genmac -> ../init.d/genmac
 lrwxrwxrwx root       root               21 ./etc/rcS.d/S39hostname.sh -> ../init.d/hostname.sh
 lrwxrwxrwx root       root               20 ./etc/rcS.d/S40networking -> ../init.d/networking
 lrwxrwxrwx root       root               21 ./etc/rcS.d/S45mountnfs.sh -> ../init.d/mountnfs.sh
@@ -1293,7 +1291,7 @@ drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard/k
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ethernet  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ethernet/oki-semi  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ethernet/oki-semi/pch_gbe  
--rw-r--r-- root       root            71152 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe.ko  
+-rw-r--r-- root       root            71224 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe.ko  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ppp  
 -rw-r--r-- root       root             7664 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ppp/bsd_comp.ko  
 -rw-r--r-- root       root            11584 ./lib/modules/3.8.4-yocto-standard/kernel/drivers/net/ppp/ppp_async.ko  
@@ -2375,7 +2373,6 @@ lrwxrwxrwx root       root                9 ./usr/bin/python2 -> python2.7
 lrwxrwxrwx root       root               16 ./usr/bin/python2-config -> python2.7-config
 -rwxr-xr-x root       root             3740 ./usr/bin/python2.7  
 -rwxr-xr-x root       root             1618 ./usr/bin/python2.7-config  
--rwxr-xr-x root       root             9480 ./usr/bin/ranpwd  
 -rwxr-xr-x root       root            93084 ./usr/bin/rctest  
 lrwxrwxrwx root       root               17 ./usr/bin/readlink -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/realpath -> ../../bin/busybox
@@ -5382,7 +5379,7 @@ drwxr-xr-x root       root            12288 ./usr/share/ca-certificates/mozilla
 drwxr-xr-x root       root             4096 ./usr/share/ca-certificates/spi-inc.org  
 -rw-r--r-- root       root             1476 ./usr/share/ca-certificates/spi-inc.org/spi-ca-2003.crt  
 -rw-r--r-- root       root             2854 ./usr/share/ca-certificates/spi-inc.org/spi-cacert-2008.crt  
-drwxr-xr-x root       root            40960 ./usr/share/common-licenses  
+drwxr-xr-x root       root            45056 ./usr/share/common-licenses  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/alsa-conf-base  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/alsa-utils-alsamixer  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/angstrom-clearlooks-theme-enable  
@@ -5539,9 +5536,6 @@ lrwxrwxrwx root       root               16 ./usr/share/common-licenses/gedit/ge
 -rw-r--r-- root       root               52 ./usr/share/common-licenses/generic_PD  
 -rw-r--r-- root       root             9795 ./usr/share/common-licenses/generic_PSF  
 -rw-r--r-- root       root             1895 ./usr/share/common-licenses/generic_bzip2  
-drwxr-xr-x root       root             4096 ./usr/share/common-licenses/genmac  
--rw-r--r-- root       root              545 ./usr/share/common-licenses/genmac/LICENSE  
-lrwxrwxrwx root       root               14 ./usr/share/common-licenses/genmac/generic_MIT -> ../generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/glib-networking  
 -rw-r--r-- root       root            25292 ./usr/share/common-licenses/glib-networking/COPYING  
 lrwxrwxrwx root       root               17 ./usr/share/common-licenses/glib-networking/generic_LGPLv2 -> ../generic_LGPLv2
@@ -6487,7 +6481,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxv1
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86misc1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86vm1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root           113828 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root           113621 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/locale-base-en-us  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/lvm2  
 -rw-r--r-- root       root            17992 ./usr/share/common-licenses/lvm2/COPYING  
@@ -6633,9 +6627,6 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-s
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-textutils  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-threading  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-xml  
-drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ranpwd  
-lrwxrwxrwx root       root               16 ./usr/share/common-licenses/ranpwd/generic_GPLv2 -> ../generic_GPLv2
--rw-r--r-- root       root            11437 ./usr/share/common-licenses/ranpwd/ranpwd.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/rgb  
 -rw-r--r-- root       root             2275 ./usr/share/common-licenses/rgb/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/rgb/generic_MIT-X -> ../generic_MIT-X
@@ -18531,11 +18522,6 @@ drwxr-xr-x root       root           204800 ./var/lib/opkg/info
 -rw-r--r-- root       root             3534 ./var/lib/opkg/info/gedit.list  
 -rwxr-xr-x root       root              343 ./var/lib/opkg/info/gedit.postinst  
 -rwxr-xr-x root       root              308 ./var/lib/opkg/info/gedit.prerm  
--rw-r--r-- root       root              351 ./var/lib/opkg/info/genmac.control  
--rw-r--r-- root       root               19 ./var/lib/opkg/info/genmac.list  
--rwxr-xr-x root       root              105 ./var/lib/opkg/info/genmac.postinst  
--rwxr-xr-x root       root               39 ./var/lib/opkg/info/genmac.postrm  
--rwxr-xr-x root       root               64 ./var/lib/opkg/info/genmac.prerm  
 -rw-r--r-- root       root              800 ./var/lib/opkg/info/glib-networking.control  
 -rw-r--r-- root       root              162 ./var/lib/opkg/info/glib-networking.list  
 -rw-r--r-- root       root              608 ./var/lib/opkg/info/glibmm.control  
@@ -21613,7 +21599,7 @@ drwxr-xr-x root       root           204800 ./var/lib/opkg/info
 -rw-r--r-- root       root              762 ./var/lib/opkg/info/ncurses-terminfo.control  
 -rw-r--r-- root       root            82894 ./var/lib/opkg/info/ncurses-terminfo.list  
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/netbase.conffiles  
--rw-r--r-- root       root              511 ./var/lib/opkg/info/netbase.control  
+-rw-r--r-- root       root              516 ./var/lib/opkg/info/netbase.control  
 -rw-r--r-- root       root              151 ./var/lib/opkg/info/netbase.list  
 -rwxr-xr-x root       root              125 ./var/lib/opkg/info/netbase.postinst  
 -rwxr-xr-x root       root               43 ./var/lib/opkg/info/netbase.postrm  
@@ -21753,8 +21739,6 @@ drwxr-xr-x root       root           204800 ./var/lib/opkg/info
 -rw-r--r-- root       root              406 ./var/lib/opkg/info/python-threading.list  
 -rw-r--r-- root       root             1378 ./var/lib/opkg/info/python-xml.control  
 -rw-r--r-- root       root             2059 ./var/lib/opkg/info/python-xml.list  
--rw-r--r-- root       root              447 ./var/lib/opkg/info/ranpwd.control  
--rw-r--r-- root       root               16 ./var/lib/opkg/info/ranpwd.list  
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/rgb.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/rgb.list  
 -rw-r--r-- root       root              417 ./var/lib/opkg/info/sg3-utils.control  
@@ -21944,7 +21928,7 @@ drwxr-xr-x root       root           204800 ./var/lib/opkg/info
 -rw-r--r-- root       root              566 ./var/lib/opkg/info/xvinfo.control  
 -rw-r--r-- root       root               16 ./var/lib/opkg/info/xvinfo.list  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           343377 ./var/lib/opkg/status  
+-rw-r--r-- root       root           342994 ./var/lib/opkg/status  
 drwx------ root       root             4096 ./var/lib/polkit-1  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/10-vendor.d  
