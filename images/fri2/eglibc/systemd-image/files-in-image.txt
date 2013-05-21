@@ -474,16 +474,16 @@ drwxr-xr-x root       root             4096 ./etc/skel
 drwxr-xr-x root       root             4096 ./etc/sysctl.d  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
-drwxr-xr-x root       root             4096 ./etc/systemd  
+drwx------ xuser      xuser            4096 ./etc/systemd  
 -rw-r--r-- root       root              749 ./etc/systemd/journald.conf  
 -rw-r--r-- root       root              705 ./etc/systemd/logind.conf  
 drwxr-xr-x root       root             4096 ./etc/systemd/ntp-units.d  
-drwxr-xr-x root       root             4096 ./etc/systemd/system  
+drwx------ xuser      xuser            4096 ./etc/systemd/system  
 -rw-r--r-- root       root             1036 ./etc/systemd/system.conf  
 lrwxrwxrwx root       root                9 ./etc/systemd/system/busybox-udhcpc.service -> /dev/null
 lrwxrwxrwx root       root               40 ./etc/systemd/system/dbus-org.freedesktop.Avahi.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/dnsmasq.service -> /dev/null
-drwxr-xr-x root       root             4096 ./etc/systemd/system/getty.target.wants  
+drwx------ xuser      xuser            4096 ./etc/systemd/system/getty.target.wants  
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyPCH1.service -> /lib/systemd/system/serial-getty@.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/hwclock.service -> /dev/null
@@ -550,7 +550,7 @@ drwxr-sr-x root       root             4096 ./home
 drwxr-xr-x root       root             4096 ./home/root  
 drwxr-xr-x xuser      xuser            4096 ./home/xuser  
 -rw-r--r-- root       root                0 ./init  
-drwxr-xr-x root       root             4096 ./lib  
+drwx------ xuser      xuser            4096 ./lib  
 drwxr-xr-x root       root             4096 ./lib/depmod.d  
 -rw-r--r-- root       root               71 ./lib/depmod.d/search.conf  
 drwxr-xr-x root       root             4096 ./lib/firmware  
@@ -946,8 +946,8 @@ drwxr-xr-x root       root             4096 ./lib/security
 -rwxr-xr-x root       root            46504 ./lib/security/pam_systemd.so  
 -rwxr-xr-x root       root            43672 ./lib/security/pam_unix.so  
 -rwxr-xr-x root       root             4532 ./lib/security/pam_warn.so  
-drwxr-xr-x root       root             4096 ./lib/systemd  
-drwxr-xr-x root       root            12288 ./lib/systemd/system  
+drwx------ xuser      xuser            4096 ./lib/systemd  
+drwx------ xuser      xuser           12288 ./lib/systemd/system  
 drwxr-xr-x root       root             4096 ./lib/systemd/system-generators  
 -rwxr-xr-x root       root            46728 ./lib/systemd/system-generators/systemd-fstab-generator  
 -rwxr-xr-x root       root            34392 ./lib/systemd/system-generators/systemd-getty-generator  
@@ -999,7 +999,7 @@ drwxr-xr-x root       root             4096 ./lib/systemd/system/graphical.targe
 -rw-r--r-- root       root              447 ./lib/systemd/system/hibernate.target  
 -rw-r--r-- root       root              468 ./lib/systemd/system/hybrid-sleep.target  
 -rw-r--r-- root       root              501 ./lib/systemd/system/kexec.target  
--rw-r--r-- root       root              189 ./lib/systemd/system/keymaps.service  
+-rw-r--r-- xuser      xuser             189 ./lib/systemd/system/keymaps.service  
 -rw-r--r-- root       root              373 ./lib/systemd/system/local-fs-pre.target  
 -rw-r--r-- root       root              415 ./lib/systemd/system/local-fs.target  
 drwxr-xr-x root       root             4096 ./lib/systemd/system/local-fs.target.wants  
@@ -1048,7 +1048,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/runlevel5.targe
 drwxr-xr-x root       root             4096 ./lib/systemd/system/runlevel5.target.wants  
 lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel5.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.target -> reboot.target
--rwxr-xr-x root       root              918 ./lib/systemd/system/serial-getty@.service  
+-rwxr-xr-x xuser      xuser             918 ./lib/systemd/system/serial-getty@.service  
 -rw-r--r-- root       root              402 ./lib/systemd/system/shutdown.target  
 drwxr-xr-x root       root             4096 ./lib/systemd/system/shutdown.target.wants  
 lrwxrwxrwx root       root               35 ./lib/systemd/system/shutdown.target.wants/systemd-random-seed-save.service -> ../systemd-random-seed-save.service
@@ -2293,7 +2293,7 @@ lrwxrwxrwx root       root               21 ./usr/lib/libvorbisenc.so.2 -> libvo
 -rwxr-xr-x root       root          1532316 ./usr/lib/libvorbisenc.so.2.0.9  
 lrwxrwxrwx root       root               22 ./usr/lib/libvorbisfile.so.3 -> libvorbisfile.so.3.3.5
 -rwxr-xr-x root       root            32096 ./usr/lib/libvorbisfile.so.3.3.5  
--rwxr-xr-x root       root           907540 ./usr/lib/libx264.so.129  
+-rwxr-xr-x xuser      xuser          907540 ./usr/lib/libx264.so.129  
 lrwxrwxrwx root       root               20 ./usr/lib/libxcb-dri2.so.0 -> libxcb-dri2.so.0.0.0
 -rwxr-xr-x root       root            14428 ./usr/lib/libxcb-dri2.so.0.0.0  
 lrwxrwxrwx root       root               19 ./usr/lib/libxcb-glx.so.0 -> libxcb-glx.so.0.0.0
@@ -2708,6 +2708,7 @@ lrwxrwxrwx root       root               17 ./usr/share/common-licenses/gst-ffmp
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/gst-plugins-good  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/gst-plugins-good-isomp4  
 -rw-r--r-- root       root            26432 ./usr/share/common-licenses/gst-plugins-good/COPYING  
+-rw-r--r-- root       root             4375 ./usr/share/common-licenses/gst-plugins-good/coverage-report.pl  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/gst-plugins-good/generic_GPLv2 -> ../generic_GPLv2
 lrwxrwxrwx root       root               19 ./usr/share/common-licenses/gst-plugins-good/generic_LGPLv2.1 -> ../generic_LGPLv2.1
 -rw-r--r-- root       root            26649 ./usr/share/common-licenses/gst-plugins-good/rganalysis.c  
@@ -6351,9 +6352,9 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root            16604 ./var/lib/opkg/info/grub.list  
 -rw-r--r-- root       root             1264 ./var/lib/opkg/info/gst-ffmpeg.control  
 -rw-r--r-- root       root              152 ./var/lib/opkg/info/gst-ffmpeg.list  
--rw-r--r-- root       root              839 ./var/lib/opkg/info/gst-plugins-good-isomp4.control  
+-rw-r--r-- root       root              862 ./var/lib/opkg/info/gst-plugins-good-isomp4.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/gst-plugins-good-isomp4.list  
--rw-r--r-- root       root              473 ./var/lib/opkg/info/gst-plugins-good.control  
+-rw-r--r-- root       root              496 ./var/lib/opkg/info/gst-plugins-good.control  
 -rw-r--r-- root       root              183 ./var/lib/opkg/info/gst-plugins-good.list  
 -rw-r--r-- root       root              347 ./var/lib/opkg/info/gst-va-intel-general.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/gst-va-intel-general.list  
@@ -6363,7 +6364,7 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/gst-va-intel.list  
 -rw-r--r-- root       root              349 ./var/lib/opkg/info/gst-va-mixvideo-vaapi.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/gst-va-mixvideo-vaapi.list  
--rw-r--r-- root       root              633 ./var/lib/opkg/info/gstreamer.control  
+-rw-r--r-- root       root              708 ./var/lib/opkg/info/gstreamer.control  
 -rw-r--r-- root       root              884 ./var/lib/opkg/info/gstreamer.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/gstreamer.postinst  
 -rw-r--r-- root       root              449 ./var/lib/opkg/info/htop.control  
@@ -7425,25 +7426,25 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              511 ./var/lib/opkg/info/libgpg-error0.control  
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/libgpg-error0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgpg-error0.postinst  
--rw-r--r-- root       root              691 ./var/lib/opkg/info/libgstaudio-0.10-0.control  
+-rw-r--r-- root       root              714 ./var/lib/opkg/info/libgstaudio-0.10-0.control  
 -rw-r--r-- root       root               67 ./var/lib/opkg/info/libgstaudio-0.10-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgstaudio-0.10-0.postinst  
--rw-r--r-- root       root              628 ./var/lib/opkg/info/libgstinterfaces-0.10-0.control  
+-rw-r--r-- root       root              651 ./var/lib/opkg/info/libgstinterfaces-0.10-0.control  
 -rw-r--r-- root       root               77 ./var/lib/opkg/info/libgstinterfaces-0.10-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgstinterfaces-0.10-0.postinst  
--rw-r--r-- root       root              622 ./var/lib/opkg/info/libgstpbutils-0.10-0.control  
+-rw-r--r-- root       root              645 ./var/lib/opkg/info/libgstpbutils-0.10-0.control  
 -rw-r--r-- root       root               71 ./var/lib/opkg/info/libgstpbutils-0.10-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgstpbutils-0.10-0.postinst  
--rw-r--r-- root       root              753 ./var/lib/opkg/info/libgstriff-0.10-0.control  
+-rw-r--r-- root       root              776 ./var/lib/opkg/info/libgstriff-0.10-0.control  
 -rw-r--r-- root       root               65 ./var/lib/opkg/info/libgstriff-0.10-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgstriff-0.10-0.postinst  
--rw-r--r-- root       root              614 ./var/lib/opkg/info/libgstrtp-0.10-0.control  
+-rw-r--r-- root       root              637 ./var/lib/opkg/info/libgstrtp-0.10-0.control  
 -rw-r--r-- root       root               63 ./var/lib/opkg/info/libgstrtp-0.10-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgstrtp-0.10-0.postinst  
--rw-r--r-- root       root              614 ./var/lib/opkg/info/libgsttag-0.10-0.control  
+-rw-r--r-- root       root              637 ./var/lib/opkg/info/libgsttag-0.10-0.control  
 -rw-r--r-- root       root               63 ./var/lib/opkg/info/libgsttag-0.10-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgsttag-0.10-0.postinst  
--rw-r--r-- root       root              644 ./var/lib/opkg/info/libgstvideo-0.10-0.control  
+-rw-r--r-- root       root              667 ./var/lib/opkg/info/libgstvideo-0.10-0.control  
 -rw-r--r-- root       root               67 ./var/lib/opkg/info/libgstvideo-0.10-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgstvideo-0.10-0.postinst  
 -rw-r--r-- root       root              622 ./var/lib/opkg/info/libkmod2.control  
@@ -7786,7 +7787,7 @@ drwxr-xr-x root       root            73728 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/wpa-supplicant.list  
 -rwxr-xr-x root       root              191 ./var/lib/opkg/info/wpa-supplicant.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           136939 ./var/lib/opkg/status  
+-rw-r--r-- root       root           136948 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/systemd  
 drwxr-sr-x root       root             4096 ./var/local  
 drwxr-xr-x root       root             4096 ./var/lock  
