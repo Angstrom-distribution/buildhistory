@@ -1,0 +1,8 @@
+if [ -n "$D" ]; then
+	exit 1
+fi
+	gconftool-2 --config-source=xml:readwrite:/etc/gconf/gconf.xml.defaults \
+		--direct --load /etc/gconf/schemas/panel-default-setup.entries
+if [ x"$D" = "x" ]; then
+	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
+fi

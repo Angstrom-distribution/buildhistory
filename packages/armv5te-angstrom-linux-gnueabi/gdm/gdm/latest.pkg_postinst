@@ -1,0 +1,45 @@
+    # can't do this offline
+    if [ "x$D" != "x" ]; then
+        exit 1
+    fi
+    grep "^gdm:" /etc/group > /dev/null || addgroup gdm
+    grep "^gdm:" /etc/passwd > /dev/null || adduser --disabled-password --system --home /var/lib/gdm gdm --ingroup gdm -g gdm
+
+if [ -d /var/lib/gdm ]; then
+  chown -R gdm:gdm /var/lib/gdm
+  chmod 0750 /var/lib/gdm
+fi
+
+# Register up as default dm
+mkdir -p /etc/X11/
+echo "/usr/bin/gdm" > /etc/X11/default-display-manager
+
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+update-rc.d $OPT gdm start 99 5 2 . stop 20 0 1 6 .
+if [ "x$D" != "x" ]; then
+        exit 1
+fi
+
+# Update the pixbuf loaders in case they haven't been registered yet
+GDK_PIXBUF_MODULEDIR=/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders gdk-pixbuf-query-loaders --update-cache
+
+for icondir in /usr/share/icons/* ; do
+    if [ -d $icondir ] ; then
+        gtk-update-icon-cache -fqt  $icondir
+    fi
+done
+if [ "x$D" != "x" ]; then
+	exit 1
+fi
+SCHEMA_LOCATION=/etc/gconf/schemas
+for SCHEMA in gdm-simple-greeter.schemas; do
+	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
+		HOME=/root GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+			gconftool-2 \
+			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
+	fi
+done
