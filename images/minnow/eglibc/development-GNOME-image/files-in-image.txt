@@ -741,6 +741,7 @@ drwxr-xr-x root       root             4096 ./etc/udev/hwdb.d
 drwxr-xr-x root       root             4096 ./etc/udev/rules.d  
 -rwxr-xr-x root       root           125130 ./etc/udev/rules.d/40-libgphoto2.rules  
 -rw-r--r-- root       root               28 ./etc/udev/rules.d/99-fuse.rules  
+-rw-r--r-- root       root               98 ./etc/udev/rules.d/fixmac.rules  
 -rw-r--r-- root       root              728 ./etc/udev/rules.d/modprobe.rules  
 -rw-r--r-- root       root              855 ./etc/udev/rules.d/touchscreen.rules  
 -rw-r--r-- root       root               44 ./etc/udev/udev.conf  
@@ -2344,6 +2345,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/find -> ../../bin/busybox
 -rwxr-xr-x root       root           161720 ./usr/bin/find-root  
 -rwxr-xr-x root       root            35212 ./usr/bin/findmnt  
 -rwxr-xr-x root       root           314560 ./usr/bin/fipstest  
+-rwxr-xr-x root       root              232 ./usr/bin/fixmac.sh  
 -rwxr-xr-x root       root           288144 ./usr/bin/flex  
 lrwxrwxrwx root       root               16 ./usr/bin/flock -> flock.util-linux
 -rwxr-xr-x root       root            15412 ./usr/bin/flock.util-linux  
@@ -2727,6 +2729,7 @@ lrwxrwxrwx root       root               16 ./usr/bin/python2-config -> python2.
 -rwxr-xr-x root       root             3740 ./usr/bin/python2.7  
 -rwxr-xr-x root       root             1618 ./usr/bin/python2.7-config  
 lrwxrwxrwx root       root               26 ./usr/bin/ranlib -> i586-angstrom-linux-ranlib
+-rwxr-xr-x root       root             9480 ./usr/bin/ranpwd  
 -rwxr-xr-x root       root            93084 ./usr/bin/rctest  
 lrwxrwxrwx root       root               27 ./usr/bin/readelf -> i586-angstrom-linux-readelf
 lrwxrwxrwx root       root               18 ./usr/bin/readlink -> readlink.coreutils
@@ -13222,6 +13225,9 @@ lrwxrwxrwx root       root               16 ./usr/share/common-licenses/fb-test/
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/file  
 -rw-r--r-- root       root             1650 ./usr/share/common-licenses/file/COPYING  
 lrwxrwxrwx root       root               14 ./usr/share/common-licenses/file/generic_BSD -> ../generic_BSD
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/fixmac  
+-rw-r--r-- root       root              545 ./usr/share/common-licenses/fixmac/LICENSE  
+lrwxrwxrwx root       root               14 ./usr/share/common-licenses/fixmac/generic_MIT -> ../generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/flex  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/flex-dev  
 -rw-r--r-- root       root             1855 ./usr/share/common-licenses/flex/COPYING  
@@ -14301,7 +14307,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86vm1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz-dev  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root           198250 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root           198457 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/linux-libc-headers-dev  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/lmbench  
 -rw-r--r-- root       root            17982 ./usr/share/common-licenses/lmbench/COPYING  
@@ -15169,6 +15175,9 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-u
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-xml  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-xmlrpc  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/python-zlib  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ranpwd  
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/ranpwd/generic_GPLv2 -> ../generic_GPLv2
+-rw-r--r-- root       root            11437 ./usr/share/common-licenses/ranpwd/ranpwd.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/rgb  
 -rw-r--r-- root       root             2275 ./usr/share/common-licenses/rgb/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/rgb/generic_MIT-X -> ../generic_MIT-X
@@ -28951,6 +28960,8 @@ drwxr-xr-x root       root           270336 ./var/lib/opkg/info
 -rw-r--r-- root       root              534 ./var/lib/opkg/info/file.control  
 -rw-r--r-- root       root               90 ./var/lib/opkg/info/file.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/file.postinst  
+-rw-r--r-- root       root              422 ./var/lib/opkg/info/fixmac.control  
+-rw-r--r-- root       root               50 ./var/lib/opkg/info/fixmac.list  
 -rw-r--r-- root       root              736 ./var/lib/opkg/info/flex-dev.control  
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/flex-dev.list  
 -rw-r--r-- root       root              576 ./var/lib/opkg/info/flex.control  
@@ -32237,7 +32248,7 @@ drwxr-xr-x root       root           270336 ./var/lib/opkg/info
 -rwxr-xr-x root       root               54 ./var/lib/opkg/info/opkg.postrm  
 -rw-r--r-- root       root              712 ./var/lib/opkg/info/packagegroup-basic.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-basic.list  
--rw-r--r-- root       root              789 ./var/lib/opkg/info/packagegroup-boot.control  
+-rw-r--r-- root       root              797 ./var/lib/opkg/info/packagegroup-boot.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-boot.list  
 -rw-r--r-- root       root              758 ./var/lib/opkg/info/packagegroup-core-x11-xserver.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-x11-xserver.list  
@@ -33688,6 +33699,8 @@ drwxr-xr-x root       root           270336 ./var/lib/opkg/info
 -rw-r--r-- root       root              225 ./var/lib/opkg/info/python-xmlrpc.list  
 -rw-r--r-- root       root             1361 ./var/lib/opkg/info/python-zlib.control  
 -rw-r--r-- root       root               39 ./var/lib/opkg/info/python-zlib.list  
+-rw-r--r-- root       root              447 ./var/lib/opkg/info/ranpwd.control  
+-rw-r--r-- root       root               16 ./var/lib/opkg/info/ranpwd.list  
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/rgb.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/rgb.list  
 -rw-r--r-- root       root              442 ./var/lib/opkg/info/rsync.control  
@@ -33923,7 +33936,7 @@ drwxr-xr-x root       root           270336 ./var/lib/opkg/info
 -rw-r--r-- root       root              566 ./var/lib/opkg/info/xvinfo.control  
 -rw-r--r-- root       root               16 ./var/lib/opkg/info/xvinfo.list  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           578875 ./var/lib/opkg/status  
+-rw-r--r-- root       root           579258 ./var/lib/opkg/status  
 drwx------ root       root             4096 ./var/lib/polkit-1  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/10-vendor.d  
