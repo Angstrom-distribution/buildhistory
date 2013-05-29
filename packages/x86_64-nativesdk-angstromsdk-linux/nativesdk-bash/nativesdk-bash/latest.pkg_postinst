@@ -1,0 +1,4 @@
+	touch $D/usr/local/oecore-x86_64/sysroots/x86_64-angstromsdk-linux/etc/shells
+	grep -q "bin/bash" $D/usr/local/oecore-x86_64/sysroots/x86_64-angstromsdk-linux/etc/shells || echo /bin/bash >> $D/usr/local/oecore-x86_64/sysroots/x86_64-angstromsdk-linux/etc/shells
+	grep -q "bin/sh" $D/usr/local/oecore-x86_64/sysroots/x86_64-angstromsdk-linux/etc/shells || echo /bin/sh >> $D/usr/local/oecore-x86_64/sysroots/x86_64-angstromsdk-linux/etc/shells
+	update-alternatives --install /usr/local/oecore-x86_64/sysroots/x86_64-angstromsdk-linux/bin/sh sh bash 100
