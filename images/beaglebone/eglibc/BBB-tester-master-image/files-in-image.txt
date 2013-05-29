@@ -179,7 +179,7 @@ crw-r----- root       root                0 ./dev/ttySA0
 crw-r--r-- root       root                0 ./dev/urandom  
 crw-r--r-- root       root                0 ./dev/zero  
 drwxr-xr-x root       root             4096 ./etc  
--rw-r--r-- root       root             1910 ./etc/angstrom-build-info  
+-rw-r--r-- root       root             1978 ./etc/angstrom-build-info  
 -rw-r--r-- root       root              171 ./etc/angstrom-version  
 drwxr-xr-x root       root             4096 ./etc/avahi  
 -rw-r--r-- root       root             1749 ./etc/avahi/avahi-daemon.conf  
@@ -205,9 +205,9 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1/session.d
 drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d  
 -rw-r--r-- root       root             1138 ./etc/dbus-1/system.d/avahi-dbus.conf  
 -rw-r--r-- root       root              524 ./etc/dbus-1/system.d/bluetooth.conf  
--rw-r--r-- root       root              731 ./etc/dbus-1/system.d/connman.conf  
+-rw-r--r-- xuser      xuser             731 ./etc/dbus-1/system.d/connman.conf  
 -rw-r--r-- root       root             1232 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf  
--rw-r--r-- root       root              877 ./etc/dbus-1/system.d/ofono.conf  
+-rw-r--r-- xuser      xuser             877 ./etc/dbus-1/system.d/ofono.conf  
 -rw-r--r-- root       root              947 ./etc/dbus-1/system.d/org.freedesktop.hostname1.conf  
 -rw-r--r-- root       root              937 ./etc/dbus-1/system.d/org.freedesktop.locale1.conf  
 -rw-r--r-- root       root             6266 ./etc/dbus-1/system.d/org.freedesktop.login1.conf  
@@ -236,7 +236,7 @@ drwxr-xr-x root       root             4096 ./etc/dropbear
 drwxr-xr-x root       root             4096 ./etc/init.d  
 -rw-r--r-- root       root             1150 ./etc/init.d/README  
 -rwxr-xr-x root       root             4380 ./etc/init.d/avahi-daemon  
--rwxr-xr-x root       root              789 ./etc/init.d/connman  
+-rwxr-xr-x xuser      xuser             789 ./etc/init.d/connman  
 -rwxr-xr-x root       root             2774 ./etc/init.d/dbus-1  
 -rwxr-xr-x root       root             2674 ./etc/init.d/dropbear  
 -rwxr-xr-x root       root             1064 ./etc/init.d/genmac  
@@ -273,8 +273,8 @@ drwxr-xr-x root       root             4096 ./etc/network/if-up.d
 lrwxrwxrwx root       root               21 ./etc/network/if-up.d/ntpdate-sync -> /usr/bin/ntpdate-sync
 -rw-r--r-- root       root              615 ./etc/network/interfaces  
 -rw-r--r-- root       root              503 ./etc/nsswitch.conf  
-drwxr-xr-x root       root             4096 ./etc/ofono  
--rw-r--r-- root       root              361 ./etc/ofono/phonesim.conf  
+drwx------ xuser      xuser            4096 ./etc/ofono  
+-rw-r--r-- xuser      xuser             361 ./etc/ofono/phonesim.conf  
 drwxr-xr-x root       root             4096 ./etc/opkg  
 -rw-r--r-- root       root              224 ./etc/opkg/arch.conf  
 -rw-r--r-- root       root               98 ./etc/opkg/base-feed.conf  
@@ -1900,7 +1900,7 @@ lrwxrwxrwx root       root               31 ./lib/systemd/system/basic.target.wa
 -rw-r--r-- root       root              379 ./lib/systemd/system/bluetooth.target  
 -rw-r--r-- root       root              116 ./lib/systemd/system/busybox-klogd.service  
 -rw-r--r-- root       root              270 ./lib/systemd/system/busybox-syslog.service  
--rw-r--r-- root       root              169 ./lib/systemd/system/connman.service  
+-rw-r--r-- xuser      xuser             169 ./lib/systemd/system/connman.service  
 -rw-r--r-- root       root              796 ./lib/systemd/system/console-getty.service  
 -rw-r--r-- root       root              825 ./lib/systemd/system/console-shell.service  
 lrwxrwxrwx root       root               13 ./lib/systemd/system/ctrl-alt-del.target -> reboot.target
@@ -1951,7 +1951,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              513 ./lib/systemd/system/nss-lookup.target  
 -rw-r--r-- root       root              472 ./lib/systemd/system/nss-user-lookup.target  
 -rw-r--r-- root       root              205 ./lib/systemd/system/ntpdate.service  
--rw-r--r-- root       root              164 ./lib/systemd/system/ofono.service  
+-rw-r--r-- xuser      xuser             164 ./lib/systemd/system/ofono.service  
 -rw-r--r-- root       root              500 ./lib/systemd/system/poweroff.target  
 -rw-r--r-- root       root              377 ./lib/systemd/system/printer.target  
 -rw-r--r-- root       root              615 ./lib/systemd/system/proc-sys-fs-binfmt_misc.automount  
@@ -2809,7 +2809,7 @@ drwxr-xr-x root       root             4096 ./usr/sbin
 lrwxrwxrwx root       root               15 ./usr/sbin/chpasswd -> chpasswd.shadow
 -rwxr-xr-x root       root             8064 ./usr/sbin/chpasswd.shadow  
 lrwxrwxrwx root       root               17 ./usr/sbin/chroot -> ../../bin/busybox
--rwxr-xr-x root       root           500100 ./usr/sbin/connmand  
+-rwxr-xr-x xuser      xuser          500100 ./usr/sbin/connmand  
 -rwxr-xr-x root       root            41976 ./usr/sbin/dosfsck  
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbear -> ./dropbearmulti
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbearconvert -> ./dropbearmulti
@@ -2864,7 +2864,7 @@ lrwxrwxrwx root       root                7 ./usr/sbin/mkfs.vfat -> mkdosfs
 -rwxr-xr-x root       root             7124 ./usr/sbin/nl-qdisc-add  
 -rwxr-xr-x root       root             6760 ./usr/sbin/nl-qdisc-delete  
 -rwxr-xr-x root       root             7376 ./usr/sbin/nl-qdisc-list  
--rwxr-xr-x root       root           981640 ./usr/sbin/ofonod  
+-rwxr-xr-x xuser      xuser          981640 ./usr/sbin/ofonod  
 -rwxr-xr-x root       root            63796 ./usr/sbin/parted  
 -rwxr-xr-x root       root             6996 ./usr/sbin/partprobe  
 -rwxr-xr-x root       root            26456 ./usr/sbin/pwck  
