@@ -198,7 +198,7 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1/session.d
 drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d  
 -rw-r--r-- root       root             1138 ./etc/dbus-1/system.d/avahi-dbus.conf  
 -rw-r--r-- root       root              524 ./etc/dbus-1/system.d/bluetooth.conf  
--rw-r--r-- xuser      xuser             731 ./etc/dbus-1/system.d/connman.conf  
+-rw-r--r-- root       root              731 ./etc/dbus-1/system.d/connman.conf  
 -rw-r--r-- root       root             1232 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf  
 -rw-r--r-- xuser      xuser             877 ./etc/dbus-1/system.d/ofono.conf  
 -rw-r--r-- root       root              947 ./etc/dbus-1/system.d/org.freedesktop.hostname1.conf  
@@ -242,7 +242,7 @@ drwxr-xr-x root       root             4096 ./etc/grub.d
 drwxr-xr-x root       root             4096 ./etc/init.d  
 -rw-r--r-- root       root             1150 ./etc/init.d/README  
 -rwxr-xr-x root       root             4380 ./etc/init.d/avahi-daemon  
--rwxr-xr-x xuser      xuser             789 ./etc/init.d/connman  
+-rwxr-xr-x root       root              789 ./etc/init.d/connman  
 -rwxr-xr-x root       root             2774 ./etc/init.d/dbus-1  
 -rwxr-xr-x root       root             2674 ./etc/init.d/dropbear  
 lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.initscripts
@@ -1342,7 +1342,7 @@ lrwxrwxrwx root       root               31 ./lib/systemd/system/basic.target.wa
 -rw-r--r-- root       root              379 ./lib/systemd/system/bluetooth.target  
 -rw-r--r-- root       root              116 ./lib/systemd/system/busybox-klogd.service  
 -rw-r--r-- root       root              270 ./lib/systemd/system/busybox-syslog.service  
--rw-r--r-- xuser      xuser             169 ./lib/systemd/system/connman.service  
+-rw-r--r-- root       root              169 ./lib/systemd/system/connman.service  
 -rw-r--r-- root       root              796 ./lib/systemd/system/console-getty.service  
 -rw-r--r-- root       root              825 ./lib/systemd/system/console-shell.service  
 lrwxrwxrwx root       root               13 ./lib/systemd/system/ctrl-alt-del.target -> reboot.target
@@ -2665,7 +2665,7 @@ drwxr-xr-x root       root             4096 ./usr/sbin
 lrwxrwxrwx root       root               15 ./usr/sbin/chpasswd -> chpasswd.shadow
 -rwxr-xr-x root       root             8740 ./usr/sbin/chpasswd.shadow  
 lrwxrwxrwx root       root               17 ./usr/sbin/chroot -> ../../bin/busybox
--rwxr-xr-x xuser      xuser          634700 ./usr/sbin/connmand  
+-rwxr-xr-x root       root           634700 ./usr/sbin/connmand  
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbear -> ./dropbearmulti
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbearconvert -> ./dropbearmulti
 lrwxrwxrwx root       root               15 ./usr/sbin/dropbearkey -> ./dropbearmulti
@@ -2789,6 +2789,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/busybox-
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/busybox/generic_GPLv2 -> ../generic_GPLv2
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/busybox/generic_bzip2 -> ../generic_bzip2
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/connman  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/connman-angstrom-settings  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/connman-systemd  
 -rw-r--r-- root       root            18006 ./usr/share/common-licenses/connman/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/connman/generic_GPLv2 -> ../generic_GPLv2
@@ -3500,7 +3501,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxau6
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxcb1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxdmcp6  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root            86185 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root            86283 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/locale-base-en-us  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo-base  
@@ -6422,6 +6423,8 @@ drwxr-xr-x root       root             4096 ./var/cache
 drwx------ root       root             4096 ./var/cache/ldconfig  
 -rw------- root       root             5395 ./var/cache/ldconfig/aux-cache  
 drwxr-xr-x root       root             4096 ./var/lib  
+drwxr-xr-x root       root             4096 ./var/lib/connman  
+-rw-r--r-- root       root              477 ./var/lib/connman/settings  
 drwxr-xr-x messagebus messagebus       4096 ./var/lib/dbus  
 drwxr-xr-x root       root             4096 ./var/lib/misc  
 drwxr-xr-x root       root             4096 ./var/lib/opkg  
@@ -6662,12 +6665,14 @@ drwxr-xr-x root       root           143360 ./var/lib/opkg/info
 -rwxr-xr-x root       root            11416 ./var/lib/opkg/info/busybox.postinst  
 -rwxr-xr-x root       root             8281 ./var/lib/opkg/info/busybox.postrm  
 -rwxr-xr-x root       root              762 ./var/lib/opkg/info/busybox.prerm  
--rw-r--r-- root       root             1146 ./var/lib/opkg/info/connman-systemd.control  
+-rw-r--r-- root       root             1163 ./var/lib/opkg/info/connman-angstrom-settings.control  
+-rw-r--r-- root       root               44 ./var/lib/opkg/info/connman-angstrom-settings.list  
+-rw-r--r-- root       root             1162 ./var/lib/opkg/info/connman-systemd.control  
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/connman-systemd.list  
 -rwxr-xr-x root       root              186 ./var/lib/opkg/info/connman-systemd.postinst  
 -rwxr-xr-x root       root               44 ./var/lib/opkg/info/connman-systemd.postrm  
 -rwxr-xr-x root       root               69 ./var/lib/opkg/info/connman-systemd.prerm  
--rw-r--r-- root       root             1465 ./var/lib/opkg/info/connman.control  
+-rw-r--r-- root       root             1481 ./var/lib/opkg/info/connman.control  
 -rw-r--r-- root       root               73 ./var/lib/opkg/info/connman.list  
 -rwxr-xr-x root       root              126 ./var/lib/opkg/info/connman.postinst  
 -rwxr-xr-x root       root               40 ./var/lib/opkg/info/connman.postrm  
@@ -9393,7 +9398,7 @@ drwxr-xr-x root       root           143360 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/wpa-supplicant.list  
 -rwxr-xr-x root       root              191 ./var/lib/opkg/info/wpa-supplicant.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           247949 ./var/lib/opkg/status  
+-rw-r--r-- root       root           248112 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/systemd  
 drwxr-sr-x root       root             4096 ./var/local  
 drwxr-xr-x root       root             4096 ./var/lock  
