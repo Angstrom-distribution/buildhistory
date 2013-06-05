@@ -481,6 +481,7 @@ drwxr-xr-x root       root             4096 ./etc/udev
 drwxr-xr-x root       root             4096 ./etc/udev/hwdb.d  
 drwxr-xr-x root       root             4096 ./etc/udev/rules.d  
 -rw-r--r-- root       root               28 ./etc/udev/rules.d/99-fuse.rules  
+-rw-r--r-- root       root               98 ./etc/udev/rules.d/fixmac.rules  
 -rw-r--r-- root       root              728 ./etc/udev/rules.d/modprobe.rules  
 -rw-r--r-- root       root              855 ./etc/udev/rules.d/touchscreen.rules  
 -rw-r--r-- root       root               44 ./etc/udev/udev.conf  
@@ -1801,6 +1802,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/expr -> ../../bin/busybox
 lrwxrwxrwx root       root               13 ./usr/bin/fgconsole -> fgconsole.kbd
 -rwxr-xr-x root       root             6080 ./usr/bin/fgconsole.kbd  
 lrwxrwxrwx root       root               17 ./usr/bin/find -> ../../bin/busybox
+-rwxr-xr-x root       root              232 ./usr/bin/fixmac.sh  
 lrwxrwxrwx root       root               17 ./usr/bin/flock -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/free -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/fuser -> ../../bin/busybox
@@ -1868,6 +1870,7 @@ lrwxrwxrwx root       root                9 ./usr/bin/psfaddtable -> psfxtable
 lrwxrwxrwx root       root                9 ./usr/bin/psfgettable -> psfxtable
 lrwxrwxrwx root       root                9 ./usr/bin/psfstriptable -> psfxtable
 -rwxr-xr-x root       root            15788 ./usr/bin/psfxtable  
+-rwxr-xr-x root       root             9480 ./usr/bin/ranpwd  
 -rwxr-xr-x root       root            93084 ./usr/bin/rctest  
 lrwxrwxrwx root       root               17 ./usr/bin/readlink -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/realpath -> ../../bin/busybox
@@ -2809,6 +2812,9 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/eee-acpi
 -rw-r--r-- root       root              842 ./usr/share/common-licenses/eee-acpi-scripts/copyright  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/eee-acpi-scripts/generic_GPLv2 -> ../generic_GPLv2
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/eglibc-binary-localedata-en-us  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/fixmac  
+-rw-r--r-- root       root              545 ./usr/share/common-licenses/fixmac/LICENSE  
+lrwxrwxrwx root       root               14 ./usr/share/common-licenses/fixmac/generic_MIT -> ../generic_MIT
 -rw-r--r-- root       root             4785 ./usr/share/common-licenses/generic_Artistic-1.0  
 -rw-r--r-- root       root             1499 ./usr/share/common-licenses/generic_BSD  
 -rw-r--r-- root       root            17611 ./usr/share/common-licenses/generic_GPL-2.0  
@@ -3497,7 +3503,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxau6
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxcb1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxdmcp6  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root            86269 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root            86476 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/locale-base-en-us  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ncurses-terminfo-base  
@@ -3542,6 +3548,9 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/pm-utils
 -rw-r--r-- root       root            17992 ./usr/share/common-licenses/pm-utils/COPYING  
 lrwxrwxrwx root       root               16 ./usr/share/common-licenses/pm-utils/generic_GPLv2 -> ../generic_GPLv2
 -rw-r--r-- root       root             2683 ./usr/share/common-licenses/pm-utils/pm-pmu.c  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/ranpwd  
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/ranpwd/generic_GPLv2 -> ../generic_GPLv2
+-rw-r--r-- root       root            11437 ./usr/share/common-licenses/ranpwd/ranpwd.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/shadow  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/shadow-securetty  
 -rw-r--r-- root       root             1035 ./usr/share/common-licenses/shadow-securetty/COPYING.MIT  
@@ -6703,6 +6712,8 @@ drwxr-xr-x root       root           143360 ./var/lib/opkg/info
 -rw-r--r-- root       root              493 ./var/lib/opkg/info/eee-acpi-scripts.list  
 -rw-r--r-- root       root              338 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.control  
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/eglibc-binary-localedata-en-us.list  
+-rw-r--r-- root       root              422 ./var/lib/opkg/info/fixmac.control  
+-rw-r--r-- root       root               50 ./var/lib/opkg/info/fixmac.list  
 -rw-r--r-- root       root              361 ./var/lib/opkg/info/grep.control  
 -rw-r--r-- root       root               47 ./var/lib/opkg/info/grep.list  
 -rwxr-xr-x root       root              196 ./var/lib/opkg/info/grep.postinst  
@@ -9276,7 +9287,7 @@ drwxr-xr-x root       root           143360 ./var/lib/opkg/info
 -rwxr-xr-x root       root               54 ./var/lib/opkg/info/opkg.postrm  
 -rw-r--r-- root       root              712 ./var/lib/opkg/info/packagegroup-basic.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-basic.list  
--rw-r--r-- root       root              811 ./var/lib/opkg/info/packagegroup-boot.control  
+-rw-r--r-- root       root              819 ./var/lib/opkg/info/packagegroup-boot.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-boot.list  
 -rw-r--r-- root       root              512 ./var/lib/opkg/info/pam-plugin-deny.control  
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/pam-plugin-deny.list  
@@ -9310,6 +9321,8 @@ drwxr-xr-x root       root           143360 ./var/lib/opkg/info
 -rw-r--r-- root       root               26 ./var/lib/opkg/info/pam-plugin-warn.list  
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/pm-utils.control  
 -rw-r--r-- root       root             1519 ./var/lib/opkg/info/pm-utils.list  
+-rw-r--r-- root       root              447 ./var/lib/opkg/info/ranpwd.control  
+-rw-r--r-- root       root               16 ./var/lib/opkg/info/ranpwd.list  
 -rw-r--r-- root       root              365 ./var/lib/opkg/info/shadow-securetty.control  
 -rw-r--r-- root       root               15 ./var/lib/opkg/info/shadow-securetty.list  
 -rw-r--r-- root       root             1201 ./var/lib/opkg/info/shadow.control  
@@ -9391,7 +9404,7 @@ drwxr-xr-x root       root           143360 ./var/lib/opkg/info
 -rw-r--r-- root       root              451 ./var/lib/opkg/info/wpa-supplicant.list  
 -rwxr-xr-x root       root              191 ./var/lib/opkg/info/wpa-supplicant.postinst  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           248081 ./var/lib/opkg/status  
+-rw-r--r-- root       root           248464 ./var/lib/opkg/status  
 drwxr-xr-x root       root             4096 ./var/lib/systemd  
 drwxr-sr-x root       root             4096 ./var/local  
 drwxr-xr-x root       root             4096 ./var/lock  
