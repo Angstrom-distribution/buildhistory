@@ -948,6 +948,7 @@ drwxr-xr-x root       root             4096 ./lib/modules/3.8.13-yocto-standard/
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.13-yocto-standard/kernel/drivers/i2c  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.13-yocto-standard/kernel/drivers/i2c/busses  
 -rw-r--r-- root       root            17612 ./lib/modules/3.8.13-yocto-standard/kernel/drivers/i2c/busses/i2c-eg20t.ko  
+-rw-r--r-- root       root            12284 ./lib/modules/3.8.13-yocto-standard/kernel/drivers/i2c/i2c-dev.ko  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.13-yocto-standard/kernel/drivers/media  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.13-yocto-standard/kernel/drivers/media/common  
 drwxr-xr-x root       root             4096 ./lib/modules/3.8.13-yocto-standard/kernel/drivers/media/common/b2c2  
@@ -1609,8 +1610,8 @@ drwxr-xr-x root       root             4096 ./lib/modules/3.8.13-yocto-standard/
 -rw-r--r-- root       root           105676 ./lib/modules/3.8.13-yocto-standard/modules.alias  
 -rw-r--r-- root       root           109742 ./lib/modules/3.8.13-yocto-standard/modules.alias.bin  
 -rw-r--r-- root       root                0 ./lib/modules/3.8.13-yocto-standard/modules.builtin.bin  
--rw-r--r-- root       root            52609 ./lib/modules/3.8.13-yocto-standard/modules.dep  
--rw-r--r-- root       root            79374 ./lib/modules/3.8.13-yocto-standard/modules.dep.bin  
+-rw-r--r-- root       root            52640 ./lib/modules/3.8.13-yocto-standard/modules.dep  
+-rw-r--r-- root       root            79426 ./lib/modules/3.8.13-yocto-standard/modules.dep.bin  
 -rw-r--r-- root       root              141 ./lib/modules/3.8.13-yocto-standard/modules.devname  
 -rw-r--r-- root       root              131 ./lib/modules/3.8.13-yocto-standard/modules.softdep  
 -rw-r--r-- root       root            67720 ./lib/modules/3.8.13-yocto-standard/modules.symbols  
@@ -13690,6 +13691,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-m
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-hexium-gemini  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-hexium-orion  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-hopper  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-i2c-dev  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-i2c-eg20t  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-intel-rng  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/kernel-module-ip-tables  
@@ -14310,7 +14312,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86vm1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz-dev  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root           198748 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root           198942 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/linux-libc-headers-dev  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/lmbench  
 -rw-r--r-- root       root            17982 ./usr/share/common-licenses/lmbench/COPYING  
@@ -30138,6 +30140,10 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root               77 ./var/lib/opkg/info/kernel-module-hopper.list  
 -rwxr-xr-x root       root               92 ./var/lib/opkg/info/kernel-module-hopper.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-hopper.postrm  
+-rw-r--r-- root       root              748 ./var/lib/opkg/info/kernel-module-i2c-dev.control  
+-rw-r--r-- root       root               65 ./var/lib/opkg/info/kernel-module-i2c-dev.list  
+-rwxr-xr-x root       root               92 ./var/lib/opkg/info/kernel-module-i2c-dev.postinst  
+-rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-i2c-dev.postrm  
 -rw-r--r-- root       root              756 ./var/lib/opkg/info/kernel-module-i2c-eg20t.control  
 -rw-r--r-- root       root              191 ./var/lib/opkg/info/kernel-module-i2c-eg20t.list  
 -rwxr-xr-x root       root               92 ./var/lib/opkg/info/kernel-module-i2c-eg20t.postinst  
@@ -31558,7 +31564,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root               77 ./var/lib/opkg/info/kernel-module-zr36067.list  
 -rwxr-xr-x root       root               92 ./var/lib/opkg/info/kernel-module-zr36067.postinst  
 -rwxr-xr-x root       root               34 ./var/lib/opkg/info/kernel-module-zr36067.postrm  
--rw-r--r-- root       root            13186 ./var/lib/opkg/info/kernel-modules.control  
+-rw-r--r-- root       root            13209 ./var/lib/opkg/info/kernel-modules.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel-modules.list  
 -rw-r--r-- root       root              652 ./var/lib/opkg/info/kernel.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/kernel.list  
@@ -32259,7 +32265,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rwxr-xr-x root       root               54 ./var/lib/opkg/info/opkg.postrm  
 -rw-r--r-- root       root              712 ./var/lib/opkg/info/packagegroup-basic.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-basic.list  
--rw-r--r-- root       root              819 ./var/lib/opkg/info/packagegroup-boot.control  
+-rw-r--r-- root       root              842 ./var/lib/opkg/info/packagegroup-boot.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-boot.list  
 -rw-r--r-- root       root              758 ./var/lib/opkg/info/packagegroup-core-x11-xserver.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/packagegroup-core-x11-xserver.list  
@@ -33947,7 +33953,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root              566 ./var/lib/opkg/info/xvinfo.control  
 -rw-r--r-- root       root               16 ./var/lib/opkg/info/xvinfo.list  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           579774 ./var/lib/opkg/status  
+-rw-r--r-- root       root           580160 ./var/lib/opkg/status  
 drwx------ root       root             4096 ./var/lib/polkit-1  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/10-vendor.d  
