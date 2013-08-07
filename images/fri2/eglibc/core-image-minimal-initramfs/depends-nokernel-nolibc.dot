@@ -1,0 +1,47 @@
+digraph depends {
+    node [shape=plaintext]
+busybox -> busybox_syslog [style=dotted];
+busybox -> busybox_udhcpc [style=dotted];
+busybox -> opkg;
+busybox -> update_rc_d [style=dotted];
+diffutils -> opkg;
+e2fsprogs_mke2fs -> libblkid1;
+e2fsprogs_mke2fs -> libcom_err2;
+e2fsprogs_mke2fs -> libe2p2;
+e2fsprogs_mke2fs -> libext2fs2;
+e2fsprogs_mke2fs -> libuuid1;
+grub -> diffutils;
+grub -> libfreetype6;
+initramfs_live_boot -> udev;
+initramfs_live_boot -> udev_extraconf;
+initramfs_live_install -> e2fsprogs_mke2fs;
+initramfs_live_install -> grub;
+initramfs_live_install -> parted;
+initramfs_live_install_efi -> dosfstools;
+initramfs_live_install_efi -> e2fsprogs_mke2fs;
+initramfs_live_install_efi -> parted;
+libacl1 -> libattr1;
+libblkid1 -> libuuid1;
+libext2fs2 -> libblkid1;
+libext2fs2 -> libcom_err2;
+libreadline6 -> libtinfo5;
+libtinfo5 -> ncurses_terminfo_base [style=dotted];
+opkg -> libopkg1;
+opkg -> opkg;
+opkg -> opkg_config_base;
+parted -> libblkid1;
+parted -> libreadline6;
+parted -> libtinfo5;
+parted -> libuuid1;
+run_postinsts -> update_rc_d [style=dotted];
+udev -> libacl1;
+udev -> libblkid1;
+udev -> libkmod2;
+udev -> libudev1;
+udev -> udev_hwdb [style=dotted];
+udev -> udev_utils;
+udev_extraconf -> udev;
+udev_utils -> libacl1;
+udev_utils -> libblkid1;
+udev_utils -> libkmod2;
+}
