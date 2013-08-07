@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z "$D" ]; then
+	depmod -a 3.8.11-yocto-standard
+else
+	depmodwrapper -a -b $D 3.8.11-yocto-standard
+fi
+
+if [ x"$D" = "x" ]; then
+	modprobe iwlwifi || true
+fi
