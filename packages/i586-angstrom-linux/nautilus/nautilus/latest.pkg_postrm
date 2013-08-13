@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ "x$D" != "x" ]; then
+	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} mlprefix= libdir=/usr/lib \
+		base_libdir=/lib
+else
+	for icondir in /usr/share/icons/* ; do
+		if [ -d $icondir ] ; then
+			gtk-update-icon-cache -qt  $icondir
+		fi
+	done
+fi
+if [ "$1" = remove ] || [ "$1" = upgrade ]; then
+	UPDATEMIMEDB=`which update-mime-database`
+	if [ -x "$UPDATEMIMEDB" ] ; then
+		echo "Updating MIME database... this may take a while."
+		$UPDATEMIMEDB $D/usr/share/mime
+	else
+		echo "Missing update-mime-database, update of mime database failed!"
+		exit 1
+	fi
+fi
