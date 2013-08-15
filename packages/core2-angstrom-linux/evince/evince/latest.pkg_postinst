@@ -1,8 +1,4 @@
-if [ -n "$D" ]; then
-    exit 1
-fi
-
-glib-compile-schemas /usr/share/glib-2.0/schemas
+#!/bin/sh
 if [ "x$D" != "x" ]; then
 	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} mlprefix= libdir=/usr/lib \
 		base_libdir=/lib
@@ -30,6 +26,7 @@ for SCHEMA in evince-thumbnailer.schemas evince-thumbnailer-comics.schemas; do
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
 	fi
 done
+	glib-compile-schemas $D/usr/share/glib-2.0/schemas
 if [ x"$D" = "x" ]; then
 	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
 fi
