@@ -1,8 +1,4 @@
-if [ -n "$D" ]; then
-    exit 1
-fi
-    gconftool-2 --config-source=xml:readwrite:/etc/gconf/gconf.xml.defaults \
-        --direct --load /etc/gconf/schemas/panel-default-setup.entries
+#!/bin/sh
 if [ "x$D" != "x" ]; then
 	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} mlprefix= libdir=/usr/lib \
 		base_libdir=/lib
