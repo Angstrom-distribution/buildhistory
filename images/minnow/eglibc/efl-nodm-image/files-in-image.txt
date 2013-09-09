@@ -456,16 +456,16 @@ drwxr-xr-x root       root             4096 ./etc/skel
 drwxr-xr-x root       root             4096 ./etc/sysctl.d  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
-drwxr-xr-x root       root             4096 ./etc/systemd  
--rw-r--r-- root       root              749 ./etc/systemd/journald.conf  
+drwx------ xuser      xuser            4096 ./etc/systemd  
+-rw-r--r-- root       root              768 ./etc/systemd/journald.conf  
 -rw-r--r-- root       root              705 ./etc/systemd/logind.conf  
 drwxr-xr-x root       root             4096 ./etc/systemd/ntp-units.d  
-drwxr-xr-x root       root             4096 ./etc/systemd/system  
+drwx------ xuser      xuser            4096 ./etc/systemd/system  
 -rw-r--r-- root       root             1036 ./etc/systemd/system.conf  
 lrwxrwxrwx root       root                9 ./etc/systemd/system/busybox-udhcpc.service -> /dev/null
 lrwxrwxrwx root       root               40 ./etc/systemd/system/dbus-org.freedesktop.Avahi.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/dnsmasq.service -> /dev/null
-drwxr-xr-x root       root             4096 ./etc/systemd/system/getty.target.wants  
+drwx------ xuser      xuser            4096 ./etc/systemd/system/getty.target.wants  
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyPCH0.service -> /lib/systemd/system/serial-getty@.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/hwclock.service -> /dev/null
@@ -1474,7 +1474,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/runlevel5.targe
 drwxr-xr-x root       root             4096 ./lib/systemd/system/runlevel5.target.wants  
 lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel5.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.target -> reboot.target
--rwxr-xr-x root       root              918 ./lib/systemd/system/serial-getty@.service  
+-rwxr-xr-x xuser      xuser             918 ./lib/systemd/system/serial-getty@.service  
 -rw-r--r-- root       root              402 ./lib/systemd/system/shutdown.target  
 drwxr-xr-x root       root             4096 ./lib/systemd/system/shutdown.target.wants  
 lrwxrwxrwx root       root               35 ./lib/systemd/system/shutdown.target.wants/systemd-random-seed-save.service -> ../systemd-random-seed-save.service
@@ -14674,10 +14674,10 @@ drwxr-xr-x root       root           167936 ./var/lib/opkg/info
 -rw-r--r-- root       root             2068 ./var/lib/opkg/info/libstdc++6.control  
 -rw-r--r-- root       root               53 ./var/lib/opkg/info/libstdc++6.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libstdc++6.postinst  
--rw-r--r-- root       root              838 ./var/lib/opkg/info/libsystemd-daemon0.control  
+-rw-r--r-- root       root              859 ./var/lib/opkg/info/libsystemd-daemon0.control  
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/libsystemd-daemon0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsystemd-daemon0.postinst  
--rw-r--r-- root       root              934 ./var/lib/opkg/info/libsystemd-journal0.control  
+-rw-r--r-- root       root              955 ./var/lib/opkg/info/libsystemd-journal0.control  
 -rw-r--r-- root       root               62 ./var/lib/opkg/info/libsystemd-journal0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsystemd-journal0.postinst  
 -rw-r--r-- root       root              449 ./var/lib/opkg/info/libtasn1-3.control  
@@ -14692,7 +14692,7 @@ drwxr-xr-x root       root           167936 ./var/lib/opkg/info
 -rw-r--r-- root       root              855 ./var/lib/opkg/info/libts-1.0-0.control  
 -rw-r--r-- root       root              302 ./var/lib/opkg/info/libts-1.0-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libts-1.0-0.postinst  
--rw-r--r-- root       root              818 ./var/lib/opkg/info/libudev1.control  
+-rw-r--r-- root       root              839 ./var/lib/opkg/info/libudev1.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/libudev1.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libudev1.postinst  
 -rw-r--r-- root       root              568 ./var/lib/opkg/info/libusb-0.1-4.control  
@@ -14908,7 +14908,7 @@ drwxr-xr-x root       root           167936 ./var/lib/opkg/info
 -rw-r--r-- root       root              369 ./var/lib/opkg/info/systemd-serialgetty.control  
 -rw-r--r-- root       root              110 ./var/lib/opkg/info/systemd-serialgetty.list  
 -rw-r--r-- root       root              100 ./var/lib/opkg/info/systemd.conffiles  
--rw-r--r-- root       root             1391 ./var/lib/opkg/info/systemd.control  
+-rw-r--r-- root       root             1412 ./var/lib/opkg/info/systemd.control  
 -rw-r--r-- root       root            11561 ./var/lib/opkg/info/systemd.list  
 -rwxr-xr-x root       root              351 ./var/lib/opkg/info/systemd.postinst  
 -rwxr-xr-x root       root             2971 ./var/lib/opkg/info/systemd.preinst  
@@ -14938,11 +14938,11 @@ drwxr-xr-x root       root           167936 ./var/lib/opkg/info
 -rw-r--r-- root       root              582 ./var/lib/opkg/info/tzdata.control  
 -rw-r--r-- root       root             2829 ./var/lib/opkg/info/tzdata.list  
 -rwxr-xr-x root       root              540 ./var/lib/opkg/info/tzdata.postinst  
--rw-r--r-- root       root              817 ./var/lib/opkg/info/udev-systemd.control  
+-rw-r--r-- root       root              838 ./var/lib/opkg/info/udev-systemd.control  
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/udev-systemd.list  
--rw-r--r-- root       root              887 ./var/lib/opkg/info/udev-utils.control  
+-rw-r--r-- root       root              908 ./var/lib/opkg/info/udev-utils.control  
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/udev-utils.list  
--rw-r--r-- root       root              944 ./var/lib/opkg/info/udev.control  
+-rw-r--r-- root       root              965 ./var/lib/opkg/info/udev.control  
 -rw-r--r-- root       root             3972 ./var/lib/opkg/info/udev.list  
 -rw-r--r-- root       root             1082 ./var/lib/opkg/info/update-alternatives-cworth.control  
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/update-alternatives-cworth.list  
@@ -15086,79 +15086,79 @@ drwxr-xr-x root       root             4096 ./var/volatile/lock/subsys
 drwxr-xr-x root       root             4096 ./var/volatile/log  
 drwxr-xr-x root       root             4096 ./var/volatile/run  
 drwxrwxrwt root       root             4096 ./var/volatile/tmp  
-crw-rw---- root       plugdev           10, 23:15 ./dev/apm_bios 
-crw-rw--w- root       tty                5, 23:15 ./dev/console 
-crw------- root       root              29, 23:15 ./dev/fb0 
-brw-rw---- root       disk               3, 23:15 ./dev/hda 
-brw-rw---- root       root               3, 23:15 ./dev/hda1 
-brw-rw---- root       root               3, 23:15 ./dev/hda10 
-brw-rw---- root       root               3, 23:15 ./dev/hda11 
-brw-rw---- root       root               3, 23:15 ./dev/hda12 
-brw-rw---- root       root               3, 23:15 ./dev/hda13 
-brw-rw---- root       root               3, 23:15 ./dev/hda14 
-brw-rw---- root       root               3, 23:15 ./dev/hda15 
-brw-rw---- root       root               3, 23:15 ./dev/hda16 
-brw-rw---- root       root               3, 23:15 ./dev/hda17 
-brw-rw---- root       root               3, 23:15 ./dev/hda18 
-brw-rw---- root       root               3, 23:15 ./dev/hda2 
-brw-rw---- root       root               3, 23:15 ./dev/hda3 
-brw-rw---- root       root               3, 23:15 ./dev/hda4 
-brw-rw---- root       root               3, 23:15 ./dev/hda5 
-brw-rw---- root       root               3, 23:15 ./dev/hda6 
-brw-rw---- root       root               3, 23:15 ./dev/hda7 
-brw-rw---- root       root               3, 23:15 ./dev/hda8 
-brw-rw---- root       root               3, 23:15 ./dev/hda9 
-crw-rw---- root       root              13, 23:15 ./dev/input/event0 
-crw-rw---- root       root              13, 23:15 ./dev/input/event1 
-crw-rw---- root       root              13, 23:15 ./dev/input/event2 
-crw-rw---- root       root              13, 23:15 ./dev/input/event3 
-crw-rw---- root       root              13, 23:15 ./dev/input/event4 
-crw-rw---- root       root              13, 23:15 ./dev/input/event5 
-crw-rw---- root       root              13, 23:15 ./dev/input/event6 
-crw-rw---- root       root              13, 23:15 ./dev/input/event7 
-crw-r----- root       kmem               1, 23:15 ./dev/kmem 
-crw-r----- root       kmem               1, 23:15 ./dev/mem 
-brw-rw---- root       disk             179, 23:15 ./dev/mmcblk0 
-brw-rw---- root       root             179, 23:15 ./dev/mmcblk0p1 
-brw-rw---- root       root             179, 23:15 ./dev/mmcblk0p2 
-brw-rw---- root       root             179, 23:15 ./dev/mmcblk0p3 
-brw-rw---- root       root             179, 23:15 ./dev/mmcblk0p4 
-brw-rw---- root       root             179, 23:15 ./dev/mmcblk0p5 
-brw-rw---- root       root             179, 23:15 ./dev/mmcblk0p6 
-crw-rw---- root       root              90, 23:15 ./dev/mtd0 
-crw-rw---- root       root              90, 23:15 ./dev/mtd1 
-crw-rw---- root       root              90, 23:15 ./dev/mtd2 
-crw-rw---- root       root              90, 23:15 ./dev/mtd3 
-crw-rw---- root       root              90, 23:15 ./dev/mtd4 
-crw-rw---- root       root              90, 23:15 ./dev/mtd5 
-crw-rw---- root       root              90, 23:15 ./dev/mtd6 
-crw-rw---- root       root              90, 23:15 ./dev/mtd7 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock0 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock1 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock2 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock3 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock4 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock5 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock6 
-brw-r----- root       root              31, 23:15 ./dev/mtdblock7 
-crw-rw-rw- root       root               1, 23:15 ./dev/null 
-crw-r--r-- root       root               5, 23:15 ./dev/ptmx 
-brw-r----- root       root               1, 23:15 ./dev/ram0 
-brw-r----- root       root               1, 23:15 ./dev/ram1 
-brw-r----- root       root               1, 23:15 ./dev/ram2 
-brw-r----- root       root               1, 23:15 ./dev/ram3 
-crw-r--r-- root       root               1, 23:15 ./dev/random 
-crw-rw--w- root       tty                5, 23:15 ./dev/tty 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty0 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty1 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty2 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty3 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty4 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty5 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty6 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty7 
-crw-rw-rw- root       root               4, 23:15 ./dev/tty8 
-crw-r----- root       root               4, 23:15 ./dev/ttyS0 
-crw-r----- root       root             204, 23:15 ./dev/ttySA0 
-crw-r--r-- root       root               1, 23:15 ./dev/urandom 
-crw-r--r-- root       root               1, 23:15 ./dev/zero 
+crw-rw---- root       plugdev           10, 22:57 ./dev/apm_bios 
+crw-rw--w- root       tty                5, 22:57 ./dev/console 
+crw------- root       root              29, 22:57 ./dev/fb0 
+brw-rw---- root       disk               3, 22:57 ./dev/hda 
+brw-rw---- root       root               3, 22:57 ./dev/hda1 
+brw-rw---- root       root               3, 22:57 ./dev/hda10 
+brw-rw---- root       root               3, 22:57 ./dev/hda11 
+brw-rw---- root       root               3, 22:57 ./dev/hda12 
+brw-rw---- root       root               3, 22:57 ./dev/hda13 
+brw-rw---- root       root               3, 22:57 ./dev/hda14 
+brw-rw---- root       root               3, 22:57 ./dev/hda15 
+brw-rw---- root       root               3, 22:57 ./dev/hda16 
+brw-rw---- root       root               3, 22:57 ./dev/hda17 
+brw-rw---- root       root               3, 22:57 ./dev/hda18 
+brw-rw---- root       root               3, 22:57 ./dev/hda2 
+brw-rw---- root       root               3, 22:57 ./dev/hda3 
+brw-rw---- root       root               3, 22:57 ./dev/hda4 
+brw-rw---- root       root               3, 22:57 ./dev/hda5 
+brw-rw---- root       root               3, 22:57 ./dev/hda6 
+brw-rw---- root       root               3, 22:57 ./dev/hda7 
+brw-rw---- root       root               3, 22:57 ./dev/hda8 
+brw-rw---- root       root               3, 22:57 ./dev/hda9 
+crw-rw---- root       root              13, 22:57 ./dev/input/event0 
+crw-rw---- root       root              13, 22:57 ./dev/input/event1 
+crw-rw---- root       root              13, 22:57 ./dev/input/event2 
+crw-rw---- root       root              13, 22:57 ./dev/input/event3 
+crw-rw---- root       root              13, 22:57 ./dev/input/event4 
+crw-rw---- root       root              13, 22:57 ./dev/input/event5 
+crw-rw---- root       root              13, 22:57 ./dev/input/event6 
+crw-rw---- root       root              13, 22:57 ./dev/input/event7 
+crw-r----- root       kmem               1, 22:57 ./dev/kmem 
+crw-r----- root       kmem               1, 22:57 ./dev/mem 
+brw-rw---- root       disk             179, 22:57 ./dev/mmcblk0 
+brw-rw---- root       root             179, 22:57 ./dev/mmcblk0p1 
+brw-rw---- root       root             179, 22:57 ./dev/mmcblk0p2 
+brw-rw---- root       root             179, 22:57 ./dev/mmcblk0p3 
+brw-rw---- root       root             179, 22:57 ./dev/mmcblk0p4 
+brw-rw---- root       root             179, 22:57 ./dev/mmcblk0p5 
+brw-rw---- root       root             179, 22:57 ./dev/mmcblk0p6 
+crw-rw---- root       root              90, 22:57 ./dev/mtd0 
+crw-rw---- root       root              90, 22:57 ./dev/mtd1 
+crw-rw---- root       root              90, 22:57 ./dev/mtd2 
+crw-rw---- root       root              90, 22:57 ./dev/mtd3 
+crw-rw---- root       root              90, 22:57 ./dev/mtd4 
+crw-rw---- root       root              90, 22:57 ./dev/mtd5 
+crw-rw---- root       root              90, 22:57 ./dev/mtd6 
+crw-rw---- root       root              90, 22:57 ./dev/mtd7 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock0 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock1 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock2 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock3 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock4 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock5 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock6 
+brw-r----- root       root              31, 22:57 ./dev/mtdblock7 
+crw-rw-rw- root       root               1, 22:57 ./dev/null 
+crw-r--r-- root       root               5, 22:57 ./dev/ptmx 
+brw-r----- root       root               1, 22:57 ./dev/ram0 
+brw-r----- root       root               1, 22:57 ./dev/ram1 
+brw-r----- root       root               1, 22:57 ./dev/ram2 
+brw-r----- root       root               1, 22:57 ./dev/ram3 
+crw-r--r-- root       root               1, 22:57 ./dev/random 
+crw-rw--w- root       tty                5, 22:57 ./dev/tty 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty0 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty1 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty2 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty3 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty4 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty5 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty6 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty7 
+crw-rw-rw- root       root               4, 22:57 ./dev/tty8 
+crw-r----- root       root               4, 22:57 ./dev/ttyS0 
+crw-r----- root       root             204, 22:57 ./dev/ttySA0 
+crw-r--r-- root       root               1, 22:57 ./dev/urandom 
+crw-r--r-- root       root               1, 22:57 ./dev/zero 
