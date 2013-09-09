@@ -373,7 +373,7 @@ lrwxrwxrwx root       root               21 ./etc/init.d/functions -> functions.
 -rw-r--r-- root       root             1633 ./etc/inputrc  
 -rw-r--r-- root       root              427 ./etc/issue  
 -rw-r--r-- root       root              413 ./etc/issue.net  
--rw-r--r-- root       root            23011 ./etc/ld.so.cache  
+-rw-r--r-- root       root            23541 ./etc/ld.so.cache  
 -rw-r--r-- root       root                0 ./etc/ld.so.conf  
 drwxr-xr-x root       root             4096 ./etc/libnl  
 -rw-r--r-- root       root             1130 ./etc/libnl/classid  
@@ -465,7 +465,7 @@ drwxr-xr-x root       root             4096 ./etc/polkit-1/nullbackend.conf.d
 -rwxr-xr-x root       root               95 ./etc/powervr.ini  
 -rw-r--r-- root       root              847 ./etc/profile  
 drwxr-xr-x root       root             4096 ./etc/profile.d  
--rw-r--r-- xuser      xuser            2516 ./etc/profile.d/gvfs-bash-completion.sh  
+-rw-r--r-- root       root             2516 ./etc/profile.d/gvfs-bash-completion.sh  
 -rwxr-xr-x root       root              125 ./etc/profile.d/tslib.sh  
 -rwxr-xr-x root       root             2315 ./etc/profile.d/udisks-bash-completion.sh  
 -rw-r--r-- root       root             2933 ./etc/protocols  
@@ -583,17 +583,17 @@ drwxr-xr-x root       root             4096 ./etc/ssl/certs
 drwxr-xr-x root       root             4096 ./etc/sysctl.d  
 lrwxrwxrwx root       root               27 ./etc/syslog-startup.conf -> syslog-startup.conf.busybox
 -rw-r--r-- root       root              651 ./etc/syslog-startup.conf.busybox  
-drwxr-xr-x root       root             4096 ./etc/systemd  
--rw-r--r-- root       root              749 ./etc/systemd/journald.conf  
+drwx------ xuser      xuser            4096 ./etc/systemd  
+-rw-r--r-- root       root              768 ./etc/systemd/journald.conf  
 -rw-r--r-- root       root              705 ./etc/systemd/logind.conf  
 drwxr-xr-x root       root             4096 ./etc/systemd/ntp-units.d  
-drwxr-xr-x root       root             4096 ./etc/systemd/system  
+drwx------ xuser      xuser            4096 ./etc/systemd/system  
 -rw-r--r-- root       root             1036 ./etc/systemd/system.conf  
 lrwxrwxrwx root       root                9 ./etc/systemd/system/busybox-udhcpc.service -> /dev/null
 lrwxrwxrwx root       root               40 ./etc/systemd/system/dbus-org.freedesktop.Avahi.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root               31 ./etc/systemd/system/display-manager.service -> /lib/systemd/system/gdm.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/dnsmasq.service -> /dev/null
-drwxr-xr-x root       root             4096 ./etc/systemd/system/getty.target.wants  
+drwx------ xuser      xuser            4096 ./etc/systemd/system/getty.target.wants  
 lrwxrwxrwx root       root               34 ./etc/systemd/system/getty.target.wants/getty@tty1.service -> /lib/systemd/system/getty@.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/getty.target.wants/serial-getty@ttyPCH1.service -> /lib/systemd/system/serial-getty@.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/hwclock.service -> /dev/null
@@ -659,7 +659,7 @@ drwxr-xr-x root       root             4096 ./etc/update-fonts-common.d
 -rw------- root       root              113 ./etc/wpa_supplicant.conf  
 drwxr-xr-x root       root             4096 ./etc/xdg  
 drwxr-xr-x root       root             4096 ./etc/xdg/autostart  
--rw-r--r-- xuser      xuser            6352 ./etc/xdg/autostart/bluetooth-applet.desktop  
+-rw-r--r-- root       root             6352 ./etc/xdg/autostart/bluetooth-applet.desktop  
 -rw-r--r-- root       root             7081 ./etc/xdg/autostart/gdu-notification-daemon.desktop  
 -rw-r--r-- root       root             8807 ./etc/xdg/autostart/gnome-at-session.desktop  
 -rw-r--r-- root       root             3384 ./etc/xdg/autostart/gnome-keyring-gpg.desktop  
@@ -1172,7 +1172,7 @@ lrwxrwxrwx root       root               16 ./lib/systemd/system/runlevel5.targe
 drwxr-xr-x root       root             4096 ./lib/systemd/system/runlevel5.target.wants  
 lrwxrwxrwx root       root               39 ./lib/systemd/system/runlevel5.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
 lrwxrwxrwx root       root               13 ./lib/systemd/system/runlevel6.target -> reboot.target
--rwxr-xr-x root       root              918 ./lib/systemd/system/serial-getty@.service  
+-rwxr-xr-x xuser      xuser             918 ./lib/systemd/system/serial-getty@.service  
 -rw-r--r-- root       root              402 ./lib/systemd/system/shutdown.target  
 drwxr-xr-x root       root             4096 ./lib/systemd/system/shutdown.target.wants  
 lrwxrwxrwx root       root               35 ./lib/systemd/system/shutdown.target.wants/systemd-random-seed-save.service -> ../systemd-random-seed-save.service
@@ -1563,10 +1563,10 @@ lrwxrwxrwx root       root               17 ./usr/bin/basename -> ../../bin/busy
 -r-xr-xr-x root       root             7009 ./usr/bin/bashbug  
 -rwxr-xr-x root       root             6224 ./usr/bin/bdftruncate  
 -rwxr-xr-x root       root          1584328 ./usr/bin/bltest  
--rwxr-xr-x xuser      xuser           98260 ./usr/bin/bluetooth-applet  
--rwxr-xr-x xuser      xuser           69964 ./usr/bin/bluetooth-properties  
--rwxr-xr-x xuser      xuser           65104 ./usr/bin/bluetooth-sendto  
--rwxr-xr-x xuser      xuser           77876 ./usr/bin/bluetooth-wizard  
+-rwxr-xr-x root       root            98260 ./usr/bin/bluetooth-applet  
+-rwxr-xr-x root       root            69964 ./usr/bin/bluetooth-properties  
+-rwxr-xr-x root       root            65104 ./usr/bin/bluetooth-sendto  
+-rwxr-xr-x root       root            77876 ./usr/bin/bluetooth-wizard  
 -rwxr-xr-x root       root             6040 ./usr/bin/btoa  
 lrwxrwxrwx root       root               17 ./usr/bin/bunzip2 -> ../../bin/busybox
 lrwxrwxrwx root       root               17 ./usr/bin/bzcat -> ../../bin/busybox
@@ -1733,6 +1733,7 @@ lrwxrwxrwx root       root               16 ./usr/bin/gimp-console -> gimp-conso
 -rwxr-xr-x root       root           239044 ./usr/bin/gnome-system-monitor  
 lrwxrwxrwx root       root                5 ./usr/bin/gnome-text-editor -> gedit
 -rwxr-xr-x root       root            15608 ./usr/bin/gnome-thumbnail-font  
+-rwxr-xr-x root       root            33424 ./usr/bin/gnome-typing-monitor  
 -rwxr-xr-x root       root            18532 ./usr/bin/gnome-window-properties  
 -rwxr-xr-x root       root             3488 ./usr/bin/gnome-wm  
 -rwxr-xr-x root       root             8948 ./usr/bin/gnomevfs-cat  
@@ -1789,23 +1790,23 @@ lrwxrwxrwx root       root               13 ./usr/bin/groups -> groups.shadow
 -rwxr-xr-x root       root             7284 ./usr/bin/gtk-query-immodules-2.0  
 -rwxr-xr-x root       root             7664 ./usr/bin/gtk-query-immodules-3.0  
 -rwxr-xr-x root       root            23332 ./usr/bin/gtk-update-icon-cache  
--rwxr-xr-x xuser      xuser            7080 ./usr/bin/gvfs-cat  
--rwxr-xr-x xuser      xuser            8052 ./usr/bin/gvfs-copy  
--rwxr-xr-x xuser      xuser           10268 ./usr/bin/gvfs-info  
--rwxr-xr-x xuser      xuser             879 ./usr/bin/gvfs-less  
--rwxr-xr-x xuser      xuser           10740 ./usr/bin/gvfs-ls  
--rwxr-xr-x xuser      xuser            5256 ./usr/bin/gvfs-mkdir  
--rwxr-xr-x xuser      xuser            5552 ./usr/bin/gvfs-monitor-dir  
--rwxr-xr-x xuser      xuser            5456 ./usr/bin/gvfs-monitor-file  
--rwxr-xr-x xuser      xuser           20736 ./usr/bin/gvfs-mount  
--rwxr-xr-x xuser      xuser            7228 ./usr/bin/gvfs-move  
--rwxr-xr-x xuser      xuser            6504 ./usr/bin/gvfs-open  
--rwxr-xr-x xuser      xuser            4960 ./usr/bin/gvfs-rename  
--rwxr-xr-x xuser      xuser            4900 ./usr/bin/gvfs-rm  
--rwxr-xr-x xuser      xuser            6868 ./usr/bin/gvfs-save  
--rwxr-xr-x xuser      xuser            6672 ./usr/bin/gvfs-set-attribute  
--rwxr-xr-x xuser      xuser            4936 ./usr/bin/gvfs-trash  
--rwxr-xr-x xuser      xuser            8104 ./usr/bin/gvfs-tree  
+-rwxr-xr-x root       root             7080 ./usr/bin/gvfs-cat  
+-rwxr-xr-x root       root             8052 ./usr/bin/gvfs-copy  
+-rwxr-xr-x root       root            10268 ./usr/bin/gvfs-info  
+-rwxr-xr-x root       root              879 ./usr/bin/gvfs-less  
+-rwxr-xr-x root       root            10740 ./usr/bin/gvfs-ls  
+-rwxr-xr-x root       root             5256 ./usr/bin/gvfs-mkdir  
+-rwxr-xr-x root       root             5552 ./usr/bin/gvfs-monitor-dir  
+-rwxr-xr-x root       root             5456 ./usr/bin/gvfs-monitor-file  
+-rwxr-xr-x root       root            20736 ./usr/bin/gvfs-mount  
+-rwxr-xr-x root       root             7228 ./usr/bin/gvfs-move  
+-rwxr-xr-x root       root             6504 ./usr/bin/gvfs-open  
+-rwxr-xr-x root       root             4960 ./usr/bin/gvfs-rename  
+-rwxr-xr-x root       root             4900 ./usr/bin/gvfs-rm  
+-rwxr-xr-x root       root             6868 ./usr/bin/gvfs-save  
+-rwxr-xr-x root       root             6672 ./usr/bin/gvfs-set-attribute  
+-rwxr-xr-x root       root             4936 ./usr/bin/gvfs-trash  
+-rwxr-xr-x root       root             8104 ./usr/bin/gvfs-tree  
 -rwxr-xr-x root       root           475088 ./usr/bin/h264encode  
 -rwxr-xr-x root       root            89772 ./usr/bin/hcitool  
 lrwxrwxrwx root       root               17 ./usr/bin/head -> ../../bin/busybox
@@ -1863,7 +1864,7 @@ lrwxrwxrwx root       root               13 ./usr/bin/lspci -> ../sbin/lspci
 lrwxrwxrwx root       root               17 ./usr/bin/md5sum -> ../../bin/busybox
 lrwxrwxrwx root       root               15 ./usr/bin/mesg -> mesg.util-linux
 -rwxr-xr-x root       root             6912 ./usr/bin/mesg.util-linux  
--rwxr-xr-x root       root           547656 ./usr/bin/metacity  
+-rwxr-xr-x root       root           547688 ./usr/bin/metacity  
 -rwxr-xr-x root       root             5908 ./usr/bin/metacity-message  
 -rwxr-xr-x root       root            23036 ./usr/bin/metacity-theme-viewer  
 -rwxr-xr-x root       root            23508 ./usr/bin/metacity-window-demo  
@@ -2034,6 +2035,7 @@ lrwxrwxrwx root       root               13 ./usr/bin/sg -> newgrp.shadow
 -rwxr-xr-x root       root           155852 ./usr/bin/signtool  
 -rwxr-xr-x root       root            78824 ./usr/bin/signver  
 -rwxr-xr-x root       root            17987 ./usr/bin/smime  
+-rwxr-xr-x root       root             8464 ./usr/bin/sndfile-resample  
 lrwxrwxrwx root       root               17 ./usr/bin/sort -> ../../bin/busybox
 -rwxr-xr-x root       root            18584 ./usr/bin/ssconvert  
 -rwxr-xr-x root       root            14344 ./usr/bin/ssgrep  
@@ -2670,13 +2672,13 @@ drwxr-xr-x root       root             4096 ./usr/lib/gio
 drwxr-xr-x root       root             4096 ./usr/lib/gio/modules  
 -rwxr-xr-x root       root            52916 ./usr/lib/gio/modules/libgiognutls.so  
 -rwxr-xr-x root       root             9276 ./usr/lib/gio/modules/libgiolibproxy.so  
--rwxr-xr-x xuser      xuser           68136 ./usr/lib/gio/modules/libgioremote-volume-monitor.so  
+-rwxr-xr-x root       root            68136 ./usr/lib/gio/modules/libgioremote-volume-monitor.so  
 -rwxr-xr-x root       root            20084 ./usr/lib/gio/modules/libgsettingsgconfbackend.so  
--rwxr-xr-x xuser      xuser          168308 ./usr/lib/gio/modules/libgvfsdbus.so  
-drwx------ xuser      xuser            4096 ./usr/lib/gnome-bluetooth  
-drwx------ xuser      xuser            4096 ./usr/lib/gnome-bluetooth/plugins  
--rwxr-xr-x xuser      xuser            2342 ./usr/lib/gnome-bluetooth/plugins/libgbtgeoclue.la  
--rwxr-xr-x xuser      xuser            7816 ./usr/lib/gnome-bluetooth/plugins/libgbtgeoclue.so  
+-rwxr-xr-x root       root           168308 ./usr/lib/gio/modules/libgvfsdbus.so  
+drwxr-xr-x root       root             4096 ./usr/lib/gnome-bluetooth  
+drwxr-xr-x root       root             4096 ./usr/lib/gnome-bluetooth/plugins  
+-rwxr-xr-x root       root             2342 ./usr/lib/gnome-bluetooth/plugins/libgbtgeoclue.la  
+-rwxr-xr-x root       root             7816 ./usr/lib/gnome-bluetooth/plugins/libgbtgeoclue.so  
 drwxr-xr-x root       root             4096 ./usr/lib/gnome-keyring  
 -rwxr-xr-x root       root            64820 ./usr/lib/gnome-keyring/gnome-keyring-pkcs11.so  
 drwxr-xr-x root       root             4096 ./usr/lib/gnome-keyring/standalone  
@@ -2690,20 +2692,20 @@ drwxr-xr-x root       root             4096 ./usr/lib/gnome-settings-daemon-2.0
 -rw-r--r-- root       root              264 ./usr/lib/gnome-settings-daemon-2.0/housekeeping.gnome-settings-plugin  
 -rw-r--r-- root       root             5401 ./usr/lib/gnome-settings-daemon-2.0/keybindings.gnome-settings-plugin  
 -rw-r--r-- root       root             5202 ./usr/lib/gnome-settings-daemon-2.0/keyboard.gnome-settings-plugin  
--rwxr-xr-x root       root            40820 ./usr/lib/gnome-settings-daemon-2.0/liba11y-keyboard.so  
--rwxr-xr-x root       root            15604 ./usr/lib/gnome-settings-daemon-2.0/libbackground.so  
--rwxr-xr-x root       root            22928 ./usr/lib/gnome-settings-daemon-2.0/libclipboard.so  
--rwxr-xr-x root       root            17036 ./usr/lib/gnome-settings-daemon-2.0/libfont.so  
--rwxr-xr-x root       root            44052 ./usr/lib/gnome-settings-daemon-2.0/libhousekeeping.so  
--rwxr-xr-x root       root            37716 ./usr/lib/gnome-settings-daemon-2.0/libkeybindings.so  
--rwxr-xr-x root       root            40744 ./usr/lib/gnome-settings-daemon-2.0/libkeyboard.so  
+-rwxr-xr-x root       root            40916 ./usr/lib/gnome-settings-daemon-2.0/liba11y-keyboard.so  
+-rwxr-xr-x root       root            15700 ./usr/lib/gnome-settings-daemon-2.0/libbackground.so  
+-rwxr-xr-x root       root            22960 ./usr/lib/gnome-settings-daemon-2.0/libclipboard.so  
+-rwxr-xr-x root       root            17132 ./usr/lib/gnome-settings-daemon-2.0/libfont.so  
+-rwxr-xr-x root       root            44084 ./usr/lib/gnome-settings-daemon-2.0/libhousekeeping.so  
+-rwxr-xr-x root       root            37780 ./usr/lib/gnome-settings-daemon-2.0/libkeybindings.so  
+-rwxr-xr-x root       root            40840 ./usr/lib/gnome-settings-daemon-2.0/libkeyboard.so  
 -rwxr-xr-x root       root           135340 ./usr/lib/gnome-settings-daemon-2.0/libmedia-keys.so  
--rwxr-xr-x root       root            25036 ./usr/lib/gnome-settings-daemon-2.0/libmouse.so  
--rwxr-xr-x root       root            33680 ./usr/lib/gnome-settings-daemon-2.0/libsmartcard.so  
--rwxr-xr-x root       root            15692 ./usr/lib/gnome-settings-daemon-2.0/libsound.so  
--rwxr-xr-x root       root            12532 ./usr/lib/gnome-settings-daemon-2.0/libtyping-break.so  
--rwxr-xr-x root       root            45016 ./usr/lib/gnome-settings-daemon-2.0/libxrandr.so  
--rwxr-xr-x root       root            17228 ./usr/lib/gnome-settings-daemon-2.0/libxrdb.so  
+-rwxr-xr-x root       root            25132 ./usr/lib/gnome-settings-daemon-2.0/libmouse.so  
+-rwxr-xr-x root       root            33776 ./usr/lib/gnome-settings-daemon-2.0/libsmartcard.so  
+-rwxr-xr-x root       root            15756 ./usr/lib/gnome-settings-daemon-2.0/libsound.so  
+-rwxr-xr-x root       root            12628 ./usr/lib/gnome-settings-daemon-2.0/libtyping-break.so  
+-rwxr-xr-x root       root            45080 ./usr/lib/gnome-settings-daemon-2.0/libxrandr.so  
+-rwxr-xr-x root       root            17324 ./usr/lib/gnome-settings-daemon-2.0/libxrdb.so  
 -rwxr-xr-x root       root            35968 ./usr/lib/gnome-settings-daemon-2.0/libxsettings.so  
 -rw-r--r-- root       root             5672 ./usr/lib/gnome-settings-daemon-2.0/media-keys.gnome-settings-plugin  
 -rw-r--r-- root       root             4258 ./usr/lib/gnome-settings-daemon-2.0/mouse.gnome-settings-plugin  
@@ -3401,6 +3403,14 @@ drwxr-xr-x root       root             4096 ./usr/lib/gtk-3.0/modules
 lrwxrwxrwx root       root               26 ./usr/lib/gtk-3.0/modules/libcanberra-gtk-module.so -> libcanberra-gtk3-module.so
 -rwxr-xr-x root       root             2474 ./usr/lib/gtk-3.0/modules/libcanberra-gtk3-module.la  
 -rwxr-xr-x root       root            19336 ./usr/lib/gtk-3.0/modules/libcanberra-gtk3-module.so  
+drwxr-xr-x root       root             4096 ./usr/lib/jack  
+-rwxr-xr-x root       root            22660 ./usr/lib/jack/a2j_in.so  
+-rwxr-xr-x root       root             4744 ./usr/lib/jack/inprocess.so  
+-rwxr-xr-x root       root             5920 ./usr/lib/jack/intime.so  
+-rwxr-xr-x root       root            89172 ./usr/lib/jack/jack_alsa.so  
+-rwxr-xr-x root       root            33432 ./usr/lib/jack/jack_alsa_midi.so  
+-rwxr-xr-x root       root            10744 ./usr/lib/jack/jack_dummy.so  
+-rwxr-xr-x root       root            37504 ./usr/lib/jack/jack_net.so  
 lrwxrwxrwx root       root               21 ./usr/lib/libEGL.so.1 -> libEGL.so.1.5.15.3226
 -rwxr-xr-x root       root             9232 ./usr/lib/libEGL.so.1.5.15.3226  
 lrwxrwxrwx root       root               24 ./usr/lib/libEMGD2d.so -> libEMGD2d.so.1.5.15.3226
@@ -3476,6 +3486,8 @@ lrwxrwxrwx root       root               18 ./usr/lib/libXrandr.so.2 -> libXrand
 -rwxr-xr-x root       root            35124 ./usr/lib/libXrandr.so.2.2.0  
 lrwxrwxrwx root       root               19 ./usr/lib/libXrender.so.1 -> libXrender.so.1.3.0
 -rwxr-xr-x root       root            34940 ./usr/lib/libXrender.so.1.3.0  
+lrwxrwxrwx root       root               15 ./usr/lib/libXss.so.1 -> libXss.so.1.0.0
+-rwxr-xr-x root       root             9008 ./usr/lib/libXss.so.1.0.0  
 lrwxrwxrwx root       root               14 ./usr/lib/libXt.so.6 -> libXt.so.6.0.0
 -rwxr-xr-x root       root           374080 ./usr/lib/libXt.so.6.0.0  
 lrwxrwxrwx root       root               16 ./usr/lib/libXtst.so.6 -> libXtst.so.6.1.0
@@ -3487,6 +3499,8 @@ lrwxrwxrwx root       root               21 ./usr/lib/libXxf86misc.so.1 -> libXx
 lrwxrwxrwx root       root               19 ./usr/lib/libXxf86vm.so.1 -> libXxf86vm.so.1.0.0
 -rwxr-xr-x root       root            18324 ./usr/lib/libXxf86vm.so.1.0.0  
 -rwxr-xr-x root       root          6686332 ./usr/lib/libabiword-2.8.so  
+lrwxrwxrwx root       root               19 ./usr/lib/libarchive.so.2 -> libarchive.so.2.8.5
+-rwxr-xr-x root       root           287516 ./usr/lib/libarchive.so.2.8.5  
 lrwxrwxrwx root       root               18 ./usr/lib/libasound.so.2 -> libasound.so.2.0.0
 -rwxr-xr-x root       root           998676 ./usr/lib/libasound.so.2.0.0  
 lrwxrwxrwx root       root               19 ./usr/lib/libaspell.so.15 -> libaspell.so.15.1.5
@@ -3512,7 +3526,7 @@ lrwxrwxrwx root       root               20 ./usr/lib/libavahi-ui.so.0 -> libava
 lrwxrwxrwx root       root               21 ./usr/lib/libavcodec.so.53 -> libavcodec.so.53.35.0
 -rwxr-xr-x root       root          8848792 ./usr/lib/libavcodec.so.53.35.0  
 lrwxrwxrwx root       root               21 ./usr/lib/libavdevice.so.53 -> libavdevice.so.53.2.0
--rwxr-xr-x root       root            47832 ./usr/lib/libavdevice.so.53.2.0  
+-rwxr-xr-x root       root            53720 ./usr/lib/libavdevice.so.53.2.0  
 lrwxrwxrwx root       root               21 ./usr/lib/libavfilter.so.2 -> libavfilter.so.2.15.0
 -rwxr-xr-x root       root           166420 ./usr/lib/libavfilter.so.2.15.0  
 lrwxrwxrwx root       root               22 ./usr/lib/libavformat.so.53 -> libavformat.so.53.21.0
@@ -3537,6 +3551,12 @@ lrwxrwxrwx root       root               25 ./usr/lib/libcanberra-gtk3.so.0 -> l
 -rwxr-xr-x root       root            15400 ./usr/lib/libcanberra-gtk3.so.0.1.8  
 lrwxrwxrwx root       root               20 ./usr/lib/libcanberra.so.0 -> libcanberra.so.0.2.5
 -rwxr-xr-x root       root            58412 ./usr/lib/libcanberra.so.0.2.5  
+lrwxrwxrwx root       root               17 ./usr/lib/libcdio.so.12 -> libcdio.so.12.0.0
+-rwxr-xr-x root       root           127112 ./usr/lib/libcdio.so.12.0.0  
+lrwxrwxrwx root       root               21 ./usr/lib/libcdio_cdda.so.0 -> libcdio_cdda.so.0.0.5
+-rwxr-xr-x root       root            28004 ./usr/lib/libcdio_cdda.so.0.0.5  
+lrwxrwxrwx root       root               25 ./usr/lib/libcdio_paranoia.so.0 -> libcdio_paranoia.so.0.0.3
+-rwxr-xr-x root       root            28100 ./usr/lib/libcdio_paranoia.so.0.0.3  
 lrwxrwxrwx root       root               24 ./usr/lib/libck-connector.so.0 -> libck-connector.so.0.0.0
 -rwxr-xr-x root       root            10160 ./usr/lib/libck-connector.so.0.0.0  
 lrwxrwxrwx root       root               16 ./usr/lib/libcord.so.1 -> libcord.so.1.0.3
@@ -3654,15 +3674,15 @@ lrwxrwxrwx root       root               42 ./usr/lib/libglibmm_generate_extra_d
 lrwxrwxrwx root       root               26 ./usr/lib/libgmodule-2.0.so.0 -> libgmodule-2.0.so.0.3200.4
 -rwxr-xr-x root       root            10640 ./usr/lib/libgmodule-2.0.so.0.3200.4  
 lrwxrwxrwx root       root               27 ./usr/lib/libgnome-bluetooth.so.8 -> libgnome-bluetooth.so.8.0.0
--rwxr-xr-x xuser      xuser           86144 ./usr/lib/libgnome-bluetooth.so.8.0.0  
+-rwxr-xr-x root       root            86144 ./usr/lib/libgnome-bluetooth.so.8.0.0  
 lrwxrwxrwx root       root               28 ./usr/lib/libgnome-desktop-2.so.17 -> libgnome-desktop-2.so.17.1.5
--rwxr-xr-x root       root           160652 ./usr/lib/libgnome-desktop-2.so.17.1.5  
+-rwxr-xr-x root       root           164620 ./usr/lib/libgnome-desktop-2.so.17.1.5  
 lrwxrwxrwx root       root               25 ./usr/lib/libgnome-keyring.so.0 -> libgnome-keyring.so.0.1.1
 -rwxr-xr-x root       root           126264 ./usr/lib/libgnome-keyring.so.0.1.1  
 lrwxrwxrwx root       root               23 ./usr/lib/libgnome-menu.so.2 -> libgnome-menu.so.2.4.10
 -rwxr-xr-x root       root            87344 ./usr/lib/libgnome-menu.so.2.4.10  
 lrwxrwxrwx root       root               33 ./usr/lib/libgnome-window-settings.so.1 -> libgnome-window-settings.so.1.0.0
--rwxr-xr-x root       root            12956 ./usr/lib/libgnome-window-settings.so.1.0.0  
+-rwxr-xr-x root       root            13052 ./usr/lib/libgnome-window-settings.so.1.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libgnomekbd.so.4 -> libgnomekbd.so.4.2.0
 -rwxr-xr-x root       root            28876 ./usr/lib/libgnomekbd.so.4.2.0  
 lrwxrwxrwx root       root               22 ./usr/lib/libgnomekbdui.so.4 -> libgnomekbdui.so.4.2.0
@@ -3807,9 +3827,9 @@ lrwxrwxrwx root       root               29 ./usr/lib/libgtksourceview-2.0.so.0 
 lrwxrwxrwx root       root               20 ./usr/lib/libgtop-2.0.so.7 -> libgtop-2.0.so.7.2.0
 -rwxr-xr-x root       root            68536 ./usr/lib/libgtop-2.0.so.7.2.0  
 lrwxrwxrwx root       root               28 ./usr/lib/libgvfscommon-dnssd.so.0 -> libgvfscommon-dnssd.so.0.0.0
--rwxr-xr-x xuser      xuser           25608 ./usr/lib/libgvfscommon-dnssd.so.0.0.0  
+-rwxr-xr-x root       root            25608 ./usr/lib/libgvfscommon-dnssd.so.0.0.0  
 lrwxrwxrwx root       root               22 ./usr/lib/libgvfscommon.so.0 -> libgvfscommon.so.0.0.0
--rwxr-xr-x xuser      xuser           90568 ./usr/lib/libgvfscommon.so.0.0.0  
+-rwxr-xr-x root       root            90568 ./usr/lib/libgvfscommon.so.0.0.0  
 lrwxrwxrwx root       root               21 ./usr/lib/libgweather.so.1 -> libgweather.so.1.6.10
 -rwxr-xr-x root       root           109492 ./usr/lib/libgweather.so.1.6.10  
 lrwxrwxrwx root       root               17 ./usr/lib/libhistory.so.6 -> libhistory.so.6.2
@@ -3832,6 +3852,10 @@ lrwxrwxrwx root       root               17 ./usr/lib/libip6tc.so.0 -> libip6tc.
 -rwxr-xr-x root       root            25976 ./usr/lib/libip6tc.so.0.1.0  
 lrwxrwxrwx root       root               16 ./usr/lib/libiptc.so.0 -> libiptc.so.0.0.0
 -rwxr-xr-x root       root             3080 ./usr/lib/libiptc.so.0.0.0  
+lrwxrwxrwx root       root               17 ./usr/lib/libjack.so.0 -> libjack.so.0.0.28
+-rwxr-xr-x root       root            76516 ./usr/lib/libjack.so.0.0.28  
+lrwxrwxrwx root       root               23 ./usr/lib/libjackserver.so.0 -> libjackserver.so.0.0.28
+-rwxr-xr-x root       root           164232 ./usr/lib/libjackserver.so.0.0.28  
 lrwxrwxrwx root       root               18 ./usr/lib/libjasper.so.1 -> libjasper.so.1.0.0
 -rwxr-xr-x root       root           318976 ./usr/lib/libjasper.so.1.0.0  
 lrwxrwxrwx root       root               34 ./usr/lib/libjavascriptcoregtk-1.0.so.0 -> libjavascriptcoregtk-1.0.so.0.13.3
@@ -3954,6 +3978,8 @@ lrwxrwxrwx root       root               18 ./usr/lib/libreadline.so.6 -> librea
 -rwxr-xr-x root       root           221980 ./usr/lib/libreadline.so.6.2  
 lrwxrwxrwx root       root               19 ./usr/lib/librsvg-2.so.2 -> librsvg-2.so.2.32.1
 -rwxr-xr-x root       root           230004 ./usr/lib/librsvg-2.so.2.32.1  
+lrwxrwxrwx root       root               22 ./usr/lib/libsamplerate.so.0 -> libsamplerate.so.0.1.8
+-rwxr-xr-x root       root          1485760 ./usr/lib/libsamplerate.so.0.1.8  
 lrwxrwxrwx root       root               20 ./usr/lib/libsgutils2.so.2 -> libsgutils2.so.2.0.0
 -rwxr-xr-x root       root           139224 ./usr/lib/libsgutils2.so.2.0.0  
 lrwxrwxrwx root       root               20 ./usr/lib/libsigc-2.0.so.0 -> libsigc-2.0.so.0.0.0
@@ -4699,7 +4725,7 @@ drwxr-xr-x root       root             4096 ./usr/lib/ts
 -rwxr-xr-x root       root             4216 ./usr/lib/ts/touchkit.so  
 -rwxr-xr-x root       root             4816 ./usr/lib/ts/variance.so  
 drwxr-xr-x root       root             4096 ./usr/lib/window-manager-settings  
--rwxr-xr-x root       root            12212 ./usr/lib/window-manager-settings/libmetacity.so  
+-rwxr-xr-x root       root            12308 ./usr/lib/window-manager-settings/libmetacity.so  
 drwxr-xr-x root       root             4096 ./usr/lib/xfce4  
 drwxr-xr-x root       root             4096 ./usr/lib/xfce4/exo-1  
 -rwxr-xr-x root       root             5775 ./usr/lib/xfce4/exo-1/exo-compose-mail-1  
@@ -4837,7 +4863,7 @@ drwxr-xr-x root       root             4096 ./usr/libexec
 -rwxr-xr-x root       root            15512 ./usr/libexec/ck-collect-session-info  
 -rwxr-xr-x root       root            16408 ./usr/libexec/ck-get-x11-display-device  
 -rwxr-xr-x root       root             7012 ./usr/libexec/ck-get-x11-server-pid  
--rwxr-xr-x root       root           122752 ./usr/libexec/clock-applet  
+-rwxr-xr-x root       root           122848 ./usr/libexec/clock-applet  
 -rwxr-xr-x root       root            60084 ./usr/libexec/cpufreq-applet  
 -rwsr-xr-x root       messagebus     277768 ./usr/libexec/dbus-daemon-launch-helper  
 -rwxr-xr-x root       root            31256 ./usr/libexec/drivemount_applet2  
@@ -4869,23 +4895,25 @@ drwxr-xr-x root       root             4096 ./usr/libexec/gedit-2
 -rwxr-xr-x root       root            24536 ./usr/libexec/gsd-locate-pointer  
 drwxr-xr-x root       root             4096 ./usr/libexec/gstreamer-0.10  
 -rwxr-xr-x root       root             3948 ./usr/libexec/gstreamer-0.10/gst-plugin-scanner  
--rwxr-xr-x xuser      xuser           27052 ./usr/libexec/gvfs-fuse-daemon  
+-rwxr-xr-x root       root            27052 ./usr/libexec/gvfs-fuse-daemon  
 -rwxr-xr-x root       root           101368 ./usr/libexec/gvfs-gdu-volume-monitor  
--rwxr-xr-x xuser      xuser           47596 ./usr/libexec/gvfs-gphoto2-volume-monitor  
--rwxr-xr-x xuser      xuser          146576 ./usr/libexec/gvfsd  
--rwxr-xr-x xuser      xuser          146548 ./usr/libexec/gvfsd-burn  
--rwxr-xr-x xuser      xuser          152632 ./usr/libexec/gvfsd-computer  
--rwxr-xr-x xuser      xuser          183956 ./usr/libexec/gvfsd-dav  
--rwxr-xr-x xuser      xuser          143444 ./usr/libexec/gvfsd-dnssd  
--rwxr-xr-x xuser      xuser          201108 ./usr/libexec/gvfsd-ftp  
--rwxr-xr-x xuser      xuser          171448 ./usr/libexec/gvfsd-gphoto2  
--rwxr-xr-x xuser      xuser          154900 ./usr/libexec/gvfsd-http  
--rwxr-xr-x xuser      xuser          155512 ./usr/libexec/gvfsd-localtest  
--rwxr-xr-x xuser      xuser           52452 ./usr/libexec/gvfsd-metadata  
--rwxr-xr-x xuser      xuser          146552 ./usr/libexec/gvfsd-network  
--rwxr-xr-x xuser      xuser          162976 ./usr/libexec/gvfsd-obexftp  
--rwxr-xr-x xuser      xuser          187796 ./usr/libexec/gvfsd-sftp  
--rwxr-xr-x xuser      xuser          159860 ./usr/libexec/gvfsd-trash  
+-rwxr-xr-x root       root            47596 ./usr/libexec/gvfs-gphoto2-volume-monitor  
+-rwxr-xr-x root       root           146576 ./usr/libexec/gvfsd  
+-rwxr-xr-x root       root           146648 ./usr/libexec/gvfsd-archive  
+-rwxr-xr-x root       root           146548 ./usr/libexec/gvfsd-burn  
+-rwxr-xr-x root       root           146612 ./usr/libexec/gvfsd-cdda  
+-rwxr-xr-x root       root           152632 ./usr/libexec/gvfsd-computer  
+-rwxr-xr-x root       root           183956 ./usr/libexec/gvfsd-dav  
+-rwxr-xr-x root       root           143444 ./usr/libexec/gvfsd-dnssd  
+-rwxr-xr-x root       root           201108 ./usr/libexec/gvfsd-ftp  
+-rwxr-xr-x root       root           171448 ./usr/libexec/gvfsd-gphoto2  
+-rwxr-xr-x root       root           154900 ./usr/libexec/gvfsd-http  
+-rwxr-xr-x root       root           155512 ./usr/libexec/gvfsd-localtest  
+-rwxr-xr-x root       root            52452 ./usr/libexec/gvfsd-metadata  
+-rwxr-xr-x root       root           146552 ./usr/libexec/gvfsd-network  
+-rwxr-xr-x root       root           162976 ./usr/libexec/gvfsd-obexftp  
+-rwxr-xr-x root       root           187796 ./usr/libexec/gvfsd-sftp  
+-rwxr-xr-x root       root           159860 ./usr/libexec/gvfsd-trash  
 -rwxr-xr-x root       root            60196 ./usr/libexec/gweather-applet-2  
 -rwxr-xr-x root       root            43408 ./usr/libexec/multiload-applet-2  
 -rwxr-xr-x root       root            12472 ./usr/libexec/nautilus-convert-metadata  
@@ -5099,10 +5127,10 @@ lrwxrwxrwx root       root                3 ./usr/sbin/vgsplit -> lvm
 -rwxr-xr-x root       root           149848 ./usr/sbin/xinetd  
 -rwxr-xr-x root       root            81380 ./usr/sbin/xtables-multi  
 drwxr-xr-x root       root             4096 ./usr/share  
-drwx------ xuser      xuser            4096 ./usr/share/GConf  
-drwx------ xuser      xuser            4096 ./usr/share/GConf/gsettings  
--rw-r--r-- xuser      xuser              68 ./usr/share/GConf/gsettings/gnome-bluetooth  
--rw-r--r-- xuser      xuser             116 ./usr/share/GConf/gsettings/gvfs-dns-sd.convert  
+drwxr-xr-x root       root             4096 ./usr/share/GConf  
+drwxr-xr-x root       root             4096 ./usr/share/GConf/gsettings  
+-rw-r--r-- root       root               68 ./usr/share/GConf/gsettings/gnome-bluetooth  
+-rw-r--r-- root       root              116 ./usr/share/GConf/gsettings/gvfs-dns-sd.convert  
 -rw-r--r-- root       root              125 ./usr/share/GConf/gsettings/org.gnome.crypto.cache.convert  
 -rw-r--r-- root       root              248 ./usr/share/GConf/gsettings/org.gnome.crypto.pgp.convert  
 drwxr-xr-x root       root             4096 ./usr/share/ImageMagick-6.7.5  
@@ -5552,7 +5580,7 @@ drwxr-xr-x root       root             4096 ./usr/share/applications
 -rw-r--r-- root       root             4904 ./usr/share/applications/Terminal.desktop  
 -rw-r--r-- root       root             1588 ./usr/share/applications/abiword.desktop  
 -rw-r--r-- root       root            11230 ./usr/share/applications/at-properties.desktop  
--rw-r--r-- xuser      xuser            5613 ./usr/share/applications/bluetooth-properties.desktop  
+-rw-r--r-- root       root             5613 ./usr/share/applications/bluetooth-properties.desktop  
 -rw-r--r-- root       root            14439 ./usr/share/applications/bme.desktop  
 -rw-r--r-- root       root            10266 ./usr/share/applications/default-applications.desktop  
 -rw-r--r-- root       root             5036 ./usr/share/applications/display-properties.desktop  
@@ -6340,6 +6368,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/lcms
 -rwxr-xr-x root       root             1078 ./usr/share/common-licenses/lcms/COPYING  
 lrwxrwxrwx root       root               14 ./usr/share/common-licenses/lcms/generic_MIT -> ../generic_MIT
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libacl1  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libarchive2  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libasound2  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libaspell15  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libatasmart4  
@@ -6376,6 +6405,9 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libcanbe
 -rw-r--r-- root       root            17908 ./usr/share/common-licenses/libcanberra/canberra.h  
 lrwxrwxrwx root       root               19 ./usr/share/common-licenses/libcanberra/generic_LGPLv2.1 -> ../generic_LGPLv2.1
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libcap2  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libcdio-cdda0  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libcdio-paranoia0  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libcdio12  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libcom-err2  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libcroco  
 -rw-r--r-- root       root            25265 ./usr/share/common-licenses/libcroco/COPYING  
@@ -6461,6 +6493,7 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libice6
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libicudata36  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libicui18n36  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libicuuc36  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libjack  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libjasper1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libjavascriptcoregtk-1.0-0  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libjpeg8  
@@ -6513,6 +6546,10 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libpytho
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libreadline6  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/librsvg-2-2  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/librsvg-2-gtk  
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libsamplerate0  
+-rw-r--r-- root       root            17992 ./usr/share/common-licenses/libsamplerate0/COPYING  
+lrwxrwxrwx root       root               16 ./usr/share/common-licenses/libsamplerate0/generic_GPLv2 -> ../generic_GPLv2
+-rw-r--r-- root       root            13876 ./usr/share/common-licenses/libsamplerate0/samplerate.c  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libsdl-1.2-0  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libsigc-2.0-0  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libsm6  
@@ -6604,13 +6641,14 @@ drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxrend
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxslt  
 -rw-r--r-- root       root             2968 ./usr/share/common-licenses/libxslt/Copyright  
 lrwxrwxrwx root       root               14 ./usr/share/common-licenses/libxslt/generic_MIT -> ../generic_MIT
+drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxss1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxt6  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxtst6  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxv1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86misc1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libxxf86vm1  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/libz1  
--rw-r--r-- root       root            71388 ./usr/share/common-licenses/license.manifest  
+-rw-r--r-- root       root            72012 ./usr/share/common-licenses/license.manifest  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/linux-firmware-iwlwifi-6000g2a-5  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/linux-firmware-iwlwifi-license  
 drwxr-xr-x root       root             4096 ./usr/share/common-licenses/locale-base-en-us  
@@ -6972,8 +7010,8 @@ drwxr-xr-x root       root             4096 ./usr/share/dbus-1/interfaces
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/services  
 -rw-r--r-- root       root               78 ./usr/share/dbus-1/services/gnome-power-manager.service  
 -rw-r--r-- root       root               82 ./usr/share/dbus-1/services/gnome-vfs-daemon.service  
--rw-r--r-- xuser      xuser              64 ./usr/share/dbus-1/services/gvfs-daemon.service  
--rw-r--r-- xuser      xuser              75 ./usr/share/dbus-1/services/gvfs-metadata.service  
+-rw-r--r-- root       root               64 ./usr/share/dbus-1/services/gvfs-daemon.service  
+-rw-r--r-- root       root               75 ./usr/share/dbus-1/services/gvfs-metadata.service  
 -rw-r--r-- root       root               78 ./usr/share/dbus-1/services/obex-data-server.service  
 -rw-r--r-- root       root               69 ./usr/share/dbus-1/services/obexd.service  
 -rw-r--r-- root       root              122 ./usr/share/dbus-1/services/org.freedesktop.secrets.service  
@@ -6997,7 +7035,7 @@ lrwxrwxrwx root       root               51 ./usr/share/dbus-1/services/org.free
 -rw-r--r-- root       root               93 ./usr/share/dbus-1/services/org.gnome.panel.applet.TrashAppletFactory.service  
 -rw-r--r-- root       root               89 ./usr/share/dbus-1/services/org.gnome.panel.applet.WnckletFactory.service  
 -rw-r--r-- root       root               77 ./usr/share/dbus-1/services/org.gtk.GLib.PACRunner.service  
--rw-r--r-- xuser      xuser             104 ./usr/share/dbus-1/services/org.gtk.Private.GPhoto2VolumeMonitor.service  
+-rw-r--r-- root       root              104 ./usr/share/dbus-1/services/org.gtk.Private.GPhoto2VolumeMonitor.service  
 -rw-r--r-- root       root               96 ./usr/share/dbus-1/services/org.gtk.Private.GduVolumeMonitor.service  
 -rw-r--r-- root       root               72 ./usr/share/dbus-1/services/org.xfce.Xfconf.service  
 drwxr-xr-x root       root             4096 ./usr/share/dbus-1/system-services  
@@ -7034,7 +7072,7 @@ drwxr-xr-x root       root             4096 ./usr/share/desktop-directories
 -rw-r--r-- root       root            10016 ./usr/share/desktop-directories/System-Tools.directory  
 -rw-r--r-- root       root             5862 ./usr/share/desktop-directories/System.directory  
 -rw-r--r-- root       root             8541 ./usr/share/desktop-directories/Utility-Accessibility.directory  
--rw-r--r-- root       root              448 ./usr/share/desktop-directories/Utility.directory  
+-rw-r--r-- root       root             7484 ./usr/share/desktop-directories/Utility.directory  
 -rw-r--r-- root       root             5739 ./usr/share/desktop-directories/X-GNOME-Menu-Applications.directory  
 -rw-r--r-- root       root             9604 ./usr/share/desktop-directories/X-GNOME-Menu-System.directory  
 -rw-r--r-- root       root            10008 ./usr/share/desktop-directories/X-GNOME-Other.directory  
@@ -7890,14 +7928,14 @@ drwxr-xr-x root       root             4096 ./usr/share/glib-2.0/gettext/po
 -rw-r--r-- root       root             8454 ./usr/share/glib-2.0/gettext/po/Makefile.in.in  
 drwxr-xr-x root       root             4096 ./usr/share/glib-2.0/schemas  
 -rw-r--r-- root       root             2820 ./usr/share/glib-2.0/schemas/gschema.dtd  
--rw-r--r-- xuser      xuser             391 ./usr/share/glib-2.0/schemas/org.gnome.Bluetooth.gschema.xml  
+-rw-r--r-- root       root              391 ./usr/share/glib-2.0/schemas/org.gnome.Bluetooth.gschema.xml  
 -rw-r--r-- root       root              757 ./usr/share/glib-2.0/schemas/org.gnome.crypto.cache.gschema.xml  
 -rw-r--r-- root       root             1335 ./usr/share/glib-2.0/schemas/org.gnome.crypto.pgp.gschema.xml  
 -rw-r--r-- root       root            19938 ./usr/share/glib-2.0/schemas/org.gnome.gnumeric.dialogs.gschema.xml  
 -rw-r--r-- root       root            15748 ./usr/share/glib-2.0/schemas/org.gnome.gnumeric.gschema.xml  
 -rw-r--r-- root       root             1597 ./usr/share/glib-2.0/schemas/org.gnome.gnumeric.plugin.gschema.xml  
--rw-r--r-- xuser      xuser             651 ./usr/share/glib-2.0/schemas/org.gnome.system.dns_sd.gschema.xml  
--rw-r--r-- xuser      xuser             286 ./usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml  
+-rw-r--r-- root       root              651 ./usr/share/glib-2.0/schemas/org.gnome.system.dns_sd.gschema.xml  
+-rw-r--r-- root       root              286 ./usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml  
 -rw-r--r-- root       root             2214 ./usr/share/glib-2.0/schemas/org.gtk.Settings.FileChooser.gschema.xml  
 drwxr-xr-x root       root             4096 ./usr/share/gnome  
 drwxr-xr-x root       root             4096 ./usr/share/gnome-2.0  
@@ -7945,16 +7983,16 @@ drwxr-xr-x root       root             4096 ./usr/share/gnome-applets/geyes/Tang
 -rw-r--r-- root       root              324 ./usr/share/gnome-applets/geyes/Tango/tango-pupil.png  
 drwxr-xr-x root       root             4096 ./usr/share/gnome-background-properties  
 -rw-r--r-- root       root             4911 ./usr/share/gnome-background-properties/gnome-default.xml  
-drwx------ xuser      xuser            4096 ./usr/share/gnome-bluetooth  
--rw-r--r-- xuser      xuser            4059 ./usr/share/gnome-bluetooth/authorisation-dialogue.ui  
--rw-r--r-- xuser      xuser            3535 ./usr/share/gnome-bluetooth/confirm-dialogue.ui  
--rw-r--r-- xuser      xuser            2685 ./usr/share/gnome-bluetooth/passkey-dialogue.ui  
--rw-r--r-- xuser      xuser            5977 ./usr/share/gnome-bluetooth/pin-code-database.xml  
--rw-r--r-- xuser      xuser            3880 ./usr/share/gnome-bluetooth/popup-menu.ui  
--rw-r--r-- xuser      xuser           11072 ./usr/share/gnome-bluetooth/properties-adapter-off.ui  
--rw-r--r-- xuser      xuser            4310 ./usr/share/gnome-bluetooth/properties-killed-adapter.ui  
--rw-r--r-- xuser      xuser           12393 ./usr/share/gnome-bluetooth/properties-no-adapter.ui  
--rw-r--r-- xuser      xuser           25739 ./usr/share/gnome-bluetooth/wizard.ui  
+drwxr-xr-x root       root             4096 ./usr/share/gnome-bluetooth  
+-rw-r--r-- root       root             4059 ./usr/share/gnome-bluetooth/authorisation-dialogue.ui  
+-rw-r--r-- root       root             3535 ./usr/share/gnome-bluetooth/confirm-dialogue.ui  
+-rw-r--r-- root       root             2685 ./usr/share/gnome-bluetooth/passkey-dialogue.ui  
+-rw-r--r-- root       root             5977 ./usr/share/gnome-bluetooth/pin-code-database.xml  
+-rw-r--r-- root       root             3880 ./usr/share/gnome-bluetooth/popup-menu.ui  
+-rw-r--r-- root       root            11072 ./usr/share/gnome-bluetooth/properties-adapter-off.ui  
+-rw-r--r-- root       root             4310 ./usr/share/gnome-bluetooth/properties-killed-adapter.ui  
+-rw-r--r-- root       root            12393 ./usr/share/gnome-bluetooth/properties-no-adapter.ui  
+-rw-r--r-- root       root            25739 ./usr/share/gnome-bluetooth/wizard.ui  
 drwxr-xr-x root       root             4096 ./usr/share/gnome-control-center  
 drwxr-xr-x root       root             4096 ./usr/share/gnome-control-center/default-apps  
 -rw-r--r-- root       root             3349 ./usr/share/gnome-control-center/default-apps/Terminal-default-apps.xml  
@@ -7968,6 +8006,10 @@ drwxr-xr-x root       root             4096 ./usr/share/gnome-control-center/key
 drwxr-xr-x root       root             4096 ./usr/share/gnome-control-center/pixmaps  
 -rw-r--r-- root       root             2879 ./usr/share/gnome-control-center/pixmaps/at-startup.png  
 -rw-r--r-- root       root             2991 ./usr/share/gnome-control-center/pixmaps/at-support.png  
+-rw-r--r-- root       root              496 ./usr/share/gnome-control-center/pixmaps/bar-disabled.png  
+-rw-r--r-- root       root              286 ./usr/share/gnome-control-center/pixmaps/bar-green.png  
+-rw-r--r-- root       root              277 ./usr/share/gnome-control-center/pixmaps/bar-red.png  
+-rw-r--r-- root       root              362 ./usr/share/gnome-control-center/pixmaps/bar.png  
 -rw-r--r-- root       root             4643 ./usr/share/gnome-control-center/pixmaps/double-click-maybe.png  
 -rw-r--r-- root       root             4751 ./usr/share/gnome-control-center/pixmaps/double-click-off.png  
 -rw-r--r-- root       root             6360 ./usr/share/gnome-control-center/pixmaps/double-click-on.png  
@@ -7977,6 +8019,7 @@ drwxr-xr-x root       root             4096 ./usr/share/gnome-control-center/pix
 -rw-r--r-- root       root              241 ./usr/share/gnome-control-center/pixmaps/mouse-cursor-normal.png  
 -rw-r--r-- root       root              268 ./usr/share/gnome-control-center/pixmaps/mouse-cursor-white-large.png  
 -rw-r--r-- root       root              221 ./usr/share/gnome-control-center/pixmaps/mouse-cursor-white.png  
+-rw-r--r-- root       root              274 ./usr/share/gnome-control-center/pixmaps/ocean-stripes.png  
 -rw-r--r-- root       root              125 ./usr/share/gnome-control-center/pixmaps/subpixel-bgr.png  
 -rw-r--r-- root       root              125 ./usr/share/gnome-control-center/pixmaps/subpixel-rgb.png  
 -rw-r--r-- root       root              138 ./usr/share/gnome-control-center/pixmaps/subpixel-vbgr.png  
@@ -8595,24 +8638,26 @@ drwxr-xr-x root       root             4096 ./usr/share/gtksourceview-2.0/styles
 -rw-r--r-- root       root             5457 ./usr/share/gtksourceview-2.0/styles/oblivion.xml  
 -rw-r--r-- root       root             3397 ./usr/share/gtksourceview-2.0/styles/styles.rng  
 -rw-r--r-- root       root             5588 ./usr/share/gtksourceview-2.0/styles/tango.xml  
-drwx------ xuser      xuser            4096 ./usr/share/gvfs  
-drwx------ xuser      xuser            4096 ./usr/share/gvfs/mounts  
--rw-r--r-- xuser      xuser              63 ./usr/share/gvfs/mounts/burn.mount  
--rw-r--r-- xuser      xuser              71 ./usr/share/gvfs/mounts/computer.mount  
--rw-r--r-- xuser      xuser              72 ./usr/share/gvfs/mounts/dav+sd.mount  
--rw-r--r-- xuser      xuser              66 ./usr/share/gvfs/mounts/dav.mount  
--rw-r--r-- xuser      xuser              65 ./usr/share/gvfs/mounts/dns-sd.mount  
--rw-r--r-- xuser      xuser             114 ./usr/share/gvfs/mounts/ftp.mount  
--rw-r--r-- xuser      xuser              69 ./usr/share/gvfs/mounts/gphoto2.mount  
--rw-r--r-- xuser      xuser              99 ./usr/share/gvfs/mounts/http.mount  
--rw-r--r-- xuser      xuser              73 ./usr/share/gvfs/mounts/localtest.mount  
--rw-r--r-- xuser      xuser              68 ./usr/share/gvfs/mounts/network.mount  
--rw-r--r-- xuser      xuser              66 ./usr/share/gvfs/mounts/obexftp.mount  
--rw-r--r-- xuser      xuser             135 ./usr/share/gvfs/mounts/sftp.mount  
--rw-r--r-- xuser      xuser              65 ./usr/share/gvfs/mounts/trash.mount  
+drwxr-xr-x root       root             4096 ./usr/share/gvfs  
+drwxr-xr-x root       root             4096 ./usr/share/gvfs/mounts  
+-rw-r--r-- root       root               84 ./usr/share/gvfs/mounts/archive.mount  
+-rw-r--r-- root       root               63 ./usr/share/gvfs/mounts/burn.mount  
+-rw-r--r-- root       root               63 ./usr/share/gvfs/mounts/cdda.mount  
+-rw-r--r-- root       root               71 ./usr/share/gvfs/mounts/computer.mount  
+-rw-r--r-- root       root               72 ./usr/share/gvfs/mounts/dav+sd.mount  
+-rw-r--r-- root       root               66 ./usr/share/gvfs/mounts/dav.mount  
+-rw-r--r-- root       root               65 ./usr/share/gvfs/mounts/dns-sd.mount  
+-rw-r--r-- root       root              114 ./usr/share/gvfs/mounts/ftp.mount  
+-rw-r--r-- root       root               69 ./usr/share/gvfs/mounts/gphoto2.mount  
+-rw-r--r-- root       root               99 ./usr/share/gvfs/mounts/http.mount  
+-rw-r--r-- root       root               73 ./usr/share/gvfs/mounts/localtest.mount  
+-rw-r--r-- root       root               68 ./usr/share/gvfs/mounts/network.mount  
+-rw-r--r-- root       root               66 ./usr/share/gvfs/mounts/obexftp.mount  
+-rw-r--r-- root       root              135 ./usr/share/gvfs/mounts/sftp.mount  
+-rw-r--r-- root       root               65 ./usr/share/gvfs/mounts/trash.mount  
 drwxr-xr-x root       root             4096 ./usr/share/gvfs/remote-volume-monitors  
 -rw-r--r-- root       root              123 ./usr/share/gvfs/remote-volume-monitors/gdu.monitor  
--rw-r--r-- xuser      xuser             115 ./usr/share/gvfs/remote-volume-monitors/gphoto2.monitor  
+-rw-r--r-- root       root              115 ./usr/share/gvfs/remote-volume-monitors/gphoto2.monitor  
 drwxr-xr-x root       root             4096 ./usr/share/hal  
 drwxr-xr-x root       root             4096 ./usr/share/hal/fdi  
 drwxr-xr-x root       root             4096 ./usr/share/hal/fdi/information  
@@ -13456,7 +13501,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/acti
 -rw-r--r-- root       root              626 ./usr/share/icons/hicolor/16x16/actions/touchpad-enabled.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/animations  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/apps  
--rw-r--r-- xuser      xuser             725 ./usr/share/icons/hicolor/16x16/apps/bluetooth.png  
+-rw-r--r-- root       root              725 ./usr/share/icons/hicolor/16x16/apps/bluetooth.png  
 -rw-r--r-- root       root              429 ./usr/share/icons/hicolor/16x16/apps/gdm-xnest.png  
 -rw-r--r-- root       root              738 ./usr/share/icons/hicolor/16x16/apps/gdu-category-multidisk.png  
 -rw-r--r-- root       root              729 ./usr/share/icons/hicolor/16x16/apps/gdu-category-multipath.png  
@@ -13532,10 +13577,10 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/file
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/intl  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/mimetypes  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/places  
-drwx------ xuser      xuser            4096 ./usr/share/icons/hicolor/16x16/status  
--rw-r--r-- xuser      xuser             787 ./usr/share/icons/hicolor/16x16/status/bluetooth-active.png  
--rw-r--r-- xuser      xuser             784 ./usr/share/icons/hicolor/16x16/status/bluetooth-disabled.png  
--rw-r--r-- xuser      xuser             714 ./usr/share/icons/hicolor/16x16/status/bluetooth-paired.png  
+drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/status  
+-rw-r--r-- root       root              787 ./usr/share/icons/hicolor/16x16/status/bluetooth-active.png  
+-rw-r--r-- root       root              784 ./usr/share/icons/hicolor/16x16/status/bluetooth-disabled.png  
+-rw-r--r-- root       root              714 ./usr/share/icons/hicolor/16x16/status/bluetooth-paired.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/stock  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/stock/chart  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/16x16/stock/code  
@@ -13585,7 +13630,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/acti
 -rw-r--r-- root       root              938 ./usr/share/icons/hicolor/22x22/actions/touchpad-enabled.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/animations  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/apps  
--rw-r--r-- xuser      xuser             994 ./usr/share/icons/hicolor/22x22/apps/bluetooth.png  
+-rw-r--r-- root       root              994 ./usr/share/icons/hicolor/22x22/apps/bluetooth.png  
 -rw-r--r-- root       root              978 ./usr/share/icons/hicolor/22x22/apps/gdu-category-multidisk.png  
 -rw-r--r-- root       root             1024 ./usr/share/icons/hicolor/22x22/apps/gdu-category-multipath.png  
 -rw-r--r-- root       root              951 ./usr/share/icons/hicolor/22x22/apps/gdu-category-peripheral.png  
@@ -13660,10 +13705,10 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/file
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/intl  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/mimetypes  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/places  
-drwx------ xuser      xuser            4096 ./usr/share/icons/hicolor/22x22/status  
--rw-r--r-- xuser      xuser            1064 ./usr/share/icons/hicolor/22x22/status/bluetooth-active.png  
--rw-r--r-- xuser      xuser            1108 ./usr/share/icons/hicolor/22x22/status/bluetooth-disabled.png  
--rw-r--r-- xuser      xuser            1126 ./usr/share/icons/hicolor/22x22/status/bluetooth-paired.png  
+drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/status  
+-rw-r--r-- root       root             1064 ./usr/share/icons/hicolor/22x22/status/bluetooth-active.png  
+-rw-r--r-- root       root             1108 ./usr/share/icons/hicolor/22x22/status/bluetooth-disabled.png  
+-rw-r--r-- root       root             1126 ./usr/share/icons/hicolor/22x22/status/bluetooth-paired.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/stock  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/stock/chart  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/22x22/stock/code  
@@ -13683,7 +13728,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/acti
 -rw-r--r-- root       root              949 ./usr/share/icons/hicolor/24x24/actions/touchpad-enabled.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/animations  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/apps  
--rw-r--r-- xuser      xuser            1023 ./usr/share/icons/hicolor/24x24/apps/bluetooth.png  
+-rw-r--r-- root       root             1023 ./usr/share/icons/hicolor/24x24/apps/bluetooth.png  
 -rw-r--r-- root       root             1017 ./usr/share/icons/hicolor/24x24/apps/gimp.png  
 -rw-r--r-- root       root             1160 ./usr/share/icons/hicolor/24x24/apps/gnome-brightness-applet.png  
 -rw-r--r-- root       root             1481 ./usr/share/icons/hicolor/24x24/apps/gnome-cpu-frequency-applet.png  
@@ -13722,10 +13767,10 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/file
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/intl  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/mimetypes  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/places  
-drwx------ xuser      xuser            4096 ./usr/share/icons/hicolor/24x24/status  
--rw-r--r-- xuser      xuser            1064 ./usr/share/icons/hicolor/24x24/status/bluetooth-active.png  
--rw-r--r-- xuser      xuser            1123 ./usr/share/icons/hicolor/24x24/status/bluetooth-disabled.png  
--rw-r--r-- xuser      xuser            1128 ./usr/share/icons/hicolor/24x24/status/bluetooth-paired.png  
+drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/status  
+-rw-r--r-- root       root             1064 ./usr/share/icons/hicolor/24x24/status/bluetooth-active.png  
+-rw-r--r-- root       root             1123 ./usr/share/icons/hicolor/24x24/status/bluetooth-disabled.png  
+-rw-r--r-- root       root             1128 ./usr/share/icons/hicolor/24x24/status/bluetooth-paired.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/stock  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/stock/chart  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/24x24/stock/code  
@@ -13778,7 +13823,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/acti
 -rw-r--r-- root       root             1494 ./usr/share/icons/hicolor/32x32/actions/touchpad-enabled.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/animations  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/apps  
--rw-r--r-- xuser      xuser            1970 ./usr/share/icons/hicolor/32x32/apps/bluetooth.png  
+-rw-r--r-- root       root             1970 ./usr/share/icons/hicolor/32x32/apps/bluetooth.png  
 -rw-r--r-- root       root             1393 ./usr/share/icons/hicolor/32x32/apps/gdm-setup.png  
 -rw-r--r-- root       root             1012 ./usr/share/icons/hicolor/32x32/apps/gdm-xnest.png  
 -rw-r--r-- root       root             1717 ./usr/share/icons/hicolor/32x32/apps/gimp.png  
@@ -13817,10 +13862,10 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/file
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/intl  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/mimetypes  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/places  
-drwx------ xuser      xuser            4096 ./usr/share/icons/hicolor/32x32/status  
--rw-r--r-- xuser      xuser            2018 ./usr/share/icons/hicolor/32x32/status/bluetooth-active.png  
--rw-r--r-- xuser      xuser            2169 ./usr/share/icons/hicolor/32x32/status/bluetooth-disabled.png  
--rw-r--r-- xuser      xuser            1985 ./usr/share/icons/hicolor/32x32/status/bluetooth-paired.png  
+drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/status  
+-rw-r--r-- root       root             2018 ./usr/share/icons/hicolor/32x32/status/bluetooth-active.png  
+-rw-r--r-- root       root             2169 ./usr/share/icons/hicolor/32x32/status/bluetooth-disabled.png  
+-rw-r--r-- root       root             1985 ./usr/share/icons/hicolor/32x32/status/bluetooth-paired.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/stock  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/stock/chart  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/32x32/stock/code  
@@ -13868,7 +13913,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/apps
 -rw-r--r-- root       root             4118 ./usr/share/icons/hicolor/48x48/apps/applications-internet.png  
 -rw-r--r-- root       root             2995 ./usr/share/icons/hicolor/48x48/apps/applications-other.png  
 -rw-r--r-- root       root             3688 ./usr/share/icons/hicolor/48x48/apps/ax-applet.png  
--rw-r--r-- xuser      xuser            3004 ./usr/share/icons/hicolor/48x48/apps/bluetooth.png  
+-rw-r--r-- root       root             3004 ./usr/share/icons/hicolor/48x48/apps/bluetooth.png  
 -rw-r--r-- root       root             1287 ./usr/share/icons/hicolor/48x48/apps/epiphany-bookmarks.png  
 -rw-r--r-- root       root             2123 ./usr/share/icons/hicolor/48x48/apps/gdu-category-multidisk.png  
 -rw-r--r-- root       root             2338 ./usr/share/icons/hicolor/48x48/apps/gdu-category-multipath.png  
@@ -13920,6 +13965,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/apps
 -rw-r--r-- root       root             3840 ./usr/share/icons/hicolor/48x48/apps/palimpsest.png  
 -rw-r--r-- root       root             3013 ./usr/share/icons/hicolor/48x48/apps/preferences-desktop-default-applications.png  
 -rw-r--r-- root       root             1839 ./usr/share/icons/hicolor/48x48/apps/session-properties.png  
+-rw-r--r-- root       root             3292 ./usr/share/icons/hicolor/48x48/apps/typing-monitor.png  
 -rw-r--r-- root       root             4060 ./usr/share/icons/hicolor/48x48/apps/xfce4-logo.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/categories  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/devices  
@@ -13929,9 +13975,9 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/file
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/intl  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/mimetypes  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/places  
-drwx------ xuser      xuser            4096 ./usr/share/icons/hicolor/48x48/status  
--rw-r--r-- xuser      xuser            3143 ./usr/share/icons/hicolor/48x48/status/bluetooth-active.png  
--rw-r--r-- xuser      xuser            3345 ./usr/share/icons/hicolor/48x48/status/bluetooth-disabled.png  
+drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/status  
+-rw-r--r-- root       root             3143 ./usr/share/icons/hicolor/48x48/status/bluetooth-active.png  
+-rw-r--r-- root       root             3345 ./usr/share/icons/hicolor/48x48/status/bluetooth-disabled.png  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/stock  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/stock/chart  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/48x48/stock/code  
@@ -14025,7 +14071,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/96x96/stoc
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/96x96/stock/object  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/96x96/stock/table  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/96x96/stock/text  
--rw-r--r-- xuser      xuser           66068 ./usr/share/icons/hicolor/icon-theme.cache  
+-rw-r--r-- root       root            66068 ./usr/share/icons/hicolor/icon-theme.cache  
 -rw-r--r-- root       root            25582 ./usr/share/icons/hicolor/index.theme  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/actions  
@@ -14034,7 +14080,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/a
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/animations  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/apps  
 -rw-r--r-- root       root            11684 ./usr/share/icons/hicolor/scalable/apps/Terminal.svg  
--rw-r--r-- xuser      xuser            8717 ./usr/share/icons/hicolor/scalable/apps/bluetooth.svg  
+-rw-r--r-- root       root             8717 ./usr/share/icons/hicolor/scalable/apps/bluetooth.svg  
 -rw-r--r-- root       root            23898 ./usr/share/icons/hicolor/scalable/apps/gdu-category-multidisk.svg  
 -rw-r--r-- root       root             8242 ./usr/share/icons/hicolor/scalable/apps/gdu-category-multipath.svg  
 -rw-r--r-- root       root             8645 ./usr/share/icons/hicolor/scalable/apps/gdu-category-peripheral.svg  
@@ -14099,6 +14145,7 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/a
 -rw-r--r-- root       root            62120 ./usr/share/icons/hicolor/scalable/apps/palimpsest.svg  
 -rw-r--r-- root       root            19423 ./usr/share/icons/hicolor/scalable/apps/preferences-desktop-display.svg  
 -rw-r--r-- root       root            21122 ./usr/share/icons/hicolor/scalable/apps/session-properties.svg  
+-rw-r--r-- root       root            14334 ./usr/share/icons/hicolor/scalable/apps/typing-monitor.svg  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/categories  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/devices  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/emblems  
@@ -14107,8 +14154,8 @@ drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/f
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/intl  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/mimetypes  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/places  
-drwx------ xuser      xuser            4096 ./usr/share/icons/hicolor/scalable/status  
--rw-r--r-- xuser      xuser           31109 ./usr/share/icons/hicolor/scalable/status/bluetooth-paired.svg  
+drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/status  
+-rw-r--r-- root       root            31109 ./usr/share/icons/hicolor/scalable/status/bluetooth-paired.svg  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/stock  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/stock/chart  
 drwxr-xr-x root       root             4096 ./usr/share/icons/hicolor/scalable/stock/code  
@@ -20024,17 +20071,17 @@ drwxr-xr-x root       root             4096 ./usr/share/xfce4/helpers
 -rw-r--r-- root       root             2510 ./usr/share/xfce4/helpers/debian-x-terminal-emulator.desktop  
 -rw-r--r-- root       root             1251 ./usr/share/xfce4/helpers/encompass.desktop  
 -rw-r--r-- root       root             2157 ./usr/share/xfce4/helpers/epiphany.desktop  
--rw-r--r-- root       root              234 ./usr/share/xfce4/helpers/eterm.desktop  
+-rw-r--r-- root       root             2602 ./usr/share/xfce4/helpers/eterm.desktop  
 -rw-r--r-- root       root              364 ./usr/share/xfce4/helpers/evolution.desktop  
 -rw-r--r-- root       root             1850 ./usr/share/xfce4/helpers/firefox.desktop  
 -rw-r--r-- root       root             2024 ./usr/share/xfce4/helpers/galeon.desktop  
 -rw-r--r-- root       root             1698 ./usr/share/xfce4/helpers/gnome-terminal.desktop  
 -rw-r--r-- root       root              984 ./usr/share/xfce4/helpers/icedove.desktop  
 -rw-r--r-- root       root              815 ./usr/share/xfce4/helpers/iceweasel.desktop  
--rw-r--r-- root       root              248 ./usr/share/xfce4/helpers/kmail.desktop  
--rw-r--r-- root       root              220 ./usr/share/xfce4/helpers/konqueror.desktop  
+-rw-r--r-- root       root             1135 ./usr/share/xfce4/helpers/kmail.desktop  
+-rw-r--r-- root       root             2241 ./usr/share/xfce4/helpers/konqueror.desktop  
 -rw-r--r-- root       root             2330 ./usr/share/xfce4/helpers/links.desktop  
--rw-r--r-- root       root             2191 ./usr/share/xfce4/helpers/lynx.desktop  
+-rw-r--r-- root       root              358 ./usr/share/xfce4/helpers/lynx.desktop  
 -rw-r--r-- root       root             1007 ./usr/share/xfce4/helpers/midori.desktop  
 -rw-r--r-- root       root              315 ./usr/share/xfce4/helpers/mozilla-browser.desktop  
 -rw-r--r-- root       root             1758 ./usr/share/xfce4/helpers/mozilla-mailer.desktop  
@@ -20247,7 +20294,7 @@ drwxr-xr-x root       root             4096 ./var/backups
 drwxr-xr-x root       root             4096 ./var/cache  
 drwxr-xr-t root       root             4096 ./var/cache/gdm  
 drwx------ root       root             4096 ./var/cache/ldconfig  
--rw------- root       root            22411 ./var/cache/ldconfig/aux-cache  
+-rw------- root       root            22928 ./var/cache/ldconfig/aux-cache  
 drwxrwx--T root       root             4096 ./var/gdm  
 drwxr-xr-x root       root             4096 ./var/lib  
 drwxr-xr-x root       root             4096 ./var/lib/connman  
@@ -20709,8 +20756,8 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root             1443 ./var/lib/opkg/info/gnome-common-schemas.list  
 -rwxr-xr-x root       root             1010 ./var/lib/opkg/info/gnome-common-schemas.postinst  
 -rwxr-xr-x root       root              975 ./var/lib/opkg/info/gnome-common-schemas.prerm  
--rw-r--r-- root       root             1455 ./var/lib/opkg/info/gnome-control-center.control  
--rw-r--r-- root       root             5176 ./var/lib/opkg/info/gnome-control-center.list  
+-rw-r--r-- root       root             1614 ./var/lib/opkg/info/gnome-control-center.control  
+-rw-r--r-- root       root             5588 ./var/lib/opkg/info/gnome-control-center.list  
 -rwxr-xr-x root       root             1084 ./var/lib/opkg/info/gnome-control-center.postinst  
 -rwxr-xr-x root       root              446 ./var/lib/opkg/info/gnome-control-center.postrm  
 -rwxr-xr-x root       root              336 ./var/lib/opkg/info/gnome-control-center.prerm  
@@ -20725,7 +20772,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root             1131 ./var/lib/opkg/info/gnome-keyring.control  
 -rw-r--r-- root       root             1619 ./var/lib/opkg/info/gnome-keyring.list  
 -rwxr-xr-x root       root              213 ./var/lib/opkg/info/gnome-keyring.postinst  
--rw-r--r-- root       root              891 ./var/lib/opkg/info/gnome-panel.control  
+-rw-r--r-- root       root              915 ./var/lib/opkg/info/gnome-panel.control  
 -rw-r--r-- root       root             6481 ./var/lib/opkg/info/gnome-panel.list  
 -rwxr-xr-x root       root              994 ./var/lib/opkg/info/gnome-panel.postinst  
 -rwxr-xr-x root       root              135 ./var/lib/opkg/info/gnome-panel.postrm  
@@ -20740,7 +20787,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rwxr-xr-x root       root              665 ./var/lib/opkg/info/gnome-session.postinst  
 -rwxr-xr-x root       root              135 ./var/lib/opkg/info/gnome-session.postrm  
 -rwxr-xr-x root       root              289 ./var/lib/opkg/info/gnome-session.prerm  
--rw-r--r-- root       root             1647 ./var/lib/opkg/info/gnome-settings-daemon.control  
+-rw-r--r-- root       root             1711 ./var/lib/opkg/info/gnome-settings-daemon.control  
 -rw-r--r-- root       root             4912 ./var/lib/opkg/info/gnome-settings-daemon.list  
 -rwxr-xr-x root       root              968 ./var/lib/opkg/info/gnome-settings-daemon.postinst  
 -rwxr-xr-x root       root              135 ./var/lib/opkg/info/gnome-settings-daemon.postrm  
@@ -20850,8 +20897,8 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/gtkmm.postinst  
 -rw-r--r-- root       root              600 ./var/lib/opkg/info/gvfs-gdu-volume-monitor.control  
 -rw-r--r-- root       root              156 ./var/lib/opkg/info/gvfs-gdu-volume-monitor.list  
--rw-r--r-- root       root              941 ./var/lib/opkg/info/gvfs.control  
--rw-r--r-- root       root             1769 ./var/lib/opkg/info/gvfs.list  
+-rw-r--r-- root       root             1040 ./var/lib/opkg/info/gvfs.control  
+-rw-r--r-- root       root             1891 ./var/lib/opkg/info/gvfs.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/gvfs.postinst  
 -rw-r--r-- root       root              585 ./var/lib/opkg/info/gvfsd-ftp.control  
 -rw-r--r-- root       root               97 ./var/lib/opkg/info/gvfsd-ftp.list  
@@ -21680,6 +21727,9 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              475 ./var/lib/opkg/info/libacl1.control  
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/libacl1.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libacl1.postinst  
+-rw-r--r-- root       root              955 ./var/lib/opkg/info/libarchive2.control  
+-rw-r--r-- root       root               54 ./var/lib/opkg/info/libarchive2.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libarchive2.postinst  
 -rw-r--r-- root       root              457 ./var/lib/opkg/info/libasound2.control  
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/libasound2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libasound2.postinst  
@@ -21718,7 +21768,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              654 ./var/lib/opkg/info/libavcodec53.control  
 -rw-r--r-- root       root               57 ./var/lib/opkg/info/libavcodec53.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libavcodec53.postinst  
--rw-r--r-- root       root              808 ./var/lib/opkg/info/libavdevice53.control  
+-rw-r--r-- root       root              830 ./var/lib/opkg/info/libavdevice53.control  
 -rw-r--r-- root       root               58 ./var/lib/opkg/info/libavdevice53.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libavdevice53.postinst  
 -rw-r--r-- root       root              796 ./var/lib/opkg/info/libavfilter2.control  
@@ -21763,6 +21813,15 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              463 ./var/lib/opkg/info/libcap2.control  
 -rw-r--r-- root       root               62 ./var/lib/opkg/info/libcap2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libcap2.postinst  
+-rw-r--r-- root       root              410 ./var/lib/opkg/info/libcdio-cdda0.control  
+-rw-r--r-- root       root               58 ./var/lib/opkg/info/libcdio-cdda0.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libcdio-cdda0.postinst  
+-rw-r--r-- root       root              443 ./var/lib/opkg/info/libcdio-paranoia0.control  
+-rw-r--r-- root       root               66 ./var/lib/opkg/info/libcdio-paranoia0.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libcdio-paranoia0.postinst  
+-rw-r--r-- root       root              381 ./var/lib/opkg/info/libcdio12.control  
+-rw-r--r-- root       root               50 ./var/lib/opkg/info/libcdio12.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libcdio12.postinst  
 -rw-r--r-- root       root              622 ./var/lib/opkg/info/libcom-err2.control  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/libcom-err2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libcom-err2.postinst  
@@ -21846,7 +21905,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libglib-2.0-0.postinst  
 -rw-r--r-- root       root              742 ./var/lib/opkg/info/libglib-2.0-utils.control  
 -rw-r--r-- root       root              449 ./var/lib/opkg/info/libglib-2.0-utils.list  
--rw-r--r-- root       root             1065 ./var/lib/opkg/info/libgnome-desktop-2-17.control  
+-rw-r--r-- root       root             1153 ./var/lib/opkg/info/libgnome-desktop-2-17.control  
 -rw-r--r-- root       root              137 ./var/lib/opkg/info/libgnome-desktop-2-17.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgnome-desktop-2-17.postinst  
 -rw-r--r-- root       root              569 ./var/lib/opkg/info/libgnome-keyring0.control  
@@ -21936,7 +21995,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              430 ./var/lib/opkg/info/libgtop-2.0-7.control  
 -rw-r--r-- root       root               56 ./var/lib/opkg/info/libgtop-2.0-7.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgtop-2.0-7.postinst  
--rw-r--r-- root       root              910 ./var/lib/opkg/info/libgudev-1.0-0.control  
+-rw-r--r-- root       root              931 ./var/lib/opkg/info/libgudev-1.0-0.control  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libgudev-1.0-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libgudev-1.0-0.postinst  
 -rw-r--r-- root       root             1179 ./var/lib/opkg/info/libgweather1.control  
@@ -21959,6 +22018,9 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              867 ./var/lib/opkg/info/libicuuc36.control  
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libicuuc36.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libicuuc36.postinst  
+-rw-r--r-- root       root              673 ./var/lib/opkg/info/libjack.control  
+-rw-r--r-- root       root              313 ./var/lib/opkg/info/libjack.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libjack.postinst  
 -rw-r--r-- root       root              396 ./var/lib/opkg/info/libjasper1.control  
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/libjasper1.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libjasper1.postinst  
@@ -22085,6 +22147,9 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root             1071 ./var/lib/opkg/info/librsvg-2-gtk.control  
 -rw-r--r-- root       root              104 ./var/lib/opkg/info/librsvg-2-gtk.list  
 -rwxr-xr-x root       root              423 ./var/lib/opkg/info/librsvg-2-gtk.postinst  
+-rw-r--r-- root       root              420 ./var/lib/opkg/info/libsamplerate0.control  
+-rw-r--r-- root       root               86 ./var/lib/opkg/info/libsamplerate0.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsamplerate0.postinst  
 -rw-r--r-- root       root              642 ./var/lib/opkg/info/libsdl-1.2-0.control  
 -rw-r--r-- root       root               55 ./var/lib/opkg/info/libsdl-1.2-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsdl-1.2-0.postinst  
@@ -22118,13 +22183,13 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              563 ./var/lib/opkg/info/libswscale2.control  
 -rw-r--r-- root       root               54 ./var/lib/opkg/info/libswscale2.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libswscale2.postinst  
--rw-r--r-- root       root              838 ./var/lib/opkg/info/libsystemd-daemon0.control  
+-rw-r--r-- root       root              859 ./var/lib/opkg/info/libsystemd-daemon0.control  
 -rw-r--r-- root       root               60 ./var/lib/opkg/info/libsystemd-daemon0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsystemd-daemon0.postinst  
--rw-r--r-- root       root              934 ./var/lib/opkg/info/libsystemd-journal0.control  
+-rw-r--r-- root       root              955 ./var/lib/opkg/info/libsystemd-journal0.control  
 -rw-r--r-- root       root               62 ./var/lib/opkg/info/libsystemd-journal0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsystemd-journal0.postinst  
--rw-r--r-- root       root              836 ./var/lib/opkg/info/libsystemd-login0.control  
+-rw-r--r-- root       root              857 ./var/lib/opkg/info/libsystemd-login0.control  
 -rw-r--r-- root       root               59 ./var/lib/opkg/info/libsystemd-login0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libsystemd-login0.postinst  
 -rw-r--r-- root       root              449 ./var/lib/opkg/info/libtasn1-3.control  
@@ -22142,7 +22207,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              855 ./var/lib/opkg/info/libts-1.0-0.control  
 -rw-r--r-- root       root              302 ./var/lib/opkg/info/libts-1.0-0.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libts-1.0-0.postinst  
--rw-r--r-- root       root              818 ./var/lib/opkg/info/libudev1.control  
+-rw-r--r-- root       root              839 ./var/lib/opkg/info/libudev1.control  
 -rw-r--r-- root       root               40 ./var/lib/opkg/info/libudev1.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libudev1.postinst  
 -rw-r--r-- root       root             1205 ./var/lib/opkg/info/libunique-1.0-0.control  
@@ -22287,6 +22352,9 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              427 ./var/lib/opkg/info/libxslt.control  
 -rw-r--r-- root       root              126 ./var/lib/opkg/info/libxslt.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libxslt.postinst  
+-rw-r--r-- root       root              920 ./var/lib/opkg/info/libxss1.control  
+-rw-r--r-- root       root               46 ./var/lib/opkg/info/libxss1.list  
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libxss1.postinst  
 -rw-r--r-- root       root             1154 ./var/lib/opkg/info/libxt6.control  
 -rw-r--r-- root       root               44 ./var/lib/opkg/info/libxt6.list  
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libxt6.postinst  
@@ -22316,7 +22384,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/lvm2.postinst  
 -rw-r--r-- root       root              822 ./var/lib/opkg/info/mesa-dri.control  
 -rw-r--r-- root       root                0 ./var/lib/opkg/info/mesa-dri.list  
--rw-r--r-- root       root             1426 ./var/lib/opkg/info/metacity.control  
+-rw-r--r-- root       root             1453 ./var/lib/opkg/info/metacity.control  
 -rw-r--r-- root       root             7489 ./var/lib/opkg/info/metacity.list  
 -rwxr-xr-x root       root              485 ./var/lib/opkg/info/metacity.postinst  
 -rwxr-xr-x root       root               67 ./var/lib/opkg/info/metacity.postrm  
@@ -22502,7 +22570,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root               45 ./var/lib/opkg/info/shared-mime-info-data.list  
 -rw-r--r-- root       root              545 ./var/lib/opkg/info/shared-mime-info.control  
 -rw-r--r-- root       root            28147 ./var/lib/opkg/info/shared-mime-info.list  
--rw-r--r-- root       root              889 ./var/lib/opkg/info/systemd-analyze.control  
+-rw-r--r-- root       root              910 ./var/lib/opkg/info/systemd-analyze.control  
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/systemd-analyze.list  
 -rw-r--r-- root       root              367 ./var/lib/opkg/info/systemd-compat-units.control  
 -rw-r--r-- root       root              338 ./var/lib/opkg/info/systemd-compat-units.list  
@@ -22510,7 +22578,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              367 ./var/lib/opkg/info/systemd-serialgetty.control  
 -rw-r--r-- root       root              110 ./var/lib/opkg/info/systemd-serialgetty.list  
 -rw-r--r-- root       root              100 ./var/lib/opkg/info/systemd.conffiles  
--rw-r--r-- root       root             1391 ./var/lib/opkg/info/systemd.control  
+-rw-r--r-- root       root             1412 ./var/lib/opkg/info/systemd.control  
 -rw-r--r-- root       root            11561 ./var/lib/opkg/info/systemd.list  
 -rwxr-xr-x root       root              351 ./var/lib/opkg/info/systemd.postinst  
 -rwxr-xr-x root       root             2971 ./var/lib/opkg/info/systemd.preinst  
@@ -22540,11 +22608,11 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              582 ./var/lib/opkg/info/tzdata.control  
 -rw-r--r-- root       root             2829 ./var/lib/opkg/info/tzdata.list  
 -rwxr-xr-x root       root              540 ./var/lib/opkg/info/tzdata.postinst  
--rw-r--r-- root       root              817 ./var/lib/opkg/info/udev-systemd.control  
+-rw-r--r-- root       root              838 ./var/lib/opkg/info/udev-systemd.control  
 -rw-r--r-- root       root              508 ./var/lib/opkg/info/udev-systemd.list  
--rw-r--r-- root       root              887 ./var/lib/opkg/info/udev-utils.control  
+-rw-r--r-- root       root              908 ./var/lib/opkg/info/udev-utils.control  
 -rw-r--r-- root       root               17 ./var/lib/opkg/info/udev-utils.list  
--rw-r--r-- root       root              944 ./var/lib/opkg/info/udev.control  
+-rw-r--r-- root       root              965 ./var/lib/opkg/info/udev.control  
 -rw-r--r-- root       root             3972 ./var/lib/opkg/info/udev.list  
 -rw-r--r-- root       root              537 ./var/lib/opkg/info/udisks-systemd.control  
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/udisks-systemd.list  
@@ -22699,7 +22767,7 @@ drwxr-xr-x root       root           126976 ./var/lib/opkg/info
 -rw-r--r-- root       root              566 ./var/lib/opkg/info/xvinfo.control  
 -rw-r--r-- root       root               16 ./var/lib/opkg/info/xvinfo.list  
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists  
--rw-r--r-- root       root           230230 ./var/lib/opkg/status  
+-rw-r--r-- root       root           232346 ./var/lib/opkg/status  
 drwx------ root       root             4096 ./var/lib/polkit-1  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority  
 drwxr-xr-x root       root             4096 ./var/lib/polkit-1/localauthority/10-vendor.d  
@@ -22733,79 +22801,79 @@ drwxr-xr-x root       root             4096 ./var/volatile/lock/subsys
 drwxr-xr-x root       root             4096 ./var/volatile/log  
 drwxr-xr-x root       root             4096 ./var/volatile/run  
 drwxrwxrwt root       root             4096 ./var/volatile/tmp  
-crw-rw---- root       plugdev           10, 23:39 ./dev/apm_bios 
-crw-rw--w- root       tty                5, 23:39 ./dev/console 
-crw------- root       root              29, 23:39 ./dev/fb0 
-brw-rw---- root       disk               3, 23:39 ./dev/hda 
-brw-rw---- root       root               3, 23:39 ./dev/hda1 
-brw-rw---- root       root               3, 23:39 ./dev/hda10 
-brw-rw---- root       root               3, 23:39 ./dev/hda11 
-brw-rw---- root       root               3, 23:39 ./dev/hda12 
-brw-rw---- root       root               3, 23:39 ./dev/hda13 
-brw-rw---- root       root               3, 23:39 ./dev/hda14 
-brw-rw---- root       root               3, 23:39 ./dev/hda15 
-brw-rw---- root       root               3, 23:39 ./dev/hda16 
-brw-rw---- root       root               3, 23:39 ./dev/hda17 
-brw-rw---- root       root               3, 23:39 ./dev/hda18 
-brw-rw---- root       root               3, 23:39 ./dev/hda2 
-brw-rw---- root       root               3, 23:39 ./dev/hda3 
-brw-rw---- root       root               3, 23:39 ./dev/hda4 
-brw-rw---- root       root               3, 23:39 ./dev/hda5 
-brw-rw---- root       root               3, 23:39 ./dev/hda6 
-brw-rw---- root       root               3, 23:39 ./dev/hda7 
-brw-rw---- root       root               3, 23:39 ./dev/hda8 
-brw-rw---- root       root               3, 23:39 ./dev/hda9 
-crw-rw---- root       root              13, 23:39 ./dev/input/event0 
-crw-rw---- root       root              13, 23:39 ./dev/input/event1 
-crw-rw---- root       root              13, 23:39 ./dev/input/event2 
-crw-rw---- root       root              13, 23:39 ./dev/input/event3 
-crw-rw---- root       root              13, 23:39 ./dev/input/event4 
-crw-rw---- root       root              13, 23:39 ./dev/input/event5 
-crw-rw---- root       root              13, 23:39 ./dev/input/event6 
-crw-rw---- root       root              13, 23:39 ./dev/input/event7 
-crw-r----- root       kmem               1, 23:39 ./dev/kmem 
-crw-r----- root       kmem               1, 23:39 ./dev/mem 
-brw-rw---- root       disk             179, 23:39 ./dev/mmcblk0 
-brw-rw---- root       root             179, 23:39 ./dev/mmcblk0p1 
-brw-rw---- root       root             179, 23:39 ./dev/mmcblk0p2 
-brw-rw---- root       root             179, 23:39 ./dev/mmcblk0p3 
-brw-rw---- root       root             179, 23:39 ./dev/mmcblk0p4 
-brw-rw---- root       root             179, 23:39 ./dev/mmcblk0p5 
-brw-rw---- root       root             179, 23:39 ./dev/mmcblk0p6 
-crw-rw---- root       root              90, 23:39 ./dev/mtd0 
-crw-rw---- root       root              90, 23:39 ./dev/mtd1 
-crw-rw---- root       root              90, 23:39 ./dev/mtd2 
-crw-rw---- root       root              90, 23:39 ./dev/mtd3 
-crw-rw---- root       root              90, 23:39 ./dev/mtd4 
-crw-rw---- root       root              90, 23:39 ./dev/mtd5 
-crw-rw---- root       root              90, 23:39 ./dev/mtd6 
-crw-rw---- root       root              90, 23:39 ./dev/mtd7 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock0 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock1 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock2 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock3 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock4 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock5 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock6 
-brw-r----- root       root              31, 23:39 ./dev/mtdblock7 
-crw-rw-rw- root       root               1, 23:39 ./dev/null 
-crw-r--r-- root       root               5, 23:39 ./dev/ptmx 
-brw-r----- root       root               1, 23:39 ./dev/ram0 
-brw-r----- root       root               1, 23:39 ./dev/ram1 
-brw-r----- root       root               1, 23:39 ./dev/ram2 
-brw-r----- root       root               1, 23:39 ./dev/ram3 
-crw-r--r-- root       root               1, 23:39 ./dev/random 
-crw-rw--w- root       tty                5, 23:39 ./dev/tty 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty0 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty1 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty2 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty3 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty4 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty5 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty6 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty7 
-crw-rw-rw- root       root               4, 23:39 ./dev/tty8 
-crw-r----- root       root               4, 23:39 ./dev/ttyS0 
-crw-r----- root       root             204, 23:39 ./dev/ttySA0 
-crw-r--r-- root       root               1, 23:39 ./dev/urandom 
-crw-r--r-- root       root               1, 23:39 ./dev/zero 
+crw-rw---- root       plugdev           10, 00:38 ./dev/apm_bios 
+crw-rw--w- root       tty                5, 00:38 ./dev/console 
+crw------- root       root              29, 00:38 ./dev/fb0 
+brw-rw---- root       disk               3, 00:38 ./dev/hda 
+brw-rw---- root       root               3, 00:38 ./dev/hda1 
+brw-rw---- root       root               3, 00:38 ./dev/hda10 
+brw-rw---- root       root               3, 00:38 ./dev/hda11 
+brw-rw---- root       root               3, 00:38 ./dev/hda12 
+brw-rw---- root       root               3, 00:38 ./dev/hda13 
+brw-rw---- root       root               3, 00:38 ./dev/hda14 
+brw-rw---- root       root               3, 00:38 ./dev/hda15 
+brw-rw---- root       root               3, 00:38 ./dev/hda16 
+brw-rw---- root       root               3, 00:38 ./dev/hda17 
+brw-rw---- root       root               3, 00:38 ./dev/hda18 
+brw-rw---- root       root               3, 00:38 ./dev/hda2 
+brw-rw---- root       root               3, 00:38 ./dev/hda3 
+brw-rw---- root       root               3, 00:38 ./dev/hda4 
+brw-rw---- root       root               3, 00:38 ./dev/hda5 
+brw-rw---- root       root               3, 00:38 ./dev/hda6 
+brw-rw---- root       root               3, 00:38 ./dev/hda7 
+brw-rw---- root       root               3, 00:38 ./dev/hda8 
+brw-rw---- root       root               3, 00:38 ./dev/hda9 
+crw-rw---- root       root              13, 00:38 ./dev/input/event0 
+crw-rw---- root       root              13, 00:38 ./dev/input/event1 
+crw-rw---- root       root              13, 00:38 ./dev/input/event2 
+crw-rw---- root       root              13, 00:38 ./dev/input/event3 
+crw-rw---- root       root              13, 00:38 ./dev/input/event4 
+crw-rw---- root       root              13, 00:38 ./dev/input/event5 
+crw-rw---- root       root              13, 00:38 ./dev/input/event6 
+crw-rw---- root       root              13, 00:38 ./dev/input/event7 
+crw-r----- root       kmem               1, 00:38 ./dev/kmem 
+crw-r----- root       kmem               1, 00:38 ./dev/mem 
+brw-rw---- root       disk             179, 00:38 ./dev/mmcblk0 
+brw-rw---- root       root             179, 00:38 ./dev/mmcblk0p1 
+brw-rw---- root       root             179, 00:38 ./dev/mmcblk0p2 
+brw-rw---- root       root             179, 00:38 ./dev/mmcblk0p3 
+brw-rw---- root       root             179, 00:38 ./dev/mmcblk0p4 
+brw-rw---- root       root             179, 00:38 ./dev/mmcblk0p5 
+brw-rw---- root       root             179, 00:38 ./dev/mmcblk0p6 
+crw-rw---- root       root              90, 00:38 ./dev/mtd0 
+crw-rw---- root       root              90, 00:38 ./dev/mtd1 
+crw-rw---- root       root              90, 00:38 ./dev/mtd2 
+crw-rw---- root       root              90, 00:38 ./dev/mtd3 
+crw-rw---- root       root              90, 00:38 ./dev/mtd4 
+crw-rw---- root       root              90, 00:38 ./dev/mtd5 
+crw-rw---- root       root              90, 00:38 ./dev/mtd6 
+crw-rw---- root       root              90, 00:38 ./dev/mtd7 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock0 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock1 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock2 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock3 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock4 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock5 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock6 
+brw-r----- root       root              31, 00:38 ./dev/mtdblock7 
+crw-rw-rw- root       root               1, 00:38 ./dev/null 
+crw-r--r-- root       root               5, 00:38 ./dev/ptmx 
+brw-r----- root       root               1, 00:38 ./dev/ram0 
+brw-r----- root       root               1, 00:38 ./dev/ram1 
+brw-r----- root       root               1, 00:38 ./dev/ram2 
+brw-r----- root       root               1, 00:38 ./dev/ram3 
+crw-r--r-- root       root               1, 00:38 ./dev/random 
+crw-rw--w- root       tty                5, 00:38 ./dev/tty 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty0 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty1 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty2 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty3 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty4 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty5 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty6 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty7 
+crw-rw-rw- root       root               4, 00:38 ./dev/tty8 
+crw-r----- root       root               4, 00:38 ./dev/ttyS0 
+crw-r----- root       root             204, 00:38 ./dev/ttySA0 
+crw-r--r-- root       root               1, 00:38 ./dev/urandom 
+crw-r--r-- root       root               1, 00:38 ./dev/zero 
