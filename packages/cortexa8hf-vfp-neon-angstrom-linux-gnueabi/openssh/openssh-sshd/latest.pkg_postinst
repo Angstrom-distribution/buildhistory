@@ -12,11 +12,3 @@ if type systemctl >/dev/null 2>/dev/null; then
 		systemctl restart sshd.socket sshd@.service sshdgenkeys.service
 	fi
 fi
-if test "x$D" != "x"; then
-	OPT="-r $D"
-else
-	OPT="-s"
-fi
-if type update-rc.d >/dev/null 2>/dev/null; then
-	update-rc.d $OPT sshd defaults 9
-fi

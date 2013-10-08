@@ -1,5 +1,5 @@
 #!/bin/sh
-if true && \
+if false && \
 	[ "x$D" != "x" ] && [ -f $D/var/lib/opkg/status ]; then
 	install -d $D/etc/rcS.d
 
@@ -16,3 +16,16 @@ rm -f /etc/rcS.d/S98run-postinsts
 	chmod 0755 $D/etc/rcS.d/S98run-postinsts
 fi
 	update-alternatives --install /usr/bin/opkg opkg /usr/bin/opkg-cl 100
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable opkg-configure.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart opkg-configure.service
+	fi
+fi

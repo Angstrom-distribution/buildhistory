@@ -12,11 +12,3 @@ if type systemctl >/dev/null 2>/dev/null; then
 		systemctl restart ofono.service
 	fi
 fi
-if test "x$D" != "x"; then
-	OPT="-r $D"
-else
-	OPT="-s"
-fi
-if type update-rc.d >/dev/null 2>/dev/null; then
-	update-rc.d $OPT ofono defaults 22
-fi

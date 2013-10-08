@@ -12,11 +12,3 @@ if type systemctl >/dev/null 2>/dev/null; then
 		systemctl restart avahi-dnsconfd.service
 	fi
 fi
-if test "x$D" != "x"; then
-	OPT="-r $D"
-else
-	OPT="-s"
-fi
-if type update-rc.d >/dev/null 2>/dev/null; then
-	update-rc.d $OPT avahi-dnsconfd defaults 22 19
-fi
