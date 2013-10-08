@@ -1,0 +1,22 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable sshd.socket sshd@.service sshdgenkeys.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart sshd.socket sshd@.service sshdgenkeys.service
+	fi
+fi
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+if type update-rc.d >/dev/null 2>/dev/null; then
+	update-rc.d $OPT sshd defaults 9
+fi

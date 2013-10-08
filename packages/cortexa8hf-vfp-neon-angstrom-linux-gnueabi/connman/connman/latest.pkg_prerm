@@ -1,0 +1,11 @@
+#!/bin/sh
+if test "x$D" = "x"; then
+	/etc/init.d/connman stop
+fi
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop connman.service
+	fi
+
+	systemctl disable connman.service
+fi

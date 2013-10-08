@@ -1,0 +1,11 @@
+#!/bin/sh
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop avahi-daemon.service
+	fi
+
+	systemctl disable avahi-daemon.service
+fi
+if test "x$D" = "x"; then
+	/etc/init.d/avahi-daemon stop
+fi

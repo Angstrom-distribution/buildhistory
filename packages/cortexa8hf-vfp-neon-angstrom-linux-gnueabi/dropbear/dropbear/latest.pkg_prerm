@@ -1,0 +1,11 @@
+#!/bin/sh
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop dropbear.socket
+	fi
+
+	systemctl disable dropbear.socket
+fi
+if test "x$D" = "x"; then
+	/etc/init.d/dropbear stop
+fi

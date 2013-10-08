@@ -1,0 +1,24 @@
+if [ -z "$D" ]; then
+	killall -q -HUP dbus-daemon || true
+fi
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable avahi-daemon.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart avahi-daemon.service
+	fi
+fi
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+if type update-rc.d >/dev/null 2>/dev/null; then
+	update-rc.d $OPT avahi-daemon defaults 21 19
+fi
