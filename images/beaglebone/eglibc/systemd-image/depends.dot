@@ -48,6 +48,8 @@ digraph depends {
 "connman" -> "update-rc.d" [style=dotted];
 "connman" -> "wpa-supplicant";
 "connman" -> "xuser-account";
+"connman-angstrom-settings" -> "connman";
+"cpufreq-tweaks" -> "cpufrequtils";
 "cpufrequtils" -> "libc6";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libc6";
@@ -67,6 +69,7 @@ digraph depends {
 "e2fsprogs-e2fsck" -> "libe2p2";
 "e2fsprogs-e2fsck" -> "libext2fs2";
 "e2fsprogs-e2fsck" -> "libuuid1";
+"fixmac" -> "ranpwd";
 "htop" -> "libc6";
 "htop" -> "libncurses5";
 "htop" -> "libtinfo5";
@@ -280,6 +283,7 @@ digraph depends {
 "pam-plugin-unix" -> "libpam";
 "pam-plugin-warn" -> "libc6";
 "pam-plugin-warn" -> "libpam";
+"ranpwd" -> "libc6";
 "shadow" -> "base-passwd";
 "shadow" -> "libc6";
 "shadow" -> "libpam";
@@ -326,6 +330,8 @@ digraph depends {
 "systemd" -> "util-linux-agetty" [style=dotted];
 "systemd" -> "util-linux-fsck" [style=dotted];
 "systemd" -> "util-linux-mount";
+"systemd-analyze" -> "libc6";
+"systemd-analyze" -> "libdbus-1-3";
 "systemd-binfmt" -> "kernel-module-binfmt-misc" [style=dotted];
 "systemd-binfmt" -> "libc6";
 "systemd-serialgetty" -> "systemd";
