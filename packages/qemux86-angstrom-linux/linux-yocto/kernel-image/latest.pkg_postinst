@@ -1,0 +1,9 @@
+	update-alternatives --install /boot/bzImage bzImage bzImage-3.10.11-yocto-standard 31011 || true
+	if [ ! -e "$D/lib/modules/3.10.11-yocto-standard" ]; then
+		mkdir -p $D/lib/modules/3.10.11-yocto-standard
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.10.11-yocto-standard
+	else
+		depmod -a 3.10.11-yocto-standard
+	fi
