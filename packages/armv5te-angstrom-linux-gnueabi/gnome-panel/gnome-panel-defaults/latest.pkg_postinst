@@ -1,0 +1,7 @@
+if [ "x$D" != "x" ]; then
+	export GCONF_CONFIG_SOURCE="xml:readwrite:$D/etc/gconf/gconf.xml.defaults"
+else
+	export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
+fi
+
+HOME=$D/home/root gconftool-2 --config-source=$GCONF_CONFIG_SOURCE --direct --load $D/etc/gconf/schemas/panel-default-setup.entries
