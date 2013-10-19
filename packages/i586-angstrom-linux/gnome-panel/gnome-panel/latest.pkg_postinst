@@ -1,8 +1,4 @@
-if [ -n "$D" ]; then
-    exit 1
-fi
-    gconftool-2 --config-source=xml:readwrite:/etc/gconf/gconf.xml.defaults \
-        --direct --load /etc/gconf/schemas/panel-default-setup.entries
+#!/bin/sh
 if [ "x$D" != "x" ]; then
 	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} mlprefix= libdir=/usr/lib \
 		base_libdir=/lib
@@ -24,7 +20,7 @@ else
 fi
 
 SCHEMA_LOCATION=$D/etc/gconf/schemas
-for SCHEMA in fish.schemas workspace-switcher.schemas clock.schemas panel-object.schemas panel-toplevel.schemas panel-general.schemas panel-global.schemas panel-compatibility.schemas window-list.schemas; do
+for SCHEMA in window-list.schemas panel-toplevel.schemas fish.schemas panel-compatibility.schemas clock.schemas panel-global.schemas workspace-switcher.schemas panel-general.schemas panel-object.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
