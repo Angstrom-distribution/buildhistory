@@ -1,0 +1,18 @@
+if [ "x$D" != "x" ] && [ -f $D/var/lib/rpm/Packages ]; then
+	install -d $D//etc/rcS.d
+	cat > $D/etc/rcS.d/S98run-postinsts << "EOF"
+#!/bin/sh
+
+[ -d /etc/rpm-postinsts ] && for i in `ls /etc/rpm-postinsts/`; do
+	i=/etc/rpm-postinsts/$i
+	echo "Running postinst $i..."
+	if [ -f $i ] && $i ; then
+		rm $i
+	else
+		echo "ERROR: postinst $i failed."
+	fi
+done
+rm -f /etc/rcS.d/S98run-postinsts 2>/dev/null
+EOF
+	chmod 0755 $D/etc/rcS.d/S98run-postinsts
+fi
