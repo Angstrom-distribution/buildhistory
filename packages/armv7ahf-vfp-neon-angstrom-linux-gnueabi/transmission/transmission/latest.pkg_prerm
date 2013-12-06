@@ -1,0 +1,8 @@
+#!/bin/sh
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop transmission-daemon.service
+	fi
+
+	systemctl disable transmission-daemon.service
+fi
