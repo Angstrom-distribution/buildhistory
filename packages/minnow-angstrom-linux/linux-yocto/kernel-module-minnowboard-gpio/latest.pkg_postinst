@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z "$D" ]; then
+	depmod -a 3.8.13-yocto-standard
+else
+	depmodwrapper -a -b $D 3.8.13-yocto-standard
+fi
+
+if [ x"$D" = "x" ]; then
+	modprobe minnowboard-gpio || true
+fi
