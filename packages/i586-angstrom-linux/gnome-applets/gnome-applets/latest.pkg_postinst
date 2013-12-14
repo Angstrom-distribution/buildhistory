@@ -20,7 +20,7 @@ else
 fi
 
 SCHEMA_LOCATION=$D/etc/gconf/schemas
-for SCHEMA in cpufreq-applet.schemas stickynotes.schemas geyes.schemas battstat.schemas charpick.schemas drivemount.schemas multiload.schemas; do
+for SCHEMA in battstat.schemas multiload.schemas drivemount.schemas cpufreq-applet.schemas geyes.schemas charpick.schemas stickynotes.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
