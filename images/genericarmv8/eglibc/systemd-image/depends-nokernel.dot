@@ -97,6 +97,9 @@ digraph depends {
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
 "kernel-module-ip-tables" -> "kernel-module-x-tables";
+"kernel-module-ipt-masquerade" -> "kernel-module-nf-conntrack";
+"kernel-module-ipt-masquerade" -> "kernel-module-nf-nat";
+"kernel-module-ipt-masquerade" -> "kernel-module-x-tables";
 "kernel-module-iptable-filter" -> "kernel-module-ip-tables";
 "kernel-module-iptable-filter" -> "kernel-module-x-tables";
 "kernel-module-iptable-nat" -> "kernel-module-ip-tables";
@@ -129,6 +132,7 @@ digraph depends {
 "libcom-err2" -> "libgcc1";
 "libcrypto1.0.0" -> "libc6";
 "libcrypto1.0.0" -> "libgcc1";
+"libcrypto1.0.0" -> "openssl-conf" [style=dotted];
 "libdaemon0" -> "libc6";
 "libdbus-1-3" -> "dbus-1" [style=dotted];
 "libdbus-1-3" -> "libc6";
@@ -331,6 +335,7 @@ digraph depends {
 "systemd" -> "kmod";
 "systemd" -> "libacl1";
 "systemd" -> "libattr1";
+"systemd" -> "libblkid1";
 "systemd" -> "libc6";
 "systemd" -> "libcap2";
 "systemd" -> "libdbus-1-3";
