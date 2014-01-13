@@ -1,0 +1,8 @@
+if [ ! -e "$D/lib/modules/3.4.11" ]; then
+	mkdir -p $D/lib/modules/3.4.11
+fi
+if [ -n "$D" ]; then
+	depmod -a -b $D -F /build/v2012.12/build/tmp-angstrom_v2012_12-eglibc/sysroots/pandaboard/usr/src/kernel/System.map-3.4.11 3.4.11
+else
+	depmod -a 3.4.11
+fi
