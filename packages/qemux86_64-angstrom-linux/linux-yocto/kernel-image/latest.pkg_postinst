@@ -1,0 +1,8 @@
+if [ ! -e "$D/lib/modules/3.4.11-yocto-standard" ]; then
+	mkdir -p $D/lib/modules/3.4.11-yocto-standard
+fi
+if [ -n "$D" ]; then
+	depmod -a -b $D -F /build/v2012.12/build/tmp-angstrom_v2012_12-eglibc/sysroots/qemux86-64/usr/src/kernel/System.map-3.4.11-yocto-standard 3.4.11-yocto-standard
+else
+	depmod -a 3.4.11-yocto-standard
+fi

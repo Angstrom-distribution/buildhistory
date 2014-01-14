@@ -1,0 +1,6 @@
+	# can't do this offline
+	if [ "x$D" != "x" ]; then
+		exit 1
+	fi
+	grep "^avahi-autoipd:" /etc/group > /dev/null || addgroup avahi-autoipd
+	grep "^avahi-autoipd:" /etc/passwd > /dev/null || adduser --disabled-password --system --home /var/lib/avahi-autoipd --no-create-home avahi-autoipd --ingroup avahi-autoipd -g "Avahi autoip daemon"

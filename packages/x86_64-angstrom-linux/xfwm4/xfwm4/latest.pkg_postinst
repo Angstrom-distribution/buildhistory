@@ -1,0 +1,14 @@
+#!/bin/sh
+	update-alternatives --install /usr/bin/x-window-manager x-window-manager xfwm4 30
+if [ "x$D" != "x" ]; then
+        exit 1
+fi
+
+# Update the pixbuf loaders in case they haven't been registered yet
+GDK_PIXBUF_MODULEDIR=/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders gdk-pixbuf-query-loaders --update-cache
+
+for icondir in /usr/share/icons/* ; do
+    if [ -d $icondir ] ; then
+        gtk-update-icon-cache -fqt  $icondir
+    fi
+done

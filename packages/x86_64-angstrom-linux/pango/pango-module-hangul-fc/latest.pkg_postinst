@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ "x$D" != "x" ]; then
+  exit 1
+fi
+
+if ! [ -e $D/etc/pango ] ; then
+	mkdir -p $D/etc/pango
+fi
+/usr/bin/pango-querymodules > /etc/pango/pango.modules
