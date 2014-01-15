@@ -243,6 +243,7 @@ digraph depends {
 "emgd-driver" -> "xserver-xorg";
 "emgd-driver-video" -> "emgd-driver";
 "emgd-driver-video" -> "libdrm2";
+"emgd-driver-video" -> "libva";
 "emgd-driver-video" -> "libx11-6";
 "emgd-driver-video" -> "libxcb-dri2-0";
 "emgd-driver-video" -> "libxext6";
@@ -255,7 +256,9 @@ digraph depends {
 "emgd-gst-plugins-mixvideo" -> "libdrm2";
 "emgd-gst-plugins-mixvideo" -> "libglib-2.0-0";
 "emgd-gst-plugins-mixvideo" -> "libgstinterfaces-0.10-0";
+"emgd-gst-plugins-mixvideo" -> "libva";
 "emgd-gst-plugins-mixvideo" -> "libva-tpi1";
+"emgd-gst-plugins-mixvideo" -> "libva-x11-1";
 "emgd-gst-plugins-mixvideo" -> "libx11-6";
 "emgd-gst-plugins-mixvideo" -> "libxext6";
 "emgd-gst-plugins-mixvideo" -> "libxfixes3";
@@ -267,6 +270,9 @@ digraph depends {
 "emgd-gst-plugins-va" -> "libglib-2.0-0";
 "emgd-gst-plugins-va" -> "libgstinterfaces-0.10-0";
 "emgd-gst-plugins-va" -> "libgstvideo-0.10-0";
+"emgd-gst-plugins-va" -> "libva";
+"emgd-gst-plugins-va" -> "libva-tpi1";
+"emgd-gst-plugins-va" -> "libva-x11-1";
 "emgd-gst-plugins-va" -> "libx11-6";
 "emgd-gst-plugins-va" -> "libxext6";
 "emgd-gst-plugins-va" -> "libxfixes3";
@@ -282,6 +288,9 @@ digraph depends {
 "emgd-libmixvideo" -> "emgd-libmixvbp";
 "emgd-libmixvideo" -> "libdrm2";
 "emgd-libmixvideo" -> "libglib-2.0-0";
+"emgd-libmixvideo" -> "libva";
+"emgd-libmixvideo" -> "libva-tpi1";
+"emgd-libmixvideo" -> "libva-x11-1";
 "emgd-libmixvideo" -> "libx11-6";
 "emgd-libmixvideo" -> "libxext6";
 "emgd-libmixvideo" -> "libxfixes3";
@@ -316,7 +325,9 @@ digraph depends {
 "evtest" -> "libxml2";
 "file" -> "libz1";
 "fixmac" -> "ranpwd";
+"flex" -> "m4";
 "flex-dev" -> "flex";
+"flex-dev" -> "m4-dev" [style=dotted];
 "font-util" -> "encodings";
 "font-util" -> "mkfontdir";
 "font-util" -> "mkfontscale";
@@ -2144,6 +2155,7 @@ digraph depends {
 "libcroco" -> "libglib-2.0-0";
 "libcroco" -> "libxml2";
 "libcroco" -> "libz1";
+"libcrypto1.0.0" -> "openssl-conf" [style=dotted];
 "libcurl5" -> "curl-certs" [style=dotted];
 "libcurl5" -> "libcap2";
 "libcurl5" -> "libgcrypt11";
@@ -3134,6 +3146,7 @@ digraph depends {
 "libxxf86vm1" -> "libxext6";
 "lmbench" -> "debianutils";
 "locale-base-en-us" -> "eglibc-binary-localedata-en-us";
+"m4-dev" -> "m4";
 "metacity" -> "gdk-pixbuf";
 "metacity" -> "gsettings-desktop-schemas";
 "metacity" -> "harfbuzz";
@@ -3438,6 +3451,7 @@ digraph depends {
 "parted" -> "libreadline6";
 "parted" -> "libtinfo5";
 "parted" -> "libuuid1";
+"patch" -> "libattr1";
 "patch" -> "opkg";
 "pciutils" -> "libkmod2";
 "pciutils" -> "libpci3";
@@ -7155,10 +7169,6 @@ digraph depends {
 "perl-modules" -> "perl-module-warnings" [style=dotted];
 "perl-modules" -> "perl-module-warnings-register" [style=dotted];
 "perl-modules" -> "perl-module-xsloader" [style=dotted];
-"perl-modules" -> "perl-ptest" [style=dotted];
-"perl-ptest" -> "perl-doc";
-"perl-ptest" -> "perl-misc";
-"perl-ptest" -> "perl-modules";
 "pm-utils" -> "grep";
 "polkit" -> "base-passwd";
 "polkit" -> "libexpat1";
@@ -7246,9 +7256,7 @@ digraph depends {
 "python-idle" -> "python-tkinter";
 "python-image" -> "libpython2.7-1.0";
 "python-image" -> "python-core";
-"python-io" -> "libcrypto1.0.0";
 "python-io" -> "libpython2.7-1.0";
-"python-io" -> "libssl1.0.0";
 "python-io" -> "python-core";
 "python-io" -> "python-math";
 "python-io" -> "python-textutils";
@@ -7542,6 +7550,7 @@ digraph depends {
 "util-linux-losetup" -> "opkg";
 "util-linux-mount" -> "libmount1";
 "util-linux-mount" -> "opkg";
+"util-linux-readprofile" -> "opkg";
 "util-linux-swaponoff" -> "libmount1";
 "util-linux-swaponoff" -> "opkg";
 "util-linux-umount" -> "libmount1";
