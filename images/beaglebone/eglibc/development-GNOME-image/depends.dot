@@ -321,8 +321,10 @@ digraph depends {
 "file" -> "libz1";
 "fixmac" -> "ranpwd";
 "flex" -> "libc6";
+"flex" -> "m4";
 "flex-dev" -> "flex";
 "flex-dev" -> "libc6-dev" [style=dotted];
+"flex-dev" -> "m4-dev" [style=dotted];
 "font-util" -> "encodings";
 "font-util" -> "libc6";
 "font-util" -> "mkfontdir";
@@ -491,7 +493,6 @@ digraph depends {
 "gimp" -> "libglib-2.0-0";
 "gimp" -> "libgtk-2.0";
 "gimp" -> "libgudev-1.0-0";
-"gimp" -> "libjasper1";
 "gimp" -> "libjpeg8";
 "gimp" -> "libpixman-1-0";
 "gimp" -> "libpng16-16";
@@ -2259,6 +2260,7 @@ digraph depends {
 "libcairo-gobject2" -> "libffi6";
 "libcairo-gobject2" -> "libfontconfig1";
 "libcairo-gobject2" -> "libfreetype6";
+"libcairo-gobject2" -> "libgcc1";
 "libcairo-gobject2" -> "libglib-2.0-0";
 "libcairo-gobject2" -> "libpixman-1-0";
 "libcairo-gobject2" -> "libpng16-16";
@@ -2345,6 +2347,7 @@ digraph depends {
 "libcroco" -> "libxml2";
 "libcroco" -> "libz1";
 "libcrypto1.0.0" -> "libc6";
+"libcrypto1.0.0" -> "openssl-conf" [style=dotted];
 "libcurl5" -> "curl-certs" [style=dotted];
 "libcurl5" -> "libc6";
 "libcurl5" -> "libcap2";
@@ -2804,7 +2807,6 @@ digraph depends {
 "libicuuc51" -> "libgcc1";
 "libicuuc51" -> "libicudata51";
 "libicuuc51" -> "libstdc++6";
-"libjasper1" -> "libc6";
 "libjavascriptcoregtk-1.0-0" -> "libc6";
 "libjavascriptcoregtk-1.0-0" -> "libffi6";
 "libjavascriptcoregtk-1.0-0" -> "libgcc1";
@@ -3515,6 +3517,8 @@ digraph depends {
 "lmbench" -> "libc6";
 "locale-base-en-us" -> "eglibc-binary-localedata-en-us";
 "m4" -> "libc6";
+"m4-dev" -> "libc6-dev" [style=dotted];
+"m4-dev" -> "m4";
 "make" -> "libc6";
 "memtester" -> "libc6";
 "metacity" -> "gdk-pixbuf";
@@ -3853,6 +3857,7 @@ digraph depends {
 "parted" -> "libreadline6";
 "parted" -> "libtinfo5";
 "parted" -> "libuuid1";
+"patch" -> "libattr1";
 "patch" -> "libc6";
 "patch" -> "opkg";
 "pciutils" -> "libc6";
@@ -3862,7 +3867,6 @@ digraph depends {
 "pciutils" -> "pciutils-ids";
 "perl" -> "libc6";
 "perl" -> "libperl5";
-"perl-misc" -> "libc6";
 "perl-module-abbrev" -> "perl";
 "perl-module-anydbm-file" -> "perl";
 "perl-module-app-cpan" -> "perl";
@@ -7626,10 +7630,6 @@ digraph depends {
 "perl-modules" -> "perl-module-warnings" [style=dotted];
 "perl-modules" -> "perl-module-warnings-register" [style=dotted];
 "perl-modules" -> "perl-module-xsloader" [style=dotted];
-"perl-modules" -> "perl-ptest" [style=dotted];
-"perl-ptest" -> "perl-doc";
-"perl-ptest" -> "perl-misc";
-"perl-ptest" -> "perl-modules";
 "pkgconfig" -> "libc6";
 "pm-utils" -> "grep";
 "pm-utils" -> "libc6";
@@ -8083,6 +8083,8 @@ digraph depends {
 "util-linux-mount" -> "libc6";
 "util-linux-mount" -> "libmount1";
 "util-linux-mount" -> "opkg";
+"util-linux-readprofile" -> "libc6";
+"util-linux-readprofile" -> "opkg";
 "util-linux-sfdisk" -> "libc6";
 "util-linux-swaponoff" -> "libc6";
 "util-linux-swaponoff" -> "libmount1";
