@@ -1,0 +1,5 @@
+        if grep -q "\-server ERROR" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg && ! grep -q "KNOWN" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg; then
+          sed -i -e "/\-cacao.*/d" -e "s|\(^\-server*\)|\-cacao KNOWN\n\1|" -e "/^$/d" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg
+	else
+          sed -i -e "s/\-cacao.*/\-cacao KNOWN/" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg
+        fi
