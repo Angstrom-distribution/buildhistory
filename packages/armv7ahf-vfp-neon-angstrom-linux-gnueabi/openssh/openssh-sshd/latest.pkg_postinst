@@ -6,9 +6,9 @@ if [ -n "$D" ]; then
 fi
 
 if type systemctl >/dev/null 2>/dev/null; then
-	systemctl $OPTS enable sshd.socket sshd@.service sshdgenkeys.service
+	systemctl $OPTS enable sshd.socket
 
 	if [ -z "$D" -a "enable" = "enable" ]; then
-		systemctl restart sshd.socket sshd@.service sshdgenkeys.service
+		systemctl restart sshd.socket
 	fi
 fi
