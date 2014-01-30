@@ -59,8 +59,8 @@ digraph depends {
 "htop" -> "ncurses-terminfo";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel-image-3.13.0" -> "kernel-devicetree";
-"kernel-image-3.13.0" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel-image-3.13.1" -> "kernel-devicetree";
+"kernel-image-3.13.1" -> "kernel-devicetree-overlays" [style=dotted];
 "kmod" -> "libkmod2";
 "kmod" -> "opkg";
 "libacl1" -> "libattr1";
@@ -135,6 +135,8 @@ digraph depends {
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "opkg" -> "libopkg1";
 "opkg" -> "opkg";
@@ -159,13 +161,14 @@ digraph depends {
 "packagegroup-boot" -> "gummiboot";
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "netbase";
-"packagegroup-boot" -> "v86d";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";

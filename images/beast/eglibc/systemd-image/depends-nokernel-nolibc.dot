@@ -71,8 +71,8 @@ digraph depends {
 "iptables" -> "kernel-module-x-tables" [style=dotted];
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel-image-3.13.0" -> "kernel-devicetree";
-"kernel-image-3.13.0" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel-image-3.13.1" -> "kernel-devicetree";
+"kernel-image-3.13.1" -> "kernel-devicetree-overlays" [style=dotted];
 "kernel-module-ipt-masquerade" -> "kernel-module-nf-conntrack";
 "kernel-module-ipt-masquerade" -> "kernel-module-nf-nat";
 "kernel-module-iptable-nat" -> "kernel-module-nf-conntrack";
@@ -158,6 +158,8 @@ digraph depends {
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "opkg" -> "libopkg1";
 "opkg" -> "opkg";
@@ -182,13 +184,14 @@ digraph depends {
 "packagegroup-boot" -> "gummiboot";
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "netbase";
-"packagegroup-boot" -> "v86d";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
@@ -262,8 +265,6 @@ digraph depends {
 "util-linux-fsck" -> "opkg";
 "util-linux-mount" -> "libmount1";
 "util-linux-mount" -> "opkg";
-"v86d" -> "kernel-module-uvesafb" [style=dotted];
-"v86d" -> "update-rc.d" [style=dotted];
 "wpa-supplicant" -> "libdbus-1-3";
 "wpa-supplicant" -> "libgcrypt11";
 "wpa-supplicant" -> "libgnutls26";
