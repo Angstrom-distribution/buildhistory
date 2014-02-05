@@ -1,0 +1,15 @@
+if [ "x$D" != "x" ]; then
+    echo "can't do u-a offline" ; exit 1
+else
+    for app in add-shell  installkernel  mkboot  remove-shell ; do
+        update-alternatives --install /usr/sbin/$app $app $app.debianutils 100
+    done
+
+    for app in savelog  sensible-browser  sensible-editor  sensible-pager  which ; do
+        update-alternatives --install /usr/bin/$app $app $app.debianutils 100
+    done
+
+    for app in run-parts  tempfile ; do
+        update-alternatives --install /bin/$app $app $app.debianutils 100
+    done
+fi
