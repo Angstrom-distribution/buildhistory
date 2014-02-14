@@ -2382,11 +2382,13 @@ digraph depends {
 "libgtk-3.0" -> "libxext6";
 "libgtk-3.0" -> "libxfixes3";
 "libgtk-3.0" -> "libxi6";
+"libgtk-3.0" -> "libxkbcommon0";
 "libgtk-3.0" -> "libxrandr2";
 "libgtk-3.0" -> "libxrender1";
 "libgtk-3.0" -> "libz1";
 "libgtk-3.0" -> "opkg";
 "libgtk-3.0" -> "pango";
+"libgtk-3.0" -> "wayland";
 "libgtksourceview-2.0-0" -> "gdk-pixbuf";
 "libgtksourceview-2.0-0" -> "harfbuzz";
 "libgtksourceview-2.0-0" -> "libatk-1.0-0";
@@ -3146,6 +3148,8 @@ digraph depends {
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "openssl" -> "libcrypto1.0.0";
 "openssl" -> "libssl1.0.0";
@@ -3281,8 +3285,10 @@ digraph depends {
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
@@ -7437,6 +7443,7 @@ digraph depends {
 "vim" -> "vim-syntax" [style=dotted];
 "vim" -> "vim-tutor" [style=dotted];
 "vim" -> "vim-vimrc" [style=dotted];
+"wayland" -> "libffi6";
 "wget" -> "libcrypto1.0.0";
 "wget" -> "libpcre1";
 "wget" -> "libssl1.0.0";
