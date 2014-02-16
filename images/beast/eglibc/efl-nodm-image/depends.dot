@@ -10,6 +10,7 @@ digraph depends {
 "angstrom-feed-configs" -> "opkg" [style=dotted];
 "angstrom-packagegroup-boot" -> "angstrom-version";
 "angstrom-packagegroup-boot" -> "packagegroup-boot";
+"avahi-daemon" -> "base-files";
 "avahi-daemon" -> "base-passwd";
 "avahi-daemon" -> "libavahi-common3";
 "avahi-daemon" -> "libavahi-core7";
@@ -53,6 +54,7 @@ digraph depends {
 "cpp-symlinks" -> "cpp";
 "cpufreq-tweaks" -> "cpufrequtils";
 "cpufrequtils" -> "libc6";
+"dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libc6";
 "dbus-1" -> "libdbus-1-3";
@@ -809,25 +811,25 @@ digraph depends {
 "iw" -> "libc6";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel" -> "kernel-3.13.2";
-"kernel-3.13.2" -> "kernel-image-3.13.2";
-"kernel-image-3.13.2" -> "kernel-devicetree";
-"kernel-image-3.13.2" -> "kernel-devicetree-overlays" [style=dotted];
-"kernel-module-ipt-masquerade" -> "kernel-3.13.2";
+"kernel" -> "kernel-3.13.3";
+"kernel-3.13.3" -> "kernel-image-3.13.3";
+"kernel-image-3.13.3" -> "kernel-devicetree";
+"kernel-image-3.13.3" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel-module-ipt-masquerade" -> "kernel-3.13.3";
 "kernel-module-ipt-masquerade" -> "kernel-module-nf-conntrack";
 "kernel-module-ipt-masquerade" -> "kernel-module-nf-nat";
-"kernel-module-iptable-nat" -> "kernel-3.13.2";
+"kernel-module-iptable-nat" -> "kernel-3.13.3";
 "kernel-module-iptable-nat" -> "kernel-module-nf-conntrack";
 "kernel-module-iptable-nat" -> "kernel-module-nf-nat";
 "kernel-module-iptable-nat" -> "kernel-module-nf-nat-ipv4";
-"kernel-module-nf-conntrack" -> "kernel-3.13.2";
-"kernel-module-nf-conntrack-ipv4" -> "kernel-3.13.2";
+"kernel-module-nf-conntrack" -> "kernel-3.13.3";
+"kernel-module-nf-conntrack-ipv4" -> "kernel-3.13.3";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-defrag-ipv4";
-"kernel-module-nf-defrag-ipv4" -> "kernel-3.13.2";
-"kernel-module-nf-nat" -> "kernel-3.13.2";
+"kernel-module-nf-defrag-ipv4" -> "kernel-3.13.3";
+"kernel-module-nf-nat" -> "kernel-3.13.3";
 "kernel-module-nf-nat" -> "kernel-module-nf-conntrack";
-"kernel-module-nf-nat-ipv4" -> "kernel-3.13.2";
+"kernel-module-nf-nat-ipv4" -> "kernel-3.13.3";
 "kernel-module-nf-nat-ipv4" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-nat-ipv4" -> "kernel-module-nf-nat";
 "kmod" -> "libc6";
@@ -1467,6 +1469,7 @@ digraph depends {
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
 "openssh-ssh" -> "opkg";
+"openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libc6";
 "openssh-sshd" -> "libcrypto1.0.0";
@@ -1659,6 +1662,7 @@ digraph depends {
 "shared-mime-info" -> "libc6";
 "shared-mime-info" -> "libglib-2.0-0";
 "shared-mime-info" -> "libxml2";
+"systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
@@ -1762,6 +1766,7 @@ digraph depends {
 "xinput" -> "libxi6";
 "xinput" -> "libxinerama1";
 "xinput" -> "libxrandr2";
+"xinput-calibrator" -> "formfactor";
 "xinput-calibrator" -> "libc6";
 "xinput-calibrator" -> "libgcc1";
 "xinput-calibrator" -> "libstdc++6";
@@ -1813,6 +1818,7 @@ digraph depends {
 "xterm" -> "libxmu6";
 "xterm" -> "libxpm4";
 "xterm" -> "libxt6";
+"xuser-account" -> "base-files";
 "xuser-account" -> "base-passwd";
 "xuser-account" -> "shadow";
 }
