@@ -9,6 +9,7 @@ digraph depends {
 "angstrom-feed-configs" -> "opkg" [style=dotted];
 "angstrom-packagegroup-boot" -> "angstrom-version";
 "angstrom-packagegroup-boot" -> "packagegroup-boot";
+"avahi-daemon" -> "base-files";
 "avahi-daemon" -> "base-passwd";
 "avahi-daemon" -> "libavahi-common3";
 "avahi-daemon" -> "libavahi-core7";
@@ -45,6 +46,7 @@ digraph depends {
 "connman-angstrom-settings" -> "connman";
 "cpp-symlinks" -> "cpp";
 "cpufreq-tweaks" -> "cpufrequtils";
+"dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libdbus-1-3";
 "dbus-1" -> "libexpat1";
@@ -3739,12 +3741,15 @@ digraph depends {
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
 "openssh-ssh" -> "opkg";
+"openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libcrypto1.0.0";
 "openssh-sshd" -> "libpam";
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "opkg" -> "libopkg1";
 "opkg" -> "opkg";
@@ -3779,8 +3784,10 @@ digraph depends {
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
@@ -3916,6 +3923,7 @@ digraph depends {
 "sunxi-mali-dev" -> "libxdmcp-dev" [style=dotted];
 "sunxi-mali-dev" -> "libxfixes-dev" [style=dotted];
 "sunxi-mali-dev" -> "sunxi-mali";
+"systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
@@ -4003,6 +4011,7 @@ digraph depends {
 "xinput" -> "libxi6";
 "xinput" -> "libxinerama1";
 "xinput" -> "libxrandr2";
+"xinput-calibrator" -> "formfactor";
 "xinput-calibrator" -> "libstdc++6";
 "xinput-calibrator" -> "libx11-6";
 "xinput-calibrator" -> "libxi6";
@@ -4046,6 +4055,7 @@ digraph depends {
 "xterm" -> "libxpm4";
 "xterm" -> "libxt6";
 "xtrans-dev" -> "util-macros-dev" [style=dotted];
+"xuser-account" -> "base-files";
 "xuser-account" -> "base-passwd";
 "xuser-account" -> "shadow";
 }
