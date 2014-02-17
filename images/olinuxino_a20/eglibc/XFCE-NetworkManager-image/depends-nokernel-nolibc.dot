@@ -13,6 +13,7 @@ digraph depends {
 "angstrom-gnome-icon-theme-enable" -> "gnome-icon-theme";
 "angstrom-packagegroup-boot" -> "angstrom-version";
 "angstrom-packagegroup-boot" -> "packagegroup-boot";
+"avahi-daemon" -> "base-files";
 "avahi-daemon" -> "base-passwd";
 "avahi-daemon" -> "libavahi-common3";
 "avahi-daemon" -> "libavahi-core7";
@@ -45,6 +46,7 @@ digraph depends {
 "consolekit" -> "libz1";
 "consolekit" -> "polkit";
 "cpufreq-tweaks" -> "cpufrequtils";
+"dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libdbus-1-3";
 "dbus-1" -> "libexpat1";
@@ -129,6 +131,7 @@ digraph depends {
 "gdk-pixbuf-loader-xpm" -> "libglib-2.0-0";
 "gdk-pixbuf-loader-xpm" -> "libpng16-16";
 "gdk-pixbuf-loader-xpm" -> "libz1";
+"gdm" -> "base-files";
 "gdm" -> "base-passwd";
 "gdm" -> "consolekit" [style=dotted];
 "gdm" -> "dbus-x11";
@@ -253,6 +256,7 @@ digraph depends {
 "gnome-keyring" -> "libgnome-keyring0";
 "gnome-keyring" -> "libgpg-error0";
 "gnome-keyring" -> "libgtk-2.0";
+"gnome-keyring" -> "libpam";
 "gnome-keyring" -> "libpixman-1-0";
 "gnome-keyring" -> "libpng16-16";
 "gnome-keyring" -> "libx11-6";
@@ -3644,12 +3648,15 @@ digraph depends {
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
 "openssh-ssh" -> "opkg";
+"openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libcrypto1.0.0";
 "openssh-sshd" -> "libpam";
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "opkg" -> "libopkg1";
 "opkg" -> "opkg";
@@ -3734,8 +3741,10 @@ digraph depends {
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
@@ -3773,6 +3782,7 @@ digraph depends {
 "pango-module-basic-fc" -> "libglib-2.0-0";
 "pango-module-basic-fc" -> "pango";
 "pm-utils" -> "grep";
+"polkit" -> "base-files";
 "polkit" -> "base-passwd";
 "polkit" -> "libexpat1";
 "polkit" -> "libffi6";
@@ -3810,6 +3820,7 @@ digraph depends {
 "sunxi-mali-dev" -> "libxdmcp-dev" [style=dotted];
 "sunxi-mali-dev" -> "libxfixes-dev" [style=dotted];
 "sunxi-mali-dev" -> "sunxi-mali";
+"systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
