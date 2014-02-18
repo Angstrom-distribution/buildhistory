@@ -134,6 +134,7 @@ digraph depends {
 "automake" -> "perl-module-thread-queue";
 "automake" -> "perl-module-threads";
 "automake" -> "perl-module-vars";
+"avahi-daemon" -> "base-files";
 "avahi-daemon" -> "base-passwd";
 "avahi-daemon" -> "libavahi-common3";
 "avahi-daemon" -> "libavahi-core7";
@@ -354,6 +355,7 @@ digraph depends {
 "db" -> "libc6";
 "db-dev" -> "db";
 "db-dev" -> "libc6-dev" [style=dotted];
+"dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libc6";
 "dbus-1" -> "libdbus-1-3";
@@ -382,7 +384,6 @@ digraph depends {
 "e2fsprogs-badblocks" -> "libext2fs2";
 "e2fsprogs-dev" -> "e2fsprogs";
 "e2fsprogs-dev" -> "e2fsprogs-badblocks-dev" [style=dotted];
-"e2fsprogs-dev" -> "libblkid-dev" [style=dotted];
 "e2fsprogs-dev" -> "libc6-dev" [style=dotted];
 "e2fsprogs-dev" -> "libcom-err2";
 "e2fsprogs-dev" -> "libcomerr-dev" [style=dotted];
@@ -392,8 +393,9 @@ digraph depends {
 "e2fsprogs-dev" -> "libext2fs2";
 "e2fsprogs-dev" -> "libss-dev" [style=dotted];
 "e2fsprogs-dev" -> "libss2";
-"e2fsprogs-dev" -> "libuuid-dev" [style=dotted];
 "e2fsprogs-dev" -> "util-linux-dev" [style=dotted];
+"e2fsprogs-dev" -> "util-linux-libblkid-dev" [style=dotted];
+"e2fsprogs-dev" -> "util-linux-libuuid-dev" [style=dotted];
 "e2fsprogs-e2fsck" -> "libblkid1";
 "e2fsprogs-e2fsck" -> "libc6";
 "e2fsprogs-e2fsck" -> "libcom-err2";
@@ -620,6 +622,7 @@ digraph depends {
 "gdk-pixbuf-loader-xpm" -> "libglib-2.0-0";
 "gdk-pixbuf-loader-xpm" -> "libpng16-16";
 "gdk-pixbuf-loader-xpm" -> "libz1";
+"gdm" -> "base-files";
 "gdm" -> "base-passwd";
 "gdm" -> "consolekit" [style=dotted];
 "gdm" -> "dbus-x11";
@@ -732,7 +735,6 @@ digraph depends {
 "gimp" -> "libglib-2.0-0";
 "gimp" -> "libgtk-2.0";
 "gimp" -> "libgudev-1.0-0";
-"gimp" -> "libjasper1";
 "gimp" -> "libjpeg8";
 "gimp" -> "libpixman-1-0";
 "gimp" -> "libpng16-16";
@@ -933,6 +935,7 @@ digraph depends {
 "gnome-keyring" -> "libgnome-keyring0";
 "gnome-keyring" -> "libgpg-error0";
 "gnome-keyring" -> "libgtk-2.0";
+"gnome-keyring" -> "libpam";
 "gnome-keyring" -> "libpixman-1-0";
 "gnome-keyring" -> "libpng16-16";
 "gnome-keyring" -> "libx11-6";
@@ -4265,11 +4268,6 @@ digraph depends {
 "libavutil-dev" -> "xproto-dev" [style=dotted];
 "libavutil51" -> "libc6";
 "libbabl-0.1-0" -> "libc6";
-"libblkid-dev" -> "libc6-dev" [style=dotted];
-"libblkid-dev" -> "libpam-dev" [style=dotted];
-"libblkid-dev" -> "libuuid-dev" [style=dotted];
-"libblkid-dev" -> "libz-dev" [style=dotted];
-"libblkid-dev" -> "ncurses-dev" [style=dotted];
 "libblkid1" -> "libc6";
 "libblkid1" -> "libuuid1";
 "libbz2-0" -> "libc6";
@@ -4906,11 +4904,13 @@ digraph depends {
 "libgtk-3.0" -> "libxext6";
 "libgtk-3.0" -> "libxfixes3";
 "libgtk-3.0" -> "libxi6";
+"libgtk-3.0" -> "libxkbcommon0";
 "libgtk-3.0" -> "libxrandr2";
 "libgtk-3.0" -> "libxrender1";
 "libgtk-3.0" -> "libz1";
 "libgtk-3.0" -> "opkg";
 "libgtk-3.0" -> "pango";
+"libgtk-3.0" -> "wayland";
 "libgtksourceview-2.0-0" -> "gdk-pixbuf";
 "libgtksourceview-2.0-0" -> "harfbuzz";
 "libgtksourceview-2.0-0" -> "libatk-1.0-0";
@@ -5049,12 +5049,6 @@ digraph depends {
 "libmodplug0" -> "libc6";
 "libmodplug0" -> "libgcc1";
 "libmodplug0" -> "libstdc++6";
-"libmount-dev" -> "libblkid-dev" [style=dotted];
-"libmount-dev" -> "libc6-dev" [style=dotted];
-"libmount-dev" -> "libpam-dev" [style=dotted];
-"libmount-dev" -> "libuuid-dev" [style=dotted];
-"libmount-dev" -> "libz-dev" [style=dotted];
-"libmount-dev" -> "ncurses-dev" [style=dotted];
 "libmount1" -> "libblkid1";
 "libmount1" -> "libc6";
 "libmount1" -> "libuuid1";
@@ -5927,7 +5921,7 @@ digraph depends {
 "libsm-dev" -> "libc6-dev" [style=dotted];
 "libsm-dev" -> "libice-dev" [style=dotted];
 "libsm-dev" -> "libsm6";
-"libsm-dev" -> "libuuid-dev" [style=dotted];
+"libsm-dev" -> "util-linux-libuuid-dev" [style=dotted];
 "libsm-dev" -> "util-macros-dev" [style=dotted];
 "libsm-dev" -> "xproto-dev" [style=dotted];
 "libsm-dev" -> "xtrans-dev" [style=dotted];
@@ -6083,10 +6077,6 @@ digraph depends {
 "libusb-0.1-4" -> "libc6";
 "libusb-0.1-4" -> "libusb-1.0-0";
 "libusb-1.0-0" -> "libc6";
-"libuuid-dev" -> "libc6-dev" [style=dotted];
-"libuuid-dev" -> "libpam-dev" [style=dotted];
-"libuuid-dev" -> "libz-dev" [style=dotted];
-"libuuid-dev" -> "ncurses-dev" [style=dotted];
 "libuuid1" -> "libc6";
 "libv4l" -> "libc6";
 "libv4l" -> "libjpeg8";
@@ -6513,6 +6503,7 @@ digraph depends {
 "libxinerama1" -> "libxcb1";
 "libxinerama1" -> "libxdmcp6";
 "libxinerama1" -> "libxext6";
+"libxkbcommon0" -> "libc6";
 "libxkbfile1" -> "libc6";
 "libxkbfile1" -> "libx11-6";
 "libxkbfile1" -> "libxau6";
@@ -6956,6 +6947,7 @@ digraph depends {
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
 "openssh-ssh" -> "opkg";
+"openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libc6";
 "openssh-sshd" -> "libcrypto1.0.0";
@@ -6963,6 +6955,8 @@ digraph depends {
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "openssl" -> "libc6";
 "openssl" -> "libcrypto1.0.0";
@@ -7112,11 +7106,14 @@ digraph depends {
 "packagegroup-sdk-target" -> "perl-modules";
 "packagegroup-sdk-target" -> "pkgconfig";
 "packagegroup-sdk-target" -> "sed";
+"packagegroup-ti-test" -> "bc";
 "packagegroup-ti-test" -> "bonnie++";
+"packagegroup-ti-test" -> "evtest";
 "packagegroup-ti-test" -> "hdparm";
 "packagegroup-ti-test" -> "iozone3";
 "packagegroup-ti-test" -> "iperf";
 "packagegroup-ti-test" -> "lmbench";
+"packagegroup-ti-test" -> "memtester";
 "packagegroup-ti-test" -> "rt-tests";
 "pam-plugin-access" -> "libc6";
 "pam-plugin-access" -> "libpam";
@@ -7132,6 +7129,8 @@ digraph depends {
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libc6";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libc6";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libc6";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libc6";
@@ -10982,6 +10981,7 @@ digraph depends {
 "pkgconfig" -> "libc6";
 "pm-utils" -> "grep";
 "pm-utils" -> "libc6";
+"polkit" -> "base-files";
 "polkit" -> "base-passwd";
 "polkit" -> "libc6";
 "polkit" -> "libexpat1";
@@ -11130,6 +11130,8 @@ digraph depends {
 "python-dev" -> "sqlite3-dev" [style=dotted];
 "python-difflib" -> "python-lang";
 "python-difflib" -> "python-re";
+"python-distribute" -> "python-compression";
+"python-distribute" -> "python-distutils";
 "python-distutils" -> "python-core";
 "python-doctest" -> "python-core";
 "python-doctest" -> "python-debugger";
@@ -11165,7 +11167,9 @@ digraph depends {
 "python-imaging" -> "python-lang";
 "python-imaging" -> "python-stringold";
 "python-io" -> "libc6";
+"python-io" -> "libcrypto1.0.0";
 "python-io" -> "libpython2.7-1.0";
+"python-io" -> "libssl1.0.0";
 "python-io" -> "python-core";
 "python-io" -> "python-math";
 "python-io" -> "python-textutils";
@@ -11292,11 +11296,6 @@ digraph depends {
 "python-readline" -> "libpython2.7-1.0";
 "python-readline" -> "libreadline6";
 "python-readline" -> "python-core";
-"python-setuptools" -> "python-compression";
-"python-setuptools" -> "python-distutils";
-"python-setuptools" -> "python-email";
-"python-setuptools" -> "python-shell";
-"python-setuptools" -> "python-stringold";
 "python-shell" -> "python-core";
 "python-shell" -> "python-re";
 "python-simplejson" -> "libc6";
@@ -11421,6 +11420,7 @@ digraph depends {
 "swig-dev" -> "libz-dev" [style=dotted];
 "swig-dev" -> "python-dev" [style=dotted];
 "swig-dev" -> "swig";
+"systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
@@ -11522,13 +11522,10 @@ digraph depends {
 "util-linux-cfdisk" -> "libc6";
 "util-linux-cfdisk" -> "libncursesw5";
 "util-linux-cfdisk" -> "libtinfo5";
-"util-linux-dev" -> "libblkid-dev" [style=dotted];
 "util-linux-dev" -> "libblkid1";
 "util-linux-dev" -> "libc6-dev" [style=dotted];
-"util-linux-dev" -> "libmount-dev" [style=dotted];
 "util-linux-dev" -> "libmount1";
 "util-linux-dev" -> "libpam-dev" [style=dotted];
-"util-linux-dev" -> "libuuid-dev" [style=dotted];
 "util-linux-dev" -> "libuuid1";
 "util-linux-dev" -> "libz-dev" [style=dotted];
 "util-linux-dev" -> "ncurses-dev" [style=dotted];
@@ -11536,6 +11533,9 @@ digraph depends {
 "util-linux-dev" -> "ncurses-libtinfo-dev" [style=dotted];
 "util-linux-dev" -> "opkg-dev" [style=dotted];
 "util-linux-dev" -> "util-linux";
+"util-linux-dev" -> "util-linux-libblkid-dev" [style=dotted];
+"util-linux-dev" -> "util-linux-libmount-dev" [style=dotted];
+"util-linux-dev" -> "util-linux-libuuid-dev" [style=dotted];
 "util-linux-dev" -> "util-linux-losetup-dev" [style=dotted];
 "util-linux-dev" -> "util-linux-swaponoff-dev" [style=dotted];
 "util-linux-dev" -> "util-linux-umount-dev" [style=dotted];
@@ -11583,6 +11583,8 @@ digraph depends {
 "vim" -> "vim-syntax" [style=dotted];
 "vim" -> "vim-tutor" [style=dotted];
 "vim" -> "vim-vimrc" [style=dotted];
+"wayland" -> "libc6";
+"wayland" -> "libffi6";
 "wpa-supplicant" -> "libc6";
 "wpa-supplicant" -> "libdbus-1-3";
 "wpa-supplicant" -> "libgcrypt11";
@@ -11646,6 +11648,7 @@ digraph depends {
 "xinput" -> "libxi6";
 "xinput" -> "libxinerama1";
 "xinput" -> "libxrandr2";
+"xinput-calibrator" -> "formfactor";
 "xinput-calibrator" -> "libc6";
 "xinput-calibrator" -> "libgcc1";
 "xinput-calibrator" -> "libstdc++6";
@@ -11696,6 +11699,7 @@ digraph depends {
 "xterm" -> "libxpm4";
 "xterm" -> "libxt6";
 "xtrans-dev" -> "util-macros-dev" [style=dotted];
+"xuser-account" -> "base-files";
 "xuser-account" -> "base-passwd";
 "xuser-account" -> "shadow";
 "xvinfo" -> "libc6";
