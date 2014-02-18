@@ -99,6 +99,7 @@ digraph depends {
 "automake" -> "perl-module-thread-queue";
 "automake" -> "perl-module-threads";
 "automake" -> "perl-module-vars";
+"avahi-daemon" -> "base-files";
 "avahi-daemon" -> "base-passwd";
 "avahi-daemon" -> "libavahi-common3";
 "avahi-daemon" -> "libavahi-core7";
@@ -208,6 +209,7 @@ digraph depends {
 "coreutils" -> "opkg";
 "cpp-symlinks" -> "cpp";
 "cpufreq-tweaks" -> "cpufrequtils";
+"dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libdbus-1-3";
 "dbus-1" -> "libexpat1";
@@ -309,6 +311,7 @@ digraph depends {
 "gdk-pixbuf-loader-xpm" -> "libglib-2.0-0";
 "gdk-pixbuf-loader-xpm" -> "libpng16-16";
 "gdk-pixbuf-loader-xpm" -> "libz1";
+"gdm" -> "base-files";
 "gdm" -> "base-passwd";
 "gdm" -> "consolekit" [style=dotted];
 "gdm" -> "dbus-x11";
@@ -607,6 +610,7 @@ digraph depends {
 "gnome-keyring" -> "libgnome-keyring0";
 "gnome-keyring" -> "libgpg-error0";
 "gnome-keyring" -> "libgtk-2.0";
+"gnome-keyring" -> "libpam";
 "gnome-keyring" -> "libpixman-1-0";
 "gnome-keyring" -> "libpng16-16";
 "gnome-keyring" -> "libx11-6";
@@ -2927,7 +2931,6 @@ digraph depends {
 "kernel-module-sun4i-csi1" -> "kernel-module-videobuf-dma-contig";
 "kernel-module-symbolserial" -> "kernel-module-usbserial";
 "kernel-module-tcp-diag" -> "kernel-module-inet-diag";
-"kernel-module-ti-usb-3410-5052" -> "kernel-module-usbserial";
 "kernel-module-tm6000" -> "kernel-module-rc-core";
 "kernel-module-tm6000" -> "kernel-module-videobuf-core";
 "kernel-module-tm6000" -> "kernel-module-videobuf-vmalloc";
@@ -2988,9 +2991,9 @@ digraph depends {
 "kernel-module-videobuf2-vmalloc" -> "kernel-module-videobuf2-memops";
 "kernel-module-visor" -> "kernel-module-usbserial";
 "kernel-module-vivopay-serial" -> "kernel-module-usbserial";
+"kernel-module-w1-gpio" -> "kernel-module-wire";
 "kernel-module-w35und" -> "kernel-module-mac80211";
 "kernel-module-walkera0701" -> "kernel-module-parport";
-"kernel-module-whiteheat" -> "kernel-module-usbserial";
 "kernel-module-wl1251" -> "kernel-module-mac80211";
 "kernel-module-wl1251-sdio" -> "kernel-module-mac80211";
 "kernel-module-wl1251-sdio" -> "kernel-module-wl1251";
@@ -4037,6 +4040,7 @@ digraph depends {
 "kernel-modules" -> "kernel-module-sun4i-ts";
 "kernel-modules" -> "kernel-module-sunxi-cedar-mod";
 "kernel-modules" -> "kernel-module-sunxi-dbgreg";
+"kernel-modules" -> "kernel-module-sunxi-gmac";
 "kernel-modules" -> "kernel-module-sunxi-sndspdif";
 "kernel-modules" -> "kernel-module-sunxi-spdif";
 "kernel-modules" -> "kernel-module-sunxi-spdma";
@@ -4067,7 +4071,6 @@ digraph depends {
 "kernel-modules" -> "kernel-module-tef6862";
 "kernel-modules" -> "kernel-module-tgr192";
 "kernel-modules" -> "kernel-module-ti-dac7512";
-"kernel-modules" -> "kernel-module-ti-usb-3410-5052";
 "kernel-modules" -> "kernel-module-tm6000";
 "kernel-modules" -> "kernel-module-tm6000-alsa";
 "kernel-modules" -> "kernel-module-tm6000-dvb";
@@ -4136,12 +4139,12 @@ digraph depends {
 "kernel-modules" -> "kernel-module-visor";
 "kernel-modules" -> "kernel-module-vivopay-serial";
 "kernel-modules" -> "kernel-module-vmac";
+"kernel-modules" -> "kernel-module-w1-gpio";
 "kernel-modules" -> "kernel-module-w35und";
 "kernel-modules" -> "kernel-module-w90p910-ts";
 "kernel-modules" -> "kernel-module-wacom";
 "kernel-modules" -> "kernel-module-wacom-w8001";
 "kernel-modules" -> "kernel-module-walkera0701";
-"kernel-modules" -> "kernel-module-whiteheat";
 "kernel-modules" -> "kernel-module-wimax";
 "kernel-modules" -> "kernel-module-wire";
 "kernel-modules" -> "kernel-module-wl1251";
@@ -5644,12 +5647,15 @@ digraph depends {
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
 "openssh-ssh" -> "opkg";
+"openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libcrypto1.0.0";
 "openssh-sshd" -> "libpam";
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "openssl" -> "libcrypto1.0.0";
 "openssl" -> "libssl1.0.0";
@@ -5791,8 +5797,10 @@ digraph depends {
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
@@ -9552,6 +9560,7 @@ digraph depends {
 "perl-modules" -> "perl-module-warnings-register" [style=dotted];
 "perl-modules" -> "perl-module-xsloader" [style=dotted];
 "pm-utils" -> "grep";
+"polkit" -> "base-files";
 "polkit" -> "base-passwd";
 "polkit" -> "libexpat1";
 "polkit" -> "libffi6";
@@ -9858,6 +9867,7 @@ digraph depends {
 "sunxi-mali-dev" -> "libxdmcp-dev" [style=dotted];
 "sunxi-mali-dev" -> "libxfixes-dev" [style=dotted];
 "sunxi-mali-dev" -> "sunxi-mali";
+"systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
@@ -10021,6 +10031,7 @@ digraph depends {
 "xinput" -> "libxi6";
 "xinput" -> "libxinerama1";
 "xinput" -> "libxrandr2";
+"xinput-calibrator" -> "formfactor";
 "xinput-calibrator" -> "libstdc++6";
 "xinput-calibrator" -> "libx11-6";
 "xinput-calibrator" -> "libxi6";
@@ -10053,6 +10064,7 @@ digraph depends {
 "xset" -> "libxmuu1";
 "xset" -> "libxxf86misc1";
 "xtrans-dev" -> "util-macros-dev" [style=dotted];
+"xuser-account" -> "base-files";
 "xuser-account" -> "base-passwd";
 "xuser-account" -> "shadow";
 "xvinfo" -> "libx11-6";
