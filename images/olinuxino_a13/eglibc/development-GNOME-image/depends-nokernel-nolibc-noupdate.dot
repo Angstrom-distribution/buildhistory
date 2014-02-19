@@ -99,6 +99,7 @@ digraph depends {
 "automake" -> "perl-module-thread-queue";
 "automake" -> "perl-module-threads";
 "automake" -> "perl-module-vars";
+"avahi-daemon" -> "base-files";
 "avahi-daemon" -> "base-passwd";
 "avahi-daemon" -> "libavahi-common3";
 "avahi-daemon" -> "libavahi-core7";
@@ -208,6 +209,7 @@ digraph depends {
 "coreutils" -> "opkg";
 "cpp-symlinks" -> "cpp";
 "cpufreq-tweaks" -> "cpufrequtils";
+"dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libdbus-1-3";
 "dbus-1" -> "libexpat1";
@@ -309,6 +311,7 @@ digraph depends {
 "gdk-pixbuf-loader-xpm" -> "libglib-2.0-0";
 "gdk-pixbuf-loader-xpm" -> "libpng16-16";
 "gdk-pixbuf-loader-xpm" -> "libz1";
+"gdm" -> "base-files";
 "gdm" -> "base-passwd";
 "gdm" -> "consolekit" [style=dotted];
 "gdm" -> "dbus-x11";
@@ -1932,6 +1935,7 @@ digraph depends {
 "kernel-module-lcd" -> "kernel-module-disp";
 "kernel-module-mali" -> "kernel-module-ump";
 "kernel-module-mali-drm" -> "kernel-module-drm";
+"kernel-module-w1-gpio" -> "kernel-module-wire";
 "kernel-module-xfrm6-tunnel" -> "kernel-module-tunnel6";
 "kernel-modules" -> "kernel-module-8192cu";
 "kernel-modules" -> "kernel-module-ah6";
@@ -1978,6 +1982,9 @@ digraph depends {
 "kernel-modules" -> "kernel-module-sunxi-spdma";
 "kernel-modules" -> "kernel-module-tunnel6";
 "kernel-modules" -> "kernel-module-ump";
+"kernel-modules" -> "kernel-module-w1-gpio";
+"kernel-modules" -> "kernel-module-w1-sunxi";
+"kernel-modules" -> "kernel-module-wire";
 "kernel-modules" -> "kernel-module-xfrm6-mode-beet";
 "kernel-modules" -> "kernel-module-xfrm6-mode-ro";
 "kernel-modules" -> "kernel-module-xfrm6-mode-transport";
@@ -3395,12 +3402,15 @@ digraph depends {
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
 "openssh-ssh" -> "opkg";
+"openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libcrypto1.0.0";
 "openssh-sshd" -> "libpam";
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "openssl" -> "libcrypto1.0.0";
 "openssl" -> "libssl1.0.0";
@@ -3542,8 +3552,10 @@ digraph depends {
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
@@ -7303,6 +7315,7 @@ digraph depends {
 "perl-modules" -> "perl-module-warnings-register" [style=dotted];
 "perl-modules" -> "perl-module-xsloader" [style=dotted];
 "pm-utils" -> "grep";
+"polkit" -> "base-files";
 "polkit" -> "base-passwd";
 "polkit" -> "libexpat1";
 "polkit" -> "libffi6";
@@ -7609,6 +7622,7 @@ digraph depends {
 "sunxi-mali-dev" -> "libxdmcp-dev" [style=dotted];
 "sunxi-mali-dev" -> "libxfixes-dev" [style=dotted];
 "sunxi-mali-dev" -> "sunxi-mali";
+"systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
@@ -7772,6 +7786,7 @@ digraph depends {
 "xinput" -> "libxi6";
 "xinput" -> "libxinerama1";
 "xinput" -> "libxrandr2";
+"xinput-calibrator" -> "formfactor";
 "xinput-calibrator" -> "libstdc++6";
 "xinput-calibrator" -> "libx11-6";
 "xinput-calibrator" -> "libxi6";
@@ -7804,6 +7819,7 @@ digraph depends {
 "xset" -> "libxmuu1";
 "xset" -> "libxxf86misc1";
 "xtrans-dev" -> "util-macros-dev" [style=dotted];
+"xuser-account" -> "base-files";
 "xuser-account" -> "base-passwd";
 "xuser-account" -> "shadow";
 "xvinfo" -> "libx11-6";
