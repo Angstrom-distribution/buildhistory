@@ -1,0 +1,16 @@
+#!/bin/sh
+	update-alternatives --install /usr/bin/x-window-manager x-window-manager /usr/bin/xfwm4 30
+if [ "x$D" != "x" ]; then
+	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} mlprefix= libdir=/usr/lib \
+		base_libdir=/lib
+else
+
+	# Update the pixbuf loaders in case they haven't been registered yet
+	GDK_PIXBUF_MODULEDIR=/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders gdk-pixbuf-query-loaders --update-cache
+
+	for icondir in /usr/share/icons/* ; do
+		if [ -d $icondir ] ; then
+			gtk-update-icon-cache -fqt  $icondir
+		fi
+	done
+fi

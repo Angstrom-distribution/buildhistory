@@ -1,0 +1,23 @@
+langs=""
+for lang in `find $D/usr/lib/locale -maxdepth 1 | grep _ | sort`; do
+lang=`basename $lang`
+if [ "x$langs" = "x" ]; then
+    langs="$lang"
+else
+   langs="$langs $lang"
+fi
+done
+sed -i "s:last_langs=.*$:last_langs=$langs:g" $D/var/lib/lxdm/lxdm.conf
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable lxdm.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart lxdm.service
+	fi
+fi
