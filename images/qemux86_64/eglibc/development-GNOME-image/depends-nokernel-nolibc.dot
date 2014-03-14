@@ -99,6 +99,7 @@ digraph depends {
 "automake" -> "perl-module-thread-queue";
 "automake" -> "perl-module-threads";
 "automake" -> "perl-module-vars";
+"avahi-daemon" -> "base-files";
 "avahi-daemon" -> "base-passwd";
 "avahi-daemon" -> "libavahi-common3";
 "avahi-daemon" -> "libavahi-core7";
@@ -210,6 +211,7 @@ digraph depends {
 "coreutils" -> "opkg";
 "cpp-symlinks" -> "cpp";
 "cpufreq-tweaks" -> "cpufrequtils";
+"dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libdbus-1-3";
 "dbus-1" -> "libexpat1";
@@ -310,6 +312,7 @@ digraph depends {
 "gdk-pixbuf-loader-xpm" -> "libglib-2.0-0";
 "gdk-pixbuf-loader-xpm" -> "libpng16-16";
 "gdk-pixbuf-loader-xpm" -> "libz1";
+"gdm" -> "base-files";
 "gdm" -> "base-passwd";
 "gdm" -> "consolekit" [style=dotted];
 "gdm" -> "dbus-x11";
@@ -609,6 +612,7 @@ digraph depends {
 "gnome-keyring" -> "libgnome-keyring0";
 "gnome-keyring" -> "libgpg-error0";
 "gnome-keyring" -> "libgtk-2.0";
+"gnome-keyring" -> "libpam";
 "gnome-keyring" -> "libpixman-1-0";
 "gnome-keyring" -> "libpng16-16";
 "gnome-keyring" -> "libx11-6";
@@ -642,6 +646,8 @@ digraph depends {
 "gnome-panel" -> "libx11-6";
 "gnome-panel" -> "libxrandr2";
 "gnome-panel" -> "pango";
+"gnome-panel-gconf-hack" -> "gconf";
+"gnome-panel-gconf-hack" -> "gnome-panel";
 "gnome-power-manager" -> "gconf";
 "gnome-power-manager" -> "gdk-pixbuf";
 "gnome-power-manager" -> "gnome-keyring" [style=dotted];
@@ -1635,8 +1641,6 @@ digraph depends {
 "gst-plugins-good-y4menc" -> "libglib-2.0-0";
 "gst-plugins-good-y4menc" -> "libxml2";
 "gst-plugins-good-y4menc" -> "libz1";
-"gstreamer" -> "kernel-module-snd-ens1370" [style=dotted];
-"gstreamer" -> "kernel-module-snd-rawmidi" [style=dotted];
 "gstreamer" -> "libffi6";
 "gstreamer" -> "libglib-2.0-0";
 "gstreamer" -> "libxml2";
@@ -1930,9 +1934,8 @@ digraph depends {
 "kernel-module-nf-nat" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-nat-ipv4" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-nat-ipv4" -> "kernel-module-nf-nat";
-"kernel-module-snd-ens1370" -> "kernel-module-snd-rawmidi";
 "kernel-module-stp" -> "kernel-module-llc";
-"kmod" -> "libkmod2";
+"kmod" -> "libz1";
 "kmod" -> "opkg";
 "lcms" -> "libjpeg8";
 "lcms" -> "libtiff5";
@@ -2105,7 +2108,6 @@ digraph depends {
 "libdbus-glib-1-2" -> "libffi6";
 "libdbus-glib-1-2" -> "libglib-2.0-0";
 "libdbus-glib-1-2" -> "libz1";
-"libdricore9.1.6-1" -> "libstdc++6";
 "liberation-fonts" -> "fontconfig-utils";
 "libext2fs2" -> "libblkid1";
 "libext2fs2" -> "libcom-err2";
@@ -2418,11 +2420,13 @@ digraph depends {
 "libgtk-3.0" -> "libxext6";
 "libgtk-3.0" -> "libxfixes3";
 "libgtk-3.0" -> "libxi6";
+"libgtk-3.0" -> "libxkbcommon0";
 "libgtk-3.0" -> "libxrandr2";
 "libgtk-3.0" -> "libxrender1";
 "libgtk-3.0" -> "libz1";
 "libgtk-3.0" -> "opkg";
 "libgtk-3.0" -> "pango";
+"libgtk-3.0" -> "wayland";
 "libgtksourceview-2.0-0" -> "gdk-pixbuf";
 "libgtksourceview-2.0-0" -> "harfbuzz";
 "libgtksourceview-2.0-0" -> "libatk-1.0-0";
@@ -2493,6 +2497,14 @@ digraph depends {
 "libjavascriptcoregtk-1.0-0" -> "libicuuc51";
 "libjavascriptcoregtk-1.0-0" -> "libstdc++6";
 "libjavascriptcoregtk-1.0-0" -> "libz1";
+"libkmod2" -> "libz1";
+"libllvm3.3-llvm-3.3" -> "libstdc++6";
+"libllvm3.3-llvm-3.3" -> "libz1";
+"libllvm3.3-llvm-3.3" -> "llvm3.3";
+"libllvm3.3-lto" -> "libllvm3.3-llvm-3.3";
+"libllvm3.3-lto" -> "libstdc++6";
+"libllvm3.3-lto" -> "llvm3.3";
+"libllvm3.3-profile-rt" -> "llvm3.3";
 "libltdl-dev" -> "libltdl7";
 "libmenuw5" -> "libncursesw5";
 "libmenuw5" -> "libtinfo5";
@@ -3063,12 +3075,15 @@ digraph depends {
 "libxxf86vm1" -> "libxcb1";
 "libxxf86vm1" -> "libxdmcp6";
 "libxxf86vm1" -> "libxext6";
+"llvm3.3" -> "libllvm3.3-llvm-3.3";
+"llvm3.3" -> "libllvm3.3-lto";
+"llvm3.3" -> "libllvm3.3-profile-rt";
 "lmbench" -> "debianutils";
 "locale-base-en-us" -> "eglibc-binary-localedata-en-us";
 "m4-dev" -> "m4";
-"mesa-driver-swrast" -> "libdricore9.1.6-1";
 "mesa-driver-swrast" -> "libdrm2";
 "mesa-driver-swrast" -> "libexpat1";
+"mesa-driver-swrast" -> "libllvm3.3-llvm-3.3";
 "mesa-driver-swrast" -> "libstdc++6";
 "metacity" -> "gdk-pixbuf";
 "metacity" -> "gsettings-desktop-schemas";
@@ -3181,12 +3196,15 @@ digraph depends {
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
 "openssh-ssh" -> "opkg";
+"openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libcrypto1.0.0";
 "openssh-sshd" -> "libpam";
 "openssh-sshd" -> "libwrap0";
 "openssh-sshd" -> "libz1";
 "openssh-sshd" -> "openssh-keygen";
+"openssh-sshd" -> "pam-plugin-keyinit";
+"openssh-sshd" -> "pam-plugin-loginuid";
 "openssh-sshd" -> "shadow";
 "openssl" -> "libcrypto1.0.0";
 "openssl" -> "libssl1.0.0";
@@ -3232,6 +3250,7 @@ digraph depends {
 "packagegroup-gnome" -> "gnome-disk-utility";
 "packagegroup-gnome" -> "gnome-keyring";
 "packagegroup-gnome" -> "gnome-panel";
+"packagegroup-gnome" -> "gnome-panel-gconf-hack";
 "packagegroup-gnome" -> "gnome-power-manager";
 "packagegroup-gnome" -> "gnome-settings-daemon";
 "packagegroup-gnome" -> "gnome-system-monitor";
@@ -3324,8 +3343,10 @@ digraph depends {
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
+"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
+"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
@@ -7085,6 +7106,7 @@ digraph depends {
 "perl-modules" -> "perl-module-warnings-register" [style=dotted];
 "perl-modules" -> "perl-module-xsloader" [style=dotted];
 "pm-utils" -> "grep";
+"polkit" -> "base-files";
 "polkit" -> "base-passwd";
 "polkit" -> "libexpat1";
 "polkit" -> "libffi6";
@@ -7379,6 +7401,7 @@ digraph depends {
 "shared-mime-info" -> "libglib-2.0-0";
 "shared-mime-info" -> "libxml2";
 "shared-mime-info-data" -> "shared-mime-info";
+"systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
@@ -7485,6 +7508,7 @@ digraph depends {
 "vim" -> "vim-syntax" [style=dotted];
 "vim" -> "vim-tutor" [style=dotted];
 "vim" -> "vim-vimrc" [style=dotted];
+"wayland" -> "libffi6";
 "wget" -> "libcrypto1.0.0";
 "wget" -> "libpcre1";
 "wget" -> "libssl1.0.0";
@@ -7546,6 +7570,7 @@ digraph depends {
 "xinput" -> "libxi6";
 "xinput" -> "libxinerama1";
 "xinput" -> "libxrandr2";
+"xinput-calibrator" -> "formfactor";
 "xinput-calibrator" -> "libstdc++6";
 "xinput-calibrator" -> "libx11-6";
 "xinput-calibrator" -> "libxi6";
@@ -7576,6 +7601,7 @@ digraph depends {
 "xset" -> "libxext6";
 "xset" -> "libxmuu1";
 "xset" -> "libxxf86misc1";
+"xuser-account" -> "base-files";
 "xuser-account" -> "base-passwd";
 "xuser-account" -> "shadow";
 "xvinfo" -> "libx11-6";
