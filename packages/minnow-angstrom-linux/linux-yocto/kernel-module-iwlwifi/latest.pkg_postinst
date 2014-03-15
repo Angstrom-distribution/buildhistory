@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ -z "$D" ]; then
+	depmod -a 3.10.33-ltsi-yocto-standard
+else
+	depmodwrapper -a -b $D 3.10.33-ltsi-yocto-standard
+fi
+
+if [ x"$D" = "x" ]; then
+	modprobe iwlwifi || true
+fi
