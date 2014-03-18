@@ -4,6 +4,7 @@ digraph depends {
 "busybox" -> "busybox-udhcpc" [style=dotted];
 "busybox" -> "opkg";
 "busybox" -> "update-rc.d" [style=dotted];
+"busybox-syslog" -> "opkg";
 "diffutils" -> "opkg";
 "e2fsprogs-mke2fs" -> "libblkid1";
 "e2fsprogs-mke2fs" -> "libcom-err2";
@@ -12,7 +13,6 @@ digraph depends {
 "e2fsprogs-mke2fs" -> "libuuid1";
 "grub" -> "diffutils";
 "grub" -> "libfreetype6";
-"grub" -> "xz";
 "initramfs-live-boot" -> "udev";
 "initramfs-live-boot" -> "udev-extraconf";
 "initramfs-live-install" -> "e2fsprogs-mke2fs";
@@ -25,6 +25,7 @@ digraph depends {
 "libblkid1" -> "libuuid1";
 "libext2fs2" -> "libblkid1";
 "libext2fs2" -> "libcom-err2";
+"libkmod2" -> "libz1";
 "libreadline6" -> "libtinfo5";
 "libtinfo5" -> "ncurses-terminfo-base" [style=dotted];
 "opkg" -> "libopkg1";
@@ -46,5 +47,4 @@ digraph depends {
 "udev-utils" -> "libacl1";
 "udev-utils" -> "libblkid1";
 "udev-utils" -> "libkmod2";
-"xz" -> "liblzma5";
 }
