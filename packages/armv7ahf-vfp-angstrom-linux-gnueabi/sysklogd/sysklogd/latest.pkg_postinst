@@ -1,0 +1,13 @@
+#!/bin/sh
+	update-alternatives --install /sbin/syslogd syslogd /sbin/syslogd.sysklogd 10
+	update-alternatives --install /sbin/klogd klogd /sbin/klogd.sysklogd 10
+	update-alternatives --install /etc/init.d/syslog syslog-init /etc/init.d/syslog.sysklogd 10
+	update-alternatives --install /etc/syslog.conf syslog-conf /etc/syslog.conf.sysklogd 10
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+if type update-rc.d >/dev/null 2>/dev/null; then
+	update-rc.d $OPT syslog defaults
+fi

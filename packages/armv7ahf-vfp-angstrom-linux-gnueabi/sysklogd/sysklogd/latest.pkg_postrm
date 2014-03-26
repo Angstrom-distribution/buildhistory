@@ -1,0 +1,13 @@
+#!/bin/sh
+	update-alternatives --remove  syslogd /sbin/syslogd.sysklogd
+	update-alternatives --remove  klogd /sbin/klogd.sysklogd
+	update-alternatives --remove  syslog-init /etc/init.d/syslog.sysklogd
+	update-alternatives --remove  syslog-conf /etc/syslog.conf.sysklogd
+if test "$D" != ""; then
+	OPT="-f -r $D"
+else
+	OPT=""
+fi
+if type update-rc.d >/dev/null 2>/dev/null; then
+	update-rc.d $OPT syslog remove
+fi
