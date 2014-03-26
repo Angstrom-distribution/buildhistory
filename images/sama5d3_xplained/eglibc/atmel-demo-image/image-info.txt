@@ -1,0 +1,11 @@
+DISTRO = angstrom
+DISTRO_VERSION = v2013.12
+USER_CLASSES = 
+IMAGE_CLASSES = image_types
+IMAGE_FEATURES = ssh-server-openssh package-management
+IMAGE_LINGUAS = en-us
+IMAGE_INSTALL = packagegroup-core-boot packagegroup-core-basic packagegroup-base-wifi packagegroup-base-bluetooth packagegroup-base-usbgadget kernel-modules lrzsz setserial opkg iperf linux-firmware i2c-tools dosfstools mtd-utils iproute2 iptables bridge-utils canutils python-pyserial python-ctypes gdbserver usbutils wget
+BAD_RECOMMENDATIONS = 
+ROOTFS_POSTPROCESS_COMMAND = run_intercept_scriptlets; license_create_manifest; buildhistory_get_image_installed ;     rootfs_update_timestamp ;  zap_root_password ;   rm -f /build/v2013.12/build/tmp-angstrom_v2013_12-eglibc/work/sama5d3_xplained-angstrom-linux-gnueabi/atmel-demo-image/1.0-r1/rootfs/boot/*Image*; 
+IMAGE_POSTPROCESS_COMMAND =   buildhistory_get_imageinfo ; 
+IMAGESIZE = 160456
