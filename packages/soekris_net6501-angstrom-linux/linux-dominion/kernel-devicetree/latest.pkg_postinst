@@ -1,1 +1,7 @@
-	cd /boot; update-alternatives --install /boot/devicetree devicetree devicetree-3.13.6 31306 || true
+	cd /boot
+	for DTB_FILE in ${KERNEL_DEVICETREE}
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo bzImage-soekris-net6501 | sed "s/soekris-net6501/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31414 || true
+	done
