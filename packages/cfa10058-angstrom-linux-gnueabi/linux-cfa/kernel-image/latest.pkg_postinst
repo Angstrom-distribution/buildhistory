@@ -1,0 +1,10 @@
+	update-alternatives --install /boot/zImage zImage zImage-3.10.17 31010 || true
+	if [ ! -e "$D/lib/modules/3.10.17" ]; then
+		mkdir -p $D/lib/modules/3.10.17
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.10.17
+	else
+		depmod -a 3.10.17
+	fi
+	update-alternatives --install /boot/zImage-cfa10036 zImage-cfa10036 zImage-3.10.17 31010 || true

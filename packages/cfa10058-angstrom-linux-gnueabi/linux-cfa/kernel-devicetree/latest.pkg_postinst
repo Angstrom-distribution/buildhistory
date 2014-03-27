@@ -1,0 +1,14 @@
+	cd /boot
+	for DTB_FILE in imx28-cfa10036.dtb imx28-cfa10058.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-cfa10058 | sed "s/cfa10058/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31010 || true
+	done
+	for DTB_FILE in imx28-cfa10036.dtb imx28-cfa10058.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_BOARD_NAME=`echo ${DTB_BASE_NAME} | awk -F "-" '{print $2}'`
+		DTB_SYMLINK_NAME=`echo zImage-cfa10058 | sed "s/cfa10058/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/oftree-${DTB_BOARD_NAME} oftree-${DTB_BOARD_NAME} devicetree-${DTB_SYMLINK_NAME}.dtb 31010 || true
+	done
