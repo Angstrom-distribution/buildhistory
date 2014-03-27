@@ -1,0 +1,9 @@
+	update-alternatives --install /boot/uImage uImage uImage-3.12.1-fslc+g9ab5833 31212 || true
+	if [ ! -e "$D/lib/modules/3.12.1-fslc+g9ab5833" ]; then
+		mkdir -p $D/lib/modules/3.12.1-fslc+g9ab5833
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.12.1-fslc+g9ab5833
+	else
+		depmod -a 3.12.1-fslc+g9ab5833
+	fi
