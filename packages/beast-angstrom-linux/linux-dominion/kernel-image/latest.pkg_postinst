@@ -1,9 +1,9 @@
-	update-alternatives --install /boot/bzImage bzImage bzImage-3.14.0-rc8 31414 || true
-	if [ ! -e "$D/lib/modules/3.14.0-rc8" ]; then
-		mkdir -p $D/lib/modules/3.14.0-rc8
+	update-alternatives --install /boot/bzImage bzImage bzImage-3.14.0 31414 || true
+	if [ ! -e "$D/lib/modules/3.14.0" ]; then
+		mkdir -p $D/lib/modules/3.14.0
 	fi
 	if [ -n "$D" ]; then
-		depmodwrapper -a -b $D 3.14.0-rc8
+		depmodwrapper -a -b $D 3.14.0
 	else
-		depmod -a 3.14.0-rc8
+		depmod -a 3.14.0
 	fi
