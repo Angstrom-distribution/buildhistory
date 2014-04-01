@@ -1,8 +1,6 @@
 digraph depends {
     node [shape=plaintext]
 "angstrom-feed-configs" -> "opkg" [style=dotted];
-"angstrom-packagegroup-boot" -> "angstrom-version";
-"angstrom-packagegroup-boot" -> "packagegroup-boot";
 "busybox" -> "busybox-syslog" [style=dotted];
 "busybox" -> "busybox-udhcpc" [style=dotted];
 "busybox" -> "opkg";
@@ -13,6 +11,9 @@ digraph depends {
 "dbus-1" -> "libexpat1";
 "dbus-1" -> "libx11-6";
 "dbus-1" -> "shadow";
+"dropbear" -> "libpam";
+"dropbear" -> "libz1";
+"dropbear" -> "opkg";
 "e2fsprogs-e2fsck" -> "libblkid1";
 "e2fsprogs-e2fsck" -> "libcom-err2";
 "e2fsprogs-e2fsck" -> "libe2p2";
@@ -22,7 +23,6 @@ digraph depends {
 "kmod" -> "opkg";
 "libacl1" -> "libattr1";
 "libblkid1" -> "libuuid1";
-"libcrypto1.0.0" -> "openssl-conf" [style=dotted];
 "libdbus-1-3" -> "dbus-1" [style=dotted];
 "libext2fs2" -> "libblkid1";
 "libext2fs2" -> "libcom-err2";
@@ -41,34 +41,15 @@ digraph depends {
 "libx11-6" -> "libxdmcp6";
 "libxcb1" -> "libxau6";
 "libxcb1" -> "libxdmcp6";
-"openssh-keygen" -> "libcrypto1.0.0";
-"openssh-sshd" -> "base-files";
-"openssh-sshd" -> "base-passwd";
-"openssh-sshd" -> "libcrypto1.0.0";
-"openssh-sshd" -> "libpam";
-"openssh-sshd" -> "libwrap0";
-"openssh-sshd" -> "libz1";
-"openssh-sshd" -> "openssh-keygen";
-"openssh-sshd" -> "pam-plugin-keyinit";
-"openssh-sshd" -> "pam-plugin-loginuid";
-"openssh-sshd" -> "shadow";
 "opkg" -> "libopkg1";
 "opkg" -> "opkg";
 "opkg" -> "opkg-config-base";
-"packagegroup-boot" -> "base-files";
-"packagegroup-boot" -> "base-passwd";
-"packagegroup-boot" -> "busybox";
-"packagegroup-boot" -> "ixp4xx-npe";
-"packagegroup-boot" -> "kernel" [style=dotted];
-"packagegroup-boot" -> "netbase";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-env" -> "libpam";
 "pam-plugin-faildelay" -> "libpam";
 "pam-plugin-group" -> "libpam";
-"pam-plugin-keyinit" -> "libpam";
 "pam-plugin-lastlog" -> "libpam";
 "pam-plugin-limits" -> "libpam";
-"pam-plugin-loginuid" -> "libpam";
 "pam-plugin-mail" -> "libpam";
 "pam-plugin-motd" -> "libpam";
 "pam-plugin-nologin" -> "libpam";
