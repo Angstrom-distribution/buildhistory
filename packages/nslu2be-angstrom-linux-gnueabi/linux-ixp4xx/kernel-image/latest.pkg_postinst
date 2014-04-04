@@ -1,0 +1,9 @@
+	update-alternatives --install /boot/zImage zImage zImage-2.6.37 20637 || true
+	if [ ! -e "$D/lib/modules/2.6.37" ]; then
+		mkdir -p $D/lib/modules/2.6.37
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 2.6.37
+	else
+		depmod -a 2.6.37
+	fi
