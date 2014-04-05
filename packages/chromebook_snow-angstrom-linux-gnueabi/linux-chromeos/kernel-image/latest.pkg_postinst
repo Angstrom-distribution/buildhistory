@@ -1,0 +1,9 @@
+	update-alternatives --install /boot/uImage uImage uImage-3.8.11 30811 || true
+	if [ ! -e "$D/lib/modules/3.8.11" ]; then
+		mkdir -p $D/lib/modules/3.8.11
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.8.11
+	else
+		depmod -a 3.8.11
+	fi

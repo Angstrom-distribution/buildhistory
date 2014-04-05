@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in exynos5250-snow-rev4.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo uImage-chromebook-snow | sed "s/chromebook-snow/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 30811 || true
+	done
