@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/3.14.0-rc6-fslc+gac9dc67" ]; then
+		mkdir -p $D/lib/modules/3.14.0-rc6-fslc+gac9dc67
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.14.0-rc6-fslc+gac9dc67
+	else
+		depmod -a 3.14.0-rc6-fslc+gac9dc67
+	fi
