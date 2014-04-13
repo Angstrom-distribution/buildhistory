@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/3.14.0-yocto-standard" ]; then
+		mkdir -p $D/lib/modules/3.14.0-yocto-standard
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.14.0-yocto-standard
+	else
+		depmod -a 3.14.0-yocto-standard
+	fi

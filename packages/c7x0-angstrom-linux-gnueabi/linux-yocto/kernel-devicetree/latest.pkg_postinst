@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in ${KERNEL_DEVICETREE}
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-c7x0 | sed "s/c7x0/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31414 || true
+	done
