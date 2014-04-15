@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/3.0.35-4.1.0+yocto+g79a3b6d" ]; then
+		mkdir -p $D/lib/modules/3.0.35-4.1.0+yocto+g79a3b6d
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.0.35-4.1.0+yocto+g79a3b6d
+	else
+		depmod -a 3.0.35-4.1.0+yocto+g79a3b6d
+	fi
