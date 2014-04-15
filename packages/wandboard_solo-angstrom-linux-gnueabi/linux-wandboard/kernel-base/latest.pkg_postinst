@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/3.10.17-1.0.0-wandboard+g4a8ad4e" ]; then
+		mkdir -p $D/lib/modules/3.10.17-1.0.0-wandboard+g4a8ad4e
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.10.17-1.0.0-wandboard+g4a8ad4e
+	else
+		depmod -a 3.10.17-1.0.0-wandboard+g4a8ad4e
+	fi
