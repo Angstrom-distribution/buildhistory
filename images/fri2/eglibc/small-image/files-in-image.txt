@@ -125,14 +125,14 @@ lrwxrwxrwx root       root               12 ./etc/mtab -> /proc/mounts
 -rw-r--r-- root       root              465 ./etc/nsswitch.conf
 drwxr-xr-x root       root              220 ./etc/opkg
 -rw-r--r-- root       root              114 ./etc/opkg/arch.conf
--rw-r--r-- root       root               87 ./etc/opkg/base-feed.conf
--rw-r--r-- root       root               89 ./etc/opkg/debug-feed.conf
--rw-r--r-- root       root               95 ./etc/opkg/fri2-feed.conf
--rw-r--r-- root       root               97 ./etc/opkg/gstreamer-feed.conf
--rw-r--r-- root       root               80 ./etc/opkg/noarch-feed.conf
--rw-r--r-- root       root               87 ./etc/opkg/perl-feed.conf
--rw-r--r-- root       root               91 ./etc/opkg/python-feed.conf
--rw-r--r-- root       root               77 ./etc/opkg/sdk-feed.conf
+-rw-r--r-- root       root               91 ./etc/opkg/base-feed.conf
+-rw-r--r-- root       root               93 ./etc/opkg/debug-feed.conf
+-rw-r--r-- root       root               99 ./etc/opkg/fri2-feed.conf
+-rw-r--r-- root       root              101 ./etc/opkg/gstreamer-feed.conf
+-rw-r--r-- root       root               84 ./etc/opkg/noarch-feed.conf
+-rw-r--r-- root       root               91 ./etc/opkg/perl-feed.conf
+-rw-r--r-- root       root               95 ./etc/opkg/python-feed.conf
+-rw-r--r-- root       root               81 ./etc/opkg/sdk-feed.conf
 drwxr-xr-x root       root              520 ./etc/pam.d
 -rw-r--r-- root       root              107 ./etc/pam.d/chage
 -rw-r--r-- root       root              427 ./etc/pam.d/chfn
@@ -668,17 +668,20 @@ drwxr-xr-x root       root               40 ./media
 drwxr-xr-x root       root               40 ./mnt
 drwxr-xr-x root       root               40 ./proc
 drwxr-xr-x root       root               40 ./run
-drwxr-xr-x root       root             1120 ./sbin
+drwxr-xr-x root       root             1180 ./sbin
 -rwxr-xr-x root       root            30848 ./sbin/agetty
 lrwxrwxrwx root       root               17 ./sbin/depmod -> /sbin/depmod.kmod
 lrwxrwxrwx root       root               11 ./sbin/depmod.kmod -> ../bin/kmod
 -rwxr-xr-x root       root           249840 ./sbin/e2fsck
 lrwxrwxrwx root       root               19 ./sbin/fdisk -> /bin/busybox.nosuid
-lrwxrwxrwx root       root               19 ./sbin/fsck -> /bin/busybox.nosuid
+lrwxrwxrwx root       root               21 ./sbin/fsck -> /sbin/fsck.util-linux
 -rwxr-xr-x root       root           249840 ./sbin/fsck.ext2
 -rwxr-xr-x root       root           249840 ./sbin/fsck.ext3
 -rwxr-xr-x root       root           249840 ./sbin/fsck.ext4
 -rwxr-xr-x root       root           249840 ./sbin/fsck.ext4dev
+lrwxrwxrwx root       root               27 ./sbin/fsck.minix -> /sbin/fsck.minix.util-linux
+-rwxr-xr-x root       root            68940 ./sbin/fsck.minix.util-linux
+-rwxr-xr-x root       root            26824 ./sbin/fsck.util-linux
 lrwxrwxrwx root       root               19 ./sbin/fstrim -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               12 ./sbin/getty -> /sbin/agetty
 lrwxrwxrwx root       root               14 ./sbin/halt -> /bin/systemctl
@@ -915,7 +918,7 @@ drwxr-xr-x root       root               60 ./usr/lib/locale/en_US/LC_MESSAGES
 -rw-r--r-- root       root             2454 ./usr/lib/locale/en_US/LC_TIME
 drwxr-xr-x root       root               40 ./usr/lib/modules-load.d
 drwxr-xr-x root       root               60 ./usr/lib/opkg
-drwxr-xr-x root       root             3840 ./usr/lib/opkg/alternatives
+drwxr-xr-x root       root             3860 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               35 ./usr/lib/opkg/alternatives/[[
 -rw-r--r-- root       root               42 ./usr/lib/opkg/alternatives/addgroup
 -rw-r--r-- root       root               41 ./usr/lib/opkg/alternatives/adduser
@@ -969,7 +972,8 @@ drwxr-xr-x root       root             3840 ./usr/lib/opkg/alternatives
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/find
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/flock
 -rw-r--r-- root       root               37 ./usr/lib/opkg/alternatives/free
--rw-r--r-- root       root               34 ./usr/lib/opkg/alternatives/fsck
+-rw-r--r-- root       root               60 ./usr/lib/opkg/alternatives/fsck
+-rw-r--r-- root       root               49 ./usr/lib/opkg/alternatives/fsck.minix
 -rw-r--r-- root       root               36 ./usr/lib/opkg/alternatives/fstrim
 -rw-r--r-- root       root               38 ./usr/lib/opkg/alternatives/fuser
 -rw-r--r-- root       root               52 ./usr/lib/opkg/alternatives/getty
@@ -1922,7 +1926,7 @@ drwxr-xr-x root       root              120 ./var/lib
 drwxr-xr-x messagebus messagebus         40 ./var/lib/dbus
 drwxr-xr-x root       root               40 ./var/lib/misc
 drwxr-xr-x root       root              100 ./var/lib/opkg
-drwxr-xr-x root       root             5440 ./var/lib/opkg/info
+drwxr-xr-x root       root             5520 ./var/lib/opkg/info
 -rw-r--r-- root       root              209 ./var/lib/opkg/info/angstrom-feed-configs.conffiles
 -rw-r--r-- root       root              444 ./var/lib/opkg/info/angstrom-feed-configs.control
 -rw-r--r-- root       root              226 ./var/lib/opkg/info/angstrom-feed-configs.list
@@ -2189,17 +2193,21 @@ drwxr-xr-x root       root             5440 ./var/lib/opkg/info
 -rw-r--r-- root       root               13 ./var/lib/opkg/info/util-linux-agetty.list
 -rwxr-xr-x root       root               76 ./var/lib/opkg/info/util-linux-agetty.postinst
 -rwxr-xr-x root       root               60 ./var/lib/opkg/info/util-linux-agetty.postrm
+-rw-r--r-- root       root              988 ./var/lib/opkg/info/util-linux-fsck.control
+-rw-r--r-- root       root               50 ./var/lib/opkg/info/util-linux-fsck.list
+-rwxr-xr-x root       root              174 ./var/lib/opkg/info/util-linux-fsck.postinst
+-rwxr-xr-x root       root              138 ./var/lib/opkg/info/util-linux-fsck.postrm
 -rw-r--r-- root       root              966 ./var/lib/opkg/info/util-linux-mount.control
 -rw-r--r-- root       root               22 ./var/lib/opkg/info/util-linux-mount.list
 -rwxr-xr-x root       root               84 ./var/lib/opkg/info/util-linux-mount.postinst
 -rwxr-xr-x root       root               69 ./var/lib/opkg/info/util-linux-mount.postrm
 drwxr-xr-x root       root              140 ./var/lib/opkg/lists
 -rw-r--r-- 1000       1000                0 ./var/lib/opkg/lists/oe
--rw-r--r-- root       root            35831 ./var/lib/opkg/lists/oe-all
+-rw-r--r-- root       root            39578 ./var/lib/opkg/lists/oe-all
 -rw-r--r-- root       root          2125840 ./var/lib/opkg/lists/oe-core2-32
 -rw-r--r-- root       root           287611 ./var/lib/opkg/lists/oe-fri2
--rw-r--r-- root       root           339022 ./var/lib/opkg/lists/oe-i586
--rw-r--r-- root       root            23311 ./var/lib/opkg/status
+-rw-r--r-- root       root          1808190 ./var/lib/opkg/lists/oe-i586
+-rw-r--r-- root       root            23916 ./var/lib/opkg/status
 drwxr-xr-x root       root               40 ./var/lib/systemd
 drwxr-xr-x root       root               40 ./var/local
 drwxr-xr-x root       root               80 ./var/lock
