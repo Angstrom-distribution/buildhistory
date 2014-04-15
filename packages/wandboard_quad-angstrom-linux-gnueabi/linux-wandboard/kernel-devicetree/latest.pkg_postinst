@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in imx6q-wandboard.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-wandboard-quad | sed "s/wandboard-quad/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31017 || true
+	done
