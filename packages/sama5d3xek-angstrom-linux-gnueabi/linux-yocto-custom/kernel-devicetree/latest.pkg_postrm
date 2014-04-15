@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in  sama5d31ek.dtb sama5d31ek_pda4.dtb sama5d31ek_pda7.dtb sama5d31ek_revc.dtb sama5d31ek_revc_pda4.dtb sama5d31ek_revc_pda7.dtb sama5d33ek.dtb sama5d33ek_pda4.dtb sama5d33ek_pda7.dtb sama5d33ek_revc.dtb sama5d33ek_revc_pda4.dtb sama5d33ek_revc_pda7.dtb sama5d34ek.dtb sama5d34ek_pda4.dtb sama5d34ek_pda7.dtb sama5d34ek_revc.dtb sama5d34ek_revc_pda4.dtb sama5d34ek_revc_pda7.dtb sama5d35ek.dtb sama5d35ek_revc.dtb sama5d36ek.dtb sama5d36ek_pda4.dtb sama5d36ek_pda7.dtb sama5d36ek_revc.dtb sama5d36ek_revc_pda4.dtb sama5d36ek_revc_pda7.dtb 
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-sama5d3xek | sed "s/sama5d3xek/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31010 || true
+	done
