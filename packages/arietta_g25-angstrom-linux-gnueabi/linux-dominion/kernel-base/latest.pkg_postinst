@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/3.15.3" ]; then
+		mkdir -p $D/lib/modules/3.15.3
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.15.3
+	else
+		depmod -a 3.15.3
+	fi
