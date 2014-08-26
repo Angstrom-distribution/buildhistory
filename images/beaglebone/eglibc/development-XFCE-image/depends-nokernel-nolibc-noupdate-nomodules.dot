@@ -77,10 +77,7 @@ digraph depends {
 "avahi-utils" -> "libavahi-common3";
 "bash" -> "base-files";
 "bash" -> "libtinfo5";
-"bash" -> "opkg-utils";
-"bc" -> "opkg-utils";
 "binutils" -> "libz1";
-"binutils" -> "opkg-utils";
 "bluez4" -> "libdbus-1-3";
 "bluez4" -> "libglib-2.0-0";
 "bluez4" -> "libreadline6";
@@ -88,7 +85,6 @@ digraph depends {
 "bluez4" -> "libusb-0.1-4";
 "bluez4" -> "libusb-1.0-0";
 "bonnie++" -> "libstdc++6";
-"bridge-utils" -> "opkg-utils";
 "btrfs-tools" -> "libblkid1";
 "btrfs-tools" -> "libcom-err2";
 "btrfs-tools" -> "libext2fs2";
@@ -97,8 +93,6 @@ digraph depends {
 "btrfs-tools" -> "libz1";
 "busybox" -> "busybox-syslog" [style=dotted];
 "busybox" -> "busybox-udhcpc" [style=dotted];
-"busybox" -> "opkg-utils";
-"busybox-syslog" -> "opkg-utils";
 "connman" -> "bluez4";
 "connman" -> "connman-conf" [style=dotted];
 "connman" -> "dbus-1";
@@ -121,10 +115,10 @@ digraph depends {
 "consolekit" -> "libglib-2.0-0";
 "consolekit" -> "libx11-6";
 "consolekit" -> "libz1";
+"consolekit" -> "polkit";
 "coreutils" -> "libattr1";
 "coreutils" -> "libcap2";
 "coreutils" -> "libgmp10";
-"coreutils" -> "opkg-utils";
 "cpp-symlinks" -> "cpp";
 "cpufreq-tweaks" -> "cpufrequtils";
 "dbus-1" -> "base-files";
@@ -134,7 +128,6 @@ digraph depends {
 "dbus-1" -> "libx11-6";
 "dbus-1" -> "shadow";
 "desktop-file-utils" -> "libglib-2.0-0";
-"diffutils" -> "opkg-utils";
 "e2fsprogs-e2fsck" -> "libblkid1";
 "e2fsprogs-e2fsck" -> "libcom-err2";
 "e2fsprogs-e2fsck" -> "libe2p2";
@@ -146,7 +139,6 @@ digraph depends {
 "e2fsprogs-mke2fs" -> "libext2fs2";
 "e2fsprogs-mke2fs" -> "libuuid1";
 "eglibc-gconv-iso8859-1" -> "eglibc-gconv";
-"eject" -> "opkg-utils";
 "evtest" -> "libxml2";
 "exo" -> "gdk-pixbuf";
 "exo" -> "hicolor-icon-theme";
@@ -188,7 +180,6 @@ digraph depends {
 "fontconfig-utils" -> "libfreetype6";
 "g++-symlinks" -> "g++";
 "gawk" -> "gawk-common";
-"gawk" -> "opkg-utils";
 "gcc" -> "libgmp10";
 "gcc" -> "libmpc3";
 "gcc" -> "libmpfr4";
@@ -322,7 +313,6 @@ digraph depends {
 "gnome-session" -> "libxtst6";
 "gnome-session" -> "pam-plugin-ck-connector" [style=dotted];
 "gnome-session" -> "upower";
-"grep" -> "opkg-utils";
 "gsettings-desktop-schemas" -> "libglib-2.0-utils";
 "gtk-engine-clearlooks" -> "gdk-pixbuf";
 "gtk-engine-clearlooks" -> "libatk-1.0-0";
@@ -395,7 +385,6 @@ digraph depends {
 "gvfsd-trash" -> "gvfs";
 "gvfsd-trash" -> "libdbus-1-3";
 "gvfsd-trash" -> "libglib-2.0-0";
-"hdparm" -> "opkg-utils";
 "htop" -> "libncursesw5";
 "htop" -> "libtinfo5";
 "htop" -> "ncurses-terminfo";
@@ -408,7 +397,6 @@ digraph depends {
 "kernel-image-3.8.13" -> "kernel-devicetree";
 "kernel-image-3.8.13" -> "kernel-devicetree-overlays" [style=dotted];
 "kmod" -> "libz1";
-"kmod" -> "opkg-utils";
 "libacl1" -> "libattr1";
 "libasound2" -> "alsa-conf-base";
 "libatasmart4" -> "libudev1";
@@ -604,7 +592,6 @@ digraph depends {
 "libgtk-2.0" -> "libxrandr2";
 "libgtk-2.0" -> "libxrender1";
 "libgtk-2.0" -> "libz1";
-"libgtk-2.0" -> "opkg-utils";
 "libgtk-2.0" -> "pango";
 "libgtk-2.0" -> "shared-mime-info" [style=dotted];
 "libgtop-2.0-7" -> "libglib-2.0-0";
@@ -1019,7 +1006,6 @@ digraph depends {
 "metacity" -> "libxrandr2";
 "metacity" -> "libxrender1";
 "metacity" -> "libz1";
-"metacity" -> "opkg-utils";
 "metacity" -> "pango";
 "mime-support" -> "file" [style=dotted];
 "minicom" -> "libtinfo5";
@@ -1035,10 +1021,8 @@ digraph depends {
 "openssh-keygen" -> "libcrypto1.0.0";
 "openssh-misc" -> "libcrypto1.0.0";
 "openssh-misc" -> "libz1";
-"openssh-scp" -> "opkg-utils";
 "openssh-ssh" -> "libcrypto1.0.0";
 "openssh-ssh" -> "libz1";
-"openssh-ssh" -> "opkg-utils";
 "openssh-sshd" -> "base-files";
 "openssh-sshd" -> "base-passwd";
 "openssh-sshd" -> "libcrypto1.0.0";
@@ -1053,20 +1037,7 @@ digraph depends {
 "openssl" -> "libssl1.0.0";
 "opkg" -> "libopkg1";
 "opkg" -> "opkg-config-base";
-"opkg" -> "opkg-utils";
 "opkg" -> "run-postinsts";
-"opkg-utils" -> "python";
-"opkg-utils" -> "python-compression";
-"opkg-utils" -> "python-crypt";
-"opkg-utils" -> "python-fcntl";
-"opkg-utils" -> "python-io";
-"opkg-utils" -> "python-logging";
-"opkg-utils" -> "python-math";
-"opkg-utils" -> "python-pickle";
-"opkg-utils" -> "python-shell";
-"opkg-utils" -> "python-stringold";
-"opkg-utils" -> "python-subprocess";
-"opkg-utils" -> "python-textutils";
 "packagegroup-basic" -> "alsa-utils-alsamixer" [style=dotted];
 "packagegroup-basic" -> "avahi-daemon";
 "packagegroup-basic" -> "avahi-utils";
@@ -1228,7 +1199,6 @@ digraph depends {
 "parted" -> "libtinfo5";
 "parted" -> "libuuid1";
 "patch" -> "libattr1";
-"patch" -> "opkg-utils";
 "pciutils" -> "libkmod2";
 "pciutils" -> "libpci3";
 "pciutils" -> "libz1";
@@ -1487,6 +1457,7 @@ digraph depends {
 "perl-module-build" -> "perl-module-getopt-long";
 "perl-module-build" -> "perl-module-inc-latest";
 "perl-module-build" -> "perl-module-io-file";
+"perl-module-build" -> "perl-module-metadata";
 "perl-module-build" -> "perl-module-pod-man";
 "perl-module-build" -> "perl-module-strict";
 "perl-module-build" -> "perl-module-tap-harness";
@@ -3130,6 +3101,7 @@ digraph depends {
 "perl-module-memoize-storable" -> "perl";
 "perl-module-memoize-storable" -> "perl-module-carp";
 "perl-module-memoize-storable" -> "perl-module-storable";
+"perl-module-metadata" -> "perl";
 "perl-module-mime-base64" -> "perl";
 "perl-module-mime-base64" -> "perl-module-exporter";
 "perl-module-mime-base64" -> "perl-module-strict";
@@ -4649,6 +4621,7 @@ digraph depends {
 "perl-modules" -> "perl-module-memoize-ndbm-file" [style=dotted];
 "perl-modules" -> "perl-module-memoize-sdbm-file" [style=dotted];
 "perl-modules" -> "perl-module-memoize-storable" [style=dotted];
+"perl-modules" -> "perl-module-metadata" [style=dotted];
 "perl-modules" -> "perl-module-mime-base64" [style=dotted];
 "perl-modules" -> "perl-module-mime-quotedprint" [style=dotted];
 "perl-modules" -> "perl-module-mro" [style=dotted];
@@ -4960,7 +4933,6 @@ digraph depends {
 "polkit" -> "shadow";
 "procps" -> "libncurses5";
 "procps" -> "libtinfo5";
-"procps" -> "opkg-utils";
 "python-2to3" -> "python-core";
 "python-audio" -> "libpython2.7-1.0";
 "python-audio" -> "python-core";
@@ -5231,11 +5203,9 @@ digraph depends {
 "screen" -> "base-files";
 "screen" -> "libpam";
 "screen" -> "libtinfo5";
-"sed" -> "opkg-utils";
 "shadow" -> "base-passwd";
 "shadow" -> "libpam";
 "shadow" -> "libpam-runtime";
-"shadow" -> "opkg-utils";
 "shadow" -> "pam-plugin-env";
 "shadow" -> "pam-plugin-faildelay";
 "shadow" -> "pam-plugin-group";
@@ -5263,7 +5233,6 @@ digraph depends {
 "systemd" -> "liblzma5";
 "systemd" -> "libpam";
 "systemd" -> "libwrap0";
-"systemd" -> "opkg-utils";
 "systemd" -> "shadow";
 "systemd" -> "systemd-binfmt";
 "systemd" -> "systemd-compat-units" [style=dotted];
@@ -5363,7 +5332,6 @@ digraph depends {
 "util-linux" -> "libpam";
 "util-linux" -> "libtinfo5";
 "util-linux" -> "libuuid1";
-"util-linux" -> "opkg-utils";
 "util-linux" -> "util-linux-cfdisk" [style=dotted];
 "util-linux" -> "util-linux-fdisk" [style=dotted];
 "util-linux" -> "util-linux-losetup";
@@ -5373,26 +5341,17 @@ digraph depends {
 "util-linux" -> "util-linux-sfdisk" [style=dotted];
 "util-linux" -> "util-linux-swaponoff";
 "util-linux" -> "util-linux-umount";
-"util-linux-agetty" -> "opkg-utils";
 "util-linux-cfdisk" -> "libblkid1";
 "util-linux-cfdisk" -> "libncursesw5";
 "util-linux-cfdisk" -> "libtinfo5";
 "util-linux-fdisk" -> "libblkid1";
 "util-linux-fdisk" -> "libuuid1";
-"util-linux-fdisk" -> "opkg-utils";
 "util-linux-fsck" -> "libblkid1";
 "util-linux-fsck" -> "libmount1";
-"util-linux-fsck" -> "opkg-utils";
-"util-linux-losetup" -> "opkg-utils";
 "util-linux-mount" -> "libmount1";
-"util-linux-mount" -> "opkg-utils";
-"util-linux-readprofile" -> "opkg-utils";
 "util-linux-swaponoff" -> "libmount1";
-"util-linux-swaponoff" -> "opkg-utils";
 "util-linux-umount" -> "libmount1";
-"util-linux-umount" -> "opkg-utils";
 "vim" -> "libtinfo5";
-"vim" -> "opkg-utils";
 "vim" -> "vim-data" [style=dotted];
 "vim" -> "vim-help" [style=dotted];
 "vim" -> "vim-syntax" [style=dotted];
@@ -5402,7 +5361,6 @@ digraph depends {
 "wget" -> "libpcre1";
 "wget" -> "libssl1.0.0";
 "wget" -> "libz1";
-"wget" -> "opkg-utils";
 "wpa-supplicant" -> "libdbus-1-3";
 "wpa-supplicant" -> "libgcrypt11";
 "wpa-supplicant" -> "libgnutls26";
@@ -5871,7 +5829,6 @@ digraph depends {
 "xfce4-session" -> "libxrender1";
 "xfce4-session" -> "libz1";
 "xfce4-session" -> "netbase";
-"xfce4-session" -> "opkg-utils";
 "xfce4-session" -> "pango";
 "xfce4-session" -> "polkit";
 "xfce4-session" -> "systemd";
@@ -5935,6 +5892,7 @@ digraph depends {
 "xfdesktop" -> "pango";
 "xfdesktop" -> "thunar";
 "xfdesktop" -> "xfconf";
+"xfsprogs" -> "libhandle1";
 "xfsprogs" -> "libuuid1";
 "xfsprogs" -> "xfsprogs-fsck";
 "xfsprogs" -> "xfsprogs-mkfs";
@@ -5956,7 +5914,6 @@ digraph depends {
 "xfwm4" -> "libxfixes3";
 "xfwm4" -> "libxrandr2";
 "xfwm4" -> "libxrender1";
-"xfwm4" -> "opkg-utils";
 "xfwm4" -> "pango";
 "xfwm4" -> "xfconf";
 "xfwm4" -> "xfwm4-theme-default";
