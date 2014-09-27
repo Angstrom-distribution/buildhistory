@@ -1,0 +1,14 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop var-volatile-lib.service
+	fi
+
+	systemctl $OPTS disable var-volatile-lib.service
+fi
