@@ -20,7 +20,7 @@ else
 fi
 
 SCHEMA_LOCATION=$D/etc/gconf/schemas
-for SCHEMA in desktop_gnome_peripherals_touchpad.schemas desktop_gnome_keybindings.schemas apps_gnome_settings_daemon_xrandr.schemas apps_gnome_settings_daemon_housekeeping.schemas desktop_gnome_font_rendering.schemas apps_gnome_settings_daemon_keybindings.schemas desktop_gnome_peripherals_smartcard.schemas gnome-settings-daemon.schemas; do
+for SCHEMA in desktop_gnome_peripherals_smartcard.schemas desktop_gnome_peripherals_touchpad.schemas apps_gnome_settings_daemon_xrandr.schemas desktop_gnome_keybindings.schemas desktop_gnome_font_rendering.schemas apps_gnome_settings_daemon_keybindings.schemas apps_gnome_settings_daemon_housekeeping.schemas gnome-settings-daemon.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
