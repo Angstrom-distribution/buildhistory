@@ -7,8 +7,8 @@ fi
 
 if type systemctl >/dev/null 2>/dev/null; then
 	if [ -z "$D" ]; then
-		systemctl stop uuidd.service
+		systemctl stop uuidd.socket uuidd.service
 	fi
 
-	systemctl $OPTS disable uuidd.service
+	systemctl $OPTS disable uuidd.socket uuidd.service
 fi

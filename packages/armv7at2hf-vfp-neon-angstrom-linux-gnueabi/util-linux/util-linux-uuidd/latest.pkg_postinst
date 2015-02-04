@@ -6,9 +6,9 @@ if [ -n "$D" ]; then
 fi
 
 if type systemctl >/dev/null 2>/dev/null; then
-	systemctl $OPTS enable uuidd.service
+	systemctl $OPTS disable uuidd.socket uuidd.service
 
-	if [ -z "$D" -a "enable" = "enable" ]; then
-		systemctl restart uuidd.service
+	if [ -z "$D" -a "disable" = "enable" ]; then
+		systemctl restart uuidd.socket uuidd.service
 	fi
 fi
