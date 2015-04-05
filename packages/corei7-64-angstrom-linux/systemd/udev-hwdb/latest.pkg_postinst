@@ -1,5 +1,5 @@
 	if test -n "$D"; then
-		PSEUDO_UNLOAD=1 qemu-x86_64 -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/bin/udevadm hwdb --update \
+		PSEUDO_UNLOAD=1 qemu-x86_64 -r 2.6.32 -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/bin/udevadm hwdb --update \
 			--root $D
 	else
 		udevadm hwdb --update
