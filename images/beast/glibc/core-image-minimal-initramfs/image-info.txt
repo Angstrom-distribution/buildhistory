@@ -1,5 +1,5 @@
 DISTRO = angstrom
-DISTRO_VERSION = v2015.01
+DISTRO_VERSION = v2015.06
 USER_CLASSES = 
 IMAGE_CLASSES = image_types
 IMAGE_FEATURES = 
@@ -8,6 +8,6 @@ IMAGE_INSTALL = systemd-compat-units udev systemd busybox
 BAD_RECOMMENDATIONS = busybox-syslog
 NO_RECOMMENDATIONS = 
 PACKAGE_EXCLUDE = 
-ROOTFS_POSTPROCESS_COMMAND = write_package_manifest; license_create_manifest; write_image_manifest ;   buildhistory_list_installed_image ;                                buildhistory_get_image_installed ;     set_systemd_default_target;  rootfs_update_timestamp ;  zap_empty_root_password ;  
+ROOTFS_POSTPROCESS_COMMAND = write_package_manifest; license_create_manifest;  zap_empty_root_password ;    set_systemd_default_target;  empty_var_volatile; rootfs_update_timestamp ;  
 IMAGE_POSTPROCESS_COMMAND =   buildhistory_get_imageinfo ; 
-IMAGESIZE = 16924
+IMAGESIZE = 17232
