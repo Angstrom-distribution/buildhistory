@@ -1,0 +1,7 @@
+        if grep -q "KNOWN" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg && grep -q "\-server ERROR" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg; then
+           FIRST_KNOWN=`grep "KNOWN" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg | head -n 1`
+           sed -i -e "/${FIRST_KNOWN}/d" -e "/^$/d" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg
+           echo ${FIRST_KNOWN} >> $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg
+        fi
+
+        sed -i -e "s|^\-server.*|\-server KNOWN|" -e "/^$/d" $D//usr/lib/jvm/java-7-openjdk/jre/lib/amd64/jvm.cfg
