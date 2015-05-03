@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in /build/jenkins/angstrom-v2014.12/machine/arietta-g25/build/tmp-angstrom_v2014_12-glibc/work/arietta_g25-angstrom-linux-gnueabi/linux-dominion/3.18.7-r0/git/arch/arm/boot/dts/acme-arietta.dts 
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-arietta-g25 | sed "s/arietta-g25/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31807 || true
+	done
