@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in omap3-beagle.dtb omap3-beagle-xm.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo uImage-beagleboard | sed "s/beagleboard/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31443 || true
+	done
