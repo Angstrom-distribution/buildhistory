@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in ${KERNEL_DEVICETREE}
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo bzImage-intel-corei7-64 | sed "s/intel-corei7-64/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31905 || true
+	done
