@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in  at91-sama5d3_xplained.dtb at91-sama5d3_xplained_pda4.dtb at91-sama5d3_xplained_pda7.dtb 
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-sama5d3-xplained | sed "s/sama5d3-xplained/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31818 || true
+	done
