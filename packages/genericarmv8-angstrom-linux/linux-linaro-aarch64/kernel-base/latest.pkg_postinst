@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/4.1.0-rc4" ]; then
+		mkdir -p $D/lib/modules/4.1.0-rc4
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 4.1.0-rc4
+	else
+		depmod -a 4.1.0-rc4
+	fi
