@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB_FILE in qcom-apq8064-ifc6410.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-ifc6410 | sed "s/ifc6410/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 31919 || true
+	done
