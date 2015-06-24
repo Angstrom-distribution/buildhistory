@@ -1,12 +1,9 @@
 #!/bin/sh
 if [ -z "$D" ]; then
-	depmod -a 3.10.43-ltsi-yocto-standard
+	depmod -a 3.10.65-ltsi-yocto-standard
 else
 	# image.bbclass will call depmodwrapper after everything is installed,
 	# no need to do it here as well
 	:
 fi
 
-if [ x"$D" = "x" ]; then
-	modprobe pch_gbe || true
-fi
