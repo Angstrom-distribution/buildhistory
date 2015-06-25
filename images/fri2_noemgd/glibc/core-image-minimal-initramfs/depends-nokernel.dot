@@ -21,9 +21,11 @@ digraph depends {
 "initramfs-live-install" -> "e2fsprogs-mke2fs";
 "initramfs-live-install" -> "grub";
 "initramfs-live-install" -> "parted";
+"initramfs-live-install" -> "util-linux-blkid";
 "initramfs-live-install-efi" -> "dosfstools";
 "initramfs-live-install-efi" -> "e2fsprogs-mke2fs";
 "initramfs-live-install-efi" -> "parted";
+"initramfs-live-install-efi" -> "util-linux-blkid";
 "libacl1" -> "libattr1";
 "libacl1" -> "libc6";
 "libattr1" -> "libc6";
@@ -56,4 +58,7 @@ digraph depends {
 "udev" -> "libgcc1";
 "udev" -> "libkmod2";
 "udev-extraconf" -> "udev";
+"util-linux-blkid" -> "libblkid1";
+"util-linux-blkid" -> "libc6";
+"util-linux-blkid" -> "update-alternatives-opkg";
 }
