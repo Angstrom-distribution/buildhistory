@@ -32,7 +32,7 @@ lrwxrwxrwx root       root               19 ./bin/kill -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/ln -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./bin/login -> /bin/login.shadow
 -rwxr-xr-x root       root            41576 ./bin/login.shadow
--rwxr-xr-x root       root           417040 ./bin/loginctl
+-rwxr-xr-x root       root           412944 ./bin/loginctl
 lrwxrwxrwx root       root               19 ./bin/ls -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               15 ./bin/lsmod -> /bin/lsmod.kmod
 lrwxrwxrwx root       root               11 ./bin/lsmod.kmod -> ../bin/kmod
@@ -62,7 +62,7 @@ lrwxrwxrwx root       root               14 ./bin/su -> /bin/su.shadow
 lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           602064 ./bin/systemctl
 -rwxr-xr-x root       root            43576 ./bin/systemd-ask-password
--rwxr-xr-x root       root            39448 ./bin/systemd-escape
+-rwxr-xr-x root       root            35352 ./bin/systemd-escape
 -rwxr-xr-x root       root            80504 ./bin/systemd-firstboot
 -rwxr-xr-x root       root            64136 ./bin/systemd-hwdb
 -rwxr-xr-x root       root           269576 ./bin/systemd-inhibit
@@ -345,12 +345,13 @@ drwxr-xr-x root       root             4096 ./home/root
 drwxr-xr-x root       root             4096 ./lib
 drwxr-xr-x root       root             4096 ./lib/depmod.d
 -rw-r--r-- root       root               71 ./lib/depmod.d/search.conf
-drwxr-xr-x root       root            12288 ./lib/firmware
+drwxr-xr-x root       root            16384 ./lib/firmware
 drwxr-xr-x root       root             4096 ./lib/firmware/3com
 -rw-r--r-- root       root            24880 ./lib/firmware/3com/3C359.bin
 -rw-r--r-- root       root            44548 ./lib/firmware/3com/typhoon.bin
 -rw-r--r-- root       root            35068 ./lib/firmware/GPL-3
 -rw-r--r-- root       root             1071 ./lib/firmware/LICENCE.Abilis
+-rw-r--r-- root       root             2041 ./lib/firmware/LICENCE.IntcSST2
 -rw-r--r-- root       root             2074 ./lib/firmware/LICENCE.Marvell
 -rw-r--r-- root       root             1777 ./lib/firmware/LICENCE.OLPC
 -rw-r--r-- root       root             3539 ./lib/firmware/LICENCE.agere
@@ -368,6 +369,7 @@ drwxr-xr-x root       root             4096 ./lib/firmware/3com
 -rw-r--r-- root       root             2046 ./lib/firmware/LICENCE.iwlwifi_firmware
 -rw-r--r-- root       root             2463 ./lib/firmware/LICENCE.mwl8335
 -rw-r--r-- root       root             1450 ./lib/firmware/LICENCE.myri10ge_firmware
+-rw-r--r-- root       root             6212 ./lib/firmware/LICENCE.nvidia
 -rw-r--r-- root       root             1873 ./lib/firmware/LICENCE.phanfw
 -rw-r--r-- root       root             2041 ./lib/firmware/LICENCE.qat_dh895xcc_firmware
 -rw-r--r-- root       root             1843 ./lib/firmware/LICENCE.qla2xxx
@@ -375,6 +377,7 @@ drwxr-xr-x root       root             4096 ./lib/firmware/3com
 -rw-r--r-- root       root             2103 ./lib/firmware/LICENCE.ralink-firmware.txt
 -rw-r--r-- root       root             2100 ./lib/firmware/LICENCE.ralink_a_mediatek_company_firmware
 -rw-r--r-- root       root             2115 ./lib/firmware/LICENCE.rtlwifi_firmware.txt
+-rw-r--r-- root       root             1439 ./lib/firmware/LICENCE.siano
 -rw-r--r-- root       root             2183 ./lib/firmware/LICENCE.tda7706-firmware.txt
 -rw-r--r-- root       root             2042 ./lib/firmware/LICENCE.ti-connectivity
 -rw-r--r-- root       root             2052 ./lib/firmware/LICENCE.ueagle-atm4-firmware
@@ -383,6 +386,8 @@ drwxr-xr-x root       root             4096 ./lib/firmware/3com
 -rw-r--r-- root       root             1187 ./lib/firmware/LICENCE.xc4000
 -rw-r--r-- root       root             1179 ./lib/firmware/LICENCE.xc5000
 -rw-r--r-- root       root             1227 ./lib/firmware/LICENCE.xc5000c
+-rw-r--r-- root       root             2708 ./lib/firmware/LICENSE.QualcommAtheros_ar3k
+-rw-r--r-- root       root             2708 ./lib/firmware/LICENSE.QualcommAtheros_ath10k
 -rw-r--r-- root       root             3758 ./lib/firmware/LICENSE.amd-ucode
 -rw-r--r-- root       root             1039 ./lib/firmware/LICENSE.dib0700
 -rw-r--r-- root       root             2943 ./lib/firmware/LICENSE.radeon
@@ -394,7 +399,7 @@ drwxr-xr-x root       root             4096 ./lib/firmware/RTL8192E
 -rw-r--r-- root       root            37028 ./lib/firmware/TDA7706_OM_v2.5.1_boot.txt
 -rw-r--r-- root       root            10509 ./lib/firmware/TDA7706_OM_v3.0.2_boot.txt
 lrwxrwxrwx root       root               33 ./lib/firmware/TIInit_7.2.31.bts -> ti-connectivity/TIInit_7.2.31.bts
--rw-r--r-- root       root            80291 ./lib/firmware/WHENCE
+-rw-r--r-- root       root            83865 ./lib/firmware/WHENCE
 drwxr-xr-x root       root             4096 ./lib/firmware/acenic
 -rw-r--r-- root       root            73116 ./lib/firmware/acenic/tg1.bin
 -rw-r--r-- root       root            77452 ./lib/firmware/acenic/tg2.bin
@@ -412,7 +417,9 @@ drwxr-xr-x root       root             4096 ./lib/firmware/amd-ucode
 -rw-r--r-- root       root            12684 ./lib/firmware/amd-ucode/microcode_amd.bin
 -rw-r--r-- root       root              490 ./lib/firmware/amd-ucode/microcode_amd.bin.asc
 -rw-r--r-- root       root             7876 ./lib/firmware/amd-ucode/microcode_amd_fam15h.bin
--rw-r--r-- root       root              490 ./lib/firmware/amd-ucode/microcode_amd_fam15h.bin.asc
+-rw-r--r-- root       root              473 ./lib/firmware/amd-ucode/microcode_amd_fam15h.bin.asc
+-rw-r--r-- root       root             3510 ./lib/firmware/amd-ucode/microcode_amd_fam16h.bin
+-rw-r--r-- root       root              473 ./lib/firmware/amd-ucode/microcode_amd_fam16h.bin.asc
 drwxr-xr-x root       root             4096 ./lib/firmware/ar3k
 drwxr-xr-x root       root             4096 ./lib/firmware/ar3k/1020200
 -rw-r--r-- root       root             4742 ./lib/firmware/ar3k/1020200/PS_ASIC.pst
@@ -421,6 +428,8 @@ drwxr-xr-x root       root             4096 ./lib/firmware/ar3k/1020200
 drwxr-xr-x root       root             4096 ./lib/firmware/ar3k/1020201
 -rw-r--r-- root       root              910 ./lib/firmware/ar3k/1020201/PS_ASIC.pst
 -rw-r--r-- root       root            34299 ./lib/firmware/ar3k/1020201/RamPatch.txt
+drwxr-xr-x root       root             4096 ./lib/firmware/ar3k/1020201coex
+-rw-r--r-- root       root              336 ./lib/firmware/ar3k/1020201coex/ramps_0x01020201_26_HighPriority.dfu
 drwxr-xr-x root       root             4096 ./lib/firmware/ar3k/30000
 -rw-r--r-- root       root             1353 ./lib/firmware/ar3k/30000/PS_ASIC.pst
 -rw-r--r-- root       root             2776 ./lib/firmware/ar3k/30000/RamPatch.txt
@@ -437,7 +446,7 @@ drwxr-xr-x root       root             4096 ./lib/firmware/ar3k/30101coex
 -rw-r--r-- root       root               13 ./lib/firmware/ar3k/30101coex/ar3kbdaddr.pst
 -rw-r--r-- root       root            55244 ./lib/firmware/ar3k/AthrBT_0x01020001.dfu
 -rw-r--r-- root       root            40724 ./lib/firmware/ar3k/AthrBT_0x01020200.dfu
--rw-r--r-- root       root            19164 ./lib/firmware/ar3k/AthrBT_0x01020201.dfu
+-rw-r--r-- root       root            48188 ./lib/firmware/ar3k/AthrBT_0x01020201.dfu
 -rw-r--r-- root       root            36828 ./lib/firmware/ar3k/AthrBT_0x11020000.dfu
 -rw-r--r-- root       root            40652 ./lib/firmware/ar3k/AthrBT_0x31010000.dfu
 -rw-r--r-- root       root            31500 ./lib/firmware/ar3k/AthrBT_0x41020000.dfu
@@ -457,6 +466,11 @@ drwxr-xr-x root       root             4096 ./lib/firmware/ar3k/30101coex
 -rw-r--r-- root       root            51312 ./lib/firmware/ar9271.fw
 -rw-r--r-- root       root            95500 ./lib/firmware/as102_data1_st.hex
 -rw-r--r-- root       root            81820 ./lib/firmware/as102_data2_st.hex
+drwxr-xr-x root       root             4096 ./lib/firmware/ath10k
+drwxr-xr-x root       root             4096 ./lib/firmware/ath10k/QCA988X
+drwxr-xr-x root       root             4096 ./lib/firmware/ath10k/QCA988X/hw2.0
+-rw-r--r-- root       root           241892 ./lib/firmware/ath10k/QCA988X/hw2.0/firmware-4.bin
+-rw-r--r-- root       root            13890 ./lib/firmware/ath10k/QCA988X/hw2.0/notice_ath10k_firmware-4.txt
 -rw-r--r-- root       root           246804 ./lib/firmware/ath3k-1.fw
 drwxr-xr-x root       root             4096 ./lib/firmware/ath6k
 drwxr-xr-x root       root             4096 ./lib/firmware/ath6k/AR6002
@@ -505,6 +519,9 @@ drwxr-xr-x root       root             4096 ./lib/firmware/ath6k/AR6004/hw1.2
 drwxr-xr-x root       root             4096 ./lib/firmware/ath6k/AR6004/hw1.3
 -rw-r--r-- root       root             6144 ./lib/firmware/ath6k/AR6004/hw1.3/bdata.bin
 -rw-r--r-- root       root            50662 ./lib/firmware/ath6k/AR6004/hw1.3/fw-3.bin
+drwxr-xr-x root       root             4096 ./lib/firmware/ath9k_htc
+-rw-r--r-- root       root            72812 ./lib/firmware/ath9k_htc/htc_7010-1.4.0.fw
+-rw-r--r-- root       root            51008 ./lib/firmware/ath9k_htc/htc_9271-1.4.0.fw
 -rw-r--r-- root       root             9726 ./lib/firmware/atmsar11.fw
 drwxr-xr-x root       root             4096 ./lib/firmware/av7110
 -rw-r--r-- root       root             2820 ./lib/firmware/av7110/Boot.S
@@ -583,22 +600,33 @@ drwxr-xr-x root       root             4096 ./lib/firmware/brcm
 -rw-r--r-- root       root            96224 ./lib/firmware/brcm/bcm43xx-0.fw
 -rw-r--r-- root       root              180 ./lib/firmware/brcm/bcm43xx_hdr-0.fw
 lrwxrwxrwx root       root               40 ./lib/firmware/brcm/brcmfmac-sdio.bin -> /lib/firmware/brcm/brcmfmac4329-sdio.bin
--rwxr-xr-x root       root           385067 ./lib/firmware/brcm/brcmfmac43143-sdio.bin
+-rw-r--r-- root       root           385067 ./lib/firmware/brcm/brcmfmac43143-sdio.bin
 -rw-r--r-- root       root           397312 ./lib/firmware/brcm/brcmfmac43143.bin
 -rw-r--r-- root       root           348160 ./lib/firmware/brcm/brcmfmac43236b.bin
 -rw-r--r-- root       root           455745 ./lib/firmware/brcm/brcmfmac43241b0-sdio.bin
 -rw-r--r-- root       root           403855 ./lib/firmware/brcm/brcmfmac43241b4-sdio.bin
+-rw-r--r-- root       root           408682 ./lib/firmware/brcm/brcmfmac43241b5-sdio.bin
+-rw-r--r-- root       root           479232 ./lib/firmware/brcm/brcmfmac43242a.bin
 lrwxrwxrwx root       root               44 ./lib/firmware/brcm/brcmfmac4329-sdio.bin -> /lib/firmware/brcm/brcmfmac4329-sta-sdio.bin
 -rw-r--r-- root       root           253748 ./lib/firmware/brcm/brcmfmac4329-sta-sdio.bin
 lrwxrwxrwx root       root               44 ./lib/firmware/brcm/brcmfmac4330-sdio.bin -> /lib/firmware/brcm/brcmfmac4330-sta-sdio.bin
 -rw-r--r-- root       root           222126 ./lib/firmware/brcm/brcmfmac4330-sta-sdio.bin
 -rw-r--r-- root       root           451566 ./lib/firmware/brcm/brcmfmac4334-sdio.bin
+-rw-r--r-- root       root           397378 ./lib/firmware/brcm/brcmfmac43340-sdio.bin
 -rw-r--r-- root       root           569291 ./lib/firmware/brcm/brcmfmac4335-sdio.bin
 -rw-r--r-- root       root           219557 ./lib/firmware/brcm/brcmfmac43362-sdio.bin
--rw-r--r-- root       root           507752 ./lib/firmware/brcm/brcmfmac4354-sdio.bin
+-rw-r--r-- root       root           493599 ./lib/firmware/brcm/brcmfmac4339-sdio.bin
+-rw-r--r-- root       root           488193 ./lib/firmware/brcm/brcmfmac43455-sdio.bin
+-rw-r--r-- root       root           591837 ./lib/firmware/brcm/brcmfmac4354-sdio.bin
+-rw-r--r-- root       root           593956 ./lib/firmware/brcm/brcmfmac4356-pcie.bin
+-rw-r--r-- root       root           557056 ./lib/firmware/brcm/brcmfmac43569.bin
+-rw-r--r-- root       root           550333 ./lib/firmware/brcm/brcmfmac43570-pcie.bin
+-rw-r--r-- root       root           588940 ./lib/firmware/brcm/brcmfmac43602-pcie.ap.bin
+-rw-r--r-- root       root           590544 ./lib/firmware/brcm/brcmfmac43602-pcie.bin
 -rw-r--r-- root       root            13388 ./lib/firmware/carl9170-1.fw
 -rw-r--r-- root       root           412528 ./lib/firmware/cbfw-3.2.1.1.bin
 -rw-r--r-- root       root           414016 ./lib/firmware/cbfw-3.2.3.0.bin
+-rw-r--r-- root       root           414480 ./lib/firmware/cbfw-3.2.5.1.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/cis
 -rw-r--r-- root       root              137 ./lib/firmware/cis/3CCFEM556.cis
 -rw-r--r-- root       root              134 ./lib/firmware/cis/3CXEM556.cis
@@ -631,13 +659,17 @@ drwxr-xr-x root       root             4096 ./lib/firmware/cis/src
 -rw-r--r-- root       root              441 ./lib/firmware/cis/src/RS-COM-2P.cis
 -rw-r--r-- root       root              475 ./lib/firmware/cis/src/tamarack.cis
 -rw-r--r-- root       root               85 ./lib/firmware/cis/tamarack.cis
+-rw-r--r-- root       root            62780 ./lib/firmware/cmmb_vega_12mhz.inp
+-rw-r--r-- root       root            97016 ./lib/firmware/cmmb_venice_12mhz.inp
 drwxr-xr-x root       root             4096 ./lib/firmware/cpia2
 -rw-r--r-- root       root              824 ./lib/firmware/cpia2/stv0672_vp4.bin
 -rw-r--r-- root       root           582440 ./lib/firmware/ct2fw-3.2.1.1.bin
 -rw-r--r-- root       root           583688 ./lib/firmware/ct2fw-3.2.3.0.bin
+-rw-r--r-- root       root           584216 ./lib/firmware/ct2fw-3.2.5.1.bin
 -rw-r--r-- root       root           655436 ./lib/firmware/ctefx.bin
 -rw-r--r-- root       root           537160 ./lib/firmware/ctfw-3.2.1.1.bin
 -rw-r--r-- root       root           538712 ./lib/firmware/ctfw-3.2.3.0.bin
+-rw-r--r-- root       root           539144 ./lib/firmware/ctfw-3.2.5.1.bin
 -rw-r--r-- root       root             4120 ./lib/firmware/ctspeq.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/cxgb3
 -rw-r--r-- root       root             1088 ./lib/firmware/cxgb3/ael2005_opt_edc.bin
@@ -651,10 +683,10 @@ drwxr-xr-x root       root             4096 ./lib/firmware/cxgb3
 -rw-r--r-- root       root            31812 ./lib/firmware/cxgb3/t3fw-7.12.0.bin
 -rw-r--r-- root       root            30648 ./lib/firmware/cxgb3/t3fw-7.4.0.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/cxgb4
--rw-r--r-- root       root           512512 ./lib/firmware/cxgb4/t4fw-1.11.27.0.bin
-lrwxrwxrwx root       root               18 ./lib/firmware/cxgb4/t4fw.bin -> t4fw-1.11.27.0.bin
--rw-r--r-- root       root           513024 ./lib/firmware/cxgb4/t5fw-1.11.27.0.bin
-lrwxrwxrwx root       root               18 ./lib/firmware/cxgb4/t5fw.bin -> t5fw-1.11.27.0.bin
+-rw-r--r-- root       root           533504 ./lib/firmware/cxgb4/t4fw-1.13.32.0.bin
+lrwxrwxrwx root       root               18 ./lib/firmware/cxgb4/t4fw.bin -> t4fw-1.13.32.0.bin
+-rw-r--r-- root       root           581120 ./lib/firmware/cxgb4/t5fw-1.13.32.0.bin
+lrwxrwxrwx root       root               18 ./lib/firmware/cxgb4/t5fw.bin -> t5fw-1.13.32.0.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/dabusb
 -rw-r--r-- root       root            12042 ./lib/firmware/dabusb/bitstream.bin
 -rw-r--r-- root       root             9822 ./lib/firmware/dabusb/firmware.fw
@@ -670,6 +702,8 @@ drwxr-xr-x root       root             4096 ./lib/firmware/dsp56k
 -rw-r--r-- root       root             8128 ./lib/firmware/dvb-usb-it9135-01.fw
 -rw-r--r-- root       root             5834 ./lib/firmware/dvb-usb-it9135-02.fw
 -rw-r--r-- root       root            50222 ./lib/firmware/dvb-usb-terratec-h5-drxk.fw
+-rw-r--r-- root       root            93516 ./lib/firmware/dvb_nova_12mhz.inp
+-rw-r--r-- root       root           101888 ./lib/firmware/dvb_nova_12mhz_b0.inp
 drwxr-xr-x root       root             4096 ./lib/firmware/e100
 -rw-r--r-- root       root              539 ./lib/firmware/e100/d101m_ucode.bin
 -rw-r--r-- root       root              539 ./lib/firmware/e100/d101s_ucode.bin
@@ -709,8 +743,8 @@ drwxr-xr-x root       root             4096 ./lib/firmware/go7007
 -rw-r--r-- root       root             1092 ./lib/firmware/go7007/s2250-1.fw
 -rw-r--r-- root       root             9508 ./lib/firmware/go7007/s2250-2.fw
 -rw-r--r-- root       root             6381 ./lib/firmware/go7007/wis-startrek.fw
--rw-r--r-- root       root            72992 ./lib/firmware/htc_7010.fw
--rw-r--r-- root       root            51272 ./lib/firmware/htc_9271.fw
+-rw-r--r-- root       root            72684 ./lib/firmware/htc_7010.fw
+-rw-r--r-- root       root            50980 ./lib/firmware/htc_9271.fw
 -rw-r--r-- root       root          1251036 ./lib/firmware/i2400m-fw-usb-1.4.sbcf
 -rw-r--r-- root       root          1334532 ./lib/firmware/i2400m-fw-usb-1.5.sbcf
 -rw-r--r-- root       root          1531932 ./lib/firmware/i6050-fw-usb-1.5.sbcf
@@ -718,14 +752,17 @@ drwxr-xr-x root       root             4096 ./lib/firmware/intel
 drwxr-xr-x root       root             4096 ./lib/firmware/intel-ucode
 lrwxrwxrwx root       root               22 ./lib/firmware/intel-ucode/microcode.bin -> microcode_20140624.bin
 -rwxr-xr-x root       root           617472 ./lib/firmware/intel-ucode/microcode_20140624.bin
+-rw-r--r-- root       root           260320 ./lib/firmware/intel/IntcSST2.bin
+-rw-r--r-- root       root           647078 ./lib/firmware/intel/fw_sst_0f28.bin
 -rw-r--r-- root       root           265684 ./lib/firmware/intel/fw_sst_0f28.bin-48kHz_i2s_master
--rw-r--r-- root       root             9602 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.0.1.2d.d.bseq
--rw-r--r-- root       root            24137 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.0.2.3.d.bseq
--rw-r--r-- root       root            12316 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.80.1.2d.d.bseq
--rw-r--r-- root       root            23911 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.80.2.3.d.bseq
+-rw-r--r-- root       root           647390 ./lib/firmware/intel/fw_sst_22a8.bin
+-rw-r--r-- root       root            17508 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.0.1.2d.d.bseq
+-rw-r--r-- root       root            25575 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.0.2.3.d.bseq
+-rw-r--r-- root       root            17310 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.80.1.2d.d.bseq
+-rw-r--r-- root       root            25366 ./lib/firmware/intel/ibt-hw-37.7.10-fw-1.80.2.3.d.bseq
 -rw-r--r-- root       root               96 ./lib/firmware/intel/ibt-hw-37.7.bseq
--rw-r--r-- root       root            21775 ./lib/firmware/intel/ibt-hw-37.8.10-fw-1.10.2.27.d.bseq
--rwxr-xr-x root       root             8441 ./lib/firmware/intel/ibt-hw-37.8.10-fw-1.10.3.11.e.bseq
+-rw-r--r-- root       root            24121 ./lib/firmware/intel/ibt-hw-37.8.10-fw-1.10.2.27.d.bseq
+-rw-r--r-- root       root            24486 ./lib/firmware/intel/ibt-hw-37.8.10-fw-1.10.3.11.e.bseq
 -rw-r--r-- root       root               96 ./lib/firmware/intel/ibt-hw-37.8.bseq
 -rw-r--r-- root       root            34304 ./lib/firmware/intelliport2.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/isci
@@ -735,6 +772,9 @@ drwxr-xr-x root       root             4096 ./lib/firmware/isci
 -rw-r--r-- root       root             2867 ./lib/firmware/isci/create_fw.h
 -rw-r--r-- root       root              232 ./lib/firmware/isci/isci_firmware.bin
 -rw-r--r-- root       root            10893 ./lib/firmware/isci/probe_roms.h
+-rw-r--r-- root       root            75876 ./lib/firmware/isdbt_nova_12mhz.inp
+-rw-r--r-- root       root            98384 ./lib/firmware/isdbt_nova_12mhz_b0.inp
+-rw-r--r-- root       root            85840 ./lib/firmware/isdbt_rio.inp
 -rw-r--r-- root       root           337572 ./lib/firmware/iwlwifi-100-5.ucode
 -rw-r--r-- root       root           335056 ./lib/firmware/iwlwifi-1000-3.ucode
 -rw-r--r-- root       root           337520 ./lib/firmware/iwlwifi-1000-5.ucode
@@ -742,9 +782,11 @@ drwxr-xr-x root       root             4096 ./lib/firmware/isci
 -rw-r--r-- root       root           701228 ./lib/firmware/iwlwifi-135-6.ucode
 -rw-r--r-- root       root           695876 ./lib/firmware/iwlwifi-2000-6.ucode
 -rw-r--r-- root       root           707392 ./lib/firmware/iwlwifi-2030-6.ucode
+-rw-r--r-- root       root           609892 ./lib/firmware/iwlwifi-3160-10.ucode
+-rw-r--r-- root       root           683996 ./lib/firmware/iwlwifi-3160-12.ucode
 -rw-r--r-- root       root           670484 ./lib/firmware/iwlwifi-3160-7.ucode
 -rw-r--r-- root       root           667284 ./lib/firmware/iwlwifi-3160-8.ucode
--rw-r--r-- root       root           669156 ./lib/firmware/iwlwifi-3160-9.ucode
+-rw-r--r-- root       root           669872 ./lib/firmware/iwlwifi-3160-9.ucode
 -rw-r--r-- root       root           150100 ./lib/firmware/iwlwifi-3945-2.ucode
 -rw-r--r-- root       root           187972 ./lib/firmware/iwlwifi-4965-2.ucode
 -rw-r--r-- root       root           345008 ./lib/firmware/iwlwifi-5000-1.ucode
@@ -758,11 +800,17 @@ drwxr-xr-x root       root             4096 ./lib/firmware/isci
 -rw-r--r-- root       root           679436 ./lib/firmware/iwlwifi-6000g2b-6.ucode
 -rw-r--r-- root       root           463692 ./lib/firmware/iwlwifi-6050-4.ucode
 -rw-r--r-- root       root           469780 ./lib/firmware/iwlwifi-6050-5.ucode
+-rw-r--r-- root       root           672352 ./lib/firmware/iwlwifi-7260-10.ucode
+-rw-r--r-- root       root           782300 ./lib/firmware/iwlwifi-7260-12.ucode
 -rw-r--r-- root       root           683236 ./lib/firmware/iwlwifi-7260-7.ucode
 -rw-r--r-- root       root           679780 ./lib/firmware/iwlwifi-7260-8.ucode
--rw-r--r-- root       root           681464 ./lib/firmware/iwlwifi-7260-9.ucode
+-rw-r--r-- root       root           680508 ./lib/firmware/iwlwifi-7260-9.ucode
+-rw-r--r-- root       root           736844 ./lib/firmware/iwlwifi-7265-10.ucode
+-rw-r--r-- root       root           880604 ./lib/firmware/iwlwifi-7265-12.ucode
 -rw-r--r-- root       root           690452 ./lib/firmware/iwlwifi-7265-8.ucode
--rw-r--r-- root       root           697012 ./lib/firmware/iwlwifi-7265-9.ucode
+-rw-r--r-- root       root           697828 ./lib/firmware/iwlwifi-7265-9.ucode
+-rw-r--r-- root       root           740436 ./lib/firmware/iwlwifi-7265D-10.ucode
+-rw-r--r-- root       root          1002800 ./lib/firmware/iwlwifi-7265D-12.ucode
 drwxr-xr-x root       root             4096 ./lib/firmware/kaweth
 -rw-r--r-- root       root             3276 ./lib/firmware/kaweth/new_code.bin
 -rw-r--r-- root       root              622 ./lib/firmware/kaweth/new_code_fix.bin
@@ -832,13 +880,16 @@ drwxr-xr-x root       root             4096 ./lib/firmware/moxa
 -rw-r--r-- root       root            33529 ./lib/firmware/moxa/moxa-1653.fw
 -rw-r--r-- root       root            33525 ./lib/firmware/moxa/moxa-1658.fw
 drwxr-xr-x root       root             4096 ./lib/firmware/mrvl
--rw-r--r-- root       root           656896 ./lib/firmware/mrvl/pcie8897_uapsta.bin
+-rw-r--r-- root       root           759128 ./lib/firmware/mrvl/pcie8897_uapsta.bin
 -rw-r--r-- root       root           259172 ./lib/firmware/mrvl/sd8688.bin
 -rw-r--r-- root       root             2616 ./lib/firmware/mrvl/sd8688_helper.bin
--rw-r--r-- root       root           447384 ./lib/firmware/mrvl/sd8787_uapsta.bin
+-rw-r--r-- root       root           463240 ./lib/firmware/mrvl/sd8787_uapsta.bin
 -rw-r--r-- root       root           458108 ./lib/firmware/mrvl/sd8797_uapsta.bin
--rw-r--r-- root       root           639012 ./lib/firmware/mrvl/sd8897_uapsta.bin
--rw-r--r-- root       root           508372 ./lib/firmware/mrvl/usb8797_uapsta.bin
+-rw-r--r-- root       root           391772 ./lib/firmware/mrvl/sd8887_uapsta.bin
+-rw-r--r-- root       root           734612 ./lib/firmware/mrvl/sd8897_uapsta.bin
+-rw-r--r-- root       root           478836 ./lib/firmware/mrvl/usb8766_uapsta.bin
+-rw-r--r-- root       root           551720 ./lib/firmware/mrvl/usb8797_uapsta.bin
+-rw-r--r-- root       root           752340 ./lib/firmware/mrvl/usb8897_uapsta.bin
 -rw-r--r-- root       root           368220 ./lib/firmware/mt7650.bin
 -rw-r--r-- root       root            13847 ./lib/firmware/mts_cdma.fw
 -rw-r--r-- root       root            14067 ./lib/firmware/mts_edge.fw
@@ -864,10 +915,15 @@ drwxr-xr-x root       root             4096 ./lib/firmware/mwl8k
 -rw-r--r-- root       root           545920 ./lib/firmware/myri10ge_rss_ethp_z8e.dat
 drwxr-xr-x root       root             4096 ./lib/firmware/myricom
 -rw-r--r-- root       root            76258 ./lib/firmware/myricom/lanai.bin
+drwxr-xr-x root       root             4096 ./lib/firmware/nvidia
+drwxr-xr-x root       root             4096 ./lib/firmware/nvidia/tegra124
+-rw-r--r-- root       root           134656 ./lib/firmware/nvidia/tegra124/xusb.bin
+drwxr-xr-x root       root             4096 ./lib/firmware/nvidia/tegra210
+-rw-r--r-- root       root           132608 ./lib/firmware/nvidia/tegra210/xusb.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/ositech
 -rw-r--r-- root       root             2778 ./lib/firmware/ositech/Xilinx7OD.bin
 -rw-r--r-- root       root          1845305 ./lib/firmware/phanfw.bin
--rwxr-xr-x root       root           459260 ./lib/firmware/qat_895xcc.bin
+-rw-r--r-- root       root           459260 ./lib/firmware/qat_895xcc.bin
 -rw-r--r-- root       root            76802 ./lib/firmware/ql2100_fw.bin
 -rw-r--r-- root       root            84566 ./lib/firmware/ql2200_fw.bin
 -rw-r--r-- root       root           125252 ./lib/firmware/ql2300_fw.bin
@@ -1118,12 +1174,20 @@ lrwxrwxrwx root       root               10 ./lib/firmware/rt3070.bin -> rt2870.
 lrwxrwxrwx root       root               10 ./lib/firmware/rt3090.bin -> rt2860.bin
 -rw-r--r-- root       root             4096 ./lib/firmware/rt3290.bin
 -rw-r--r-- root       root             2048 ./lib/firmware/rt73.bin
+drwxr-xr-x root       root             4096 ./lib/firmware/rtl_bt
+-rw-r--r-- root       root            38764 ./lib/firmware/rtl_bt/rtl8192ee_fw.bin
+-rw-r--r-- root       root            37904 ./lib/firmware/rtl_bt/rtl8192eu_fw.bin
+-rw-r--r-- root       root            74488 ./lib/firmware/rtl_bt/rtl8723a_fw.bin
+-rw-r--r-- root       root            45048 ./lib/firmware/rtl_bt/rtl8723b_fw.bin
+-rw-r--r-- root       root            74488 ./lib/firmware/rtl_bt/rtl8761a_fw.bin
+-rw-r--r-- root       root            40520 ./lib/firmware/rtl_bt/rtl8812ae_fw.bin
+-rw-r--r-- root       root            37420 ./lib/firmware/rtl_bt/rtl8821a_fw.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/rtl_nic
 -rw-r--r-- root       root             2076 ./lib/firmware/rtl_nic/rtl8105e-1.fw
 -rw-r--r-- root       root             1856 ./lib/firmware/rtl_nic/rtl8106e-1.fw
 -rw-r--r-- root       root              832 ./lib/firmware/rtl_nic/rtl8106e-2.fw
--rw-r--r-- root       root             2496 ./lib/firmware/rtl_nic/rtl8107e-1.fw
--rw-r--r-- root       root             2464 ./lib/firmware/rtl_nic/rtl8107e-2.fw
+-rw-r--r-- root       root              992 ./lib/firmware/rtl_nic/rtl8107e-1.fw
+-rw-r--r-- root       root              976 ./lib/firmware/rtl_nic/rtl8107e-2.fw
 -rw-r--r-- root       root             1492 ./lib/firmware/rtl_nic/rtl8168d-1.fw
 -rw-r--r-- root       root             1324 ./lib/firmware/rtl_nic/rtl8168d-2.fw
 -rw-r--r-- root       root             5500 ./lib/firmware/rtl_nic/rtl8168e-1.fw
@@ -1134,8 +1198,8 @@ drwxr-xr-x root       root             4096 ./lib/firmware/rtl_nic
 -rw-r--r-- root       root             4304 ./lib/firmware/rtl_nic/rtl8168g-1.fw
 -rw-r--r-- root       root             4896 ./lib/firmware/rtl_nic/rtl8168g-2.fw
 -rw-r--r-- root       root              832 ./lib/firmware/rtl_nic/rtl8168g-3.fw
--rw-r--r-- root       root             2496 ./lib/firmware/rtl_nic/rtl8168h-1.fw
--rw-r--r-- root       root             2464 ./lib/firmware/rtl_nic/rtl8168h-2.fw
+-rw-r--r-- root       root              992 ./lib/firmware/rtl_nic/rtl8168h-1.fw
+-rw-r--r-- root       root              976 ./lib/firmware/rtl_nic/rtl8168h-2.fw
 -rw-r--r-- root       root             1824 ./lib/firmware/rtl_nic/rtl8402-1.fw
 -rw-r--r-- root       root             2112 ./lib/firmware/rtl_nic/rtl8411-1.fw
 -rw-r--r-- root       root             1040 ./lib/firmware/rtl_nic/rtl8411-2.fw
@@ -1150,7 +1214,7 @@ drwxr-xr-x root       root             4096 ./lib/firmware/rtlwifi
 -rw-r--r-- root       root            16096 ./lib/firmware/rtlwifi/rtl8192cufw_B.bin
 -rw-r--r-- root       root            16116 ./lib/firmware/rtlwifi/rtl8192cufw_TMSC.bin
 -rw-r--r-- root       root            31376 ./lib/firmware/rtlwifi/rtl8192defw.bin
--rw-r--r-- root       root            32754 ./lib/firmware/rtlwifi/rtl8192eefw.bin
+-rw-r--r-- root       root            31818 ./lib/firmware/rtlwifi/rtl8192eefw.bin
 -rw-r--r-- root       root            80208 ./lib/firmware/rtlwifi/rtl8192sefw.bin
 -rw-r--r-- root       root           122328 ./lib/firmware/rtlwifi/rtl8712u.bin
 -rw-r--r-- root       root            22172 ./lib/firmware/rtlwifi/rtl8723aufw_A.bin
@@ -1183,11 +1247,17 @@ drwxr-xr-x root       root             4096 ./lib/firmware/slicoss
 -rw-r--r-- root       root            81940 ./lib/firmware/slicoss/oasisdbgdownload.sys
 -rw-r--r-- root       root            81940 ./lib/firmware/slicoss/oasisdownload.sys
 -rw-r--r-- root       root             2564 ./lib/firmware/slicoss/oasisrcvucode.sys
+-rw-r--r-- root       root            85656 ./lib/firmware/sms1xxx-hcw-55xxx-dvbt-02.fw
+-rw-r--r-- root       root            70472 ./lib/firmware/sms1xxx-hcw-55xxx-isdbt-02.fw
+-rw-r--r-- root       root            85656 ./lib/firmware/sms1xxx-nova-a-dvbt-01.fw
+-rw-r--r-- root       root            76364 ./lib/firmware/sms1xxx-nova-b-dvbt-01.fw
+-rw-r--r-- root       root            39900 ./lib/firmware/sms1xxx-stellar-dvbt-01.fw
 drwxr-xr-x root       root             4096 ./lib/firmware/sun
 -rw-r--r-- root       root             2253 ./lib/firmware/sun/cassini.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/sxg
 -rw-r--r-- root       root            62972 ./lib/firmware/sxg/saharadbgdownloadB.sys
 -rw-r--r-- root       root            54140 ./lib/firmware/sxg/saharadownloadB.sys
+-rw-r--r-- root       root            40096 ./lib/firmware/tdmb_nova_12mhz.inp
 drwxr-xr-x root       root             4096 ./lib/firmware/tehuti
 -rw-r--r-- root       root            42768 ./lib/firmware/tehuti/bdx.bin
 drwxr-xr-x root       root             4096 ./lib/firmware/ti-connectivity
@@ -1219,10 +1289,9 @@ lrwxrwxrwx root       root               14 ./lib/firmware/ti-connectivity/wl127
 -rw-r--r-- root       root           273324 ./lib/firmware/ti-connectivity/wl128x-fw.bin
 -rw-r--r-- root       root             1113 ./lib/firmware/ti-connectivity/wl128x-nvs.bin
 lrwxrwxrwx root       root               14 ./lib/firmware/ti-connectivity/wl12xx-nvs.bin -> wl127x-nvs.bin
--rw-r--r-- root       root             1221 ./lib/firmware/ti-connectivity/wl18xx-conf.bin
 -rw-r--r-- root       root           639276 ./lib/firmware/ti-connectivity/wl18xx-fw-2.bin
 -rw-r--r-- root       root           673328 ./lib/firmware/ti-connectivity/wl18xx-fw-3.bin
--rw-r--r-- root       root           681704 ./lib/firmware/ti-connectivity/wl18xx-fw-4.bin
+-rw-r--r-- root       root           724716 ./lib/firmware/ti-connectivity/wl18xx-fw-4.bin
 -rw-r--r-- root       root           413860 ./lib/firmware/ti-connectivity/wl18xx-fw.bin
 -rw-r--r-- root       root            13765 ./lib/firmware/ti_3410.fw
 -rw-r--r-- root       root            13764 ./lib/firmware/ti_5052.fw
@@ -1311,7 +1380,6 @@ lrwxrwxrwx root       root               35 ./lib/firmware/wl128x-fw-plt-3.bin -
 lrwxrwxrwx root       root               29 ./lib/firmware/wl128x-fw.bin -> ti-connectivity/wl128x-fw.bin
 lrwxrwxrwx root       root               30 ./lib/firmware/wl128x-nvs.bin -> ti-connectivity/wl128x-nvs.bin
 lrwxrwxrwx root       root               30 ./lib/firmware/wl12xx-nvs.bin -> ti-connectivity/wl12xx-nvs.bin
-lrwxrwxrwx root       root               31 ./lib/firmware/wl18xx-conf.bin -> ti-connectivity/wl18xx-conf.bin
 lrwxrwxrwx root       root               31 ./lib/firmware/wl18xx-fw-2.bin -> ti-connectivity/wl18xx-fw-2.bin
 lrwxrwxrwx root       root               31 ./lib/firmware/wl18xx-fw-3.bin -> ti-connectivity/wl18xx-fw-3.bin
 lrwxrwxrwx root       root               31 ./lib/firmware/wl18xx-fw-4.bin -> ti-connectivity/wl18xx-fw-4.bin
@@ -2589,7 +2657,7 @@ drwxr-xr-x root       root             4096 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            76336 ./lib/systemd/system-generators/systemd-gpt-auto-generator
 -rwxr-xr-x root       root            35384 ./lib/systemd/system-generators/systemd-hibernate-resume-generator
 -rwxr-xr-x root       root            31280 ./lib/systemd/system-generators/systemd-rc-local-generator
--rwxr-xr-x root       root            31288 ./lib/systemd/system-generators/systemd-system-update-generator
+-rwxr-xr-x root       root            27192 ./lib/systemd/system-generators/systemd-system-update-generator
 -rwxr-xr-x root       root            96888 ./lib/systemd/system-generators/systemd-sysv-generator
 drwxr-xr-x root       root             4096 ./lib/systemd/system-preset
 -rw-r--r-- root       root              869 ./lib/systemd/system-preset/90-systemd.preset
@@ -2813,31 +2881,31 @@ lrwxrwxrwx root       root                9 ./lib/systemd/system/syslog.service 
 -rw-r--r-- root       root              439 ./lib/systemd/system/wpa_supplicant-wired@.service
 -rw-r--r-- root       root              222 ./lib/systemd/system/wpa_supplicant.service
 -rw-r--r-- root       root              401 ./lib/systemd/system/wpa_supplicant@.service
--rwxr-xr-x root       root          1421400 ./lib/systemd/systemd
+-rwxr-xr-x root       root          1417304 ./lib/systemd/systemd
 -rwxr-xr-x root       root            14632 ./lib/systemd/systemd-ac-power
 -rwxr-xr-x root       root            47648 ./lib/systemd/systemd-activate
 -rwxr-xr-x root       root            59936 ./lib/systemd/systemd-backlight
 -rwxr-xr-x root       root           105096 ./lib/systemd/systemd-bootchart
 -rwxr-xr-x root       root           343280 ./lib/systemd/systemd-bus-proxyd
--rwxr-xr-x root       root           265456 ./lib/systemd/systemd-cgroups-agent
+-rwxr-xr-x root       root           261360 ./lib/systemd/systemd-cgroups-agent
 -rwxr-xr-x root       root           286632 ./lib/systemd/systemd-fsck
 -rwxr-xr-x root       root            31272 ./lib/systemd/systemd-hibernate-resume
 -rwxr-xr-x root       root           322808 ./lib/systemd/systemd-hostnamed
 -rwxr-xr-x root       root           269544 ./lib/systemd/systemd-initctl
 -rwxr-xr-x root       root           273016 ./lib/systemd/systemd-journald
--rwxr-xr-x root       root           335080 ./lib/systemd/systemd-localed
+-rwxr-xr-x root       root           330984 ./lib/systemd/systemd-localed
 -rwxr-xr-x root       root           552880 ./lib/systemd/systemd-logind
 -rwxr-xr-x root       root            35376 ./lib/systemd/systemd-machine-id-commit
 -rwxr-xr-x root       root            51824 ./lib/systemd/systemd-modules-load
 -rwxr-xr-x root       root            31264 ./lib/systemd/systemd-quotacheck
 -rwxr-xr-x root       root            31264 ./lib/systemd/systemd-random-seed
--rwxr-xr-x root       root            47736 ./lib/systemd/systemd-remount-fs
+-rwxr-xr-x root       root            43640 ./lib/systemd/systemd-remount-fs
 -rwxr-xr-x root       root            31264 ./lib/systemd/systemd-reply-password
 -rwxr-xr-x root       root            47640 ./lib/systemd/systemd-rfkill
--rwxr-xr-x root       root           109176 ./lib/systemd/systemd-shutdown
+-rwxr-xr-x root       root           105080 ./lib/systemd/systemd-shutdown
 -rwxr-xr-x root       root            43552 ./lib/systemd/systemd-shutdownd
--rwxr-xr-x root       root            72312 ./lib/systemd/systemd-sleep
--rwxr-xr-x root       root            92792 ./lib/systemd/systemd-socket-proxyd
+-rwxr-xr-x root       root            68216 ./lib/systemd/systemd-sleep
+-rwxr-xr-x root       root            88696 ./lib/systemd/systemd-socket-proxyd
 -rwxr-xr-x root       root            51808 ./lib/systemd/systemd-sysctl
 -rwxr-xr-x root       root           323536 ./lib/systemd/systemd-timedated
 -rwxr-xr-x root       root           137856 ./lib/systemd/systemd-timesyncd
@@ -2898,7 +2966,7 @@ drwxr-xr-x root       root             4096 ./lib/udev/rules.d
 -rw-r--r-- root       root             1357 ./lib/udev/rules.d/97-hid2hci.rules
 -rw-r--r-- root       root             4053 ./lib/udev/rules.d/99-systemd.rules
 -rwxr-xr-x root       root            48200 ./lib/udev/scsi_id
--rwxr-xr-x root       root            14704 ./lib/udev/v4l_id
+-rwxr-xr-x root       root            10608 ./lib/udev/v4l_id
 drwxr-xr-x root       root             4096 ./media
 drwxr-xr-x root       root             4096 ./mnt
 drwxr-xr-x root       root             4096 ./proc
@@ -2970,7 +3038,7 @@ drwxr-xr-x root       root             4096 ./usr
 drwxr-xr-x root       root             4096 ./usr/bin
 lrwxrwxrwx root       root               19 ./usr/bin/[ -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/[[ -> /bin/busybox.nosuid
--rwxr-xr-x root       root            64752 ./usr/bin/alsamixer
+-rwxr-xr-x root       root            64688 ./usr/bin/alsamixer
 lrwxrwxrwx root       root               19 ./usr/bin/ar -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            21592 ./usr/bin/avahi-browse
 lrwxrwxrwx root       root               12 ./usr/bin/avahi-browse-domains -> avahi-browse
@@ -2983,11 +3051,11 @@ lrwxrwxrwx root       root               13 ./usr/bin/avahi-resolve-host-name ->
 -rwxr-xr-x root       root            11224 ./usr/bin/avahi-set-host-name
 lrwxrwxrwx root       root               19 ./usr/bin/awk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/basename -> /bin/busybox.nosuid
--rwxr-xr-x root       root           149328 ./usr/bin/bccmd
+-rwxr-xr-x root       root           153232 ./usr/bin/bccmd
 -rwxr-xr-x root       root            31688 ./usr/bin/bluemoon
 -rwxr-xr-x root       root           108144 ./usr/bin/bluetoothctl
 -rwxr-xr-x root       root            55920 ./usr/bin/bootctl
--rwxr-xr-x root       root           407056 ./usr/bin/btmon
+-rwxr-xr-x root       root           435728 ./usr/bin/btmon
 lrwxrwxrwx root       root               19 ./usr/bin/bunzip2 -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           355568 ./usr/bin/busctl
 lrwxrwxrwx root       root               19 ./usr/bin/bzcat -> /bin/busybox.nosuid
@@ -2998,7 +3066,7 @@ lrwxrwxrwx root       root               20 ./usr/bin/chsh -> /usr/bin/chsh.shad
 -rwsr-xr-x root       root            36728 ./usr/bin/chsh.shadow
 lrwxrwxrwx root       root               17 ./usr/bin/chvt -> /usr/bin/chvt.kbd
 -rwxr-xr-x root       root             7120 ./usr/bin/chvt.kbd
--rwxr-xr-x root       root           107152 ./usr/bin/ciptool
+-rwxr-xr-x root       root           110480 ./usr/bin/ciptool
 lrwxrwxrwx root       root               19 ./usr/bin/clear -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/cmp -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             9368 ./usr/bin/cpufreq-aperf
@@ -3035,10 +3103,10 @@ lrwxrwxrwx root       root               19 ./usr/bin/fuser -> /bin/busybox.nosu
 -rwsr-xr-x root       root            65144 ./usr/bin/gpasswd
 lrwxrwxrwx root       root               22 ./usr/bin/groups -> /usr/bin/groups.shadow
 -rwxr-xr-x root       root             9944 ./usr/bin/groups.shadow
--rwxr-xr-x root       root           102736 ./usr/bin/hciattach
--rwxr-xr-x root       root           148752 ./usr/bin/hciconfig
--rwxr-xr-x root       root           395664 ./usr/bin/hcidump
--rwxr-xr-x root       root           107792 ./usr/bin/hcitool
+-rwxr-xr-x root       root           106000 ./usr/bin/hciattach
+-rwxr-xr-x root       root           149200 ./usr/bin/hciconfig
+-rwxr-xr-x root       root           399184 ./usr/bin/hcidump
+-rwxr-xr-x root       root           111568 ./usr/bin/hcitool
 lrwxrwxrwx root       root               19 ./usr/bin/head -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            11168 ./usr/bin/hex2hcd
 lrwxrwxrwx root       root               19 ./usr/bin/hexdump -> /bin/busybox.nosuid
@@ -3050,8 +3118,8 @@ lrwxrwxrwx root       root               23 ./usr/bin/iptables-xml -> /usr/sbin/
 -rwxr-xr-x root       root             8872 ./usr/bin/kbdinfo
 -rwxr-xr-x root       root             8968 ./usr/bin/kbdrate
 lrwxrwxrwx root       root               19 ./usr/bin/killall -> /bin/busybox.nosuid
--rwxr-xr-x root       root            66640 ./usr/bin/l2ping
--rwxr-xr-x root       root            83344 ./usr/bin/l2test
+-rwxr-xr-x root       root            70736 ./usr/bin/l2ping
+-rwxr-xr-x root       root            83664 ./usr/bin/l2test
 -rwxr-xr-x root       root            13576 ./usr/bin/lastlog
 lrwxrwxrwx root       root               19 ./usr/bin/less -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           133920 ./usr/bin/loadkeys
@@ -3095,16 +3163,16 @@ lrwxrwxrwx root       root                9 ./usr/bin/psfgettable -> psfxtable
 lrwxrwxrwx root       root                9 ./usr/bin/psfstriptable -> psfxtable
 -rwxr-xr-x root       root            16728 ./usr/bin/psfxtable
 -rwxr-xr-x root       root            12808 ./usr/bin/ranpwd
--rwxr-xr-x root       root           110672 ./usr/bin/rctest
+-rwxr-xr-x root       root           113936 ./usr/bin/rctest
 lrwxrwxrwx root       root               19 ./usr/bin/readlink -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/realpath -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/renice -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/reset -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            15552 ./usr/bin/resizecons
--rwxr-xr-x root       root            75536 ./usr/bin/rfcomm
+-rwxr-xr-x root       root            79632 ./usr/bin/rfcomm
 lrwxrwxrwx root       root               20 ./usr/bin/scp -> /usr/bin/scp.openssh
 -rwxr-xr-x root       root            80240 ./usr/bin/scp.openssh
--rwxr-xr-x root       root           164368 ./usr/bin/sdptool
+-rwxr-xr-x root       root           167632 ./usr/bin/sdptool
 lrwxrwxrwx root       root               19 ./usr/bin/seq -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            37984 ./usr/bin/setfont
 -rwxr-xr-x root       root             7632 ./usr/bin/setkeycodes
@@ -3123,13 +3191,13 @@ lrwxrwxrwx root       root               20 ./usr/bin/ssh -> /usr/bin/ssh.openss
 -rwxr-xr-x root       root           408216 ./usr/bin/ssh-keygen
 -rwxr-xr-x root       root           703224 ./usr/bin/ssh.openssh
 lrwxrwxrwx root       root               19 ./usr/bin/strings -> /bin/busybox.nosuid
--rwxr-xr-x root       root          1347576 ./usr/bin/systemd-analyze
+-rwxr-xr-x root       root          1343480 ./usr/bin/systemd-analyze
 -rwxr-xr-x root       root            35360 ./usr/bin/systemd-cat
--rwxr-xr-x root       root           281832 ./usr/bin/systemd-cgls
+-rwxr-xr-x root       root           277736 ./usr/bin/systemd-cgls
 -rwxr-xr-x root       root            68232 ./usr/bin/systemd-cgtop
 -rwxr-xr-x root       root            60032 ./usr/bin/systemd-delta
 -rwxr-xr-x root       root            31264 ./usr/bin/systemd-detect-virt
--rwxr-xr-x root       root           470280 ./usr/bin/systemd-nspawn
+-rwxr-xr-x root       root           466184 ./usr/bin/systemd-nspawn
 -rwxr-xr-x root       root            43544 ./usr/bin/systemd-path
 -rwxr-xr-x root       root           326888 ./usr/bin/systemd-run
 -rwxr-xr-x root       root           335088 ./usr/bin/systemd-stdio-bridge
@@ -3168,7 +3236,7 @@ drwxr-xr-x root       root             4096 ./usr/include
 drwxr-xr-x root       root             4096 ./usr/lib
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5/bluetooth
--rwxr-xr-x root       root           811960 ./usr/lib/bluez5/bluetooth/bluetoothd
+-rwxr-xr-x root       root           836792 ./usr/lib/bluez5/bluetooth/bluetoothd
 drwxr-xr-x root       root             4096 ./usr/lib/connman
 drwxr-xr-x root       root             4096 ./usr/lib/connman/plugins
 drwxr-xr-x root       root             4096 ./usr/lib/dbus
@@ -3190,8 +3258,8 @@ lrwxrwxrwx root       root               24 ./usr/lib/libavahi-common.so.3 -> li
 -rwxr-xr-x root       root            50664 ./usr/lib/libavahi-common.so.3.5.3
 lrwxrwxrwx root       root               22 ./usr/lib/libavahi-core.so.7 -> libavahi-core.so.7.0.2
 -rwxr-xr-x root       root           226912 ./usr/lib/libavahi-core.so.7.0.2
-lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.18.3
--rwxr-xr-x root       root           126168 ./usr/lib/libbluetooth.so.3.18.3
+lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.18.4
+-rwxr-xr-x root       root           130264 ./usr/lib/libbluetooth.so.3.18.4
 lrwxrwxrwx root       root               19 ./usr/lib/libcpufreq.so.0 -> libcpufreq.so.0.0.0
 -rwxr-xr-x root       root            16160 ./usr/lib/libcpufreq.so.0.0.0
 lrwxrwxrwx root       root               18 ./usr/lib/libdaemon.so.0 -> libdaemon.so.0.5.0
@@ -3232,8 +3300,8 @@ lrwxrwxrwx root       root               17 ./usr/lib/libip6tc.so.0 -> libip6tc.
 -rwxr-xr-x root       root            28752 ./usr/lib/libip6tc.so.0.1.0
 lrwxrwxrwx root       root               16 ./usr/lib/libiptc.so.0 -> libiptc.so.0.0.0
 -rwxr-xr-x root       root             4512 ./usr/lib/libiptc.so.0.0.0
-lrwxrwxrwx root       root               17 ./usr/lib/libkmod.so.2 -> libkmod.so.2.2.10
--rwxr-xr-x root       root            77744 ./usr/lib/libkmod.so.2.2.10
+lrwxrwxrwx root       root               17 ./usr/lib/libkmod.so.2 -> libkmod.so.2.2.11
+-rwxr-xr-x root       root            77744 ./usr/lib/libkmod.so.2.2.11
 lrwxrwxrwx root       root               16 ./usr/lib/liblzma.so.5 -> liblzma.so.5.2.0
 -rwxr-xr-x root       root           151864 ./usr/lib/liblzma.so.5.2.0
 lrwxrwxrwx root       root               15 ./usr/lib/libmenuw.so.5 -> libmenuw.so.5.9
@@ -3628,7 +3696,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.n
 lrwxrwxrwx root       root               25 ./usr/sbin/chpasswd -> /usr/sbin/chpasswd.shadow
 -rwxr-xr-x root       root            48192 ./usr/sbin/chpasswd.shadow
 lrwxrwxrwx root       root               19 ./usr/sbin/chroot -> /bin/busybox.nosuid
--rwxr-xr-x root       root           835512 ./usr/sbin/connmand
+-rwxr-xr-x root       root           831416 ./usr/sbin/connmand
 lrwxrwxrwx root       root               19 ./usr/sbin/delgroup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/deluser -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/fbset -> /bin/busybox.nosuid
@@ -3664,13 +3732,13 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root             9624 ./usr/sbin/nl-qdisc-add
 -rwxr-xr-x root       root             9208 ./usr/sbin/nl-qdisc-delete
 -rwxr-xr-x root       root            10168 ./usr/sbin/nl-qdisc-list
--rwxr-xr-x root       root          1428080 ./usr/sbin/ofonod
+-rwxr-xr-x root       root          1423280 ./usr/sbin/ofonod
 -rwxr-xr-x root       root            43896 ./usr/sbin/pwck
 -rwxr-xr-x root       root            39672 ./usr/sbin/pwconv
 -rwxr-xr-x root       root            31928 ./usr/sbin/pwunconv
 lrwxrwxrwx root       root               19 ./usr/sbin/rdate -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
--rwxr-xr-x root       root             1657 ./usr/sbin/run-postinsts
+-rwxr-xr-x root       root             1716 ./usr/sbin/run-postinsts
 -rwxr-xr-x root       root           774904 ./usr/sbin/sshd
 lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.nosuid
 -rwsr-xr-x root       root            29400 ./usr/sbin/unix_chkpwd
@@ -10750,14 +10818,14 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/libz1.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libz1.postinst
 -rw-r--r-- root       root              461 ./var/lib/opkg/info/linux-firmware-ar3k.control
--rw-r--r-- root       root             1408 ./var/lib/opkg/info/linux-firmware-ar3k.list
+-rw-r--r-- root       root             1508 ./var/lib/opkg/info/linux-firmware-ar3k.list
 -rw-r--r-- root       root              463 ./var/lib/opkg/info/linux-firmware-ar9170.control
 -rw-r--r-- root       root               52 ./var/lib/opkg/info/linux-firmware-ar9170.list
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/linux-firmware-ath6k.control
 -rw-r--r-- root       root             2041 ./var/lib/opkg/info/linux-firmware-ath6k.list
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/linux-firmware-ath9k.control
 -rw-r--r-- root       root              128 ./var/lib/opkg/info/linux-firmware-ath9k.list
--rw-r--r-- root       root             1371 ./var/lib/opkg/info/linux-firmware-atheros-license.control
+-rw-r--r-- root       root             1416 ./var/lib/opkg/info/linux-firmware-atheros-license.control
 -rw-r--r-- root       root               39 ./var/lib/opkg/info/linux-firmware-atheros-license.list
 -rw-r--r-- root       root              491 ./var/lib/opkg/info/linux-firmware-bcm4329.control
 -rw-r--r-- root       root               86 ./var/lib/opkg/info/linux-firmware-bcm4329.list
@@ -10771,7 +10839,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               41 ./var/lib/opkg/info/linux-firmware-bcm4334.list
 -rwxr-xr-x root       root              140 ./var/lib/opkg/info/linux-firmware-bcm4334.postinst
 -rwxr-xr-x root       root              100 ./var/lib/opkg/info/linux-firmware-bcm4334.prerm
--rw-r--r-- root       root             1372 ./var/lib/opkg/info/linux-firmware-broadcom-license.control
+-rw-r--r-- root       root             1417 ./var/lib/opkg/info/linux-firmware-broadcom-license.control
 -rw-r--r-- root       root               39 ./var/lib/opkg/info/linux-firmware-broadcom-license.list
 -rw-r--r-- root       root              470 ./var/lib/opkg/info/linux-firmware-iwlwifi-135-6.control
 -rw-r--r-- root       root               34 ./var/lib/opkg/info/linux-firmware-iwlwifi-135-6.list
@@ -10787,7 +10855,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2a-5.list
 -rw-r--r-- root       root              474 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2a-6.control
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2a-6.list
--rw-r--r-- root       root             1373 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2b-5.control
+-rw-r--r-- root       root             1418 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2b-5.control
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2b-5.list
 -rw-r--r-- root       root              474 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2b-6.control
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/linux-firmware-iwlwifi-6000g2b-6.list
@@ -10805,21 +10873,21 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/linux-firmware-iwlwifi-7265-8.list
 -rw-r--r-- root       root              471 ./var/lib/opkg/info/linux-firmware-iwlwifi-7265-9.control
 -rw-r--r-- root       root               35 ./var/lib/opkg/info/linux-firmware-iwlwifi-7265-9.list
--rw-r--r-- root       root             1371 ./var/lib/opkg/info/linux-firmware-iwlwifi-license.control
+-rw-r--r-- root       root             1416 ./var/lib/opkg/info/linux-firmware-iwlwifi-license.control
 -rw-r--r-- root       root               39 ./var/lib/opkg/info/linux-firmware-iwlwifi-license.list
--rw-r--r-- root       root             1363 ./var/lib/opkg/info/linux-firmware-license.control
--rw-r--r-- root       root              902 ./var/lib/opkg/info/linux-firmware-license.list
--rw-r--r-- root       root             1371 ./var/lib/opkg/info/linux-firmware-marvell-license.control
+-rw-r--r-- root       root             1408 ./var/lib/opkg/info/linux-firmware-license.control
+-rw-r--r-- root       root             1078 ./var/lib/opkg/info/linux-firmware-license.list
+-rw-r--r-- root       root             1416 ./var/lib/opkg/info/linux-firmware-marvell-license.control
 -rw-r--r-- root       root               30 ./var/lib/opkg/info/linux-firmware-marvell-license.list
--rw-r--r-- root       root             1370 ./var/lib/opkg/info/linux-firmware-radeon-license.control
+-rw-r--r-- root       root             1415 ./var/lib/opkg/info/linux-firmware-radeon-license.control
 -rw-r--r-- root       root               29 ./var/lib/opkg/info/linux-firmware-radeon-license.list
 -rw-r--r-- root       root              452 ./var/lib/opkg/info/linux-firmware-radeon.control
 -rw-r--r-- root       root             7903 ./var/lib/opkg/info/linux-firmware-radeon.list
--rw-r--r-- root       root             1370 ./var/lib/opkg/info/linux-firmware-ralink-license.control
+-rw-r--r-- root       root             1415 ./var/lib/opkg/info/linux-firmware-ralink-license.control
 -rw-r--r-- root       root               42 ./var/lib/opkg/info/linux-firmware-ralink-license.list
 -rw-r--r-- root       root              461 ./var/lib/opkg/info/linux-firmware-ralink.control
 -rw-r--r-- root       root              249 ./var/lib/opkg/info/linux-firmware-ralink.list
--rw-r--r-- root       root             1367 ./var/lib/opkg/info/linux-firmware-rtl-license.control
+-rw-r--r-- root       root             1412 ./var/lib/opkg/info/linux-firmware-rtl-license.control
 -rw-r--r-- root       root               43 ./var/lib/opkg/info/linux-firmware-rtl-license.list
 -rw-r--r-- root       root              462 ./var/lib/opkg/info/linux-firmware-rtl8192ce.control
 -rw-r--r-- root       root               37 ./var/lib/opkg/info/linux-firmware-rtl8192ce.list
@@ -10833,18 +10901,18 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root               37 ./var/lib/opkg/info/linux-firmware-sd8787.list
 -rw-r--r-- root       root              454 ./var/lib/opkg/info/linux-firmware-sd8797.control
 -rw-r--r-- root       root               37 ./var/lib/opkg/info/linux-firmware-sd8797.list
--rw-r--r-- root       root             1379 ./var/lib/opkg/info/linux-firmware-ti-connectivity-license.control
+-rw-r--r-- root       root             1424 ./var/lib/opkg/info/linux-firmware-ti-connectivity-license.control
 -rw-r--r-- root       root               38 ./var/lib/opkg/info/linux-firmware-ti-connectivity-license.list
--rw-r--r-- root       root             1370 ./var/lib/opkg/info/linux-firmware-vt6656-license.control
+-rw-r--r-- root       root             1415 ./var/lib/opkg/info/linux-firmware-vt6656-license.control
 -rw-r--r-- root       root               33 ./var/lib/opkg/info/linux-firmware-vt6656-license.list
 -rw-r--r-- root       root              456 ./var/lib/opkg/info/linux-firmware-vt6656.control
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/linux-firmware-vt6656.list
 -rw-r--r-- root       root              470 ./var/lib/opkg/info/linux-firmware-wl12xx.control
--rw-r--r-- root       root             2469 ./var/lib/opkg/info/linux-firmware-wl12xx.list
+-rw-r--r-- root       root             2423 ./var/lib/opkg/info/linux-firmware-wl12xx.list
 -rw-r--r-- root       root              493 ./var/lib/opkg/info/linux-firmware-wl18xx.control
--rw-r--r-- root       root              148 ./var/lib/opkg/info/linux-firmware-wl18xx.list
+-rw-r--r-- root       root              118 ./var/lib/opkg/info/linux-firmware-wl18xx.list
 -rw-r--r-- root       root             2345 ./var/lib/opkg/info/linux-firmware.control
--rw-r--r-- root       root            17746 ./var/lib/opkg/info/linux-firmware.list
+-rw-r--r-- root       root            20103 ./var/lib/opkg/info/linux-firmware.list
 -rw-r--r-- root       root              696 ./var/lib/opkg/info/lms8.control
 -rw-r--r-- root       root               74 ./var/lib/opkg/info/lms8.list
 -rwxr-xr-x root       root              151 ./var/lib/opkg/info/lms8.postinst
@@ -10964,7 +11032,7 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rw-r--r-- root       root             3602 ./var/lib/opkg/info/systemd.control
 -rw-r--r-- root       root            15094 ./var/lib/opkg/info/systemd.list
 -rwxr-xr-x root       root              440 ./var/lib/opkg/info/systemd.postinst
--rwxr-xr-x root       root             6183 ./var/lib/opkg/info/systemd.preinst
+-rwxr-xr-x root       root             6151 ./var/lib/opkg/info/systemd.preinst
 -rwxr-xr-x root       root              336 ./var/lib/opkg/info/systemd.prerm
 -rw-r--r-- root       root              590 ./var/lib/opkg/info/tzdata.control
 -rw-r--r-- root       root             2829 ./var/lib/opkg/info/tzdata.list
@@ -11012,8 +11080,8 @@ drwxr-xr-x root       root           258048 ./var/lib/opkg/info
 -rwxr-xr-x root       root              354 ./var/lib/opkg/info/wpa-supplicant.prerm
 drwxr-xr-x root       root             4096 ./var/lib/opkg/lists
 -rw-r--r-- 1000       1000                0 ./var/lib/opkg/lists/oe
--rw-r--r-- root       root            59026 ./var/lib/opkg/lists/oe-all
--rw-r--r-- root       root          4047235 ./var/lib/opkg/lists/oe-corei7-64
+-rw-r--r-- root       root            59611 ./var/lib/opkg/lists/oe-all
+-rw-r--r-- root       root          4047201 ./var/lib/opkg/lists/oe-corei7-64
 -rw-r--r-- root       root           692820 ./var/lib/opkg/lists/oe-corei7-64-intel-common
 -rw-r--r-- root       root            97086 ./var/lib/opkg/lists/oe-intel_corei7_64
 -rw-r--r-- root       root           334893 ./var/lib/opkg/status
