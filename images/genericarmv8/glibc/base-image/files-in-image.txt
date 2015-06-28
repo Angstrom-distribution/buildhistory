@@ -32,7 +32,7 @@ lrwxrwxrwx root       root               19 ./bin/kill -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/ln -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./bin/login -> /bin/login.shadow
 -rwxr-xr-x root       root            41280 ./bin/login.shadow
--rwxr-xr-x root       root           363984 ./bin/loginctl
+-rwxr-xr-x root       root           359888 ./bin/loginctl
 lrwxrwxrwx root       root               19 ./bin/ls -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               15 ./bin/lsmod -> /bin/lsmod.kmod
 lrwxrwxrwx root       root               11 ./bin/lsmod.kmod -> ../bin/kmod
@@ -60,10 +60,10 @@ lrwxrwxrwx root       root               19 ./bin/stty -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               14 ./bin/su -> /bin/su.shadow
 -rwsr-xr-x root       root            33752 ./bin/su.shadow
 lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
--rwxr-xr-x root       root           528904 ./bin/systemctl
+-rwxr-xr-x root       root           524808 ./bin/systemctl
 -rwxr-xr-x root       root            39408 ./bin/systemd-ask-password
 -rwxr-xr-x root       root            35320 ./bin/systemd-escape
--rwxr-xr-x root       root            76336 ./bin/systemd-firstboot
+-rwxr-xr-x root       root            72240 ./bin/systemd-firstboot
 -rwxr-xr-x root       root            55856 ./bin/systemd-hwdb
 -rwxr-xr-x root       root           237008 ./bin/systemd-inhibit
 -rwxr-xr-x root       root            35312 ./bin/systemd-machine-id-setup
@@ -72,7 +72,7 @@ lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/tar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/touch -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/true -> /bin/busybox.nosuid
--rwxr-xr-x root       root           334424 ./bin/udevadm
+-rwxr-xr-x root       root           330328 ./bin/udevadm
 lrwxrwxrwx root       root               19 ./bin/umount -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/uname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/usleep -> /bin/busybox.nosuid
@@ -402,7 +402,7 @@ drwxr-xr-x root       root             4096 ./lib/modules/4.1.0-rc8
 drwxr-xr-x root       root             4096 ./lib/modules/4.1.0-rc8/kernel
 drwxr-xr-x root       root             4096 ./lib/modules/4.1.0-rc8/kernel/net
 drwxr-xr-x root       root             4096 ./lib/modules/4.1.0-rc8/kernel/net/ipv6
--rw-r--r-- root       root           554136 ./lib/modules/4.1.0-rc8/kernel/net/ipv6/ipv6.ko
+-rw-r--r-- root       root           553368 ./lib/modules/4.1.0-rc8/kernel/net/ipv6/ipv6.ko
 -rw-r--r-- root       root               66 ./lib/modules/4.1.0-rc8/modules.alias
 -rw-r--r-- root       root               40 ./lib/modules/4.1.0-rc8/modules.alias.bin
 -rw-r--r-- root       root             5860 ./lib/modules/4.1.0-rc8/modules.builtin
@@ -431,7 +431,7 @@ drwxr-xr-x root       root             4096 ./lib/security
 -rwxr-xr-x root       root             4952 ./lib/security/pam_rootok.so
 -rwxr-xr-x root       root             7600 ./lib/security/pam_securetty.so
 -rwxr-xr-x root       root             5480 ./lib/security/pam_shells.so
--rwxr-xr-x root       root           233712 ./lib/security/pam_systemd.so
+-rwxr-xr-x root       root           229616 ./lib/security/pam_systemd.so
 -rwxr-xr-x root       root            42128 ./lib/security/pam_unix.so
 -rwxr-xr-x root       root             5288 ./lib/security/pam_warn.so
 drwxr-xr-x root       root             4096 ./lib/systemd
@@ -443,8 +443,8 @@ drwxr-xr-x root       root            12288 ./lib/systemd/system
 drwxr-xr-x root       root             4096 ./lib/systemd/system-generators
 -rwxr-xr-x root       root            35336 ./lib/systemd/system-generators/systemd-debug-generator
 -rwxr-xr-x root       root            39432 ./lib/systemd/system-generators/systemd-efi-boot-generator
--rwxr-xr-x root       root            59936 ./lib/systemd/system-generators/systemd-fstab-generator
--rwxr-xr-x root       root            35336 ./lib/systemd/system-generators/systemd-getty-generator
+-rwxr-xr-x root       root            55840 ./lib/systemd/system-generators/systemd-fstab-generator
+-rwxr-xr-x root       root            31240 ./lib/systemd/system-generators/systemd-getty-generator
 -rwxr-xr-x root       root            68136 ./lib/systemd/system-generators/systemd-gpt-auto-generator
 -rwxr-xr-x root       root            31248 ./lib/systemd/system-generators/systemd-hibernate-resume-generator
 -rwxr-xr-x root       root            27120 ./lib/systemd/system-generators/systemd-rc-local-generator
@@ -670,21 +670,21 @@ lrwxrwxrwx root       root                9 ./lib/systemd/system/syslog.service 
 -rw-r--r-- root       root              439 ./lib/systemd/system/wpa_supplicant-wired@.service
 -rw-r--r-- root       root              222 ./lib/systemd/system/wpa_supplicant.service
 -rw-r--r-- root       root              401 ./lib/systemd/system/wpa_supplicant@.service
--rwxr-xr-x root       root          1258240 ./lib/systemd/systemd
+-rwxr-xr-x root       root          1254144 ./lib/systemd/systemd
 -rwxr-xr-x root       root            14568 ./lib/systemd/systemd-ac-power
 -rwxr-xr-x root       root            43488 ./lib/systemd/systemd-activate
 -rwxr-xr-x root       root            51680 ./lib/systemd/systemd-backlight
 -rwxr-xr-x root       root            92672 ./lib/systemd/systemd-bootchart
 -rwxr-xr-x root       root           302624 ./lib/systemd/systemd-bus-proxyd
--rwxr-xr-x root       root           232904 ./lib/systemd/systemd-cgroups-agent
+-rwxr-xr-x root       root           228808 ./lib/systemd/systemd-cgroups-agent
 -rwxr-xr-x root       root           254088 ./lib/systemd/systemd-fsck
 -rwxr-xr-x root       root            27112 ./lib/systemd/systemd-hibernate-resume
 -rwxr-xr-x root       root           277952 ./lib/systemd/systemd-hostnamed
 -rwxr-xr-x root       root           237000 ./lib/systemd/systemd-initctl
 -rwxr-xr-x root       root           236072 ./lib/systemd/systemd-journald
--rwxr-xr-x root       root           290240 ./lib/systemd/systemd-localed
+-rwxr-xr-x root       root           286144 ./lib/systemd/systemd-localed
 -rwxr-xr-x root       root           483584 ./lib/systemd/systemd-logind
--rwxr-xr-x root       root            35312 ./lib/systemd/systemd-machine-id-commit
+-rwxr-xr-x root       root            31216 ./lib/systemd/systemd-machine-id-commit
 -rwxr-xr-x root       root            47680 ./lib/systemd/systemd-modules-load
 -rwxr-xr-x root       root            31200 ./lib/systemd/systemd-quotacheck
 -rwxr-xr-x root       root            31200 ./lib/systemd/systemd-random-seed
@@ -692,7 +692,7 @@ lrwxrwxrwx root       root                9 ./lib/systemd/system/syslog.service 
 -rwxr-xr-x root       root            27104 ./lib/systemd/systemd-reply-password
 -rwxr-xr-x root       root            43480 ./lib/systemd/systemd-rfkill
 -rwxr-xr-x root       root            96840 ./lib/systemd/systemd-shutdown
--rwxr-xr-x root       root            43488 ./lib/systemd/systemd-shutdownd
+-rwxr-xr-x root       root            39392 ./lib/systemd/systemd-shutdownd
 -rwxr-xr-x root       root            64032 ./lib/systemd/systemd-sleep
 -rwxr-xr-x root       root            80424 ./lib/systemd/systemd-socket-proxyd
 -rwxr-xr-x root       root            47648 ./lib/systemd/systemd-sysctl
@@ -841,13 +841,13 @@ lrwxrwxrwx root       root               13 ./usr/bin/avahi-resolve-host-name ->
 -rwxr-xr-x root       root            11232 ./usr/bin/avahi-set-host-name
 lrwxrwxrwx root       root               19 ./usr/bin/awk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/basename -> /bin/busybox.nosuid
--rwxr-xr-x root       root           144456 ./usr/bin/bccmd
+-rwxr-xr-x root       root           147408 ./usr/bin/bccmd
 -rwxr-xr-x root       root            24792 ./usr/bin/bluemoon
--rwxr-xr-x root       root            95392 ./usr/bin/bluetoothctl
+-rwxr-xr-x root       root            99520 ./usr/bin/bluetoothctl
 -rwxr-xr-x root       root            51752 ./usr/bin/bootctl
--rwxr-xr-x root       root           369752 ./usr/bin/btmon
+-rwxr-xr-x root       root           395032 ./usr/bin/btmon
 lrwxrwxrwx root       root               19 ./usr/bin/bunzip2 -> /bin/busybox.nosuid
--rwxr-xr-x root       root           314832 ./usr/bin/busctl
+-rwxr-xr-x root       root           310736 ./usr/bin/busctl
 lrwxrwxrwx root       root               19 ./usr/bin/bzcat -> /bin/busybox.nosuid
 -rwsr-xr-x root       root            48168 ./usr/bin/chage
 lrwxrwxrwx root       root               20 ./usr/bin/chfn -> /usr/bin/chfn.shadow
@@ -855,7 +855,7 @@ lrwxrwxrwx root       root               20 ./usr/bin/chfn -> /usr/bin/chfn.shad
 lrwxrwxrwx root       root               20 ./usr/bin/chsh -> /usr/bin/chsh.shadow
 -rwsr-xr-x root       root            33440 ./usr/bin/chsh.shadow
 lrwxrwxrwx root       root               19 ./usr/bin/chvt -> /bin/busybox.nosuid
--rwxr-xr-x root       root            94920 ./usr/bin/ciptool
+-rwxr-xr-x root       root            98144 ./usr/bin/ciptool
 lrwxrwxrwx root       root               19 ./usr/bin/clear -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/cmp -> /bin/busybox.nosuid
 -rwxr-xr-x root       root             5280 ./usr/bin/cpufreq-aperf
@@ -886,10 +886,10 @@ lrwxrwxrwx root       root               19 ./usr/bin/fuser -> /bin/busybox.nosu
 -rwsr-xr-x root       root            56104 ./usr/bin/gpasswd
 lrwxrwxrwx root       root               22 ./usr/bin/groups -> /usr/bin/groups.shadow
 -rwxr-xr-x root       root             9136 ./usr/bin/groups.shadow
--rwxr-xr-x root       root            97072 ./usr/bin/hciattach
--rwxr-xr-x root       root           144816 ./usr/bin/hciconfig
--rwxr-xr-x root       root           353648 ./usr/bin/hcidump
--rwxr-xr-x root       root           102744 ./usr/bin/hcitool
+-rwxr-xr-x root       root            98672 ./usr/bin/hciattach
+-rwxr-xr-x root       root           148192 ./usr/bin/hciconfig
+-rwxr-xr-x root       root           357744 ./usr/bin/hcidump
+-rwxr-xr-x root       root           104016 ./usr/bin/hcitool
 lrwxrwxrwx root       root               19 ./usr/bin/head -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            10976 ./usr/bin/hex2hcd
 lrwxrwxrwx root       root               19 ./usr/bin/hexdump -> /bin/busybox.nosuid
@@ -897,8 +897,8 @@ lrwxrwxrwx root       root               19 ./usr/bin/hexdump -> /bin/busybox.no
 -rwxr-xr-x root       root           120080 ./usr/bin/htop
 lrwxrwxrwx root       root               19 ./usr/bin/id -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/killall -> /bin/busybox.nosuid
--rwxr-xr-x root       root            62072 ./usr/bin/l2ping
--rwxr-xr-x root       root            75344 ./usr/bin/l2test
+-rwxr-xr-x root       root            66168 ./usr/bin/l2ping
+-rwxr-xr-x root       root            78840 ./usr/bin/l2test
 -rwxr-xr-x root       root            12792 ./usr/bin/lastlog
 lrwxrwxrwx root       root               19 ./usr/bin/less -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           253376 ./usr/bin/localectl
@@ -931,12 +931,12 @@ lrwxrwxrwx root       root               22 ./usr/bin/passwd -> /usr/bin/passwd.
 lrwxrwxrwx root       root               19 ./usr/bin/patch -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            14112 ./usr/bin/pkcs1-conv
 lrwxrwxrwx root       root               19 ./usr/bin/printf -> /bin/busybox.nosuid
--rwxr-xr-x root       root            98496 ./usr/bin/rctest
+-rwxr-xr-x root       root           101720 ./usr/bin/rctest
 lrwxrwxrwx root       root               19 ./usr/bin/readlink -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/realpath -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/renice -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/reset -> /bin/busybox.nosuid
--rwxr-xr-x root       root            70944 ./usr/bin/rfcomm
+-rwxr-xr-x root       root            75040 ./usr/bin/rfcomm
 lrwxrwxrwx root       root               20 ./usr/bin/scp -> /usr/bin/scp.openssh
 -rwxr-xr-x root       root            71768 ./usr/bin/scp.openssh
 -rwxr-xr-x root       root           149192 ./usr/bin/sdptool
@@ -951,15 +951,15 @@ lrwxrwxrwx root       root               20 ./usr/bin/ssh -> /usr/bin/ssh.openss
 -rwxr-xr-x root       root           366856 ./usr/bin/ssh-keygen
 -rwxr-xr-x root       root           616912 ./usr/bin/ssh.openssh
 lrwxrwxrwx root       root               19 ./usr/bin/strings -> /bin/busybox.nosuid
--rwxr-xr-x root       root          1188528 ./usr/bin/systemd-analyze
+-rwxr-xr-x root       root          1184432 ./usr/bin/systemd-analyze
 -rwxr-xr-x root       root            31200 ./usr/bin/systemd-cat
 -rwxr-xr-x root       root           245192 ./usr/bin/systemd-cgls
 -rwxr-xr-x root       root            59960 ./usr/bin/systemd-cgtop
 -rwxr-xr-x root       root            55856 ./usr/bin/systemd-delta
 -rwxr-xr-x root       root            31200 ./usr/bin/systemd-detect-virt
--rwxr-xr-x root       root           421424 ./usr/bin/systemd-nspawn
+-rwxr-xr-x root       root           417328 ./usr/bin/systemd-nspawn
 -rwxr-xr-x root       root            39384 ./usr/bin/systemd-path
--rwxr-xr-x root       root           290408 ./usr/bin/systemd-run
+-rwxr-xr-x root       root           286312 ./usr/bin/systemd-run
 -rwxr-xr-x root       root           294448 ./usr/bin/systemd-stdio-bridge
 lrwxrwxrwx root       root               19 ./usr/bin/tail -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/tee -> /bin/busybox.nosuid
@@ -992,7 +992,7 @@ drwxr-xr-x root       root             4096 ./usr/include
 drwxr-xr-x root       root             4096 ./usr/lib
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5/bluetooth
--rwxr-xr-x root       root           685176 ./usr/lib/bluez5/bluetooth/bluetoothd
+-rwxr-xr-x root       root           704136 ./usr/lib/bluez5/bluetooth/bluetoothd
 drwxr-xr-x root       root             4096 ./usr/lib/dbus
 -rwsr-xr-x root       messagebus     238824 ./usr/lib/dbus/dbus-daemon-launch-helper
 -rwxr-xr-x root       root            11056 ./usr/lib/e2initrd_helper
@@ -1010,8 +1010,8 @@ lrwxrwxrwx root       root               24 ./usr/lib/libavahi-common.so.3 -> li
 -rwxr-xr-x root       root            45048 ./usr/lib/libavahi-common.so.3.5.3
 lrwxrwxrwx root       root               22 ./usr/lib/libavahi-core.so.7 -> libavahi-core.so.7.0.2
 -rwxr-xr-x root       root           197904 ./usr/lib/libavahi-core.so.7.0.2
-lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.18.3
--rwxr-xr-x root       root           114752 ./usr/lib/libbluetooth.so.3.18.3
+lrwxrwxrwx root       root               22 ./usr/lib/libbluetooth.so.3 -> libbluetooth.so.3.18.4
+-rwxr-xr-x root       root           117976 ./usr/lib/libbluetooth.so.3.18.4
 lrwxrwxrwx root       root               19 ./usr/lib/libcpufreq.so.0 -> libcpufreq.so.0.0.0
 -rwxr-xr-x root       root            14144 ./usr/lib/libcpufreq.so.0.0.0
 lrwxrwxrwx root       root               18 ./usr/lib/libdaemon.so.0 -> libdaemon.so.0.5.0
@@ -1044,8 +1044,8 @@ lrwxrwxrwx root       root               17 ./usr/lib/libhistory.so.6 -> libhist
 -rwxr-xr-x root       root            31720 ./usr/lib/libhistory.so.6.3
 lrwxrwxrwx root       root               17 ./usr/lib/libhogweed.so.2 -> libhogweed.so.2.5
 -rw-r--r-- root       root           181104 ./usr/lib/libhogweed.so.2.5
-lrwxrwxrwx root       root               17 ./usr/lib/libkmod.so.2 -> libkmod.so.2.2.10
--rwxr-xr-x root       root            61784 ./usr/lib/libkmod.so.2.2.10
+lrwxrwxrwx root       root               17 ./usr/lib/libkmod.so.2 -> libkmod.so.2.2.11
+-rwxr-xr-x root       root            61696 ./usr/lib/libkmod.so.2.2.11
 lrwxrwxrwx root       root               16 ./usr/lib/liblzma.so.5 -> liblzma.so.5.2.0
 -rwxr-xr-x root       root           127976 ./usr/lib/liblzma.so.5.2.0
 lrwxrwxrwx root       root               16 ./usr/lib/libnettle.so.4 -> libnettle.so.4.7
@@ -1350,7 +1350,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root            28064 ./usr/sbin/pwunconv
 lrwxrwxrwx root       root               19 ./usr/sbin/rdate -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
--rwxr-xr-x root       root             1657 ./usr/sbin/run-postinsts
+-rwxr-xr-x root       root             1716 ./usr/sbin/run-postinsts
 -rwxr-xr-x root       root           684384 ./usr/sbin/sshd
 lrwxrwxrwx root       root               19 ./usr/sbin/udhcpd -> /bin/busybox.nosuid
 -rwsr-xr-x root       root            27712 ./usr/sbin/unix_chkpwd
