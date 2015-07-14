@@ -1,12 +1,12 @@
 #!/bin/sh
 bbnote () {
-	echo "NOTE: $*"
+	printf "%b\0" "bbnote $*" > /build/v2015.12/build/tmp-angstrom-glibc/work/aarch64-angstrom-linux/avahi/0.6.31-r11.1/temp/fifo.20360
 }
 bbwarn () {
-	echo "WARNING: $*"
+	printf "%b\0" "bbwarn $*" > /build/v2015.12/build/tmp-angstrom-glibc/work/aarch64-angstrom-linux/avahi/0.6.31-r11.1/temp/fifo.20360
 }
 bbfatal () {
-	echo "ERROR: $*"
+	printf "%b\0" "bbfatal $*" > /build/v2015.12/build/tmp-angstrom-glibc/work/aarch64-angstrom-linux/avahi/0.6.31-r11.1/temp/fifo.20360
 	exit 1
 }
 perform_groupadd () {
@@ -126,7 +126,7 @@ if test "x$D" != "x"; then
 	fi
 
 	# user/group lookups should match useradd/groupadd --root
-	export PSEUDO_PASSWD="$SYSROOT:/build/jenkins/v2015.12/machine/hikey/build/tmp-angstrom-glibc/sysroots/x86_64-linux"
+	export PSEUDO_PASSWD="$SYSROOT:/build/v2015.12/build/tmp-angstrom-glibc/sysroots/x86_64-linux"
 fi
 
 # If we're not doing a special SSTATE/SYSROOT install
