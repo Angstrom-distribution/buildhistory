@@ -28,7 +28,7 @@ perform_groupadd () {
 			fi
 			count=`expr $count + 1`
 			if test $count = $retries; then
-				bbfatal "Tried running groupadd command $retries times without scucess, giving up"
+				bbfatal "Tried running groupadd command $retries times without success, giving up"
 			fi
                         sleep $count
 		done
@@ -55,7 +55,7 @@ perform_useradd () {
 		       fi
 		       count=`expr $count + 1`
 		       if test $count = $retries; then
-				bbfatal "Tried running useradd command $retries times without scucess, giving up"
+				bbfatal "Tried running useradd command $retries times without success, giving up"
 		       fi
 		       sleep $count
 	       done
@@ -96,7 +96,7 @@ perform_groupmems () {
 					rm -f $rootdir/etc/gshadow
 					rm -f $rootdir/etc/gshadow-
 				fi
-				bbfatal "Tried running groupmems command $retries times without scucess, giving up"
+				bbfatal "Tried running groupmems command $retries times without success, giving up"
 			fi
 			sleep $count
 		done
@@ -126,7 +126,7 @@ if test "x$D" != "x"; then
 	fi
 
 	# user/group lookups should match useradd/groupadd --root
-	export PSEUDO_PASSWD="$SYSROOT:/build/v2015.06/build/tmp-glibc/sysroots/x86_64-linux"
+	export PSEUDO_PASSWD="$SYSROOT:/build/v2015.06/build/tmp-angstrom_v2015_06-glibc/sysroots/x86_64-linux"
 fi
 
 # If we're not doing a special SSTATE/SYSROOT install
