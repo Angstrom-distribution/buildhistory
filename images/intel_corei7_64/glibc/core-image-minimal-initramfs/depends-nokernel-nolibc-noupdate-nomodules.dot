@@ -1,0 +1,36 @@
+digraph depends {
+    node [shape=plaintext]
+"busybox" -> "busybox-syslog" [style=dotted];
+"busybox" -> "busybox-udhcpc" [style=dotted];
+"e2fsprogs-mke2fs" -> "libblkid1";
+"e2fsprogs-mke2fs" -> "libcom-err2";
+"e2fsprogs-mke2fs" -> "libe2p2";
+"e2fsprogs-mke2fs" -> "libext2fs2";
+"e2fsprogs-mke2fs" -> "libuuid1";
+"grub" -> "diffutils";
+"grub" -> "libfreetype6";
+"initramfs-live-boot" -> "udev";
+"initramfs-live-boot" -> "udev-extraconf";
+"initramfs-live-install" -> "e2fsprogs-mke2fs";
+"initramfs-live-install" -> "grub";
+"initramfs-live-install" -> "parted";
+"initramfs-live-install-efi" -> "dosfstools";
+"initramfs-live-install-efi" -> "e2fsprogs-mke2fs";
+"initramfs-live-install-efi" -> "parted";
+"libacl1" -> "libattr1";
+"libblkid1" -> "libuuid1";
+"libext2fs2" -> "libblkid1";
+"libext2fs2" -> "libcom-err2";
+"libkmod2" -> "libz1";
+"libreadline6" -> "libtinfo5";
+"libtinfo5" -> "ncurses-terminfo-base" [style=dotted];
+"parted" -> "libblkid1";
+"parted" -> "libreadline6";
+"parted" -> "libtinfo5";
+"parted" -> "libuuid1";
+"udev" -> "libacl1";
+"udev" -> "libattr1";
+"udev" -> "libblkid1";
+"udev" -> "libkmod2";
+"udev-extraconf" -> "udev";
+}
