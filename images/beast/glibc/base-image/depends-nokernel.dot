@@ -63,8 +63,10 @@ digraph depends {
 "iw" -> "libc6";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel-image-3.18.7" -> "kernel-devicetree";
-"kernel-image-3.18.7" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel" -> "kernel-4.0.6";
+"kernel-4.0.6" -> "kernel-image-4.0.6";
+"kernel-image-4.0.6" -> "kernel-devicetree";
+"kernel-image-4.0.6" -> "kernel-devicetree-overlays" [style=dotted];
 "kmod" -> "libc6";
 "kmod" -> "libz1";
 "kmod" -> "update-alternatives-opkg";
@@ -294,8 +296,13 @@ digraph depends {
 "shadow" -> "pam-plugin-rootok";
 "shadow" -> "pam-plugin-securetty";
 "shadow" -> "pam-plugin-shells";
+"shadow" -> "shadow-base";
 "shadow" -> "shadow-securetty";
 "shadow" -> "update-alternatives-opkg";
+"shadow" -> "util-linux-sulogin";
+"shadow-base" -> "libc6";
+"shadow-base" -> "libpam";
+"shadow-base" -> "update-alternatives-opkg";
 "systemd" -> "base-files";
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
@@ -346,6 +353,8 @@ digraph depends {
 "util-linux-mount" -> "libc6";
 "util-linux-mount" -> "libmount1";
 "util-linux-mount" -> "update-alternatives-opkg";
+"util-linux-sulogin" -> "libc6";
+"util-linux-sulogin" -> "update-alternatives-opkg";
 "wpa-supplicant" -> "libc6";
 "wpa-supplicant" -> "libdbus-1-3";
 "wpa-supplicant" -> "libgcrypt";
