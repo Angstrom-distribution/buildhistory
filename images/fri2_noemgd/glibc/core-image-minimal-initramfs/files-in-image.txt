@@ -54,7 +54,7 @@ lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/tar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/touch -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/true -> /bin/busybox.nosuid
--rwxr-xr-x root       root           436048 ./bin/udevadm
+-rwxr-xr-x root       root           366356 ./bin/udevadm
 lrwxrwxrwx root       root               19 ./bin/umount -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/uname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/usleep -> /bin/busybox.nosuid
@@ -75,7 +75,7 @@ drwxr-xr-x root       root             4096 ./etc/grub.d
 -rwxr-xr-x root       root              214 ./etc/grub.d/40_custom
 -rwxr-xr-x root       root              216 ./etc/grub.d/41_custom
 -rw-r--r-- root       root              483 ./etc/grub.d/README
--rw-r--r-- root       root             1810 ./etc/ld.so.cache
+-rw-r--r-- root       root             1867 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 -rw-r--r-- root       root              956 ./etc/mke2fs.conf
 -rw-r--r-- root       root              720 ./etc/passwd
@@ -146,6 +146,7 @@ lrwxrwxrwx root       root               13 ./lib/libe2p.so.2 -> libe2p.so.2.3
 -rwxr-xr-x root       root            33188 ./lib/libe2p.so.2.3
 lrwxrwxrwx root       root               16 ./lib/libext2fs.so.2 -> libext2fs.so.2.4
 -rwxr-xr-x root       root           316136 ./lib/libext2fs.so.2.4
+-rw-r--r-- root       root            78248 ./lib/libgcc_s.so.1
 -rwxr-xr-x root       root           334960 ./lib/libm-2.20.so
 lrwxrwxrwx root       root               12 ./lib/libm.so.6 -> libm-2.20.so
 -rwxr-xr-x root       root            96064 ./lib/libnsl-2.20.so
@@ -194,38 +195,46 @@ lrwxrwxrwx root       root               24 ./lib/systemd/system/sysinit.target.
 -rw-r--r-- root       root              715 ./lib/systemd/system/systemd-udev-trigger.service
 -rw-r--r-- root       root              578 ./lib/systemd/system/systemd-udevd-control.socket
 -rw-r--r-- root       root              570 ./lib/systemd/system/systemd-udevd-kernel.socket
--rw-r--r-- root       root              843 ./lib/systemd/system/systemd-udevd.service
--rwxr-xr-x root       root           427924 ./lib/systemd/systemd-udevd
+-rw-r--r-- root       root              838 ./lib/systemd/system/systemd-udevd.service
+-rwxr-xr-x root       root           354144 ./lib/systemd/systemd-udevd
 drwxr-xr-x root       root             4096 ./lib/udev
--rwxr-xr-x root       root            75496 ./lib/udev/accelerometer
--rwxr-xr-x root       root            55008 ./lib/udev/ata_id
--rwxr-xr-x root       root            67300 ./lib/udev/cdrom_id
--rwxr-xr-x root       root            38528 ./lib/udev/collect
+-rwxr-xr-x root       root            46820 ./lib/udev/accelerometer
+-rwxr-xr-x root       root            34524 ./lib/udev/ata_id
+-rwxr-xr-x root       root            50912 ./lib/udev/cdrom_id
+-rwxr-xr-x root       root            18032 ./lib/udev/collect
 -rwxr-xr-x root       root             5680 ./lib/udev/mtd_probe
 drwxr-xr-x root       root             4096 ./lib/udev/rules.d
 -rw-r--r-- root       root             2207 ./lib/udev/rules.d/42-usb-hid-pm.rules
+-rw-r--r-- root       root              121 ./lib/udev/rules.d/50-firmware.rules
 -rw-r--r-- root       root             3252 ./lib/udev/rules.d/50-udev-default.rules
--rw-r--r-- root       root              646 ./lib/udev/rules.d/60-cdrom_id.rules
+-rw-r--r-- root       root              910 ./lib/udev/rules.d/60-cdrom_id.rules
 -rw-r--r-- root       root              153 ./lib/udev/rules.d/60-drm.rules
 -rw-r--r-- root       root              821 ./lib/udev/rules.d/60-keyboard.rules
 -rw-r--r-- root       root              616 ./lib/udev/rules.d/60-persistent-alsa.rules
 -rw-r--r-- root       root             2464 ./lib/udev/rules.d/60-persistent-input.rules
 -rw-r--r-- root       root              947 ./lib/udev/rules.d/60-persistent-serial.rules
 -rw-r--r-- root       root             1420 ./lib/udev/rules.d/60-persistent-storage-tape.rules
--rw-r--r-- root       root             5592 ./lib/udev/rules.d/60-persistent-storage.rules
+-rw-r--r-- root       root             5609 ./lib/udev/rules.d/60-persistent-storage.rules
 -rw-r--r-- root       root              769 ./lib/udev/rules.d/60-persistent-v4l.rules
 -rw-r--r-- root       root              166 ./lib/udev/rules.d/61-accelerometer.rules
 -rw-r--r-- root       root              418 ./lib/udev/rules.d/64-btrfs.rules
--rw-r--r-- root       root              785 ./lib/udev/rules.d/70-power-switch.rules
+-rw-r--r-- root       root              734 ./lib/udev/rules.d/70-mouse.rules
+-rw-r--r-- root       root              706 ./lib/udev/rules.d/70-power-switch.rules
+-rw-r--r-- root       root              345 ./lib/udev/rules.d/70-touchpad.rules
+-rw-r--r-- root       root             2591 ./lib/udev/rules.d/70-uaccess.rules
+-rw-r--r-- root       root             2352 ./lib/udev/rules.d/71-seat.rules
+-rw-r--r-- root       root              596 ./lib/udev/rules.d/73-seat-late.rules
 -rw-r--r-- root       root              452 ./lib/udev/rules.d/75-net-description.rules
 -rw-r--r-- root       root              174 ./lib/udev/rules.d/75-probe_mtd.rules
 -rw-r--r-- root       root              426 ./lib/udev/rules.d/75-tty-description.rules
 -rw-r--r-- root       root             4400 ./lib/udev/rules.d/78-sound-card.rules
 -rw-r--r-- root       root              618 ./lib/udev/rules.d/80-drivers.rules
 -rw-r--r-- root       root              292 ./lib/udev/rules.d/80-net-setup-link.rules
+-rw-r--r-- root       root              437 ./lib/udev/rules.d/90-vconsole.rules
 -rw-r--r-- root       root              155 ./lib/udev/rules.d/95-udev-late.rules
--rwxr-xr-x root       root            67868 ./lib/udev/scsi_id
--rwxr-xr-x root       root             5732 ./lib/udev/v4l_id
+-rw-r--r-- root       root             4053 ./lib/udev/rules.d/99-systemd.rules
+-rwxr-xr-x root       root            47380 ./lib/udev/scsi_id
+-rwxr-xr-x root       root             9832 ./lib/udev/v4l_id
 drwxr-xr-x root       root             4096 ./sbin
 lrwxrwxrwx root       root               19 ./sbin/depmod -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            61448 ./sbin/dosfsck
