@@ -54,7 +54,7 @@ lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/tar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/touch -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/true -> /bin/busybox.nosuid
--rwxr-xr-x root       root           436048 ./bin/udevadm
+-rwxr-xr-x root       root           366356 ./bin/udevadm
 lrwxrwxrwx root       root               19 ./bin/umount -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/uname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/usleep -> /bin/busybox.nosuid
@@ -75,7 +75,7 @@ drwxr-xr-x root       root             4096 ./etc/grub.d
 -rwxr-xr-x root       root              214 ./etc/grub.d/40_custom
 -rwxr-xr-x root       root              216 ./etc/grub.d/41_custom
 -rw-r--r-- root       root              483 ./etc/grub.d/README
--rw-r--r-- root       root             1810 ./etc/ld.so.cache
+-rw-r--r-- root       root             1867 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 -rw-r--r-- root       root              956 ./etc/mke2fs.conf
 -rw-r--r-- root       root              720 ./etc/passwd
@@ -146,6 +146,7 @@ lrwxrwxrwx root       root               13 ./lib/libe2p.so.2 -> libe2p.so.2.3
 -rwxr-xr-x root       root            33188 ./lib/libe2p.so.2.3
 lrwxrwxrwx root       root               16 ./lib/libext2fs.so.2 -> libext2fs.so.2.4
 -rwxr-xr-x root       root           316136 ./lib/libext2fs.so.2.4
+-rw-r--r-- root       root            78248 ./lib/libgcc_s.so.1
 -rwxr-xr-x root       root           334960 ./lib/libm-2.20.so
 lrwxrwxrwx root       root               12 ./lib/libm.so.6 -> libm-2.20.so
 -rwxr-xr-x root       root            96064 ./lib/libnsl-2.20.so
@@ -194,38 +195,46 @@ lrwxrwxrwx root       root               24 ./lib/systemd/system/sysinit.target.
 -rw-r--r-- root       root              715 ./lib/systemd/system/systemd-udev-trigger.service
 -rw-r--r-- root       root              578 ./lib/systemd/system/systemd-udevd-control.socket
 -rw-r--r-- root       root              570 ./lib/systemd/system/systemd-udevd-kernel.socket
--rw-r--r-- root       root              843 ./lib/systemd/system/systemd-udevd.service
--rwxr-xr-x root       root           427924 ./lib/systemd/systemd-udevd
+-rw-r--r-- root       root              838 ./lib/systemd/system/systemd-udevd.service
+-rwxr-xr-x root       root           354144 ./lib/systemd/systemd-udevd
 drwxr-xr-x root       root             4096 ./lib/udev
--rwxr-xr-x root       root            75496 ./lib/udev/accelerometer
--rwxr-xr-x root       root            55008 ./lib/udev/ata_id
--rwxr-xr-x root       root            67300 ./lib/udev/cdrom_id
--rwxr-xr-x root       root            38528 ./lib/udev/collect
+-rwxr-xr-x root       root            46820 ./lib/udev/accelerometer
+-rwxr-xr-x root       root            34524 ./lib/udev/ata_id
+-rwxr-xr-x root       root            50912 ./lib/udev/cdrom_id
+-rwxr-xr-x root       root            18032 ./lib/udev/collect
 -rwxr-xr-x root       root             5680 ./lib/udev/mtd_probe
 drwxr-xr-x root       root             4096 ./lib/udev/rules.d
 -rw-r--r-- root       root             2207 ./lib/udev/rules.d/42-usb-hid-pm.rules
+-rw-r--r-- root       root              121 ./lib/udev/rules.d/50-firmware.rules
 -rw-r--r-- root       root             3252 ./lib/udev/rules.d/50-udev-default.rules
--rw-r--r-- root       root              646 ./lib/udev/rules.d/60-cdrom_id.rules
+-rw-r--r-- root       root              910 ./lib/udev/rules.d/60-cdrom_id.rules
 -rw-r--r-- root       root              153 ./lib/udev/rules.d/60-drm.rules
 -rw-r--r-- root       root              821 ./lib/udev/rules.d/60-keyboard.rules
 -rw-r--r-- root       root              616 ./lib/udev/rules.d/60-persistent-alsa.rules
 -rw-r--r-- root       root             2464 ./lib/udev/rules.d/60-persistent-input.rules
 -rw-r--r-- root       root              947 ./lib/udev/rules.d/60-persistent-serial.rules
 -rw-r--r-- root       root             1420 ./lib/udev/rules.d/60-persistent-storage-tape.rules
--rw-r--r-- root       root             5592 ./lib/udev/rules.d/60-persistent-storage.rules
+-rw-r--r-- root       root             5609 ./lib/udev/rules.d/60-persistent-storage.rules
 -rw-r--r-- root       root              769 ./lib/udev/rules.d/60-persistent-v4l.rules
 -rw-r--r-- root       root              166 ./lib/udev/rules.d/61-accelerometer.rules
 -rw-r--r-- root       root              418 ./lib/udev/rules.d/64-btrfs.rules
--rw-r--r-- root       root              785 ./lib/udev/rules.d/70-power-switch.rules
+-rw-r--r-- root       root              734 ./lib/udev/rules.d/70-mouse.rules
+-rw-r--r-- root       root              706 ./lib/udev/rules.d/70-power-switch.rules
+-rw-r--r-- root       root              345 ./lib/udev/rules.d/70-touchpad.rules
+-rw-r--r-- root       root             2591 ./lib/udev/rules.d/70-uaccess.rules
+-rw-r--r-- root       root             2352 ./lib/udev/rules.d/71-seat.rules
+-rw-r--r-- root       root              596 ./lib/udev/rules.d/73-seat-late.rules
 -rw-r--r-- root       root              452 ./lib/udev/rules.d/75-net-description.rules
 -rw-r--r-- root       root              174 ./lib/udev/rules.d/75-probe_mtd.rules
 -rw-r--r-- root       root              426 ./lib/udev/rules.d/75-tty-description.rules
 -rw-r--r-- root       root             4400 ./lib/udev/rules.d/78-sound-card.rules
 -rw-r--r-- root       root              618 ./lib/udev/rules.d/80-drivers.rules
 -rw-r--r-- root       root              292 ./lib/udev/rules.d/80-net-setup-link.rules
+-rw-r--r-- root       root              437 ./lib/udev/rules.d/90-vconsole.rules
 -rw-r--r-- root       root              155 ./lib/udev/rules.d/95-udev-late.rules
--rwxr-xr-x root       root            67868 ./lib/udev/scsi_id
--rwxr-xr-x root       root             5732 ./lib/udev/v4l_id
+-rw-r--r-- root       root             4053 ./lib/udev/rules.d/99-systemd.rules
+-rwxr-xr-x root       root            47380 ./lib/udev/scsi_id
+-rwxr-xr-x root       root             9832 ./lib/udev/v4l_id
 drwxr-xr-x root       root             4096 ./sbin
 lrwxrwxrwx root       root               19 ./sbin/depmod -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            61448 ./sbin/dosfsck
@@ -302,17 +311,17 @@ lrwxrwxrwx root       root               19 ./usr/bin/flock -> /bin/busybox.nosu
 lrwxrwxrwx root       root               19 ./usr/bin/free -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/fuser -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/groups -> /bin/busybox.nosuid
--rwxr-xr-x root       root            62440 ./usr/bin/grub-editenv
+-rwxr-xr-x root       root            62504 ./usr/bin/grub-editenv
 -rwxr-xr-x root       root           834416 ./usr/bin/grub-fstest
 -rwxr-xr-x root       root             1717 ./usr/bin/grub-kbdcomp
 -rwxr-xr-x root       root            43672 ./usr/bin/grub-menulst2cfg
 -rwxr-xr-x root       root           142292 ./usr/bin/grub-mkimage
 -rwxr-xr-x root       root            61704 ./usr/bin/grub-mklayout
--rwxr-xr-x root       root            70456 ./usr/bin/grub-mkpasswd-pbkdf2
+-rwxr-xr-x root       root            70520 ./usr/bin/grub-mkpasswd-pbkdf2
 -rwxr-xr-x root       root           219732 ./usr/bin/grub-mkrelpath
 -rwxr-xr-x root       root            12958 ./usr/bin/grub-mkrescue
 -rwxr-xr-x root       root             6347 ./usr/bin/grub-mkstandalone
--rwxr-xr-x root       root            86700 ./usr/bin/grub-script-check
+-rwxr-xr-x root       root            86764 ./usr/bin/grub-script-check
 lrwxrwxrwx root       root               19 ./usr/bin/head -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/hexdump -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/id -> /bin/busybox.nosuid
@@ -593,8 +602,8 @@ drwxr-xr-x root       root            20480 ./usr/lib/grub/i386-pc
 -rwxr-xr-x root       root             5832 ./usr/lib/grub/i386-pc/lvm.module
 -rwxr-xr-x root       root             3396 ./usr/lib/grub/i386-pc/lzma_decompress.image
 -rw-r--r-- root       root             2864 ./usr/lib/grub/i386-pc/lzma_decompress.img
--rw-r--r-- root       root            10344 ./usr/lib/grub/i386-pc/lzopio.mod
--rwxr-xr-x root       root             8060 ./usr/lib/grub/i386-pc/lzopio.module
+-rw-r--r-- root       root            10384 ./usr/lib/grub/i386-pc/lzopio.mod
+-rwxr-xr-x root       root             8100 ./usr/lib/grub/i386-pc/lzopio.module
 -rw-r--r-- root       root             1940 ./usr/lib/grub/i386-pc/mdraid09.mod
 -rwxr-xr-x root       root             1216 ./usr/lib/grub/i386-pc/mdraid09.module
 -rw-r--r-- root       root             1972 ./usr/lib/grub/i386-pc/mdraid09_be.mod
@@ -705,12 +714,12 @@ drwxr-xr-x root       root            20480 ./usr/lib/grub/i386-pc
 -rwxr-xr-x root       root              912 ./usr/lib/grub/i386-pc/read.module
 -rw-r--r-- root       root             1776 ./usr/lib/grub/i386-pc/reboot.mod
 -rwxr-xr-x root       root              960 ./usr/lib/grub/i386-pc/reboot.module
--rw-r--r-- root       root            65868 ./usr/lib/grub/i386-pc/regexp.mod
--rwxr-xr-x root       root            56568 ./usr/lib/grub/i386-pc/regexp.module
+-rw-r--r-- root       root            65932 ./usr/lib/grub/i386-pc/regexp.mod
+-rwxr-xr-x root       root            56632 ./usr/lib/grub/i386-pc/regexp.module
 -rw-r--r-- root       root             9816 ./usr/lib/grub/i386-pc/reiserfs.mod
 -rwxr-xr-x root       root             7240 ./usr/lib/grub/i386-pc/reiserfs.module
--rw-r--r-- root       root            16744 ./usr/lib/grub/i386-pc/relocator.mod
--rwxr-xr-x root       root            11008 ./usr/lib/grub/i386-pc/relocator.module
+-rw-r--r-- root       root            16784 ./usr/lib/grub/i386-pc/relocator.mod
+-rwxr-xr-x root       root            11048 ./usr/lib/grub/i386-pc/relocator.module
 -rw-r--r-- root       root             4432 ./usr/lib/grub/i386-pc/romfs.mod
 -rwxr-xr-x root       root             3236 ./usr/lib/grub/i386-pc/romfs.module
 -rw-r--r-- root       root             5536 ./usr/lib/grub/i386-pc/scsi.mod
@@ -1013,7 +1022,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/fbset -> /bin/busybox.nos
 -rwxr-xr-x root       root             7081 ./usr/sbin/grub-mkconfig
 -rwxr-xr-x root       root             7490 ./usr/sbin/grub-mknetdir
 -rwxr-xr-x root       root            35732 ./usr/sbin/grub-ofpathname
--rwxr-xr-x root       root           812820 ./usr/sbin/grub-probe
+-rwxr-xr-x root       root           812948 ./usr/sbin/grub-probe
 -rwxr-xr-x root       root             3903 ./usr/sbin/grub-reboot
 -rwxr-xr-x root       root             3412 ./usr/sbin/grub-set-default
 lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.nosuid
