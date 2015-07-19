@@ -1,0 +1,26 @@
+    if [ "x$D" != "x" ]; then
+        exit 1
+    fi
+
+    #Install the database
+    test -d /usr/bin || mkdir -p /usr/bin
+    test -e /usr/bin/hostname || ln -s /bin/hostname /usr/bin/hostname
+    mkdir /var/lib/mysql
+    chown mysql.mysql /var/lib/mysql
+
+    mysql_install_db --basedir=/usr --user=mysql
+
+    [ -x /sbin/restorecon ] && /sbin/restorecon -RF /var/lib/mysql
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS disable mysqld.service
+
+	if [ -z "$D" -a "disable" = "enable" ]; then
+		systemctl restart mysqld.service
+	fi
+fi
