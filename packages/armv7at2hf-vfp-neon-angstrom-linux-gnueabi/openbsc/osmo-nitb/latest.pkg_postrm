@@ -1,0 +1,9 @@
+#!/bin/sh
+if type update-rc.d >/dev/null 2>/dev/null; then
+	if [ -n "$D" ]; then
+		OPT="-r $D"
+	else
+		OPT=""
+	fi
+	update-rc.d $OPT osmo-nitb remove
+fi
