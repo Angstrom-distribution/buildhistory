@@ -20,7 +20,7 @@ else
 fi
 
 SCHEMA_LOCATION=$D/etc/gconf/schemas
-for SCHEMA in panel-object.schemas window-list.schemas clock.schemas panel-general.schemas panel-global.schemas panel-toplevel.schemas workspace-switcher.schemas fish.schemas panel-compatibility.schemas; do
+for SCHEMA in workspace-switcher.schemas panel-global.schemas window-list.schemas panel-general.schemas panel-compatibility.schemas clock.schemas panel-toplevel.schemas panel-object.schemas fish.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
