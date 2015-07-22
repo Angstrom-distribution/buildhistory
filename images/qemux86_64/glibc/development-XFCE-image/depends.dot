@@ -939,17 +939,6 @@ digraph depends {
 "libjpeg8" -> "libc6";
 "libkmod2" -> "libc6";
 "libkmod2" -> "libz1";
-"libllvm3.3-llvm-3.3" -> "libc6";
-"libllvm3.3-llvm-3.3" -> "libgcc1";
-"libllvm3.3-llvm-3.3" -> "libstdc++6";
-"libllvm3.3-llvm-3.3" -> "libz1";
-"libllvm3.3-llvm-3.3" -> "llvm3.3";
-"libllvm3.3-lto" -> "libc6";
-"libllvm3.3-lto" -> "libllvm3.3-llvm-3.3";
-"libllvm3.3-lto" -> "libstdc++6";
-"libllvm3.3-lto" -> "llvm3.3";
-"libllvm3.3-profile-rt" -> "libc6";
-"libllvm3.3-profile-rt" -> "llvm3.3";
 "libltdl-dev" -> "libc6-dev" [style=dotted];
 "libltdl-dev" -> "libltdl7";
 "libltdl7" -> "libc6";
@@ -1273,6 +1262,10 @@ digraph depends {
 "libxcb-util1" -> "libxau6";
 "libxcb-util1" -> "libxcb1";
 "libxcb-util1" -> "libxdmcp6";
+"libxcb-xkb1" -> "libc6";
+"libxcb-xkb1" -> "libxau6";
+"libxcb-xkb1" -> "libxcb1";
+"libxcb-xkb1" -> "libxdmcp6";
 "libxcb1" -> "libc6";
 "libxcb1" -> "libxau6";
 "libxcb1" -> "libxdmcp6";
@@ -1363,6 +1356,11 @@ digraph depends {
 "libxinerama1" -> "libxcb1";
 "libxinerama1" -> "libxdmcp6";
 "libxinerama1" -> "libxext6";
+"libxkbcommon" -> "libc6";
+"libxkbcommon" -> "libxau6";
+"libxkbcommon" -> "libxcb-xkb1";
+"libxkbcommon" -> "libxcb1";
+"libxkbcommon" -> "libxdmcp6";
 "libxkbfile1" -> "libc6";
 "libxkbfile1" -> "libx11-6";
 "libxkbfile1" -> "libxau6";
@@ -1431,9 +1429,6 @@ digraph depends {
 "libxxf86vm1" -> "libxdmcp6";
 "libxxf86vm1" -> "libxext6";
 "libz1" -> "libc6";
-"llvm3.3" -> "libllvm3.3-llvm-3.3";
-"llvm3.3" -> "libllvm3.3-lto";
-"llvm3.3" -> "libllvm3.3-profile-rt";
 "lmbench" -> "libc6";
 "lmbench" -> "perl";
 "locale-base-en-us" -> "glibc-binary-localedata-en-us";
@@ -1451,7 +1446,6 @@ digraph depends {
 "mesa-megadriver" -> "libelf1";
 "mesa-megadriver" -> "libexpat1";
 "mesa-megadriver" -> "libgcc1";
-"mesa-megadriver" -> "libllvm3.3-llvm-3.3";
 "mesa-megadriver" -> "libpciaccess0";
 "mesa-megadriver" -> "libstdc++6";
 "mesa-megadriver" -> "libz1";
@@ -6037,6 +6031,7 @@ digraph depends {
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
+"systemd" -> "iptables";
 "systemd" -> "kernel-module-autofs4" [style=dotted];
 "systemd" -> "kernel-module-ipv6" [style=dotted];
 "systemd" -> "kernel-module-unix" [style=dotted];
@@ -6051,6 +6046,7 @@ digraph depends {
 "systemd" -> "liblzma5";
 "systemd" -> "libmount1";
 "systemd" -> "libpam";
+"systemd" -> "libxkbcommon";
 "systemd" -> "os-release" [style=dotted];
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
