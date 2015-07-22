@@ -3301,6 +3301,7 @@ digraph depends {
 "libstdc++6" -> "libgcc1";
 "libsystemd0" -> "libc6";
 "libsystemd0" -> "libcap2";
+"libsystemd0" -> "libgcc1";
 "libsystemd0" -> "liblzma5";
 "libtdb1" -> "libc6";
 "libtheora" -> "libc6";
@@ -3323,6 +3324,7 @@ digraph depends {
 "libts-1.0-0" -> "tslib-conf";
 "libudev1" -> "libc6";
 "libudev1" -> "libcap2";
+"libudev1" -> "libgcc1";
 "libunique-1.0-0" -> "gdk-pixbuf";
 "libunique-1.0-0" -> "libatk-1.0-0";
 "libunique-1.0-0" -> "libc6";
@@ -3499,6 +3501,10 @@ digraph depends {
 "libxcb-util1" -> "libxau6";
 "libxcb-util1" -> "libxcb1";
 "libxcb-util1" -> "libxdmcp6";
+"libxcb-xkb1" -> "libc6";
+"libxcb-xkb1" -> "libxau6";
+"libxcb-xkb1" -> "libxcb1";
+"libxcb-xkb1" -> "libxdmcp6";
 "libxcb1" -> "libc6";
 "libxcb1" -> "libxau6";
 "libxcb1" -> "libxdmcp6";
@@ -3556,6 +3562,11 @@ digraph depends {
 "libxinerama1" -> "libxcb1";
 "libxinerama1" -> "libxdmcp6";
 "libxinerama1" -> "libxext6";
+"libxkbcommon" -> "libc6";
+"libxkbcommon" -> "libxau6";
+"libxkbcommon" -> "libxcb-xkb1";
+"libxkbcommon" -> "libxcb1";
+"libxkbcommon" -> "libxdmcp6";
 "libxkbfile1" -> "libc6";
 "libxkbfile1" -> "libx11-6";
 "libxkbfile1" -> "libxau6";
@@ -8343,6 +8354,7 @@ digraph depends {
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
+"systemd" -> "iptables";
 "systemd" -> "kernel-module-autofs4" [style=dotted];
 "systemd" -> "kernel-module-ipv6" [style=dotted];
 "systemd" -> "kernel-module-unix" [style=dotted];
@@ -8352,11 +8364,13 @@ digraph depends {
 "systemd" -> "libblkid1";
 "systemd" -> "libc6";
 "systemd" -> "libcap2";
+"systemd" -> "libgcc1";
 "systemd" -> "libidn11";
 "systemd" -> "libkmod2";
 "systemd" -> "liblzma5";
 "systemd" -> "libmount1";
 "systemd" -> "libpam";
+"systemd" -> "libxkbcommon";
 "systemd" -> "os-release" [style=dotted];
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
@@ -8371,6 +8385,7 @@ digraph depends {
 "systemd" -> "volatile-binds";
 "systemd-analyze" -> "libc6";
 "systemd-analyze" -> "libcap2";
+"systemd-analyze" -> "libgcc1";
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
 "systemd-serialgetty" -> "systemd";
@@ -8384,6 +8399,7 @@ digraph depends {
 "udev" -> "libattr1";
 "udev" -> "libblkid1";
 "udev" -> "libc6";
+"udev" -> "libgcc1";
 "udev" -> "libkmod2";
 "udev-hwdb" -> "udev";
 "udisks" -> "libatasmart4";

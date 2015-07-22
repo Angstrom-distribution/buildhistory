@@ -6,7 +6,7 @@ else
 fi
 
 SCHEMA_LOCATION=$D/etc/gconf/schemas
-for SCHEMA in system_dns_sd.schemas desktop_default_applications.schemas desktop_gnome_url_handlers.schemas system_http_proxy.schemas system_smb.schemas; do
+for SCHEMA in desktop_gnome_url_handlers.schemas system_smb.schemas system_http_proxy.schemas desktop_default_applications.schemas system_dns_sd.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
