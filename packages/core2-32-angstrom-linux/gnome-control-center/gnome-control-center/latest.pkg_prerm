@@ -1,6 +1,6 @@
 #!/bin/sh
 SCHEMA_LOCATION=/etc/gconf/schemas
-for SCHEMA in gnome-control-center.schemas fontilus.schemas control-center.schemas; do
+for SCHEMA in control-center.schemas gnome-control-center.schemas fontilus.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=/root GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
 			gconftool-2 \
