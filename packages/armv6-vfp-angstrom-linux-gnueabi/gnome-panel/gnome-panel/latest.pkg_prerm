@@ -1,6 +1,6 @@
 #!/bin/sh
 SCHEMA_LOCATION=/etc/gconf/schemas
-for SCHEMA in panel-toplevel.schemas panel-global.schemas panel-object.schemas panel-compatibility.schemas panel-general.schemas fish.schemas clock.schemas window-list.schemas workspace-switcher.schemas; do
+for SCHEMA in workspace-switcher.schemas panel-global.schemas window-list.schemas panel-general.schemas panel-compatibility.schemas clock.schemas panel-toplevel.schemas panel-object.schemas fish.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=/root GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
 			gconftool-2 \
