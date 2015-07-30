@@ -925,7 +925,6 @@ digraph depends {
 "libgudev-1.0-0" -> "libglib-2.0-0";
 "libgudev-1.0-0" -> "libudev1";
 "libgudev-1.0-0" -> "libz1";
-"libhandle1" -> "libc6";
 "libharfbuzz0" -> "libc6";
 "libharfbuzz0" -> "libfreetype6";
 "libharfbuzz0" -> "libglib-2.0-0";
@@ -1250,6 +1249,10 @@ digraph depends {
 "libxcb-util1" -> "libxau6";
 "libxcb-util1" -> "libxcb1";
 "libxcb-util1" -> "libxdmcp6";
+"libxcb-xkb1" -> "libc6";
+"libxcb-xkb1" -> "libxau6";
+"libxcb-xkb1" -> "libxcb1";
+"libxcb-xkb1" -> "libxdmcp6";
 "libxcb1" -> "libc6";
 "libxcb1" -> "libxau6";
 "libxcb1" -> "libxdmcp6";
@@ -1340,6 +1343,11 @@ digraph depends {
 "libxinerama1" -> "libxcb1";
 "libxinerama1" -> "libxdmcp6";
 "libxinerama1" -> "libxext6";
+"libxkbcommon" -> "libc6";
+"libxkbcommon" -> "libxau6";
+"libxkbcommon" -> "libxcb-xkb1";
+"libxkbcommon" -> "libxcb1";
+"libxkbcommon" -> "libxdmcp6";
 "libxkbfile1" -> "libc6";
 "libxkbfile1" -> "libx11-6";
 "libxkbfile1" -> "libxau6";
@@ -5999,6 +6007,7 @@ digraph depends {
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
+"systemd" -> "iptables";
 "systemd" -> "kernel-module-autofs4" [style=dotted];
 "systemd" -> "kernel-module-ipv6" [style=dotted];
 "systemd" -> "kernel-module-unix" [style=dotted];
@@ -6013,6 +6022,7 @@ digraph depends {
 "systemd" -> "liblzma5";
 "systemd" -> "libmount1";
 "systemd" -> "libpam";
+"systemd" -> "libxkbcommon";
 "systemd" -> "os-release" [style=dotted];
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
@@ -6739,7 +6749,6 @@ digraph depends {
 "xfdesktop" -> "thunar";
 "xfdesktop" -> "xfconf";
 "xfsprogs" -> "libc6";
-"xfsprogs" -> "libhandle1";
 "xfsprogs" -> "libuuid1";
 "xfsprogs" -> "xfsprogs-fsck";
 "xfsprogs" -> "xfsprogs-mkfs";
