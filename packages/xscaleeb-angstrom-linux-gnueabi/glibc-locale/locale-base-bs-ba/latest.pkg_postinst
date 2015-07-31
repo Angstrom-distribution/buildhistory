@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "x$D" != "x" ]; then
+	exit 1
+fi
+
+rm -rf /tmp/locale/usr/lib/locale
+mkdir -p /tmp/locale/usr/lib/locale
+if [ -f /usr/lib/locale/locale-archive ]; then
+        cp /usr/lib/locale/locale-archive /tmp/locale/usr/lib/locale/
+fi
+localedef --inputfile=/usr/share/i18n/locales/bs_BA --charmap=UTF-8 --prefix=/tmp/locale bs_BA
+mkdir -p /usr/lib/locale/
+mv /tmp/locale/usr/lib/locale/locale-archive /usr/lib/locale/
+rm -rf /tmp/locale/usr/lib/locale
