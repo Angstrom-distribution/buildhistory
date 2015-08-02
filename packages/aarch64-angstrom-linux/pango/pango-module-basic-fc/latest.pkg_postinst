@@ -3,7 +3,7 @@ if ! [ -e $D/etc/pango ] ; then
 	mkdir -p $D/etc/pango
 fi
 
-if [ "x$D" != "x" ]; then
+if [ -n "$D" ]; then
 	PSEUDO_UNLOAD=1 qemu-aarch64 -r 2.6.32  -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/usr/bin/pango-querymodules \
 		$D/usr/lib/pango/1.8.0/modules/*.so \
 		> $D/etc/pango/pango.modules 2>/dev/null
@@ -13,5 +13,7 @@ if [ "x$D" != "x" ]; then
 	sed -i -e "s:$D::" $D/etc/pango/pango.modules
 
 	exit 0
+else
+	/usr/bin/pango-querymodules > /etc/pango/pango.modules
 fi
-/usr/bin/pango-querymodules > /etc/pango/pango.modules
+
