@@ -47,8 +47,10 @@ digraph depends {
 "htop" -> "ncurses-terminfo";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel-image-3.8.13" -> "kernel-devicetree";
-"kernel-image-3.8.13" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel" -> "kernel-4.1.4";
+"kernel-4.1.4" -> "kernel-image-4.1.4";
+"kernel-image-4.1.4" -> "kernel-devicetree";
+"kernel-image-4.1.4" -> "kernel-devicetree-overlays" [style=dotted];
 "kmod" -> "libz1";
 "libacl1" -> "libattr1";
 "libasound2" -> "alsa-conf";
@@ -151,7 +153,7 @@ digraph depends {
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "kernel";
 "packagegroup-boot" -> "kernel-devicetree";
-"packagegroup-boot" -> "kernel-devicetree-overlays";
+"packagegroup-boot" -> "kernel-devicetree-overlays" [style=dotted];
 "packagegroup-boot" -> "netbase";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-deny" -> "libpam-suffix";
