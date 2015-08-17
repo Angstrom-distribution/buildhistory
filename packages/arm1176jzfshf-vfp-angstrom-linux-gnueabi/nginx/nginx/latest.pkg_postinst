@@ -5,11 +5,16 @@
 			/etc/init.d/populate-volatile.sh update
 		fi
 	fi
-if type update-rc.d >/dev/null 2>/dev/null; then
-	if [ -n "$D" ]; then
-		OPT="-r $D"
-	else
-		OPT="-s"
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS enable nginx.service
+
+	if [ -z "$D" -a "enable" = "enable" ]; then
+		systemctl restart nginx.service
 	fi
-	update-rc.d $OPT nginx defaults 92 20
 fi
