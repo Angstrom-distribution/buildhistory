@@ -216,6 +216,9 @@ digraph depends {
 "connman" -> "wpa-supplicant";
 "connman" -> "xuser-account";
 "connman-angstrom-settings" -> "connman";
+"connman-client" -> "libdbus-1-3";
+"connman-client" -> "libglib-2.0-0";
+"connman-client" -> "libreadline6";
 "connman-gnome" -> "connman";
 "connman-gnome" -> "hicolor-icon-theme";
 "connman-gnome" -> "libdbus-glib-1-2";
@@ -281,7 +284,6 @@ digraph depends {
 "epiphany" -> "libxslt";
 "epiphany" -> "pango";
 "file" -> "libz1";
-"fixmac" -> "ranpwd";
 "flex" -> "m4";
 "flex-dev" -> "flex";
 "flex-dev" -> "m4-dev" [style=dotted];
@@ -4291,13 +4293,6 @@ digraph depends {
 "libjavascriptcoregtk-1.0-0" -> "libstdc++6";
 "libjavascriptcoregtk-1.0-0" -> "libz1";
 "libkmod2" -> "libz1";
-"libllvm3.3-llvm-3.3" -> "libstdc++6";
-"libllvm3.3-llvm-3.3" -> "libz1";
-"libllvm3.3-llvm-3.3" -> "llvm3.3";
-"libllvm3.3-lto" -> "libllvm3.3-llvm-3.3";
-"libllvm3.3-lto" -> "libstdc++6";
-"libllvm3.3-lto" -> "llvm3.3";
-"libllvm3.3-profile-rt" -> "llvm3.3";
 "libltdl-dev" -> "libltdl7";
 "libmenu5" -> "libncurses5";
 "libmenu5" -> "libtinfo5";
@@ -4901,6 +4896,7 @@ digraph depends {
 "linux-firmware" -> "linux-firmware-iwlwifi-7260-7";
 "linux-firmware" -> "linux-firmware-iwlwifi-license";
 "linux-firmware" -> "linux-firmware-marvell-license";
+"linux-firmware" -> "linux-firmware-pcie8897";
 "linux-firmware" -> "linux-firmware-radeon";
 "linux-firmware" -> "linux-firmware-ralink";
 "linux-firmware" -> "linux-firmware-rtl-license";
@@ -4910,6 +4906,7 @@ digraph depends {
 "linux-firmware" -> "linux-firmware-sd8686";
 "linux-firmware" -> "linux-firmware-sd8787";
 "linux-firmware" -> "linux-firmware-sd8797";
+"linux-firmware" -> "linux-firmware-usb8897";
 "linux-firmware" -> "linux-firmware-vt6656";
 "linux-firmware" -> "linux-firmware-wl12xx";
 "linux-firmware" -> "linux-firmware-wl18xx";
@@ -4927,15 +4924,14 @@ digraph depends {
 "linux-firmware-iwlwifi-6000g2a-6" -> "linux-firmware-iwlwifi-license";
 "linux-firmware-iwlwifi-6000g2b-6" -> "linux-firmware-iwlwifi-license";
 "linux-firmware-iwlwifi-7260-7" -> "linux-firmware-iwlwifi-license";
+"linux-firmware-pcie8897" -> "linux-firmware-marvell-license";
 "linux-firmware-rtl8192ce" -> "linux-firmware-rtl-license";
 "linux-firmware-rtl8192cu" -> "linux-firmware-rtl-license";
 "linux-firmware-sd8686" -> "linux-firmware-marvell-license";
 "linux-firmware-sd8787" -> "linux-firmware-marvell-license";
 "linux-firmware-sd8797" -> "linux-firmware-marvell-license";
+"linux-firmware-usb8897" -> "linux-firmware-marvell-license";
 "linux-firmware-wl18xx" -> "linux-firmware-wl12xx";
-"llvm3.3" -> "libllvm3.3-llvm-3.3";
-"llvm3.3" -> "libllvm3.3-lto";
-"llvm3.3" -> "libllvm3.3-profile-rt";
 "lmbench" -> "perl";
 "lms8" -> "libstdc++6";
 "lms8" -> "update-rc.d" [style=dotted];
@@ -4948,7 +4944,6 @@ digraph depends {
 "mesa-megadriver" -> "libdrm2";
 "mesa-megadriver" -> "libelf1";
 "mesa-megadriver" -> "libexpat1";
-"mesa-megadriver" -> "libllvm3.3-llvm-3.3";
 "mesa-megadriver" -> "libpciaccess0";
 "mesa-megadriver" -> "libstdc++6";
 "mesa-megadriver" -> "libz1";
@@ -5065,7 +5060,6 @@ digraph depends {
 "nss" -> "libsqlite3-0";
 "nss" -> "libz1";
 "nss" -> "nspr";
-"nss" -> "perl";
 "obex-data-server" -> "bluez4";
 "obex-data-server" -> "imagemagick";
 "obex-data-server" -> "libdbus-glib-1-2";
@@ -5148,6 +5142,7 @@ digraph depends {
 "packagegroup-core-x11-xserver" -> "xserver-xorg-module-libint10";
 "packagegroup-gnome" -> "angstrom-clearlooks-theme-enable";
 "packagegroup-gnome" -> "angstrom-gdm-autologin-hack";
+"packagegroup-gnome" -> "angstrom-skel-gnome2";
 "packagegroup-gnome" -> "bash";
 "packagegroup-gnome" -> "gnome-bluetooth";
 "packagegroup-gnome" -> "gnome-common-schemas";
@@ -9590,7 +9585,6 @@ digraph depends {
 "vim" -> "vim-syntax" [style=dotted];
 "vim" -> "vim-tutor" [style=dotted];
 "vim" -> "vim-vimrc" [style=dotted];
-"wayland" -> "libffi6";
 "wget" -> "ca-certificates" [style=dotted];
 "wget" -> "libgnutls28";
 "wget" -> "libpcre1";
@@ -9657,7 +9651,6 @@ digraph depends {
 "xf86-video-modesetting" -> "xorg-abi-video-18";
 "xf86-video-vesa" -> "xorg-abi-video-18";
 "xf86-video-vesa" -> "xserver-xorg-module-libint10" [style=dotted];
-"xfsprogs" -> "libhandle1";
 "xfsprogs" -> "libuuid1";
 "xfsprogs" -> "xfsprogs-fsck";
 "xfsprogs" -> "xfsprogs-mkfs";
@@ -9691,7 +9684,6 @@ digraph depends {
 "xserver-xorg" -> "libcrypto1.0.0";
 "xserver-xorg" -> "libdbus-1-3";
 "xserver-xorg" -> "libdrm2";
-"xserver-xorg" -> "libgl-mesa";
 "xserver-xorg" -> "libpciaccess0";
 "xserver-xorg" -> "libpixman-1-0";
 "xserver-xorg" -> "libudev1";
@@ -9699,7 +9691,6 @@ digraph depends {
 "xserver-xorg" -> "libxdmcp6";
 "xserver-xorg" -> "libxfont1";
 "xserver-xorg" -> "rgb" [style=dotted];
-"xserver-xorg" -> "wayland";
 "xserver-xorg" -> "xkbcomp" [style=dotted];
 "xserver-xorg" -> "xkeyboard-config" [style=dotted];
 "xserver-xorg" -> "xserver-xf86-config" [style=dotted];
