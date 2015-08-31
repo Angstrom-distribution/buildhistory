@@ -246,6 +246,10 @@ digraph depends {
 "connman" -> "wpa-supplicant";
 "connman" -> "xuser-account";
 "connman-angstrom-settings" -> "connman";
+"connman-client" -> "libc6";
+"connman-client" -> "libdbus-1-3";
+"connman-client" -> "libglib-2.0-0";
+"connman-client" -> "libreadline6";
 "connman-gnome" -> "connman";
 "connman-gnome" -> "hicolor-icon-theme";
 "connman-gnome" -> "libc6";
@@ -333,7 +337,6 @@ digraph depends {
 "fb-test" -> "libc6";
 "file" -> "libc6";
 "file" -> "libz1";
-"fixmac" -> "ranpwd";
 "flex" -> "libc6";
 "flex" -> "m4";
 "flex-dev" -> "flex";
@@ -2940,17 +2943,6 @@ digraph depends {
 "libjpeg8" -> "libc6";
 "libkmod2" -> "libc6";
 "libkmod2" -> "libz1";
-"libllvm3.3-llvm-3.3" -> "libc6";
-"libllvm3.3-llvm-3.3" -> "libgcc1";
-"libllvm3.3-llvm-3.3" -> "libstdc++6";
-"libllvm3.3-llvm-3.3" -> "libz1";
-"libllvm3.3-llvm-3.3" -> "llvm3.3";
-"libllvm3.3-lto" -> "libc6";
-"libllvm3.3-lto" -> "libllvm3.3-llvm-3.3";
-"libllvm3.3-lto" -> "libstdc++6";
-"libllvm3.3-lto" -> "llvm3.3";
-"libllvm3.3-profile-rt" -> "libc6";
-"libllvm3.3-profile-rt" -> "llvm3.3";
 "libltdl-dev" -> "libc6-dev" [style=dotted];
 "libltdl-dev" -> "libltdl7";
 "libltdl7" -> "libc6";
@@ -3494,6 +3486,10 @@ digraph depends {
 "libxcb-util1" -> "libxau6";
 "libxcb-util1" -> "libxcb1";
 "libxcb-util1" -> "libxdmcp6";
+"libxcb-xkb1" -> "libc6";
+"libxcb-xkb1" -> "libxau6";
+"libxcb-xkb1" -> "libxcb1";
+"libxcb-xkb1" -> "libxdmcp6";
 "libxcb1" -> "libc6";
 "libxcb1" -> "libxau6";
 "libxcb1" -> "libxdmcp6";
@@ -3551,6 +3547,11 @@ digraph depends {
 "libxinerama1" -> "libxcb1";
 "libxinerama1" -> "libxdmcp6";
 "libxinerama1" -> "libxext6";
+"libxkbcommon" -> "libc6";
+"libxkbcommon" -> "libxau6";
+"libxkbcommon" -> "libxcb-xkb1";
+"libxkbcommon" -> "libxcb1";
+"libxkbcommon" -> "libxdmcp6";
 "libxkbfile1" -> "libc6";
 "libxkbfile1" -> "libx11-6";
 "libxkbfile1" -> "libxau6";
@@ -3651,9 +3652,6 @@ digraph depends {
 "libxxf86vm1" -> "libxdmcp6";
 "libxxf86vm1" -> "libxext6";
 "libz1" -> "libc6";
-"llvm3.3" -> "libllvm3.3-llvm-3.3";
-"llvm3.3" -> "libllvm3.3-lto";
-"llvm3.3" -> "libllvm3.3-profile-rt";
 "lmbench" -> "libc6";
 "lmbench" -> "perl";
 "locale-base-en-us" -> "glibc-binary-localedata-en-us";
@@ -3671,10 +3669,8 @@ digraph depends {
 "mesa-megadriver" -> "libelf1";
 "mesa-megadriver" -> "libexpat1";
 "mesa-megadriver" -> "libgcc1";
-"mesa-megadriver" -> "libllvm3.3-llvm-3.3";
 "mesa-megadriver" -> "libpciaccess0";
 "mesa-megadriver" -> "libstdc++6";
-"mesa-megadriver" -> "libz1";
 "metacity" -> "gdk-pixbuf";
 "metacity" -> "gsettings-desktop-schemas";
 "metacity" -> "libatk-1.0-0";
@@ -3798,7 +3794,6 @@ digraph depends {
 "nss" -> "libsqlite3-0";
 "nss" -> "libz1";
 "nss" -> "nspr";
-"nss" -> "perl";
 "obex-data-server" -> "bluez4";
 "obex-data-server" -> "imagemagick";
 "obex-data-server" -> "libc6";
@@ -3882,6 +3877,7 @@ digraph depends {
 "packagegroup-core-x11-xserver" -> "xserver-xorg";
 "packagegroup-gnome" -> "angstrom-clearlooks-theme-enable";
 "packagegroup-gnome" -> "angstrom-gdm-autologin-hack";
+"packagegroup-gnome" -> "angstrom-skel-gnome2";
 "packagegroup-gnome" -> "bash";
 "packagegroup-gnome" -> "gnome-bluetooth";
 "packagegroup-gnome" -> "gnome-common-schemas";
@@ -8293,7 +8289,6 @@ digraph depends {
 "python-zlib" -> "libpython2.7-1.0";
 "python-zlib" -> "libz1";
 "python-zlib" -> "python-core";
-"ranpwd" -> "libc6";
 "rgb" -> "libc6";
 "rsync" -> "libacl1";
 "rsync" -> "libc6";
@@ -8342,6 +8337,7 @@ digraph depends {
 "systemd" -> "base-passwd";
 "systemd" -> "dbus-1";
 "systemd" -> "e2fsprogs-e2fsck" [style=dotted];
+"systemd" -> "iptables";
 "systemd" -> "kernel-module-autofs4" [style=dotted];
 "systemd" -> "kernel-module-ipv6" [style=dotted];
 "systemd" -> "kernel-module-unix" [style=dotted];
@@ -8356,6 +8352,7 @@ digraph depends {
 "systemd" -> "liblzma5";
 "systemd" -> "libmount1";
 "systemd" -> "libpam";
+"systemd" -> "libxkbcommon";
 "systemd" -> "os-release" [style=dotted];
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
@@ -8467,8 +8464,6 @@ digraph depends {
 "vim" -> "vim-syntax" [style=dotted];
 "vim" -> "vim-tutor" [style=dotted];
 "vim" -> "vim-vimrc" [style=dotted];
-"wayland" -> "libc6";
-"wayland" -> "libffi6";
 "wget" -> "ca-certificates" [style=dotted];
 "wget" -> "libc6";
 "wget" -> "libgnutls28";
@@ -8580,7 +8575,6 @@ digraph depends {
 "xserver-xorg" -> "libcrypto1.0.0";
 "xserver-xorg" -> "libdbus-1-3";
 "xserver-xorg" -> "libdrm2";
-"xserver-xorg" -> "libgl-mesa";
 "xserver-xorg" -> "libpciaccess0";
 "xserver-xorg" -> "libpixman-1-0";
 "xserver-xorg" -> "libudev1";
@@ -8588,7 +8582,6 @@ digraph depends {
 "xserver-xorg" -> "libxdmcp6";
 "xserver-xorg" -> "libxfont1";
 "xserver-xorg" -> "rgb" [style=dotted];
-"xserver-xorg" -> "wayland";
 "xserver-xorg" -> "xkbcomp" [style=dotted];
 "xserver-xorg" -> "xkeyboard-config" [style=dotted];
 "xserver-xorg" -> "xserver-xf86-config" [style=dotted];
