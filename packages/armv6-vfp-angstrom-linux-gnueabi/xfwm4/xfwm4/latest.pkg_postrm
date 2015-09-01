@@ -1,0 +1,12 @@
+#!/bin/sh
+	update-alternatives --remove  x-window-manager /usr/bin/xfwm4
+if [ "x$D" != "x" ]; then
+	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} mlprefix= libdir=/usr/lib \
+		base_libdir=/lib
+else
+	for icondir in /usr/share/icons/* ; do
+		if [ -d $icondir ] ; then
+			gtk-update-icon-cache -qt  $icondir
+		fi
+	done
+fi
