@@ -1,4 +1,14 @@
 #!/bin/sh
-if [ -z "$D" ]; then
-	/etc/init.d/nginx stop
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop nginx.service
+	fi
+
+	systemctl $OPTS disable nginx.service
 fi
