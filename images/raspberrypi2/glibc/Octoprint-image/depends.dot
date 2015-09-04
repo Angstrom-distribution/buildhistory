@@ -4770,6 +4770,7 @@ digraph depends {
 "libxkbcommon" -> "libxcb-xkb1";
 "libxkbcommon" -> "libxcb1";
 "libxkbcommon" -> "libxdmcp6";
+"libyaml-0-2" -> "libc6";
 "libz1" -> "libc6";
 "locale-base-en-us" -> "glibc-binary-localedata-en-us";
 "mjpg-streamer" -> "libc6";
@@ -4814,6 +4815,7 @@ digraph depends {
 "octoprint" -> "python-pathtools";
 "octoprint" -> "python-pip";
 "octoprint" -> "python-pkginfo";
+"octoprint" -> "python-psutil";
 "octoprint" -> "python-pylru";
 "octoprint" -> "python-pyserial";
 "octoprint" -> "python-pyyaml";
@@ -4947,9 +4949,11 @@ digraph depends {
 "python-audio" -> "libc6";
 "python-audio" -> "libpython2.7-1.0";
 "python-audio" -> "python-core";
+"python-babel" -> "python-pytz";
 "python-backports-ssl" -> "python-core";
 "python-blinker" -> "python-core";
 "python-bsddb" -> "python-core";
+"python-certifi" -> "python-core";
 "python-codecs" -> "libc6";
 "python-codecs" -> "libpython2.7-1.0";
 "python-codecs" -> "python-core";
@@ -5020,7 +5024,8 @@ digraph depends {
 "python-fcntl" -> "python-core";
 "python-flask" -> "python-core";
 "python-flask-assets" -> "python-webassets";
-"python-flask-babel" -> "python-core";
+"python-flask-babel" -> "python-babel";
+"python-flask-babel" -> "python-speaklater";
 "python-flask-login" -> "python-core";
 "python-flask-principal" -> "python-core";
 "python-gdbm" -> "libc6";
@@ -5209,6 +5214,10 @@ digraph depends {
 "python-profile" -> "libpython2.7-1.0";
 "python-profile" -> "python-core";
 "python-profile" -> "python-textutils";
+"python-psutil" -> "libc6";
+"python-psutil" -> "libpython2.7-1.0";
+"python-psutil" -> "python-core";
+"python-psutil" -> "python-subprocess";
 "python-pyasn1" -> "python-core";
 "python-pyasn1" -> "python-lang";
 "python-pyasn1" -> "python-shell";
@@ -5220,8 +5229,12 @@ digraph depends {
 "python-pyserial" -> "python-fcntl";
 "python-pyserial" -> "python-io";
 "python-pyserial" -> "python-stringold";
+"python-pytz" -> "python-core";
+"python-pytz" -> "python-datetime";
+"python-pyyaml" -> "libc6";
+"python-pyyaml" -> "libpython2.7-1.0";
+"python-pyyaml" -> "libyaml-0-2";
 "python-pyyaml" -> "python-core";
-"python-pyyaml" -> "python-datetime";
 "python-re" -> "python-core";
 "python-readline" -> "libc6";
 "python-readline" -> "libpython2.7-1.0";
@@ -5248,6 +5261,7 @@ digraph depends {
 "python-smtpd" -> "python-mime";
 "python-smtpd" -> "python-netserver";
 "python-sockjs-tornado" -> "python-tornado";
+"python-speaklater" -> "python-core";
 "python-sphinx-rtd-theme" -> "python-core";
 "python-sphinxcontrib-httpdomain" -> "python-core";
 "python-sqlite3" -> "libc6";
@@ -5288,7 +5302,7 @@ digraph depends {
 "python-tkinter" -> "python-core";
 "python-tornado" -> "libc6";
 "python-tornado" -> "libpython2.7-1.0";
-"python-tornado" -> "python-core";
+"python-tornado" -> "python-certifi";
 "python-unittest" -> "python-core";
 "python-unittest" -> "python-difflib";
 "python-unittest" -> "python-io";
@@ -5375,6 +5389,7 @@ digraph depends {
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
@@ -5389,6 +5404,11 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
 "systemd-serialgetty" -> "systemd";
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libc6";
+"systemd-vconsole-setup" -> "libgcc1";
 "udev" -> "libacl1";
 "udev" -> "libattr1";
 "udev" -> "libblkid1";
