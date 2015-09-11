@@ -74,6 +74,7 @@ digraph depends {
 "iptables" -> "kernel-module-x-tables" [style=dotted];
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
+"kbd" -> "update-alternatives-opkg";
 "kernel-image-3.18.0" -> "kernel-devicetree";
 "kernel-image-3.18.0" -> "kernel-devicetree-overlays" [style=dotted];
 "kernel-module-bluetooth" -> "kernel-module-rfkill";
@@ -354,6 +355,7 @@ digraph depends {
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
@@ -366,6 +368,9 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
 "systemd-serialgetty" -> "systemd";
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
 "udev" -> "libacl1";
 "udev" -> "libblkid1";
 "udev" -> "libkmod2";
