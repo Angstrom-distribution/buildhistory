@@ -4816,6 +4816,7 @@ digraph depends {
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
@@ -4830,6 +4831,11 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
 "systemd-serialgetty" -> "systemd";
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libc6";
+"systemd-vconsole-setup" -> "libgcc1";
 "udev" -> "libacl1";
 "udev" -> "libattr1";
 "udev" -> "libblkid1";
