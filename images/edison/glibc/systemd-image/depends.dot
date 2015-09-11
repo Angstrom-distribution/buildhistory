@@ -89,6 +89,8 @@ digraph depends {
 "iw" -> "libc6";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
+"kbd" -> "libc6";
+"kbd" -> "update-alternatives-opkg";
 "kernel" -> "kernel-3.10.32";
 "kernel-3.10.32" -> "kernel-image-3.10.32";
 "kernel-image-3.10.32" -> "kernel-devicetree";
@@ -375,6 +377,7 @@ digraph depends {
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
@@ -389,6 +392,11 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
 "systemd-serialgetty" -> "systemd";
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libc6";
+"systemd-vconsole-setup" -> "libgcc1";
 "udev" -> "libacl1";
 "udev" -> "libattr1";
 "udev" -> "libblkid1";
