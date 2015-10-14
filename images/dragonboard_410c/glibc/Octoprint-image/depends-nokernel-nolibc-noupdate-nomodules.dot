@@ -62,8 +62,8 @@ digraph depends {
 "htop" -> "ncurses-terminfo";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel" -> "kernel-4.0.0+yocto";
-"kernel-4.0.0+yocto" -> "kernel-image-4.0.0+yocto";
+"kernel" -> "kernel-4.2.0+yocto";
+"kernel-4.2.0+yocto" -> "kernel-image-4.2.0+yocto";
 "kmod" -> "libz1";
 "libacl1" -> "libattr1";
 "libasound2" -> "alsa-conf";
@@ -103,6 +103,7 @@ digraph depends {
 "libblkid1" -> "libuuid1";
 "libcrypto1.0.0" -> "openssl-conf" [style=dotted];
 "libdbus-1-3" -> "dbus-1" [style=dotted];
+"libdrm-freedreno1" -> "libdrm2";
 "libext2fs2" -> "libblkid1";
 "libext2fs2" -> "libcom-err2";
 "libformw5" -> "libncursesw5";
@@ -249,6 +250,10 @@ digraph depends {
 "linux-firmware-sd8797" -> "linux-firmware-marvell-license";
 "linux-firmware-wl18xx" -> "linux-firmware-wl12xx";
 "locale-base-en-us" -> "glibc-binary-localedata-en-us";
+"mesa-megadriver" -> "libdrm-freedreno1";
+"mesa-megadriver" -> "libdrm2";
+"mesa-megadriver" -> "libexpat1";
+"mesa-megadriver" -> "libstdc++6";
 "mjpg-streamer" -> "libexif12";
 "mjpg-streamer" -> "libgphoto2-6";
 "mjpg-streamer" -> "libgphoto2-port12";
@@ -345,8 +350,10 @@ digraph depends {
 "packagegroup-boot" -> "base-files";
 "packagegroup-boot" -> "base-passwd";
 "packagegroup-boot" -> "busybox";
+"packagegroup-boot" -> "firmware-qcom-dragonboard410c" [style=dotted];
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "linux-firmware" [style=dotted];
+"packagegroup-boot" -> "mesa-driver-msm" [style=dotted];
 "packagegroup-boot" -> "netbase";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-deny" -> "libpam-suffix";
