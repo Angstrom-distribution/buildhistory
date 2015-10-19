@@ -1,0 +1,13 @@
+    deluser gdm || true
+    delgroup gdm || true
+    sed -i /gdm/d /etc/X11/default-display-manager || true
+if [ "x$D" != "x" ]; then
+	$INTERCEPT_DIR/postinst_intercept update_icon_cache ${PKG} mlprefix= libdir=/usr/lib \
+		base_libdir=/lib
+else
+	for icondir in /usr/share/icons/* ; do
+		if [ -d $icondir ] ; then
+			gtk-update-icon-cache -qt  $icondir
+		fi
+	done
+fi
