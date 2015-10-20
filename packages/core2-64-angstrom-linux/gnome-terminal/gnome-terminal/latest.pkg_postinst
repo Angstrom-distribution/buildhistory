@@ -1,0 +1,14 @@
+#!/bin/sh
+if [ "x$D" != "x" ]; then
+	export GCONF_CONFIG_SOURCE="xml::$D/etc/gconf/gconf.xml.defaults"
+else
+	export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
+fi
+
+SCHEMA_LOCATION=$D/etc/gconf/schemas
+for SCHEMA in gnome-terminal.schemas; do
+	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
+		HOME=$D/root gconftool-2 \
+			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
+	fi
+done
