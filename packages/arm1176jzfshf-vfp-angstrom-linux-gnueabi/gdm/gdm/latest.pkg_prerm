@@ -1,0 +1,22 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop gdm.service
+	fi
+
+	systemctl $OPTS disable gdm.service
+fi
+SCHEMA_LOCATION=/etc/gconf/schemas
+for SCHEMA in gdm-simple-greeter.schemas; do
+	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
+		HOME=/root GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+			gconftool-2 \
+			--makefile-uninstall-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
+	fi
+done
