@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/4.1.5-v2.5b1.1+g326879d" ]; then
+		mkdir -p $D/lib/modules/4.1.5-v2.5b1.1+g326879d
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 4.1.5-v2.5b1.1+g326879d
+	else
+		depmod -a 4.1.5-v2.5b1.1+g326879d
+	fi
