@@ -88,6 +88,7 @@ digraph depends {
 "iptables" -> "kernel-module-x-tables" [style=dotted];
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
+"kbd" -> "update-alternatives-opkg";
 "kernel-module-ip-tables" -> "kernel-module-x-tables";
 "kernel-module-iptable-filter" -> "kernel-module-ip-tables";
 "kernel-module-iptable-filter" -> "kernel-module-x-tables";
@@ -256,6 +257,7 @@ digraph depends {
 "systemd" -> "kernel-module-unix" [style=dotted];
 "systemd" -> "kmod";
 "systemd" -> "libacl1";
+"systemd" -> "libattr1";
 "systemd" -> "libblkid1";
 "systemd" -> "libcap2";
 "systemd" -> "libidn11";
@@ -268,10 +270,12 @@ digraph depends {
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
 "systemd" -> "update-rc.d" [style=dotted];
+"systemd" -> "update-rc.d";
 "systemd" -> "util-linux-agetty" [style=dotted];
 "systemd" -> "util-linux-fsck" [style=dotted];
 "systemd" -> "util-linux-mount";
@@ -280,6 +284,9 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
 "systemd-serialgetty" -> "systemd";
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
 "udev" -> "libacl1";
 "udev" -> "libblkid1";
 "udev" -> "libkmod2";
