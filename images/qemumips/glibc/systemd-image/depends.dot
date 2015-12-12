@@ -88,6 +88,8 @@ digraph depends {
 "iw" -> "libc6";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
+"kbd" -> "libc6";
+"kbd" -> "update-alternatives-opkg";
 "kernel" -> "kernel-3.17.8-yocto-standard";
 "kernel-module-8021q" -> "kernel-3.17.8-yocto-standard";
 "kernel-module-act-mirred" -> "kernel-3.17.8-yocto-standard";
@@ -1038,6 +1040,7 @@ digraph depends {
 "systemd" -> "kernel-module-unix" [style=dotted];
 "systemd" -> "kmod";
 "systemd" -> "libacl1";
+"systemd" -> "libattr1";
 "systemd" -> "libblkid1";
 "systemd" -> "libc6";
 "systemd" -> "libcap2";
@@ -1052,10 +1055,12 @@ digraph depends {
 "systemd" -> "shadow";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
+"systemd" -> "systemd-vconsole-setup" [style=dotted];
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
 "systemd" -> "update-rc.d" [style=dotted];
+"systemd" -> "update-rc.d";
 "systemd" -> "util-linux-agetty" [style=dotted];
 "systemd" -> "util-linux-fsck" [style=dotted];
 "systemd" -> "util-linux-mount";
@@ -1066,6 +1071,11 @@ digraph depends {
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
 "systemd-serialgetty" -> "systemd";
+"systemd-vconsole-setup" -> "kbd" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
+"systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libc6";
+"systemd-vconsole-setup" -> "libgcc1";
 "udev" -> "libacl1";
 "udev" -> "libblkid1";
 "udev" -> "libc6";
