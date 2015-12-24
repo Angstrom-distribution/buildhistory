@@ -1,0 +1,8 @@
+#!/bin/sh
+if type systemctl >/dev/null 2>/dev/null; then
+	if [ -z "$D" ]; then
+		systemctl stop wpa_supplicant.service wpa_supplicant-nl80211@.service wpa_supplicant-wired@.service
+	fi
+
+	systemctl disable wpa_supplicant.service wpa_supplicant-nl80211@.service wpa_supplicant-wired@.service
+fi
