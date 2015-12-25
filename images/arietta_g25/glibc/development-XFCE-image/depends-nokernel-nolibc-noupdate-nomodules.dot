@@ -408,6 +408,7 @@ digraph depends {
 "gvfs" -> "libglib-2.0-0";
 "gvfs" -> "libgphoto2-6";
 "gvfs" -> "libgphoto2-port12";
+"gvfs" -> "libgtk-3.0";
 "gvfs" -> "libgudev-1.0-0";
 "gvfs" -> "libsmbclient0";
 "gvfs" -> "libsoup-2.4";
@@ -429,10 +430,10 @@ digraph depends {
 "iso-codes-locale-en" -> "virtual-locale-en" [style=dotted];
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel" -> "kernel-4.0.6";
-"kernel-4.0.6" -> "kernel-image-4.0.6";
-"kernel-image-4.0.6" -> "kernel-devicetree";
-"kernel-image-4.0.6" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel" -> "kernel-4.3.3";
+"kernel-4.3.3" -> "kernel-image-4.3.3";
+"kernel-image-4.3.3" -> "kernel-devicetree";
+"kernel-image-4.3.3" -> "kernel-devicetree-overlays" [style=dotted];
 "kmod" -> "libz1";
 "libacl1" -> "libattr1";
 "libarchive13" -> "libattr1";
@@ -5531,6 +5532,7 @@ digraph depends {
 "systemd" -> "util-linux-fsck" [style=dotted];
 "systemd" -> "util-linux-mount";
 "systemd" -> "volatile-binds";
+"systemd-analyze" -> "libattr1";
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
@@ -5538,6 +5540,7 @@ digraph depends {
 "systemd-vconsole-setup" -> "kbd" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libattr1";
 "tcpdump" -> "libcrypto1.0.0";
 "tcpdump" -> "libpcap1";
 "thunar" -> "exo";
@@ -5603,6 +5606,7 @@ digraph depends {
 "udisks" -> "libgudev-1.0-0";
 "udisks" -> "libudev1";
 "udisks" -> "lvm2";
+"udisks" -> "parted";
 "udisks" -> "polkit";
 "udisks" -> "sg3-utils";
 "upower" -> "libdbus-1-3";
