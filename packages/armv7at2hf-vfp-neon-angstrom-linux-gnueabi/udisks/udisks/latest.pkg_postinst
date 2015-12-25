@@ -6,9 +6,9 @@ if [ -n "$D" ]; then
 fi
 
 if type systemctl >/dev/null 2>/dev/null; then
-	systemctl $OPTS disable udisks-daemon.service
+	systemctl $OPTS disable udisks.service
 
 	if [ -z "$D" -a "disable" = "enable" ]; then
-		systemctl restart udisks-daemon.service
+		systemctl restart udisks.service
 	fi
 fi
