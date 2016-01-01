@@ -1,0 +1,18 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS disable  tracker-store.service tracker-miner-fs.service tracker-dbus.service 
+
+	if [ -z "$D" -a "disable" = "enable" ]; then
+		systemctl restart  tracker-store.service tracker-miner-fs.service tracker-dbus.service 
+	fi
+fi
+	glib-compile-schemas $D/usr/share/glib-2.0/schemas
+if [ x"$D" = "x" ]; then
+	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
+fi
