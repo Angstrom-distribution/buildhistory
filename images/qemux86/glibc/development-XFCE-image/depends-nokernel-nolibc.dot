@@ -271,6 +271,7 @@ digraph depends {
 "gdm" -> "gnome-session" [style=dotted];
 "gdm" -> "grep";
 "gdm" -> "hicolor-icon-theme";
+"gdm" -> "iso-codes" [style=dotted];
 "gdm" -> "libcairo2";
 "gdm" -> "libcanberra";
 "gdm" -> "libcanberra-gtk2";
@@ -425,6 +426,7 @@ digraph depends {
 "gvfs" -> "libglib-2.0-0";
 "gvfs" -> "libgphoto2-6";
 "gvfs" -> "libgphoto2-port12";
+"gvfs" -> "libgtk-3.0";
 "gvfs" -> "libgudev-1.0-0";
 "gvfs" -> "libsmbclient0";
 "gvfs" -> "libsoup-2.4";
@@ -460,21 +462,11 @@ digraph depends {
 "kernel-module-bridge" -> "kernel-module-llc";
 "kernel-module-bridge" -> "kernel-module-stp";
 "kernel-module-ip-tables" -> "kernel-module-x-tables";
-"kernel-module-ipt-masquerade" -> "kernel-module-nf-conntrack";
-"kernel-module-ipt-masquerade" -> "kernel-module-nf-nat";
-"kernel-module-ipt-masquerade" -> "kernel-module-x-tables";
 "kernel-module-iptable-filter" -> "kernel-module-ip-tables";
 "kernel-module-iptable-filter" -> "kernel-module-x-tables";
-"kernel-module-iptable-nat" -> "kernel-module-ip-tables";
-"kernel-module-iptable-nat" -> "kernel-module-nf-conntrack";
-"kernel-module-iptable-nat" -> "kernel-module-nf-nat";
-"kernel-module-iptable-nat" -> "kernel-module-nf-nat-ipv4";
-"kernel-module-iptable-nat" -> "kernel-module-x-tables";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-defrag-ipv4";
 "kernel-module-nf-nat" -> "kernel-module-nf-conntrack";
-"kernel-module-nf-nat-ipv4" -> "kernel-module-nf-conntrack";
-"kernel-module-nf-nat-ipv4" -> "kernel-module-nf-nat";
 "kernel-module-stp" -> "kernel-module-llc";
 "kmod" -> "libz1";
 "kmod" -> "update-alternatives-opkg";
@@ -5608,10 +5600,12 @@ digraph depends {
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "update-alternatives-opkg";
 "systemd" -> "update-rc.d" [style=dotted];
+"systemd" -> "update-rc.d";
 "systemd" -> "util-linux-agetty" [style=dotted];
 "systemd" -> "util-linux-fsck" [style=dotted];
 "systemd" -> "util-linux-mount";
 "systemd" -> "volatile-binds";
+"systemd-analyze" -> "libattr1";
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
@@ -5619,6 +5613,7 @@ digraph depends {
 "systemd-vconsole-setup" -> "kbd" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libattr1";
 "tcpdump" -> "libcrypto1.0.0";
 "tcpdump" -> "libpcap1";
 "thunar" -> "exo";
@@ -5684,6 +5679,7 @@ digraph depends {
 "udisks" -> "libgudev-1.0-0";
 "udisks" -> "libudev1";
 "udisks" -> "lvm2";
+"udisks" -> "parted";
 "udisks" -> "polkit";
 "udisks" -> "sg3-utils";
 "upower" -> "libdbus-1-3";
