@@ -257,6 +257,7 @@ digraph depends {
 "gdm" -> "gnome-session" [style=dotted];
 "gdm" -> "grep";
 "gdm" -> "hicolor-icon-theme";
+"gdm" -> "iso-codes" [style=dotted];
 "gdm" -> "libcairo2";
 "gdm" -> "libcanberra";
 "gdm" -> "libcanberra-gtk2";
@@ -442,21 +443,11 @@ digraph depends {
 "kernel-module-bridge" -> "kernel-module-llc";
 "kernel-module-bridge" -> "kernel-module-stp";
 "kernel-module-ip-tables" -> "kernel-module-x-tables";
-"kernel-module-ipt-masquerade" -> "kernel-module-nf-conntrack";
-"kernel-module-ipt-masquerade" -> "kernel-module-nf-nat";
-"kernel-module-ipt-masquerade" -> "kernel-module-x-tables";
 "kernel-module-iptable-filter" -> "kernel-module-ip-tables";
 "kernel-module-iptable-filter" -> "kernel-module-x-tables";
-"kernel-module-iptable-nat" -> "kernel-module-ip-tables";
-"kernel-module-iptable-nat" -> "kernel-module-nf-conntrack";
-"kernel-module-iptable-nat" -> "kernel-module-nf-nat";
-"kernel-module-iptable-nat" -> "kernel-module-nf-nat-ipv4";
-"kernel-module-iptable-nat" -> "kernel-module-x-tables";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-defrag-ipv4";
 "kernel-module-nf-nat" -> "kernel-module-nf-conntrack";
-"kernel-module-nf-nat-ipv4" -> "kernel-module-nf-conntrack";
-"kernel-module-nf-nat-ipv4" -> "kernel-module-nf-nat";
 "kernel-module-stp" -> "kernel-module-llc";
 "kmod" -> "libz1";
 "libacl1" -> "libattr1";
@@ -746,6 +737,13 @@ digraph depends {
 "libharfbuzz0" -> "libfreetype6";
 "libharfbuzz0" -> "libglib-2.0-0";
 "libkmod2" -> "libz1";
+"libllvm3.3-llvm-3.3" -> "libstdc++6";
+"libllvm3.3-llvm-3.3" -> "libz1";
+"libllvm3.3-llvm-3.3" -> "llvm3.3";
+"libllvm3.3-lto" -> "libllvm3.3-llvm-3.3";
+"libllvm3.3-lto" -> "libstdc++6";
+"libllvm3.3-lto" -> "llvm3.3";
+"libllvm3.3-profile-rt" -> "llvm3.3";
 "libltdl-dev" -> "libltdl7";
 "libmenu5" -> "libncurses5";
 "libmenu5" -> "libtinfo5";
@@ -1096,6 +1094,9 @@ digraph depends {
 "libxxf86misc1" -> "libxcb1";
 "libxxf86misc1" -> "libxdmcp6";
 "libxxf86misc1" -> "libxext6";
+"llvm3.3" -> "libllvm3.3-llvm-3.3";
+"llvm3.3" -> "libllvm3.3-lto";
+"llvm3.3" -> "libllvm3.3-profile-rt";
 "lmbench" -> "perl";
 "locale-base-en-us" -> "glibc-binary-localedata-en-us";
 "lvm2" -> "bash";
@@ -1106,8 +1107,10 @@ digraph depends {
 "mesa-megadriver" -> "libdrm-radeon1";
 "mesa-megadriver" -> "libdrm2";
 "mesa-megadriver" -> "libexpat1";
+"mesa-megadriver" -> "libllvm3.3-llvm-3.3";
 "mesa-megadriver" -> "libpciaccess0";
 "mesa-megadriver" -> "libstdc++6";
+"mesa-megadriver" -> "libz1";
 "metacity" -> "gdk-pixbuf";
 "metacity" -> "gsettings-desktop-schemas";
 "metacity" -> "libatk-1.0-0";
@@ -5575,6 +5578,7 @@ digraph depends {
 "systemd" -> "util-linux-fsck" [style=dotted];
 "systemd" -> "util-linux-mount";
 "systemd" -> "volatile-binds";
+"systemd-analyze" -> "libattr1";
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
@@ -5582,6 +5586,7 @@ digraph depends {
 "systemd-vconsole-setup" -> "kbd" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-keymaps" [style=dotted];
+"systemd-vconsole-setup" -> "libattr1";
 "tcpdump" -> "libcrypto1.0.0";
 "tcpdump" -> "libpcap1";
 "thunar" -> "exo";
@@ -5647,6 +5652,7 @@ digraph depends {
 "udisks" -> "libgudev-1.0-0";
 "udisks" -> "libudev1";
 "udisks" -> "lvm2";
+"udisks" -> "parted";
 "udisks" -> "polkit";
 "udisks" -> "sg3-utils";
 "upower" -> "libdbus-1-3";
