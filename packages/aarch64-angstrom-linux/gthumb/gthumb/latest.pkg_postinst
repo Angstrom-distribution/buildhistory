@@ -20,7 +20,7 @@ else
 fi
 
 SCHEMA_LOCATION=$D/etc/gconf/schemas
-for SCHEMA in gthumb-comments.schemas gthumb-image-viewer.schemas gthumb_webalbums.schemas gthumb_convert_format.schemas gthumb_crop_options.schemas gthumb.schemas gthumb_rename_series.schemas gthumb_image_print.schemas gthumb-pixbuf-savers.schemas gthumb_photo_importer.schemas gthumb-slideshow.schemas gthumb-gstreamer.schemas gthumb-importer.schemas gthumb_resize_options.schemas gthumb_resize_images.schemas; do
+for SCHEMA in gthumb_webalbums.schemas gthumb-slideshow.schemas gthumb_resize_images.schemas gthumb_rename_series.schemas gthumb-pixbuf-savers.schemas gthumb_photo_importer.schemas gthumb-importer.schemas gthumb_image_print.schemas gthumb-gstreamer.schemas gthumb_resize_options.schemas gthumb_crop_options.schemas gthumb-image-viewer.schemas gthumb_convert_format.schemas gthumb-comments.schemas gthumb.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
