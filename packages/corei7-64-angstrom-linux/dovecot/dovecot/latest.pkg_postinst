@@ -1,0 +1,14 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+if type systemctl >/dev/null 2>/dev/null; then
+	systemctl $OPTS disable dovecot.service dovecot.socket
+
+	if [ -z "$D" -a "disable" = "enable" ]; then
+		systemctl restart dovecot.service dovecot.socket
+	fi
+fi
