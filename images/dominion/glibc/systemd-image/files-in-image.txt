@@ -107,7 +107,9 @@ drwxr-xr-x root       root             4096 ./etc/dbus-1/session.d
 drwxr-xr-x root       root             4096 ./etc/dbus-1/system.d
 -rw-r--r-- root       root             1138 ./etc/dbus-1/system.d/avahi-dbus.conf
 -rw-r--r-- root       root             1489 ./etc/dbus-1/system.d/bluetooth.conf
+-rw-r--r-- root       root              642 ./etc/dbus-1/system.d/connman.conf
 -rw-r--r-- root       root             1232 ./etc/dbus-1/system.d/dbus-wpa_supplicant.conf
+-rw-r--r-- root       root              937 ./etc/dbus-1/system.d/ofono.conf
 -rw-r--r-- root       root              947 ./etc/dbus-1/system.d/org.freedesktop.hostname1.conf
 -rw-r--r-- root       root              937 ./etc/dbus-1/system.d/org.freedesktop.locale1.conf
 -rw-r--r-- root       root            12309 ./etc/dbus-1/system.d/org.freedesktop.login1.conf
@@ -157,6 +159,8 @@ lrwxrwxrwx root       root               29 ./etc/network/if-post-down.d/wpa-sup
 drwxr-xr-x root       root             4096 ./etc/network/if-pre-up.d
 -rwxr-xr-x root       root             1951 ./etc/network/if-pre-up.d/wpa-supplicant
 -rw-r--r-- root       root              502 ./etc/nsswitch.conf
+drwxr-xr-x root       root             4096 ./etc/ofono
+-rw-r--r-- root       root              361 ./etc/ofono/phonesim.conf
 drwxr-xr-x root       root             4096 ./etc/opkg
 -rw-r--r-- root       root              104 ./etc/opkg/arch.conf
 -rw-r--r-- root       root               91 ./etc/opkg/base-feed.conf
@@ -263,6 +267,7 @@ drwxr-xr-x root       root             4096 ./etc/systemd/system/multi-user.targ
 lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/avahi-daemon.service -> /lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
 lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
+lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/connman.service -> /lib/systemd/system/connman.service
 lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/cpu-ondemand.timer -> /lib/systemd/system/cpu-ondemand.timer
 lrwxrwxrwx root       root               47 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> ../../../../lib/systemd/system/remote-fs.target
 lrwxrwxrwx root       root               55 ./etc/systemd/system/multi-user.target.wants/systemd-networkd.service -> ../../../../lib/systemd/system/systemd-networkd.service
@@ -491,6 +496,7 @@ lrwxrwxrwx root       root               35 ./lib/systemd/system/busnames.target
 lrwxrwxrwx root       root               36 ./lib/systemd/system/busnames.target.wants/org.freedesktop.timedate1.busname -> ../org.freedesktop.timedate1.busname
 -rw-r--r-- root       root              116 ./lib/systemd/system/busybox-klogd.service
 -rw-r--r-- root       root              270 ./lib/systemd/system/busybox-syslog.service
+-rw-r--r-- root       root              356 ./lib/systemd/system/connman.service
 -rw-r--r-- root       root              770 ./lib/systemd/system/console-getty.service
 -rw-r--r-- root       root              751 ./lib/systemd/system/console-shell.service
 -rw-r--r-- root       root              791 ./lib/systemd/system/container-getty@.service
@@ -556,6 +562,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              480 ./lib/systemd/system/network.target
 -rw-r--r-- root       root              514 ./lib/systemd/system/nss-lookup.target
 -rw-r--r-- root       root              473 ./lib/systemd/system/nss-user-lookup.target
+-rw-r--r-- root       root              183 ./lib/systemd/system/ofono.service
 -rw-r--r-- root       root              521 ./lib/systemd/system/opkg-configure.service
 -rw-r--r-- root       root              554 ./lib/systemd/system/org.freedesktop.hostname1.busname
 -rw-r--r-- root       root              550 ./lib/systemd/system/org.freedesktop.locale1.busname
@@ -916,6 +923,7 @@ lrwxrwxrwx root       root               17 ./usr/bin/chvt -> /usr/bin/chvt.kbd
 -rwxr-xr-x root       root           113552 ./usr/bin/ciptool
 lrwxrwxrwx root       root               19 ./usr/bin/clear -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/cmp -> /bin/busybox.nosuid
+-rwxr-xr-x root       root            99312 ./usr/bin/connmanctl
 -rwxr-xr-x root       root             9368 ./usr/bin/cpufreq-aperf
 -rwxr-xr-x root       root            16088 ./usr/bin/cpufreq-info
 -rwxr-xr-x root       root            11408 ./usr/bin/cpufreq-set
@@ -1083,6 +1091,8 @@ drwxr-xr-x root       root             4096 ./usr/lib
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5/bluetooth
 -rwxr-xr-x root       root           840952 ./usr/lib/bluez5/bluetooth/bluetoothd
+drwxr-xr-x root       root             4096 ./usr/lib/connman
+drwxr-xr-x root       root             4096 ./usr/lib/connman/plugins
 drwxr-xr-x root       root             4096 ./usr/lib/dbus
 -rwsr-xr-x root       messagebus     288960 ./usr/lib/dbus/dbus-daemon-launch-helper
 -rwxr-xr-x root       root            11256 ./usr/lib/e2initrd_helper
@@ -1572,6 +1582,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.n
 lrwxrwxrwx root       root               25 ./usr/sbin/chpasswd -> /usr/sbin/chpasswd.shadow
 -rwxr-xr-x root       root            48192 ./usr/sbin/chpasswd.shadow
 lrwxrwxrwx root       root               19 ./usr/sbin/chroot -> /bin/busybox.nosuid
+-rwxr-xr-x root       root           838072 ./usr/sbin/connmand
 lrwxrwxrwx root       root               19 ./usr/sbin/delgroup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/deluser -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/fbset -> /bin/busybox.nosuid
@@ -1605,6 +1616,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root             9624 ./usr/sbin/nl-qdisc-add
 -rwxr-xr-x root       root             9208 ./usr/sbin/nl-qdisc-delete
 -rwxr-xr-x root       root            10168 ./usr/sbin/nl-qdisc-list
+-rwxr-xr-x root       root          1428016 ./usr/sbin/ofonod
 -rwxr-xr-x root       root            43896 ./usr/sbin/pwck
 -rwxr-xr-x root       root            39672 ./usr/sbin/pwconv
 -rwxr-xr-x root       root            31928 ./usr/sbin/pwunconv
@@ -5152,6 +5164,8 @@ drwx------ root       root             4096 ./var/cache/ldconfig
 -rw------- root       root             5845 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root             4096 ./var/cache/opkg
 drwxr-xr-x root       root             4096 ./var/lib
+drwxr-xr-x root       root             4096 ./var/lib/connman
+-rw-r--r-- root       root              477 ./var/lib/connman/settings
 drwxr-xr-x messagebus messagebus       4096 ./var/lib/dbus
 drwxr-xr-x root       root             4096 ./var/lib/misc
 drwxr-xr-x root       root             4096 ./var/lib/opkg
@@ -5199,6 +5213,14 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root              121 ./var/lib/opkg/info/busybox.list
 -rwxr-xr-x root       root            14295 ./var/lib/opkg/info/busybox.postinst
 -rwxr-xr-x root       root            10934 ./var/lib/opkg/info/busybox.prerm
+-rw-r--r-- root       root             1168 ./var/lib/opkg/info/connman-angstrom-settings.control
+-rw-r--r-- root       root               44 ./var/lib/opkg/info/connman-angstrom-settings.list
+-rw-r--r-- root       root             1240 ./var/lib/opkg/info/connman-client.control
+-rw-r--r-- root       root               20 ./var/lib/opkg/info/connman-client.list
+-rw-r--r-- root       root             1495 ./var/lib/opkg/info/connman.control
+-rw-r--r-- root       root              133 ./var/lib/opkg/info/connman.list
+-rwxr-xr-x root       root              241 ./var/lib/opkg/info/connman.postinst
+-rwxr-xr-x root       root              216 ./var/lib/opkg/info/connman.prerm
 -rw-r--r-- root       root              352 ./var/lib/opkg/info/cpufreq-tweaks.control
 -rw-r--r-- root       root               80 ./var/lib/opkg/info/cpufreq-tweaks.list
 -rwxr-xr-x root       root              247 ./var/lib/opkg/info/cpufreq-tweaks.postinst
@@ -5455,6 +5477,10 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root              523 ./var/lib/opkg/info/nettle.control
 -rw-r--r-- root       root              213 ./var/lib/opkg/info/nettle.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/nettle.postinst
+-rw-r--r-- root       root              792 ./var/lib/opkg/info/ofono.control
+-rw-r--r-- root       root              120 ./var/lib/opkg/info/ofono.list
+-rwxr-xr-x root       root              239 ./var/lib/opkg/info/ofono.postinst
+-rwxr-xr-x root       root              212 ./var/lib/opkg/info/ofono.prerm
 -rw-r--r-- root       root              825 ./var/lib/opkg/info/openssh-keygen.control
 -rw-r--r-- root       root               20 ./var/lib/opkg/info/openssh-keygen.list
 -rw-r--r-- root       root              798 ./var/lib/opkg/info/openssh-scp.control
@@ -5604,7 +5630,7 @@ lrwxrwxrwx root       root               81 ./var/lib/opkg/lists/oe -> /build/v2
 lrwxrwxrwx root       root               85 ./var/lib/opkg/lists/oe-all -> /build/v2015.12/build/tmp-angstrom_v2015_12-glibc/../../deploy/glibc/ipk/all/Packages
 lrwxrwxrwx root       root               91 ./var/lib/opkg/lists/oe-corei7-64 -> /build/v2015.12/build/tmp-angstrom_v2015_12-glibc/../../deploy/glibc/ipk/corei7-64/Packages
 lrwxrwxrwx root       root               90 ./var/lib/opkg/lists/oe-dominion -> /build/v2015.12/build/tmp-angstrom_v2015_12-glibc/../../deploy/glibc/ipk/dominion/Packages
--rw-r--r-- root       root            36127 ./var/lib/opkg/status
+-rw-r--r-- root       root            37296 ./var/lib/opkg/status
 drwxr-xr-x root       root             4096 ./var/lib/systemd
 drwxr-xr-x root       root             4096 ./var/local
 drwxr-xr-x root       root             4096 ./var/lock
