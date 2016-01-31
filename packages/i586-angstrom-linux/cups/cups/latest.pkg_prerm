@@ -7,8 +7,8 @@ fi
 
 if type systemctl >/dev/null 2>/dev/null; then
 	if [ -z "$D" ]; then
-		systemctl stop cups.socket cups.path cups.service
+		systemctl stop org.cups.cupsd.socket org.cups.cupsd.path org.cups.cupsd.service org.cups.cups-lpd.socket org.cups.cups-lpd@.service
 	fi
 
-	systemctl $OPTS disable cups.socket cups.path cups.service
+	systemctl $OPTS disable org.cups.cupsd.socket org.cups.cupsd.path org.cups.cupsd.service org.cups.cups-lpd.socket org.cups.cups-lpd@.service
 fi
