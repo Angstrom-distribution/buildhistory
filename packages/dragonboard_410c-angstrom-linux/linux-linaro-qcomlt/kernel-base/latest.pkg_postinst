@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/4.2.4+linaro" ]; then
+		mkdir -p $D/lib/modules/4.2.4+linaro
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 4.2.4+linaro
+	else
+		depmod -a 4.2.4+linaro
+	fi

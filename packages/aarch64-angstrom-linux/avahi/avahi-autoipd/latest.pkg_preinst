@@ -1,19 +1,19 @@
 #!/bin/sh
 bbnote () {
-	printf "%b\0" "bbnote $*" > /build/v2015.12/build/tmp-angstrom-glibc/work/aarch64-angstrom-linux/avahi/0.6.31-r11.1/temp/fifo.20360
+	echo "NOTE: $*"
 }
 bbwarn () {
-	printf "%b\0" "bbwarn $*" > /build/v2015.12/build/tmp-angstrom-glibc/work/aarch64-angstrom-linux/avahi/0.6.31-r11.1/temp/fifo.20360
+	echo "WARNING: $*"
 }
 bbfatal () {
-	printf "%b\0" "bbfatal $*" > /build/v2015.12/build/tmp-angstrom-glibc/work/aarch64-angstrom-linux/avahi/0.6.31-r11.1/temp/fifo.20360
+	echo "ERROR: $*"
 	exit 1
 }
 perform_groupadd () {
 	local rootdir="$1"
 	local opts="$2"
 	local retries="$3"
-	bbnote "Performing groupadd with [$opts] and $retries times of retry"
+	bbnote "avahi: Performing groupadd with [$opts] and $retries times of retry"
 	local groupname=`echo "$opts" | awk '{ print $NF }'`
 	local group_exists="`grep "^$groupname:" $rootdir/etc/group || true`"
 	if test "x$group_exists" = "x"; then
@@ -22,25 +22,25 @@ perform_groupadd () {
 			eval $PSEUDO groupadd $opts || true
 			group_exists="`grep "^$groupname:" $rootdir/etc/group || true`"
 			if test "x$group_exists" = "x"; then
-				bbwarn "groupadd command did not succeed. Retrying..."
+				bbwarn "avahi: groupadd command did not succeed. Retrying..."
 			else
 				break
 			fi
 			count=`expr $count + 1`
 			if test $count = $retries; then
-				bbfatal "Tried running groupadd command $retries times without success, giving up"
+				bbfatal "avahi: Tried running groupadd command $retries times without success, giving up"
 			fi
                         sleep $count
 		done
 	else
-		bbwarn "group $groupname already exists, not re-creating it"
+		bbnote "avahi: group $groupname already exists, not re-creating it"
 	fi
 }
 perform_useradd () {
 	local rootdir="$1"
 	local opts="$2"
 	local retries="$3"
-	bbnote "Performing useradd with [$opts] and $retries times of retry"
+	bbnote "avahi: Performing useradd with [$opts] and $retries times of retry"
 	local username=`echo "$opts" | awk '{ print $NF }'`
 	local user_exists="`grep "^$username:" $rootdir/etc/passwd || true`"
 	if test "x$user_exists" = "x"; then
@@ -49,28 +49,28 @@ perform_useradd () {
 		       eval $PSEUDO useradd $opts || true
 		       user_exists="`grep "^$username:" $rootdir/etc/passwd || true`"
 		       if test "x$user_exists" = "x"; then
-			       bbwarn "useradd command did not succeed. Retrying..."
+			       bbwarn "avahi: useradd command did not succeed. Retrying..."
 		       else
 			       break
 		       fi
 		       count=`expr $count + 1`
 		       if test $count = $retries; then
-				bbfatal "Tried running useradd command $retries times without success, giving up"
+				bbfatal "avahi: Tried running useradd command $retries times without success, giving up"
 		       fi
 		       sleep $count
 	       done
 	else
-		bbwarn "user $username already exists, not re-creating it"
+		bbnote "avahi: user $username already exists, not re-creating it"
 	fi
 }
 perform_groupmems () {
 	local rootdir="$1"
 	local opts="$2"
 	local retries="$3"
-	bbnote "Performing groupmems with [$opts] and $retries times of retry"
+	bbnote "avahi: Performing groupmems with [$opts] and $retries times of retry"
 	local groupname=`echo "$opts" | awk '{ for (i = 1; i < NF; i++) if ($i == "-g" || $i == "--group") print $(i+1) }'`
 	local username=`echo "$opts" | awk '{ for (i = 1; i < NF; i++) if ($i == "-a" || $i == "--add") print $(i+1) }'`
-	bbnote "Running groupmems command with group $groupname and user $username"
+	bbnote "avahi: Running groupmems command with group $groupname and user $username"
 	# groupmems fails if /etc/gshadow does not exist
 	local gshadow=""
 	if [ -f $rootdir/etc/gshadow ]; then
@@ -86,7 +86,7 @@ perform_groupmems () {
 			eval $PSEUDO groupmems $opts || true
 			mem_exists="`grep "^$groupname:[^:]*:[^:]*:\([^,]*,\)*$username\(,[^,]*\)*" $rootdir/etc/group || true`"
 			if test "x$mem_exists" = "x"; then
-				bbwarn "groupmems command did not succeed. Retrying..."
+				bbwarn "avahi: groupmems command did not succeed. Retrying..."
 			else
 				break
 			fi
@@ -96,12 +96,12 @@ perform_groupmems () {
 					rm -f $rootdir/etc/gshadow
 					rm -f $rootdir/etc/gshadow-
 				fi
-				bbfatal "Tried running groupmems command $retries times without success, giving up"
+				bbfatal "avahi: Tried running groupmems command $retries times without success, giving up"
 			fi
 			sleep $count
 		done
 	else
-		bbwarn "group $groupname already contains $username, not re-adding it"
+		bbnote "avahi: group $groupname already contains $username, not re-adding it"
 	fi
 	if test "x$gshadow" = "xno"; then
 		rm -f $rootdir/etc/gshadow
@@ -126,7 +126,7 @@ if test "x$D" != "x"; then
 	fi
 
 	# user/group lookups should match useradd/groupadd --root
-	export PSEUDO_PASSWD="$SYSROOT:/build/v2015.12/build/tmp-angstrom-glibc/sysroots/x86_64-linux"
+	export PSEUDO_PASSWD="$SYSROOT:/build/jenkins/v2015.12/machine/hikey/build/tmp-angstrom_v2015_12-glibc/sysroots/x86_64-linux"
 fi
 
 # If we're not doing a special SSTATE/SYSROOT install
