@@ -49,6 +49,7 @@ digraph depends {
 "cpufrequtils" -> "libc6";
 "curl" -> "libc6";
 "curl" -> "libcurl4";
+"curl" -> "libz1";
 "db" -> "libc6";
 "dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
@@ -2308,6 +2309,8 @@ digraph depends {
 "kodi" -> "samba";
 "kodi" -> "xdpyinfo" [style=dotted];
 "kodi" -> "xrandr" [style=dotted];
+"kodi-startup" -> "kodi";
+"kodi-startup" -> "xinit";
 "krb5" -> "initscripts-functions";
 "krb5" -> "libc6";
 "krb5" -> "libcom-err2";
@@ -2338,7 +2341,7 @@ digraph depends {
 "libavcodec56" -> "libswresample1";
 "libavcodec56" -> "libtheora";
 "libavcodec56" -> "libva";
-"libavcodec56" -> "libx264-144";
+"libavcodec56" -> "libx264-148";
 "libavcodec56" -> "libz1";
 "libavfilter5" -> "libavcodec56";
 "libavfilter5" -> "libavformat56";
@@ -2718,7 +2721,7 @@ digraph depends {
 "libx11-xcb1" -> "libxau6";
 "libx11-xcb1" -> "libxcb1";
 "libx11-xcb1" -> "libxdmcp6";
-"libx264-144" -> "libc6";
+"libx264-148" -> "libc6";
 "libxau6" -> "libc6";
 "libxcb-dri2-0" -> "libc6";
 "libxcb-dri2-0" -> "libxau6";
@@ -2967,15 +2970,17 @@ digraph depends {
 "mesa-demos" -> "libx11-6";
 "mesa-demos" -> "libxext6";
 "mesa-megadriver" -> "libc6";
+"mesa-megadriver" -> "libcap2";
 "mesa-megadriver" -> "libdrm-intel1";
 "mesa-megadriver" -> "libdrm-nouveau2";
 "mesa-megadriver" -> "libdrm-radeon1";
 "mesa-megadriver" -> "libdrm2";
 "mesa-megadriver" -> "libexpat1";
 "mesa-megadriver" -> "libgcc1";
+"mesa-megadriver" -> "libgcrypt";
+"mesa-megadriver" -> "libgpg-error0";
 "mesa-megadriver" -> "libpciaccess0";
 "mesa-megadriver" -> "libstdc++6";
-"mesa-megadriver" -> "nettle";
 "ncurses-terminfo" -> "ncurses-terminfo-base";
 "nettle" -> "libc6";
 "nettle" -> "libgmp10";
@@ -3027,6 +3032,11 @@ digraph depends {
 "packagegroup-boot" -> "busybox";
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "netbase";
+"packagegroup-core-x11-xserver" -> "mesa-megadriver";
+"packagegroup-core-x11-xserver" -> "xf86-input-evdev";
+"packagegroup-core-x11-xserver" -> "xf86-video-intel";
+"packagegroup-core-x11-xserver" -> "xf86-video-modesetting";
+"packagegroup-core-x11-xserver" -> "xserver-xorg";
 "pam-plugin-deny" -> "libc6";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-deny" -> "libpam-suffix";

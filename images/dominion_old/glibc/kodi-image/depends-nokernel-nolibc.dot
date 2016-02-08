@@ -39,6 +39,7 @@ digraph depends {
 "cpio" -> "update-alternatives-opkg";
 "cpufreq-tweaks" -> "cpufrequtils";
 "curl" -> "libcurl4";
+"curl" -> "libz1";
 "dbus-1" -> "base-files";
 "dbus-1" -> "base-passwd";
 "dbus-1" -> "libdbus-1-3";
@@ -2283,6 +2284,8 @@ digraph depends {
 "kodi" -> "samba";
 "kodi" -> "xdpyinfo" [style=dotted];
 "kodi" -> "xrandr" [style=dotted];
+"kodi-startup" -> "kodi";
+"kodi-startup" -> "xinit";
 "krb5" -> "initscripts-functions";
 "krb5" -> "libcom-err2";
 "krb5" -> "libcrypto1.0.0";
@@ -2303,7 +2306,7 @@ digraph depends {
 "libavcodec56" -> "libswresample1";
 "libavcodec56" -> "libtheora";
 "libavcodec56" -> "libva";
-"libavcodec56" -> "libx264-144";
+"libavcodec56" -> "libx264-148";
 "libavcodec56" -> "libz1";
 "libavfilter5" -> "libavcodec56";
 "libavfilter5" -> "libavformat56";
@@ -2779,14 +2782,16 @@ digraph depends {
 "mesa-demos" -> "libgles2-mesa";
 "mesa-demos" -> "libx11-6";
 "mesa-demos" -> "libxext6";
+"mesa-megadriver" -> "libcap2";
 "mesa-megadriver" -> "libdrm-intel1";
 "mesa-megadriver" -> "libdrm-nouveau2";
 "mesa-megadriver" -> "libdrm-radeon1";
 "mesa-megadriver" -> "libdrm2";
 "mesa-megadriver" -> "libexpat1";
+"mesa-megadriver" -> "libgcrypt";
+"mesa-megadriver" -> "libgpg-error0";
 "mesa-megadriver" -> "libpciaccess0";
 "mesa-megadriver" -> "libstdc++6";
-"mesa-megadriver" -> "nettle";
 "ncurses-terminfo" -> "ncurses-terminfo-base";
 "nettle" -> "libgmp10";
 "openssh-keygen" -> "libcrypto1.0.0";
@@ -2829,6 +2834,11 @@ digraph depends {
 "packagegroup-boot" -> "busybox";
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "netbase";
+"packagegroup-core-x11-xserver" -> "mesa-megadriver";
+"packagegroup-core-x11-xserver" -> "xf86-input-evdev";
+"packagegroup-core-x11-xserver" -> "xf86-video-intel";
+"packagegroup-core-x11-xserver" -> "xf86-video-modesetting";
+"packagegroup-core-x11-xserver" -> "xserver-xorg";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-deny" -> "libpam-suffix";
 "pam-plugin-env" -> "libpam";
