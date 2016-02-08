@@ -8366,6 +8366,8 @@ digraph depends {
 "kodi" -> "samba";
 "kodi" -> "xdpyinfo" [style=dotted];
 "kodi" -> "xrandr" [style=dotted];
+"kodi-startup" -> "kodi";
+"kodi-startup" -> "xinit";
 "krb5" -> "initscripts-functions";
 "krb5" -> "libcom-err2";
 "krb5" -> "libcrypto1.0.0";
@@ -8386,7 +8388,7 @@ digraph depends {
 "libavcodec56" -> "libswresample1";
 "libavcodec56" -> "libtheora";
 "libavcodec56" -> "libva";
-"libavcodec56" -> "libx264-144";
+"libavcodec56" -> "libx264-148";
 "libavcodec56" -> "libz1";
 "libavfilter5" -> "libavcodec56";
 "libavfilter5" -> "libavformat56";
@@ -8405,6 +8407,8 @@ digraph depends {
 "libcec" -> "libstdc++6";
 "libcec" -> "libtinfo5";
 "libcec" -> "libudev1";
+"libcec" -> "libx11-6";
+"libcec" -> "libxrandr2";
 "libcrypto1.0.0" -> "openssl-conf" [style=dotted];
 "libcups2" -> "libavahi-client3";
 "libcups2" -> "libavahi-common3";
@@ -8629,6 +8633,9 @@ digraph depends {
 "libva" -> "libva-x11-1";
 "libva" -> "libx11-6";
 "libva" -> "wayland";
+"libva-intel-driver" -> "libdrm-intel1";
+"libva-intel-driver" -> "libdrm2";
+"libva-intel-driver" -> "libpciaccess0";
 "libva-wayland1" -> "libdrm2";
 "libva-wayland1" -> "libffi6";
 "libva-wayland1" -> "libva";
@@ -8911,6 +8918,12 @@ digraph depends {
 "packagegroup-boot" -> "gummiboot";
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "netbase";
+"packagegroup-core-x11-xserver" -> "libva-intel-driver";
+"packagegroup-core-x11-xserver" -> "mesa-megadriver";
+"packagegroup-core-x11-xserver" -> "xf86-input-evdev";
+"packagegroup-core-x11-xserver" -> "xf86-video-intel";
+"packagegroup-core-x11-xserver" -> "xf86-video-modesetting";
+"packagegroup-core-x11-xserver" -> "xserver-xorg";
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-deny" -> "libpam-suffix";
 "pam-plugin-env" -> "libpam";
