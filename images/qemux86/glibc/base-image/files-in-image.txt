@@ -27,7 +27,7 @@ lrwxrwxrwx root       root               19 ./bin/gzip -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/hostname -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           493688 ./bin/journalctl
 lrwxrwxrwx root       root               19 ./bin/kill -> /bin/busybox.nosuid
--rwxr-xr-x root       root           156884 ./bin/kmod
+-rwxr-xr-x root       root           156724 ./bin/kmod
 lrwxrwxrwx root       root               19 ./bin/ln -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./bin/login -> /bin/login.shadow
 -rwxr-xr-x root       root            39656 ./bin/login.shadow
@@ -85,7 +85,7 @@ lrwxrwxrwx root       root               19 ./bin/zcat -> /bin/busybox.nosuid
 drwxr-xr-x root       root             4096 ./boot
 drwxr-xr-x root       root             4096 ./dev
 drwxr-xr-x root       root             4096 ./etc
--rw-r--r-- root       root             2908 ./etc/angstrom-build-info
+-rw-r--r-- root       root             2910 ./etc/angstrom-build-info
 -rw-r--r-- root       root              145 ./etc/angstrom-version
 drwxr-xr-x root       root             4096 ./etc/avahi
 -rw-r--r-- root       root             1749 ./etc/avahi/avahi-daemon.conf
@@ -455,6 +455,7 @@ drwxr-xr-x root       root             4096 ./lib/security
 -rwxr-xr-x root       root            52948 ./lib/security/pam_unix.so
 -rwxr-xr-x root       root             4760 ./lib/security/pam_warn.so
 drwxr-xr-x root       root             4096 ./lib/systemd
+drwxr-xr-x root       root             4096 ./lib/systemd/boot
 drwxr-xr-x root       root             4096 ./lib/systemd/catalog
 -rw-r--r-- root       root            11415 ./lib/systemd/catalog/systemd.be.catalog
 -rw-r--r-- root       root             9185 ./lib/systemd/catalog/systemd.be@latin.catalog
@@ -836,13 +837,13 @@ drwxr-xr-x root       root             4096 ./sbin
 lrwxrwxrwx root       root               19 ./sbin/blkid -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./sbin/depmod -> /sbin/depmod.kmod
 lrwxrwxrwx root       root               11 ./sbin/depmod.kmod -> ../bin/kmod
--rwxr-xr-x root       root           276236 ./sbin/e2fsck
+-rwxr-xr-x root       root           276076 ./sbin/e2fsck
 lrwxrwxrwx root       root               19 ./sbin/fdisk -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               21 ./sbin/fsck -> /sbin/fsck.util-linux
--rwxr-xr-x root       root           276236 ./sbin/fsck.ext2
--rwxr-xr-x root       root           276236 ./sbin/fsck.ext3
--rwxr-xr-x root       root           276236 ./sbin/fsck.ext4
--rwxr-xr-x root       root           276236 ./sbin/fsck.ext4dev
+-rwxr-xr-x root       root           276076 ./sbin/fsck.ext2
+-rwxr-xr-x root       root           276076 ./sbin/fsck.ext3
+-rwxr-xr-x root       root           276076 ./sbin/fsck.ext4
+-rwxr-xr-x root       root           276076 ./sbin/fsck.ext4dev
 lrwxrwxrwx root       root               27 ./sbin/fsck.minix -> /sbin/fsck.minix.util-linux
 -rwxr-xr-x root       root            82080 ./sbin/fsck.minix.util-linux
 -rwxr-xr-x root       root            31388 ./sbin/fsck.util-linux
@@ -948,7 +949,7 @@ lrwxrwxrwx root       root               22 ./usr/bin/deallocvt -> /usr/bin/deal
 lrwxrwxrwx root       root               19 ./usr/bin/diff -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/dirname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/du -> /bin/busybox.nosuid
--rwxr-xr-x root       root            83120 ./usr/bin/dumpkeys
+-rwxr-xr-x root       root            79088 ./usr/bin/dumpkeys
 lrwxrwxrwx root       root               19 ./usr/bin/dumpleases -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/env -> /bin/busybox.nosuid
 -rwsr-xr-x root       root            19104 ./usr/bin/expiry
@@ -984,7 +985,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/killall -> /bin/busybox.no
 -rwxr-xr-x root       root            87160 ./usr/bin/l2test
 -rwxr-xr-x root       root            11156 ./usr/bin/lastlog
 lrwxrwxrwx root       root               19 ./usr/bin/less -> /bin/busybox.nosuid
--rwxr-xr-x root       root           121616 ./usr/bin/loadkeys
+-rwxr-xr-x root       root           121456 ./usr/bin/loadkeys
 -rwxr-xr-x root       root            23136 ./usr/bin/loadunimap
 -rwxr-xr-x root       root           313440 ./usr/bin/localectl
 lrwxrwxrwx root       root               19 ./usr/bin/logger -> /bin/busybox.nosuid
@@ -1111,7 +1112,7 @@ lrwxrwxrwx root       root               17 ./usr/lib/libXdmcp.so.6 -> libXdmcp.
 lrwxrwxrwx root       root               20 ./usr/lib/libarchive.so.13 -> libarchive.so.13.1.2
 -rwxr-xr-x root       root           687524 ./usr/lib/libarchive.so.13.1.2
 lrwxrwxrwx root       root               18 ./usr/lib/libasound.so.2 -> libasound.so.2.0.0
--rwxr-xr-x root       root          1101444 ./usr/lib/libasound.so.2.0.0
+-rwxr-xr-x root       root          1099556 ./usr/lib/libasound.so.2.0.0
 lrwxrwxrwx root       root               24 ./usr/lib/libavahi-client.so.3 -> libavahi-client.so.3.2.9
 -rwxr-xr-x root       root            76428 ./usr/lib/libavahi-client.so.3.2.9
 lrwxrwxrwx root       root               24 ./usr/lib/libavahi-common.so.3 -> libavahi-common.so.3.5.3
@@ -1149,7 +1150,7 @@ lrwxrwxrwx root       root               20 ./usr/lib/libgnutls.so.28 -> libgnut
 lrwxrwxrwx root       root               26 ./usr/lib/libgobject-2.0.so.0 -> libgobject-2.0.so.0.4400.1
 -rwxr-xr-x root       root           379052 ./usr/lib/libgobject-2.0.so.0.4400.1
 lrwxrwxrwx root       root               22 ./usr/lib/libgpg-error.so.0 -> libgpg-error.so.0.15.0
--rwxr-xr-x root       root            77836 ./usr/lib/libgpg-error.so.0.15.0
+-rwxr-xr-x root       root            77740 ./usr/lib/libgpg-error.so.0.15.0
 lrwxrwxrwx root       root               26 ./usr/lib/libgthread-2.0.so.0 -> libgthread-2.0.so.0.4400.1
 -rwxr-xr-x root       root             4116 ./usr/lib/libgthread-2.0.so.0.4400.1
 lrwxrwxrwx root       root               17 ./usr/lib/libhistory.so.6 -> libhistory.so.6.3
@@ -1165,7 +1166,7 @@ lrwxrwxrwx root       root               17 ./usr/lib/libip6tc.so.0 -> libip6tc.
 lrwxrwxrwx root       root               16 ./usr/lib/libiptc.so.0 -> libiptc.so.0.0.0
 -rwxr-xr-x root       root             3192 ./usr/lib/libiptc.so.0.0.0
 lrwxrwxrwx root       root               17 ./usr/lib/libkmod.so.2 -> libkmod.so.2.2.11
--rwxr-xr-x root       root            90420 ./usr/lib/libkmod.so.2.2.11
+-rwxr-xr-x root       root            90324 ./usr/lib/libkmod.so.2.2.11
 lrwxrwxrwx root       root               16 ./usr/lib/liblzma.so.5 -> liblzma.so.5.2.0
 -rwxr-xr-x root       root           172216 ./usr/lib/liblzma.so.5.2.0
 lrwxrwxrwx root       root               15 ./usr/lib/libmenuw.so.5 -> libmenuw.so.5.9
@@ -1177,11 +1178,11 @@ lrwxrwxrwx root       root               19 ./usr/lib/libnl-3.so.200 -> libnl-3.
 lrwxrwxrwx root       root               23 ./usr/lib/libnl-cli-3.so.200 -> libnl-cli-3.so.200.20.0
 -rwxr-xr-x root       root            41512 ./usr/lib/libnl-cli-3.so.200.20.0
 lrwxrwxrwx root       root               24 ./usr/lib/libnl-genl-3.so.200 -> libnl-genl-3.so.200.20.0
--rwxr-xr-x root       root            22044 ./usr/lib/libnl-genl-3.so.200.20.0
+-rwxr-xr-x root       root            21948 ./usr/lib/libnl-genl-3.so.200.20.0
 lrwxrwxrwx root       root               22 ./usr/lib/libnl-nf-3.so.200 -> libnl-nf-3.so.200.20.0
--rwxr-xr-x root       root            98336 ./usr/lib/libnl-nf-3.so.200.20.0
+-rwxr-xr-x root       root            98304 ./usr/lib/libnl-nf-3.so.200.20.0
 lrwxrwxrwx root       root               25 ./usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.20.0
--rwxr-xr-x root       root           414832 ./usr/lib/libnl-route-3.so.200.20.0
+-rwxr-xr-x root       root           414064 ./usr/lib/libnl-route-3.so.200.20.0
 -rwxr-xr-x root       root            63040 ./usr/lib/libnss_myhostname.so.2
 -rwxr-xr-x root       root           280912 ./usr/lib/libnss_mymachines.so.2
 -rwxr-xr-x root       root           280908 ./usr/lib/libnss_resolve.so.2
@@ -1196,11 +1197,11 @@ lrwxrwxrwx root       root               19 ./usr/lib/libxcb-xkb.so.1 -> libxcb-
 lrwxrwxrwx root       root               15 ./usr/lib/libxcb.so.1 -> libxcb.so.1.1.0
 -rwxr-xr-x root       root           137856 ./usr/lib/libxcb.so.1.1.0
 lrwxrwxrwx root       root               25 ./usr/lib/libxkbcommon-x11.so.0 -> libxkbcommon-x11.so.0.0.0
--rwxr-xr-x root       root            28916 ./usr/lib/libxkbcommon-x11.so.0.0.0
+-rwxr-xr-x root       root            28884 ./usr/lib/libxkbcommon-x11.so.0.0.0
 lrwxrwxrwx root       root               21 ./usr/lib/libxkbcommon.so.0 -> libxkbcommon.so.0.0.0
 -rwxr-xr-x root       root           270684 ./usr/lib/libxkbcommon.so.0.0.0
 lrwxrwxrwx root       root               16 ./usr/lib/libxml2.so.2 -> libxml2.so.2.9.2
--rwxr-xr-x root       root          1495924 ./usr/lib/libxml2.so.2.9.2
+-rwxr-xr-x root       root          1495732 ./usr/lib/libxml2.so.2.9.2
 lrwxrwxrwx root       root               20 ./usr/lib/libxtables.so.10 -> libxtables.so.10.0.0
 -rwxr-xr-x root       root            47648 ./usr/lib/libxtables.so.10.0.0
 drwxr-xr-x root       root             4096 ./usr/lib/locale
@@ -5280,7 +5281,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root              836 ./var/lib/opkg/info/libbz2-0.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/libbz2-0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libbz2-0.postinst
--rw-r--r-- root       root             2404 ./var/lib/opkg/info/libc6.control
+-rw-r--r-- root       root             2431 ./var/lib/opkg/info/libc6.control
 -rw-r--r-- root       root              657 ./var/lib/opkg/info/libc6.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libc6.postinst
 -rw-r--r-- root       root              511 ./var/lib/opkg/info/libcap2.control
@@ -5447,7 +5448,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root             1134 ./var/lib/opkg/info/openssh-sshd.control
 -rw-r--r-- root       root              235 ./var/lib/opkg/info/openssh-sshd.list
 -rwxr-xr-x root       root              233 ./var/lib/opkg/info/openssh-sshd.postinst
--rwxr-xr-x root       root             6318 ./var/lib/opkg/info/openssh-sshd.preinst
+-rwxr-xr-x root       root             6294 ./var/lib/opkg/info/openssh-sshd.preinst
 -rwxr-xr-x root       root              208 ./var/lib/opkg/info/openssh-sshd.prerm
 -rw-r--r-- root       root               25 ./var/lib/opkg/info/openssl-conf.conffiles
 -rw-r--r-- root       root             1656 ./var/lib/opkg/info/openssl-conf.control
@@ -5525,7 +5526,7 @@ drwxr-xr-x root       root            20480 ./var/lib/opkg/info
 -rw-r--r-- root       root              159 ./var/lib/opkg/info/systemd-vconsole-setup.list
 -rw-r--r-- root       root              100 ./var/lib/opkg/info/systemd.conffiles
 -rw-r--r-- root       root             2585 ./var/lib/opkg/info/systemd.control
--rw-r--r-- root       root            18251 ./var/lib/opkg/info/systemd.list
+-rw-r--r-- root       root            18270 ./var/lib/opkg/info/systemd.list
 -rwxr-xr-x root       root              520 ./var/lib/opkg/info/systemd.postinst
 -rwxr-xr-x root       root             6277 ./var/lib/opkg/info/systemd.preinst
 -rwxr-xr-x root       root              336 ./var/lib/opkg/info/systemd.prerm
