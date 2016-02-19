@@ -87,8 +87,8 @@ lrwxrwxrwx root       root               34 ./boot/bzImage -> /boot/bzImage-4.1.
 -rw-r--r-- root       root          7153216 ./boot/bzImage-4.1.8-yocto-standard
 drwxr-xr-x root       root             4096 ./dev
 drwxr-xr-x root       root             4096 ./etc
--rw-r--r-- root       root             2906 ./etc/angstrom-build-info
--rw-r--r-- root       root              145 ./etc/angstrom-version
+-rw-r--r-- root       root             2910 ./etc/angstrom-build-info
+-rw-r--r-- root       root              147 ./etc/angstrom-version
 drwxr-xr-x root       root             4096 ./etc/avahi
 -rw-r--r-- root       root             1749 ./etc/avahi/avahi-daemon.conf
 -rw-r--r-- root       root             1121 ./etc/avahi/hosts
@@ -206,6 +206,8 @@ drwxr-xr-x root       root             4096 ./etc/pam.d
 -rw------- root       root              989 ./etc/passwd-
 -rw-r--r-- root       root              934 ./etc/profile
 -rw-r--r-- root       root             2932 ./etc/protocols
+drwxr-xr-x root       root             4096 ./etc/rc.d
+drwxr-xr-x root       root             4096 ./etc/rc.d/init.d
 drwxr-xr-x root       root             4096 ./etc/rc0.d
 lrwxrwxrwx root       root               14 ./etc/rc0.d/K20lms8 -> ../init.d/lms8
 drwxr-xr-x root       root             4096 ./etc/rc1.d
@@ -2893,6 +2895,10 @@ drwxr-xr-x root       root             4096 ./lib/security
 -rwxr-xr-x root       root            49376 ./lib/security/pam_unix.so
 -rwxr-xr-x root       root             5968 ./lib/security/pam_warn.so
 drwxr-xr-x root       root             4096 ./lib/systemd
+drwxr-xr-x root       root             4096 ./lib/systemd/boot
+drwxr-xr-x root       root             4096 ./lib/systemd/boot/efi
+-rw-r--r-- root       root            52607 ./lib/systemd/boot/efi/linuxx64.efi.stub
+-rw-r--r-- root       root            77034 ./lib/systemd/boot/efi/systemd-bootx64.efi
 drwxr-xr-x root       root             4096 ./lib/systemd/catalog
 -rw-r--r-- root       root            11415 ./lib/systemd/catalog/systemd.be.catalog
 -rw-r--r-- root       root             9185 ./lib/systemd/catalog/systemd.be@latin.catalog
@@ -4747,7 +4753,7 @@ drwxr-xr-x root       root             4096 ./usr/share/polkit-1
 drwxr-xr-x root       root             4096 ./usr/share/polkit-1/actions
 -rw-r--r-- root       root            12397 ./usr/share/polkit-1/actions/org.freedesktop.hostname1.policy
 -rw-r--r-- root       root             8117 ./usr/share/polkit-1/actions/org.freedesktop.locale1.policy
--rw-r--r-- root       root           112395 ./usr/share/polkit-1/actions/org.freedesktop.login1.policy
+-rw-r--r-- root       root           122607 ./usr/share/polkit-1/actions/org.freedesktop.login1.policy
 -rw-r--r-- root       root            13224 ./usr/share/polkit-1/actions/org.freedesktop.machine1.policy
 -rw-r--r-- root       root            16995 ./usr/share/polkit-1/actions/org.freedesktop.systemd1.policy
 -rw-r--r-- root       root            17077 ./usr/share/polkit-1/actions/org.freedesktop.timedate1.policy
@@ -11594,7 +11600,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root              841 ./var/lib/opkg/info/libbz2-0.control
 -rw-r--r-- root       root               46 ./var/lib/opkg/info/libbz2-0.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libbz2-0.postinst
--rw-r--r-- root       root             2409 ./var/lib/opkg/info/libc6.control
+-rw-r--r-- root       root             2436 ./var/lib/opkg/info/libc6.control
 -rw-r--r-- root       root              703 ./var/lib/opkg/info/libc6.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libc6.postinst
 -rw-r--r-- root       root              516 ./var/lib/opkg/info/libcap2.control
@@ -11835,7 +11841,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root             2332 ./var/lib/opkg/info/linux-firmware.control
 -rw-r--r-- root       root            26316 ./var/lib/opkg/info/linux-firmware.list
 -rw-r--r-- root       root              696 ./var/lib/opkg/info/lms8.control
--rw-r--r-- root       root               45 ./var/lib/opkg/info/lms8.list
+-rw-r--r-- root       root               74 ./var/lib/opkg/info/lms8.list
 -rwxr-xr-x root       root              151 ./var/lib/opkg/info/lms8.postinst
 -rwxr-xr-x root       root              152 ./var/lib/opkg/info/lms8.postrm
 -rwxr-xr-x root       root              224 ./var/lib/opkg/info/lms8.preinst
@@ -11953,7 +11959,7 @@ drwxr-xr-x root       root           266240 ./var/lib/opkg/info
 -rw-r--r-- root       root              159 ./var/lib/opkg/info/systemd-vconsole-setup.list
 -rw-r--r-- root       root              100 ./var/lib/opkg/info/systemd.conffiles
 -rw-r--r-- root       root             2487 ./var/lib/opkg/info/systemd.control
--rw-r--r-- root       root            18251 ./var/lib/opkg/info/systemd.list
+-rw-r--r-- root       root            18375 ./var/lib/opkg/info/systemd.list
 -rwxr-xr-x root       root              520 ./var/lib/opkg/info/systemd.postinst
 -rwxr-xr-x root       root             6277 ./var/lib/opkg/info/systemd.preinst
 -rwxr-xr-x root       root              336 ./var/lib/opkg/info/systemd.prerm
