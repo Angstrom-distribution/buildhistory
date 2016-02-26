@@ -25,17 +25,17 @@ lrwxrwxrwx root       root               19 ./bin/grep -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/gunzip -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/gzip -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/hostname -> /bin/busybox.nosuid
--rwxr-xr-x root       root           396824 ./bin/journalctl
+-rwxr-xr-x root       root           400920 ./bin/journalctl
 lrwxrwxrwx root       root               19 ./bin/kill -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           116216 ./bin/kmod
 lrwxrwxrwx root       root               19 ./bin/ln -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./bin/login -> /bin/login.shadow
 -rwxr-xr-x root       root            41280 ./bin/login.shadow
--rwxr-xr-x root       root           384528 ./bin/loginctl
+-rwxr-xr-x root       root           388624 ./bin/loginctl
 lrwxrwxrwx root       root               19 ./bin/ls -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               15 ./bin/lsmod -> /bin/lsmod.kmod
 lrwxrwxrwx root       root                4 ./bin/lsmod.kmod -> kmod
--rwxr-xr-x root       root           413216 ./bin/machinectl
+-rwxr-xr-x root       root           417312 ./bin/machinectl
 lrwxrwxrwx root       root               19 ./bin/mkdir -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/mknod -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/mktemp -> /bin/busybox.nosuid
@@ -63,9 +63,9 @@ lrwxrwxrwx root       root               14 ./bin/su -> /bin/su.shadow
 lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           553664 ./bin/systemctl
 -rwxr-xr-x root       root            43512 ./bin/systemd-ask-password
--rwxr-xr-x root       root            35320 ./bin/systemd-escape
+-rwxr-xr-x root       root            39416 ./bin/systemd-escape
 -rwxr-xr-x root       root            76360 ./bin/systemd-firstboot
--rwxr-xr-x root       root            55864 ./bin/systemd-hwdb
+-rwxr-xr-x root       root            59960 ./bin/systemd-hwdb
 -rwxr-xr-x root       root           245208 ./bin/systemd-inhibit
 -rwxr-xr-x root       root            39416 ./bin/systemd-machine-id-setup
 -rwxr-xr-x root       root            31192 ./bin/systemd-notify
@@ -75,7 +75,7 @@ lrwxrwxrwx root       root               19 ./bin/sync -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/tar -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/touch -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/true -> /bin/busybox.nosuid
--rwxr-xr-x root       root           395896 ./bin/udevadm
+-rwxr-xr-x root       root           399992 ./bin/udevadm
 lrwxrwxrwx root       root               19 ./bin/umount -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/uname -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./bin/usleep -> /bin/busybox.nosuid
@@ -93,6 +93,7 @@ drwxr-xr-x root       root             4096 ./etc/avahi
 drwxr-xr-x root       root             4096 ./etc/avahi/services
 -rw-r--r-- root       root             1075 ./etc/avahi/services/sftp-ssh.service
 -rw-r--r-- root       root             1071 ./etc/avahi/services/ssh.service
+drwxr-xr-x root       root             4096 ./etc/binfmt.d
 drwxr-xr-x root       root             4096 ./etc/bluetooth
 -rw-r--r-- root       root              397 ./etc/bluetooth/input.conf
 -rw-r--r-- root       root              120 ./etc/bluetooth/network.conf
@@ -229,15 +230,15 @@ drwxr-xr-x root       root             4096 ./etc/systemd/network
 drwxr-xr-x root       root             4096 ./etc/systemd/system
 -rw-r--r-- root       root             1471 ./etc/systemd/system.conf
 drwxr-xr-x root       root             4096 ./etc/systemd/system/basic.target.wants
-lrwxrwxrwx root       root               42 ./etc/systemd/system/basic.target.wants/opkg-configure.service -> /lib/systemd/system/opkg-configure.service
+lrwxrwxrwx root       root               46 ./etc/systemd/system/basic.target.wants/opkg-configure.service -> /usr/lib/systemd/system/opkg-configure.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/bluetooth.target.wants
-lrwxrwxrwx root       root               37 ./etc/systemd/system/bluetooth.target.wants/bluetooth.service -> /lib/systemd/system/bluetooth.service
+lrwxrwxrwx root       root               41 ./etc/systemd/system/bluetooth.target.wants/bluetooth.service -> /usr/lib/systemd/system/bluetooth.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/bootmisc.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/busybox-udhcpc.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/checkroot.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/crond.service -> /dev/null
-lrwxrwxrwx root       root               37 ./etc/systemd/system/dbus-org.bluez.service -> /lib/systemd/system/bluetooth.service
-lrwxrwxrwx root       root               40 ./etc/systemd/system/dbus-org.freedesktop.Avahi.service -> /lib/systemd/system/avahi-daemon.service
+lrwxrwxrwx root       root               41 ./etc/systemd/system/dbus-org.bluez.service -> /usr/lib/systemd/system/bluetooth.service
+lrwxrwxrwx root       root               44 ./etc/systemd/system/dbus-org.freedesktop.Avahi.service -> /usr/lib/systemd/system/avahi-daemon.service
 lrwxrwxrwx root       root               37 ./etc/systemd/system/default.target -> /lib/systemd/system/multi-user.target
 lrwxrwxrwx root       root                9 ./etc/systemd/system/dnsmasq.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/fbsetup.service -> /dev/null
@@ -249,16 +250,16 @@ lrwxrwxrwx root       root                9 ./etc/systemd/system/gpsd-sysv.servi
 lrwxrwxrwx root       root                9 ./etc/systemd/system/hwclock.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/keymap.service -> /dev/null
 drwxr-xr-x root       root             4096 ./etc/systemd/system/local-fs.target.wants
-lrwxrwxrwx root       root               44 ./etc/systemd/system/local-fs.target.wants/var-volatile-lib.service -> /lib/systemd/system/var-volatile-lib.service
+lrwxrwxrwx root       root               48 ./etc/systemd/system/local-fs.target.wants/var-volatile-lib.service -> /usr/lib/systemd/system/var-volatile-lib.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/modutils.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/mountall.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/mountnfs.service -> /dev/null
 drwxr-xr-x root       root             4096 ./etc/systemd/system/multi-user.target.wants
-lrwxrwxrwx root       root               40 ./etc/systemd/system/multi-user.target.wants/avahi-daemon.service -> /lib/systemd/system/avahi-daemon.service
-lrwxrwxrwx root       root               41 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /lib/systemd/system/busybox-klogd.service
-lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /lib/systemd/system/busybox-syslog.service
-lrwxrwxrwx root       root               35 ./etc/systemd/system/multi-user.target.wants/connman.service -> /lib/systemd/system/connman.service
-lrwxrwxrwx root       root               38 ./etc/systemd/system/multi-user.target.wants/cpu-ondemand.timer -> /lib/systemd/system/cpu-ondemand.timer
+lrwxrwxrwx root       root               44 ./etc/systemd/system/multi-user.target.wants/avahi-daemon.service -> /usr/lib/systemd/system/avahi-daemon.service
+lrwxrwxrwx root       root               45 ./etc/systemd/system/multi-user.target.wants/busybox-klogd.service -> /usr/lib/systemd/system/busybox-klogd.service
+lrwxrwxrwx root       root               46 ./etc/systemd/system/multi-user.target.wants/busybox-syslog.service -> /usr/lib/systemd/system/busybox-syslog.service
+lrwxrwxrwx root       root               39 ./etc/systemd/system/multi-user.target.wants/connman.service -> /usr/lib/systemd/system/connman.service
+lrwxrwxrwx root       root               42 ./etc/systemd/system/multi-user.target.wants/cpu-ondemand.timer -> /usr/lib/systemd/system/cpu-ondemand.timer
 lrwxrwxrwx root       root               47 ./etc/systemd/system/multi-user.target.wants/remote-fs.target -> ../../../../lib/systemd/system/remote-fs.target
 lrwxrwxrwx root       root               55 ./etc/systemd/system/multi-user.target.wants/systemd-networkd.service -> ../../../../lib/systemd/system/systemd-networkd.service
 lrwxrwxrwx root       root               55 ./etc/systemd/system/multi-user.target.wants/systemd-resolved.service -> ../../../../lib/systemd/system/systemd-resolved.service
@@ -268,16 +269,17 @@ lrwxrwxrwx root       root                9 ./etc/systemd/system/networking.serv
 lrwxrwxrwx root       root                9 ./etc/systemd/system/populate-volatile.service -> /dev/null
 lrwxrwxrwx root       root                9 ./etc/systemd/system/shr-splash.service -> /dev/null
 drwxr-xr-x root       root             4096 ./etc/systemd/system/sockets.target.wants
-lrwxrwxrwx root       root               39 ./etc/systemd/system/sockets.target.wants/avahi-daemon.socket -> /lib/systemd/system/avahi-daemon.socket
-lrwxrwxrwx root       root               31 ./etc/systemd/system/sockets.target.wants/sshd.socket -> /lib/systemd/system/sshd.socket
+lrwxrwxrwx root       root               43 ./etc/systemd/system/sockets.target.wants/avahi-daemon.socket -> /usr/lib/systemd/system/avahi-daemon.socket
+lrwxrwxrwx root       root               35 ./etc/systemd/system/sockets.target.wants/sshd.socket -> /usr/lib/systemd/system/sshd.socket
 lrwxrwxrwx root       root               54 ./etc/systemd/system/sockets.target.wants/systemd-networkd.socket -> ../../../../lib/systemd/system/systemd-networkd.socket
 drwxr-xr-x root       root             4096 ./etc/systemd/system/sysinit.target.wants
-lrwxrwxrwx root       root               42 ./etc/systemd/system/sysinit.target.wants/opkg-configure.service -> /lib/systemd/system/opkg-configure.service
+lrwxrwxrwx root       root               46 ./etc/systemd/system/sysinit.target.wants/opkg-configure.service -> /usr/lib/systemd/system/opkg-configure.service
+lrwxrwxrwx root       root               46 ./etc/systemd/system/sysinit.target.wants/systemd-binfmt.service -> /usr/lib/systemd/system/systemd-binfmt.service
 lrwxrwxrwx root       root               56 ./etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service -> ../../../../lib/systemd/system/systemd-timesyncd.service
 lrwxrwxrwx root       root                9 ./etc/systemd/system/syslog.busybox.service -> /dev/null
-lrwxrwxrwx root       root               42 ./etc/systemd/system/syslog.service -> /lib/systemd/system/busybox-syslog.service
+lrwxrwxrwx root       root               46 ./etc/systemd/system/syslog.service -> /usr/lib/systemd/system/busybox-syslog.service
 drwxr-xr-x root       root             4096 ./etc/systemd/system/systemd-random-seed.service.wants
-lrwxrwxrwx root       root               44 ./etc/systemd/system/systemd-random-seed.service.wants/var-volatile-lib.service -> /lib/systemd/system/var-volatile-lib.service
+lrwxrwxrwx root       root               48 ./etc/systemd/system/systemd-random-seed.service.wants/var-volatile-lib.service -> /usr/lib/systemd/system/var-volatile-lib.service
 -rw-r--r-- root       root              587 ./etc/systemd/timesyncd.conf
 drwxr-xr-x root       root             4096 ./etc/systemd/user
 -rw-r--r-- root       root             1127 ./etc/systemd/user.conf
@@ -576,6 +578,8 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 drwxr-xr-x root       root             4096 ./lib/systemd/system/poweroff.target.wants
 lrwxrwxrwx root       root               39 ./lib/systemd/system/poweroff.target.wants/systemd-update-utmp-runlevel.service -> ../systemd-update-utmp-runlevel.service
 -rw-r--r-- root       root              377 ./lib/systemd/system/printer.target
+-rw-r--r-- root       root              728 ./lib/systemd/system/proc-sys-fs-binfmt_misc.automount
+-rw-r--r-- root       root              603 ./lib/systemd/system/proc-sys-fs-binfmt_misc.mount
 -rw-r--r-- root       root              576 ./lib/systemd/system/quotaon.service
 -rw-r--r-- root       root              612 ./lib/systemd/system/rc-local.service
 -rw-r--r-- root       root              543 ./lib/systemd/system/reboot.target
@@ -660,6 +664,7 @@ lrwxrwxrwx root       root                9 ./lib/systemd/system/syslog.service 
 -rw-r--r-- root       root              574 ./lib/systemd/system/systemd-ask-password-wall.path
 -rw-r--r-- root       root              681 ./lib/systemd/system/systemd-ask-password-wall.service
 -rw-r--r-- root       root              724 ./lib/systemd/system/systemd-backlight@.service
+-rw-r--r-- root       root             1035 ./lib/systemd/system/systemd-binfmt.service
 -rw-r--r-- root       root              650 ./lib/systemd/system/systemd-bootchart.service
 -rw-r--r-- root       root             1024 ./lib/systemd/system/systemd-bus-proxyd.service
 -rw-r--r-- root       root              409 ./lib/systemd/system/systemd-bus-proxyd.socket
@@ -730,16 +735,17 @@ lrwxrwxrwx root       root               31 ./lib/systemd/system/timers.target.w
 -rw-r--r-- root       root              439 ./lib/systemd/system/wpa_supplicant-wired@.service
 -rw-r--r-- root       root              222 ./lib/systemd/system/wpa_supplicant.service
 -rw-r--r-- root       root              401 ./lib/systemd/system/wpa_supplicant@.service
--rwxr-xr-x root       root          1315552 ./lib/systemd/systemd
+-rwxr-xr-x root       root          1319648 ./lib/systemd/systemd
 -rwxr-xr-x root       root            14568 ./lib/systemd/systemd-ac-power
 -rwxr-xr-x root       root            47584 ./lib/systemd/systemd-activate
--rwxr-xr-x root       root            80456 ./lib/systemd/systemd-backlight
+-rwxr-xr-x root       root            84552 ./lib/systemd/systemd-backlight
+-rwxr-xr-x root       root            43560 ./lib/systemd/systemd-binfmt
 -rwxr-xr-x root       root            92744 ./lib/systemd/systemd-bootchart
 -rwxr-xr-x root       root           314968 ./lib/systemd/systemd-bus-proxyd
 -rwxr-xr-x root       root           241104 ./lib/systemd/systemd-cgroups-agent
 -rwxr-xr-x root       root           266392 ./lib/systemd/systemd-fsck
 -rwxr-xr-x root       root            27112 ./lib/systemd/systemd-hibernate-resume
--rwxr-xr-x root       root           286200 ./lib/systemd/systemd-hostnamed
+-rwxr-xr-x root       root           290296 ./lib/systemd/systemd-hostnamed
 -rwxr-xr-x root       root           245192 ./lib/systemd/systemd-initctl
 -rwxr-xr-x root       root           252456 ./lib/systemd/systemd-journald
 -rwxr-xr-x root       root           298472 ./lib/systemd/systemd-localed
@@ -747,14 +753,14 @@ lrwxrwxrwx root       root               31 ./lib/systemd/system/timers.target.w
 -rwxr-xr-x root       root            35304 ./lib/systemd/systemd-machine-id-commit
 -rwxr-xr-x root       root           426192 ./lib/systemd/systemd-machined
 -rwxr-xr-x root       root            47680 ./lib/systemd/systemd-modules-load
--rwxr-xr-x root       root           679536 ./lib/systemd/systemd-networkd
+-rwxr-xr-x root       root           683632 ./lib/systemd/systemd-networkd
 -rwxr-xr-x root       root           113264 ./lib/systemd/systemd-networkd-wait-online
 -rwxr-xr-x root       root            31200 ./lib/systemd/systemd-quotacheck
 -rwxr-xr-x root       root            31200 ./lib/systemd/systemd-random-seed
 -rwxr-xr-x root       root            47656 ./lib/systemd/systemd-remount-fs
 -rwxr-xr-x root       root            27104 ./lib/systemd/systemd-reply-password
--rwxr-xr-x root       root           277992 ./lib/systemd/systemd-resolve-host
--rwxr-xr-x root       root           450760 ./lib/systemd/systemd-resolved
+-rwxr-xr-x root       root           282088 ./lib/systemd/systemd-resolve-host
+-rwxr-xr-x root       root           454856 ./lib/systemd/systemd-resolved
 -rwxr-xr-x root       root            64064 ./lib/systemd/systemd-rfkill
 -rwxr-xr-x root       root           125560 ./lib/systemd/systemd-shutdown
 -rwxr-xr-x root       root            64032 ./lib/systemd/systemd-sleep
@@ -818,7 +824,7 @@ drwxr-xr-x root       root             4096 ./lib/udev/rules.d
 -rw-r--r-- root       root              437 ./lib/udev/rules.d/90-vconsole.rules
 -rw-r--r-- root       root             1357 ./lib/udev/rules.d/97-hid2hci.rules
 -rw-r--r-- root       root             3878 ./lib/udev/rules.d/99-systemd.rules
--rwxr-xr-x root       root            43992 ./lib/udev/scsi_id
+-rwxr-xr-x root       root            48088 ./lib/udev/scsi_id
 -rwxr-xr-x root       root            14640 ./lib/udev/v4l_id
 drwxr-xr-x root       root             4096 ./media
 drwxr-xr-x root       root             4096 ./mnt
@@ -953,7 +959,7 @@ lrwxrwxrwx root       root               22 ./usr/bin/groups -> /usr/bin/groups.
 lrwxrwxrwx root       root               19 ./usr/bin/head -> /bin/busybox.nosuid
 -rwxr-xr-x root       root            10984 ./usr/bin/hex2hcd
 lrwxrwxrwx root       root               19 ./usr/bin/hexdump -> /bin/busybox.nosuid
--rwxr-xr-x root       root           253400 ./usr/bin/hostnamectl
+-rwxr-xr-x root       root           257496 ./usr/bin/hostnamectl
 -rwxr-xr-x root       root           120080 ./usr/bin/htop
 lrwxrwxrwx root       root               19 ./usr/bin/id -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               23 ./usr/bin/iptables-xml -> /usr/sbin/xtables-multi
@@ -1027,7 +1033,7 @@ lrwxrwxrwx root       root               20 ./usr/bin/ssh -> /usr/bin/ssh.openss
 -rwxr-xr-x root       root           358640 ./usr/bin/ssh-keygen
 -rwxr-xr-x root       root           608720 ./usr/bin/ssh.openssh
 lrwxrwxrwx root       root               19 ./usr/bin/strings -> /bin/busybox.nosuid
--rwxr-xr-x root       root          1245832 ./usr/bin/systemd-analyze
+-rwxr-xr-x root       root          1249928 ./usr/bin/systemd-analyze
 -rwxr-xr-x root       root            31200 ./usr/bin/systemd-cat
 -rwxr-xr-x root       root           257520 ./usr/bin/systemd-cgls
 -rwxr-xr-x root       root            64064 ./usr/bin/systemd-cgtop
@@ -1035,7 +1041,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/strings -> /bin/busybox.no
 -rwxr-xr-x root       root            31200 ./usr/bin/systemd-detect-virt
 -rwxr-xr-x root       root           507912 ./usr/bin/systemd-nspawn
 -rwxr-xr-x root       root            39384 ./usr/bin/systemd-path
--rwxr-xr-x root       root           315104 ./usr/bin/systemd-run
+-rwxr-xr-x root       root           319200 ./usr/bin/systemd-run
 -rwxr-xr-x root       root           306784 ./usr/bin/systemd-stdio-bridge
 lrwxrwxrwx root       root               19 ./usr/bin/tail -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/bin/tee -> /bin/busybox.nosuid
@@ -1070,6 +1076,7 @@ lrwxrwxrwx root       root               19 ./usr/bin/yes -> /bin/busybox.nosuid
 drwxr-xr-x root       root             4096 ./usr/games
 drwxr-xr-x root       root             4096 ./usr/include
 drwxr-xr-x root       root             4096 ./usr/lib
+drwxr-xr-x root       root             4096 ./usr/lib/binfmt.d
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5
 drwxr-xr-x root       root             4096 ./usr/lib/bluez5/bluetooth
 -rwxr-xr-x root       root           720568 ./usr/lib/bluez5/bluetooth/bluetoothd
@@ -1155,7 +1162,7 @@ lrwxrwxrwx root       root               22 ./usr/lib/libnl-nf-3.so.200 -> libnl
 lrwxrwxrwx root       root               25 ./usr/lib/libnl-route-3.so.200 -> libnl-route-3.so.200.20.0
 -rwxr-xr-x root       root           335472 ./usr/lib/libnl-route-3.so.200.20.0
 -rwxr-xr-x root       root            63816 ./usr/lib/libnss_myhostname.so.2
--rwxr-xr-x root       root           237624 ./usr/lib/libnss_mymachines.so.2
+-rwxr-xr-x root       root           241720 ./usr/lib/libnss_mymachines.so.2
 -rwxr-xr-x root       root           237640 ./usr/lib/libnss_resolve.so.2
 lrwxrwxrwx root       root               16 ./usr/lib/libopkg.so.1 -> libopkg.so.1.0.0
 -rwxr-xr-x root       root           159392 ./usr/lib/libopkg.so.1.0.0
@@ -1386,6 +1393,54 @@ drwxr-xr-x root       root             4096 ./usr/lib/ssl
 -rw-r--r-- root       root            10835 ./usr/lib/ssl/openssl.cnf
 drwxr-xr-x root       root             4096 ./usr/lib/sysctl.d
 -rw-r--r-- root       root             1297 ./usr/lib/sysctl.d/50-default.conf
+drwxr-xr-x root       root             4096 ./usr/lib/systemd
+lrwxrwxrwx root       root               25 ./usr/lib/systemd/boot -> ../../../lib/systemd/boot
+lrwxrwxrwx root       root               28 ./usr/lib/systemd/catalog -> ../../../lib/systemd/catalog
+lrwxrwxrwx root       root               28 ./usr/lib/systemd/network -> ../../../lib/systemd/network
+lrwxrwxrwx root       root               27 ./usr/lib/systemd/system -> ../../../lib/systemd/system
+lrwxrwxrwx root       root               38 ./usr/lib/systemd/system-generators -> ../../../lib/systemd/system-generators
+lrwxrwxrwx root       root               34 ./usr/lib/systemd/system-preset -> ../../../lib/systemd/system-preset
+lrwxrwxrwx root       root               36 ./usr/lib/systemd/system-shutdown -> ../../../lib/systemd/system-shutdown
+lrwxrwxrwx root       root               33 ./usr/lib/systemd/system-sleep -> ../../../lib/systemd/system-sleep
+lrwxrwxrwx root       root               28 ./usr/lib/systemd/systemd -> ../../../lib/systemd/systemd
+lrwxrwxrwx root       root               37 ./usr/lib/systemd/systemd-ac-power -> ../../../lib/systemd/systemd-ac-power
+lrwxrwxrwx root       root               37 ./usr/lib/systemd/systemd-activate -> ../../../lib/systemd/systemd-activate
+lrwxrwxrwx root       root               38 ./usr/lib/systemd/systemd-backlight -> ../../../lib/systemd/systemd-backlight
+lrwxrwxrwx root       root               35 ./usr/lib/systemd/systemd-binfmt -> ../../../lib/systemd/systemd-binfmt
+lrwxrwxrwx root       root               38 ./usr/lib/systemd/systemd-bootchart -> ../../../lib/systemd/systemd-bootchart
+lrwxrwxrwx root       root               39 ./usr/lib/systemd/systemd-bus-proxyd -> ../../../lib/systemd/systemd-bus-proxyd
+lrwxrwxrwx root       root               42 ./usr/lib/systemd/systemd-cgroups-agent -> ../../../lib/systemd/systemd-cgroups-agent
+lrwxrwxrwx root       root               33 ./usr/lib/systemd/systemd-fsck -> ../../../lib/systemd/systemd-fsck
+lrwxrwxrwx root       root               45 ./usr/lib/systemd/systemd-hibernate-resume -> ../../../lib/systemd/systemd-hibernate-resume
+lrwxrwxrwx root       root               38 ./usr/lib/systemd/systemd-hostnamed -> ../../../lib/systemd/systemd-hostnamed
+lrwxrwxrwx root       root               36 ./usr/lib/systemd/systemd-initctl -> ../../../lib/systemd/systemd-initctl
+lrwxrwxrwx root       root               37 ./usr/lib/systemd/systemd-journald -> ../../../lib/systemd/systemd-journald
+lrwxrwxrwx root       root               36 ./usr/lib/systemd/systemd-localed -> ../../../lib/systemd/systemd-localed
+lrwxrwxrwx root       root               35 ./usr/lib/systemd/systemd-logind -> ../../../lib/systemd/systemd-logind
+lrwxrwxrwx root       root               46 ./usr/lib/systemd/systemd-machine-id-commit -> ../../../lib/systemd/systemd-machine-id-commit
+lrwxrwxrwx root       root               37 ./usr/lib/systemd/systemd-machined -> ../../../lib/systemd/systemd-machined
+lrwxrwxrwx root       root               41 ./usr/lib/systemd/systemd-modules-load -> ../../../lib/systemd/systemd-modules-load
+lrwxrwxrwx root       root               37 ./usr/lib/systemd/systemd-networkd -> ../../../lib/systemd/systemd-networkd
+lrwxrwxrwx root       root               49 ./usr/lib/systemd/systemd-networkd-wait-online -> ../../../lib/systemd/systemd-networkd-wait-online
+lrwxrwxrwx root       root               39 ./usr/lib/systemd/systemd-quotacheck -> ../../../lib/systemd/systemd-quotacheck
+lrwxrwxrwx root       root               40 ./usr/lib/systemd/systemd-random-seed -> ../../../lib/systemd/systemd-random-seed
+lrwxrwxrwx root       root               39 ./usr/lib/systemd/systemd-remount-fs -> ../../../lib/systemd/systemd-remount-fs
+lrwxrwxrwx root       root               43 ./usr/lib/systemd/systemd-reply-password -> ../../../lib/systemd/systemd-reply-password
+lrwxrwxrwx root       root               41 ./usr/lib/systemd/systemd-resolve-host -> ../../../lib/systemd/systemd-resolve-host
+lrwxrwxrwx root       root               37 ./usr/lib/systemd/systemd-resolved -> ../../../lib/systemd/systemd-resolved
+lrwxrwxrwx root       root               35 ./usr/lib/systemd/systemd-rfkill -> ../../../lib/systemd/systemd-rfkill
+lrwxrwxrwx root       root               37 ./usr/lib/systemd/systemd-shutdown -> ../../../lib/systemd/systemd-shutdown
+lrwxrwxrwx root       root               34 ./usr/lib/systemd/systemd-sleep -> ../../../lib/systemd/systemd-sleep
+lrwxrwxrwx root       root               42 ./usr/lib/systemd/systemd-socket-proxyd -> ../../../lib/systemd/systemd-socket-proxyd
+lrwxrwxrwx root       root               35 ./usr/lib/systemd/systemd-sysctl -> ../../../lib/systemd/systemd-sysctl
+lrwxrwxrwx root       root               38 ./usr/lib/systemd/systemd-timedated -> ../../../lib/systemd/systemd-timedated
+lrwxrwxrwx root       root               38 ./usr/lib/systemd/systemd-timesyncd -> ../../../lib/systemd/systemd-timesyncd
+lrwxrwxrwx root       root               34 ./usr/lib/systemd/systemd-udevd -> ../../../lib/systemd/systemd-udevd
+lrwxrwxrwx root       root               40 ./usr/lib/systemd/systemd-update-done -> ../../../lib/systemd/systemd-update-done
+lrwxrwxrwx root       root               40 ./usr/lib/systemd/systemd-update-utmp -> ../../../lib/systemd/systemd-update-utmp
+lrwxrwxrwx root       root               42 ./usr/lib/systemd/systemd-user-sessions -> ../../../lib/systemd/systemd-user-sessions
+lrwxrwxrwx root       root               43 ./usr/lib/systemd/systemd-vconsole-setup -> ../../../lib/systemd/systemd-vconsole-setup
+lrwxrwxrwx root       root               36 ./usr/lib/systemd/user-generators -> ../../../lib/systemd/user-generators
 drwxr-xr-x root       root             4096 ./usr/lib/sysusers.d
 -rw-r--r-- root       root             1105 ./usr/lib/sysusers.d/basic.conf
 -rw-r--r-- root       root              503 ./usr/lib/sysusers.d/systemd.conf
@@ -1514,7 +1569,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/addgroup -> /bin/busybox.
 lrwxrwxrwx root       root               19 ./usr/sbin/adduser -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           123768 ./usr/sbin/avahi-daemon
 lrwxrwxrwx root       root               19 ./usr/sbin/chroot -> /bin/busybox.nosuid
--rwxr-xr-x root       root           740160 ./usr/sbin/connmand
+-rwxr-xr-x root       root           740632 ./usr/sbin/connmand
 lrwxrwxrwx root       root               19 ./usr/sbin/delgroup -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/deluser -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/fbset -> /bin/busybox.nosuid
@@ -1539,7 +1594,7 @@ lrwxrwxrwx root       root               19 ./usr/sbin/loadfont -> /bin/busybox.
 -rwxr-xr-x root       root             9584 ./usr/sbin/nl-qdisc-add
 -rwxr-xr-x root       root             9200 ./usr/sbin/nl-qdisc-delete
 -rwxr-xr-x root       root            11352 ./usr/sbin/nl-qdisc-list
--rwxr-xr-x root       root          1196024 ./usr/sbin/ofonod
+-rwxr-xr-x root       root          1200520 ./usr/sbin/ofonod
 lrwxrwxrwx root       root               19 ./usr/sbin/rdate -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               19 ./usr/sbin/rfkill -> /bin/busybox.nosuid
 -rwxr-xr-x root       root           671792 ./usr/sbin/sshd
