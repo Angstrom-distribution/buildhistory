@@ -83,10 +83,10 @@ digraph depends {
 "htop" -> "ncurses-terminfo";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel" -> "kernel-4.4.2";
-"kernel-4.4.2" -> "kernel-image-4.4.2";
-"kernel-image-4.4.2" -> "kernel-devicetree";
-"kernel-image-4.4.2" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel" -> "kernel-4.4.3";
+"kernel-4.4.3" -> "kernel-image-4.4.3";
+"kernel-image-4.4.3" -> "kernel-devicetree";
+"kernel-image-4.4.3" -> "kernel-devicetree-overlays" [style=dotted];
 "kmod" -> "libz1";
 "kodi" -> "bluez5";
 "kodi" -> "glibc-charmap-ibm850" [style=dotted];
@@ -965,9 +965,11 @@ digraph depends {
 "systemd" -> "libxkbcommon";
 "systemd" -> "os-release" [style=dotted];
 "systemd" -> "shadow";
+"systemd" -> "systemd-binfmt";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
 "systemd" -> "systemd-vconsole-setup" [style=dotted];
+"systemd" -> "systemd-vconsole-setup";
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "util-linux-agetty" [style=dotted];
@@ -978,6 +980,7 @@ digraph depends {
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
+"systemd-binfmt" -> "libattr1";
 "systemd-serialgetty" -> "systemd";
 "systemd-vconsole-setup" -> "kbd" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
