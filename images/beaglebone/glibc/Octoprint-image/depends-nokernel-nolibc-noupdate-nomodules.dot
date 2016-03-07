@@ -60,10 +60,10 @@ digraph depends {
 "htop" -> "ncurses-terminfo";
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
-"kernel" -> "kernel-4.1.4";
-"kernel-4.1.4" -> "kernel-image-4.1.4";
-"kernel-image-4.1.4" -> "kernel-devicetree";
-"kernel-image-4.1.4" -> "kernel-devicetree-overlays" [style=dotted];
+"kernel" -> "kernel-4.1.15";
+"kernel-4.1.15" -> "kernel-image-4.1.15";
+"kernel-image-4.1.15" -> "kernel-devicetree";
+"kernel-image-4.1.15" -> "kernel-devicetree-overlays" [style=dotted];
 "kmod" -> "libz1";
 "libacl1" -> "libattr1";
 "libarchive13" -> "libattr1";
@@ -85,7 +85,7 @@ digraph depends {
 "libavahi-core7" -> "libavahi-common3";
 "libavcodec54" -> "libavutil52";
 "libavcodec54" -> "libtheora";
-"libavcodec54" -> "libx264-144";
+"libavcodec54" -> "libx264-148";
 "libavcodec54" -> "libz1";
 "libavdevice53" -> "libasound2";
 "libavdevice53" -> "libavcodec54";
@@ -732,9 +732,11 @@ digraph depends {
 "systemd" -> "libxkbcommon";
 "systemd" -> "os-release" [style=dotted];
 "systemd" -> "shadow";
+"systemd" -> "systemd-binfmt";
 "systemd" -> "systemd-compat-units" [style=dotted];
 "systemd" -> "systemd-serialgetty" [style=dotted];
 "systemd" -> "systemd-vconsole-setup" [style=dotted];
+"systemd" -> "systemd-vconsole-setup";
 "systemd" -> "udev";
 "systemd" -> "udev-hwdb" [style=dotted];
 "systemd" -> "util-linux-agetty" [style=dotted];
@@ -745,6 +747,7 @@ digraph depends {
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
+"systemd-binfmt" -> "libattr1";
 "systemd-serialgetty" -> "systemd";
 "systemd-vconsole-setup" -> "kbd" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
