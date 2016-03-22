@@ -6,7 +6,7 @@ else
 fi
 
 SCHEMA_LOCATION=$D/etc/gconf/schemas
-for SCHEMA in gedit-file-browser.schemas gedit.schemas; do
+for SCHEMA in gedit.schemas gedit-file-browser.schemas; do
 	if [ -e $SCHEMA_LOCATION/$SCHEMA ]; then
 		HOME=$D/root gconftool-2 \
 			--makefile-install-rule $SCHEMA_LOCATION/$SCHEMA > /dev/null
