@@ -6,10 +6,10 @@ if [ -n "$D" ]; then
 fi
 
 if type systemctl >/dev/null 2>/dev/null; then
-	systemctl $OPTS enable cups.socket cups.path cups.service
+	systemctl $OPTS enable org.cups.cupsd.socket org.cups.cupsd.path org.cups.cupsd.service org.cups.cups-lpd.socket org.cups.cups-lpd@.service
 
 	if [ -z "$D" -a "enable" = "enable" ]; then
-		systemctl restart cups.socket cups.path cups.service
+		systemctl restart org.cups.cupsd.socket org.cups.cupsd.path org.cups.cupsd.service org.cups.cups-lpd.socket org.cups.cups-lpd@.service
 	fi
 fi
 if [ x"$D" = "x" ]; then
