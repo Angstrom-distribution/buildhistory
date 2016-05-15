@@ -1,0 +1,12 @@
+	sed -e '/^hosts:/s/\s*\<myhostname\>//' \
+		-e 's/\(^hosts:.*\)\(\<files\>\)\(.*\)\(\<dns\>\)\(.*\)/\1\2 myhostname \3\4\5/' \
+		-i $D/etc/nsswitch.conf
+	update-alternatives --install /sbin/init init /lib/systemd/systemd 300
+	update-alternatives --install /sbin/halt halt /bin/systemctl 300
+	update-alternatives --install /sbin/reboot reboot /bin/systemctl 300
+	update-alternatives --install /sbin/shutdown shutdown /bin/systemctl 300
+	update-alternatives --install /sbin/poweroff poweroff /bin/systemctl 300
+	update-alternatives --install /sbin/runlevel runlevel /bin/systemctl 300
+if [ x"$D" = "x" ]; then
+	if [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi
+fi

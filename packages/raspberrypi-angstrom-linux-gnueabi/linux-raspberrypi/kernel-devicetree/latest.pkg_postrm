@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in      bcm2708-rpi-b.dtb     bcm2708-rpi-b-plus.dtb     bcm2709-rpi-2-b.dtb     bcm2710-rpi-3-b.dtb         overlays/hifiberry-amp-overlay.dtb     overlays/hifiberry-dac-overlay.dtb     overlays/hifiberry-dacplus-overlay.dtb     overlays/hifiberry-digi-overlay.dtb     overlays/i2c-rtc-overlay.dtb     overlays/iqaudio-dac-overlay.dtb     overlays/iqaudio-dacplus-overlay.dtb     overlays/lirc-rpi-overlay.dtb     overlays/pitft22-overlay.dtb     overlays/pitft28-resistive-overlay.dtb     overlays/pps-gpio-overlay.dtb     overlays/rpi-ft5406-overlay.dtb     overlays/w1-gpio-overlay.dtb     overlays/w1-gpio-pullup-overlay.dtb     overlays/pi3-miniuart-bt-overlay.dtb     
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo Image-raspberrypi | sed "s/raspberrypi/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40121 || true
+	done
