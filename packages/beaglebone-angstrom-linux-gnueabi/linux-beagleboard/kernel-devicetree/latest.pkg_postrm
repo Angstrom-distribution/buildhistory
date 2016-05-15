@@ -1,7 +1,0 @@
-	cd /boot
-	for DTB_FILE in am335x-bone.dtb am335x-boneblack.dtb am335x-bonegreen.dtb
-	do
-		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
-		DTB_SYMLINK_NAME=`echo zImage-beaglebone | sed "s/beaglebone/${DTB_BASE_NAME}/g"`
-		update-alternatives --remove ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 40115 || true
-	done

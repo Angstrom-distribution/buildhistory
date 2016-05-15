@@ -1,7 +1,0 @@
-	cd /boot
-	for DTB_FILE in sun7i-a20-cubietruck.dtb
-	do
-		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
-		DTB_SYMLINK_NAME=`echo uImage-cubietruck | sed "s/cubietruck/${DTB_BASE_NAME}/g"`
-		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 40115 || true
-	done

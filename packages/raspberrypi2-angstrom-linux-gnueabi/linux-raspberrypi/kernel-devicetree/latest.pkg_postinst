@@ -1,7 +1,0 @@
-	cd /boot
-	for DTB_FILE in      bcm2708-rpi-b.dtb     bcm2708-rpi-b-plus.dtb     bcm2709-rpi-2-b.dtb         overlays/hifiberry-amp-overlay.dtb     overlays/hifiberry-dac-overlay.dtb     overlays/hifiberry-dacplus-overlay.dtb     overlays/hifiberry-digi-overlay.dtb     overlays/i2c-rtc-overlay.dtb     overlays/iqaudio-dac-overlay.dtb     overlays/iqaudio-dacplus-overlay.dtb     overlays/lirc-rpi-overlay.dtb     overlays/pps-gpio-overlay.dtb     overlays/w1-gpio-overlay.dtb     overlays/w1-gpio-pullup-overlay.dtb     
-	do
-		DTB_BASE_NAME=`basename ${DTB_FILE} | awk -F "." '{print $1}'`
-		DTB_SYMLINK_NAME=`echo Image-raspberrypi2 | sed "s/raspberrypi2/${DTB_BASE_NAME}/g"`
-		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb devicetree-${DTB_SYMLINK_NAME}.dtb 40110 || true
-	done
