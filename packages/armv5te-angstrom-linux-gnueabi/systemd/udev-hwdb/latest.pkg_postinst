@@ -1,0 +1,7 @@
+	if test -n "$D"; then
+		PSEUDO_UNLOAD=1 qemu-arm -r 2.6.32  -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/bin/udevadm hwdb --update \
+			--root $D
+		chown root:root $D/etc/udev/hwdb.bin
+	else
+		udevadm hwdb --update
+	fi
