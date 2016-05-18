@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in sun5i-a10s-olinuxino-micro.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo uImage-olinuxino-a10s | sed "s/olinuxino-a10s/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40406 || true
+	done
