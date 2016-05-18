@@ -1,7 +1,7 @@
 	cd /boot
-	for DTB in /build/jenkins/v2016.06/machine/arietta-g25/build/tmp-angstrom-glibc/work/arietta_g25-angstrom-linux-gnueabi/linux-dominion/4.5.1-r0/git/arch/arm/boot/dts/acme-arietta.dts 
+	for DTB in /build/v2016.06/build/tmp-angstrom-glibc/work/arietta_g25-angstrom-linux-gnueabi/linux-dominion/4.6-r0/git/arch/arm/boot/dts/acme-arietta.dts 
 	do
 		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
 		DTB_SYMLINK_NAME=`echo zImage-arietta-g25 | sed "s/arietta-g25/${DTB_BASE_NAME}/g"`
-		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40501 || true
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40606 || true
 	done
