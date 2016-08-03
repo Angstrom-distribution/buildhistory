@@ -25,6 +25,9 @@ digraph depends {
 "bluez5" -> "libglib-2.0-0";
 "bluez5" -> "libreadline6";
 "bluez5" -> "libudev1";
+"bluez5-noinst-tools" -> "libdbus-1-3";
+"bluez5-noinst-tools" -> "libglib-2.0-0";
+"bluez5-noinst-tools" -> "libreadline6";
 "busybox" -> "busybox-syslog" [style=dotted];
 "busybox" -> "busybox-udhcpc" [style=dotted];
 "cpufreq-tweaks" -> "cpufrequtils";
@@ -168,11 +171,13 @@ digraph depends {
 "packagegroup-basic" -> "wpa-supplicant" [style=dotted];
 "packagegroup-boot" -> "base-files";
 "packagegroup-boot" -> "base-passwd";
+"packagegroup-boot" -> "bluez5-noinst-tools" [style=dotted];
 "packagegroup-boot" -> "busybox";
 "packagegroup-boot" -> "kernel" [style=dotted];
 "packagegroup-boot" -> "mesa-driver-msm" [style=dotted];
 "packagegroup-boot" -> "netbase";
 "packagegroup-boot" -> "wcnss-config" [style=dotted];
+"packagegroup-boot" -> "wcnss-start" [style=dotted];
 "pam-plugin-deny" -> "libpam";
 "pam-plugin-deny" -> "libpam-suffix";
 "pam-plugin-env" -> "libpam";
@@ -233,7 +238,6 @@ digraph depends {
 "systemd" -> "kmod";
 "systemd" -> "libacl1";
 "systemd" -> "libattr1";
-"systemd" -> "libblkid1";
 "systemd" -> "libcap2";
 "systemd" -> "libidn11";
 "systemd" -> "libkmod2";
@@ -275,6 +279,7 @@ digraph depends {
 "util-linux-fsck" -> "libblkid1";
 "util-linux-fsck" -> "libmount1";
 "util-linux-mount" -> "libmount1";
+"wcnss-start" -> "wcnss-config";
 "wpa-supplicant" -> "libdbus-1-3";
 "wpa-supplicant" -> "libgcrypt";
 "wpa-supplicant" -> "libgnutls30";
