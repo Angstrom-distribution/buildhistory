@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in am57xx-beagle-x15.dtb am57xx-beagle-x15-revb1.dtb am57xx-evm.dtb am57xx-evm-reva3.dtb am571x-idk.dtb am572x-idk.dtb am571x-idk-lcd-osd.dtb am572x-idk-lcd-osd.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-am57xx-evm | sed "s/am57xx-evm/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40409 || true
+	done
