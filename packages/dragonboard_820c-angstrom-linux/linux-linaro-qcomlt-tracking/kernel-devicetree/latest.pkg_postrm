@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in qcom/apq8096-sbc.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo Image-dragonboard-820c | sed "s/dragonboard-820c/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40606 || true
+	done
