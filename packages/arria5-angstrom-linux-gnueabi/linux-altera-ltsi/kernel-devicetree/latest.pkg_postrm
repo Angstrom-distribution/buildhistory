@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in socfpga_arria5_socdk.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-arria5 | sed "s/arria5/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40101 || true
+	done

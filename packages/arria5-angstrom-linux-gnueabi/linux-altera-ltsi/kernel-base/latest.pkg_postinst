@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/4.1.17-ltsi-altera" ]; then
+		mkdir -p $D/lib/modules/4.1.17-ltsi-altera
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 4.1.17-ltsi-altera
+	else
+		depmod -a 4.1.17-ltsi-altera
+	fi
