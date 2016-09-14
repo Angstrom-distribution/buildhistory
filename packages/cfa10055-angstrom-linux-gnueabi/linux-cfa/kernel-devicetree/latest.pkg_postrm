@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in imx28-cfa10036.dtb imx28-cfa10055.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-cfa10055 | sed "s/cfa10055/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40113 || true
+	done
