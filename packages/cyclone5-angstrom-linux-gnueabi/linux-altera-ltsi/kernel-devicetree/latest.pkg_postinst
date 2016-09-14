@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in socfpga_cyclone5_socdk.dtb socfpga_cyclone5_sockit.dtb socfpga_cyclone5_socrates.dtb socfpga_cyclone5_de0_sockit.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-cyclone5 | sed "s/cyclone5/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40101 || true
+	done
