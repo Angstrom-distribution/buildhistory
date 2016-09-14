@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in hisilicon/hi6220-hikey.dtb qcom/apq8016-sbc.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo Image-96boards-64 | sed "s/96boards-64/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40411 || true
+	done
