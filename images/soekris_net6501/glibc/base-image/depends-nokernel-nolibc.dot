@@ -139,9 +139,6 @@ digraph depends {
 "kernel-module-bcm203x" -> "kernel-module-bluetooth";
 "kernel-module-bcm203x" -> "kernel-module-rfkill";
 "kernel-module-bcm87xx" -> "kernel-module-libphy";
-"kernel-module-be2net" -> "kernel-module-ip6-udp-tunnel";
-"kernel-module-be2net" -> "kernel-module-udp-tunnel";
-"kernel-module-be2net" -> "kernel-module-vxlan";
 "kernel-module-bfusb" -> "kernel-module-bluetooth";
 "kernel-module-bfusb" -> "kernel-module-rfkill";
 "kernel-module-bluetooth" -> "kernel-module-rfkill";
@@ -875,6 +872,7 @@ digraph depends {
 "kernel-module-ip-set-hash-netiface" -> "kernel-module-ip-set";
 "kernel-module-ip-set-hash-netport" -> "kernel-module-ip-set";
 "kernel-module-ip-set-list-set" -> "kernel-module-ip-set";
+"kernel-module-ip6-gre" -> "kernel-module-gre";
 "kernel-module-ip6-gre" -> "kernel-module-ip6-tunnel";
 "kernel-module-ip6-gre" -> "kernel-module-tunnel6";
 "kernel-module-ip6-tunnel" -> "kernel-module-tunnel6";
@@ -929,10 +927,7 @@ digraph depends {
 "kernel-module-iwlegacy" -> "kernel-module-cfg80211";
 "kernel-module-iwlegacy" -> "kernel-module-mac80211";
 "kernel-module-iwlegacy" -> "kernel-module-rfkill";
-"kernel-module-ixgbe" -> "kernel-module-ip6-udp-tunnel";
 "kernel-module-ixgbe" -> "kernel-module-mdio";
-"kernel-module-ixgbe" -> "kernel-module-udp-tunnel";
-"kernel-module-ixgbe" -> "kernel-module-vxlan";
 "kernel-module-keyspan" -> "kernel-module-ezusb";
 "kernel-module-keyspan-pda" -> "kernel-module-ezusb";
 "kernel-module-ks0127" -> "kernel-module-media";
@@ -1035,10 +1030,7 @@ digraph depends {
 "kernel-module-md-cluster" -> "kernel-module-md-mod";
 "kernel-module-micrel" -> "kernel-module-libphy";
 "kernel-module-microchip" -> "kernel-module-libphy";
-"kernel-module-mlx4-en" -> "kernel-module-ip6-udp-tunnel";
 "kernel-module-mlx4-en" -> "kernel-module-mlx4-core";
-"kernel-module-mlx4-en" -> "kernel-module-udp-tunnel";
-"kernel-module-mlx4-en" -> "kernel-module-vxlan";
 "kernel-module-mmc-block" -> "kernel-module-mmc-core";
 "kernel-module-mpls-iptunnel" -> "kernel-module-mpls-router";
 "kernel-module-msp3400" -> "kernel-module-media";
@@ -1154,8 +1146,6 @@ digraph depends {
 "kernel-module-pcmcia" -> "kernel-module-pcmcia-core";
 "kernel-module-pluto2" -> "kernel-module-dvb-core";
 "kernel-module-pluto2" -> "kernel-module-tda1004x";
-"kernel-module-pn533" -> "kernel-module-nfc";
-"kernel-module-pn533" -> "kernel-module-rfkill";
 "kernel-module-ppp-async" -> "kernel-module-ppp-generic";
 "kernel-module-ppp-async" -> "kernel-module-slhc";
 "kernel-module-ppp-deflate" -> "kernel-module-ppp-generic";
@@ -1435,6 +1425,7 @@ digraph depends {
 "kernel-module-sata-sis" -> "kernel-module-pata-sis";
 "kernel-module-sbp-target" -> "kernel-module-firewire-core";
 "kernel-module-sbp-target" -> "kernel-module-target-core-mod";
+"kernel-module-sctp-diag" -> "kernel-module-sctp";
 "kernel-module-sdhci" -> "kernel-module-mmc-core";
 "kernel-module-sdhci-pltfm" -> "kernel-module-mmc-core";
 "kernel-module-sdhci-pltfm" -> "kernel-module-sdhci";
@@ -1462,6 +1453,7 @@ digraph depends {
 "kernel-module-target-core-file" -> "kernel-module-target-core-mod";
 "kernel-module-target-core-iblock" -> "kernel-module-target-core-mod";
 "kernel-module-target-core-pscsi" -> "kernel-module-target-core-mod";
+"kernel-module-tc90522" -> "kernel-module-dvb-core";
 "kernel-module-tcm-fc" -> "kernel-module-libfc";
 "kernel-module-tcm-fc" -> "kernel-module-scsi-transport-fc";
 "kernel-module-tcm-fc" -> "kernel-module-target-core-mod";
@@ -2342,7 +2334,6 @@ digraph depends {
 "kernel-modules" -> "kernel-module-pl2303";
 "kernel-modules" -> "kernel-module-plip";
 "kernel-modules" -> "kernel-module-pluto2";
-"kernel-modules" -> "kernel-module-pn533";
 "kernel-modules" -> "kernel-module-ppp-async";
 "kernel-modules" -> "kernel-module-ppp-deflate";
 "kernel-modules" -> "kernel-module-ppp-generic";
@@ -2360,6 +2351,7 @@ digraph depends {
 "kernel-modules" -> "kernel-module-qla4xxx";
 "kernel-modules" -> "kernel-module-qlcnic";
 "kernel-modules" -> "kernel-module-qlge";
+"kernel-modules" -> "kernel-module-qm1d1c0042";
 "kernel-modules" -> "kernel-module-qt1010";
 "kernel-modules" -> "kernel-module-r820t";
 "kernel-modules" -> "kernel-module-radio-i2c-si470x";
@@ -2567,6 +2559,7 @@ digraph depends {
 "kernel-modules" -> "kernel-module-scsi-transport-sas";
 "kernel-modules" -> "kernel-module-scsi-transport-spi";
 "kernel-modules" -> "kernel-module-sctp";
+"kernel-modules" -> "kernel-module-sctp-diag";
 "kernel-modules" -> "kernel-module-sdhci";
 "kernel-modules" -> "kernel-module-sdhci-pltfm";
 "kernel-modules" -> "kernel-module-seqiv";
@@ -2628,6 +2621,7 @@ digraph depends {
 "kernel-modules" -> "kernel-module-target-core-iblock";
 "kernel-modules" -> "kernel-module-target-core-mod";
 "kernel-modules" -> "kernel-module-target-core-pscsi";
+"kernel-modules" -> "kernel-module-tc90522";
 "kernel-modules" -> "kernel-module-tcm-fc";
 "kernel-modules" -> "kernel-module-tcm-loop";
 "kernel-modules" -> "kernel-module-tcm-qla2xxx";
