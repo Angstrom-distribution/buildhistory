@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in ls1021a-twr.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo uImage-ls1021atwr | sed "s/ls1021atwr/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 31212 || true
+	done

@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/3.12.37-rt51+ls1+gf488de6" ]; then
+		mkdir -p $D/lib/modules/3.12.37-rt51+ls1+gf488de6
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 3.12.37-rt51+ls1+gf488de6
+	else
+		depmod -a 3.12.37-rt51+ls1+gf488de6
+	fi
