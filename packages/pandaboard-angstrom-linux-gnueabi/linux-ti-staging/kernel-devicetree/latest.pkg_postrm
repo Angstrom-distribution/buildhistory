@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in omap4-panda.dtb omap4-panda-a4.dtb omap4-panda-es.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-pandaboard | sed "s/pandaboard/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40409 || true
+	done
