@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/4.4.0-altera" ]; then
+		mkdir -p $D/lib/modules/4.4.0-altera
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 4.4.0-altera
+	else
+		depmod -a 4.4.0-altera
+	fi

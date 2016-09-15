@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ -z "$D" -a -f "/etc/init.d/auto-serial-console" ]; then
+	/etc/init.d/auto-serial-console stop
+fi
+if type update-rc.d >/dev/null 2>/dev/null; then
+	if [ -n "$D" ]; then
+		OPT="-f -r $D"
+	else
+		OPT="-f"
+	fi
+	update-rc.d $OPT auto-serial-console remove
+fi
