@@ -1,0 +1,33 @@
+	update-alternatives --install /boot/uImage uImage /boot/uImage-3.2.52 30202 || true
+
+# Get the lastest root file system value of boot args
+boot_arg=`cat /proc/cmdline |tr " " "\n"|grep "root=" |tail -n 1`
+has_mtdblock=`echo $boot_arg |grep mtdblock`
+has_ubi=`echo $boot_arg |grep ubi`
+
+if test "x$D" != "x"; then
+    exit 1
+elif test "empty$has_mtdblock" != "empty" -o "empty$has_ubi" != "empty"; then
+    if [ -f /etc/default/flashkernel ] ; then
+        echo "Upgrading Kernel in Flash"
+        echo "DO NOT stop this process"
+
+        MTD_KERNEL_PARTITION=`cat /proc/mtd | grep kernel | cut -d':' -f1`
+        MTD_KERNEL_PARTITION=/dev/$MTD_KERNEL_PARTITION
+
+        if [ "x$MTD_KERNEL_PARTITION" = "x" ] ; then
+            exit 1
+        fi
+
+        if [ ! -f /boot/uImage-3.2.52 ] ; then
+            exit 1
+        fi
+
+        /usr/sbin/flash_eraseall $MTD_KERNEL_PARTITION
+        /usr/sbin/nandwrite -p $MTD_KERNEL_PARTITION /boot/uImage-3.2.52
+    else
+        touch /etc/default/flashkernel
+    fi
+else
+        echo "You are not booting from NAND, don't flash kernel into mtdblock."
+fi

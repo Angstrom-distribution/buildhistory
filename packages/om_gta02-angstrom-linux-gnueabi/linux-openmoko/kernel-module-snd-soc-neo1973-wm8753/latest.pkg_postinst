@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ -z "$D" ]; then
+	depmod -a 3.2.52
+else
+	# image.bbclass will call depmodwrapper after everything is installed,
+	# no need to do it here as well
+	:
+fi
+
+if [ x"$D" = "x" ]; then
+	modprobe snd-soc-s3c24xx snd_soc_s3c24xx_i2s snd-soc-dfbmcs320 snd-soc-wm8753 snd-soc-neo1973-wm8753 || true
+fi
