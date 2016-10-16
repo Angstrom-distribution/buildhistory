@@ -75,6 +75,7 @@ digraph depends {
 "iw" -> "libnl-3-200";
 "iw" -> "libnl-3-genl";
 "kbd" -> "update-alternatives-opkg";
+"kernel-module-g-ether" -> "kernel-module-configfs";
 "kernel-module-g-ether" -> "kernel-module-libcomposite";
 "kernel-module-g-ether" -> "kernel-module-u-ether";
 "kernel-module-g-ether" -> "kernel-module-usb-f-rndis";
@@ -90,6 +91,7 @@ digraph depends {
 "kernel-module-iptable-nat" -> "kernel-module-nf-nat";
 "kernel-module-iptable-nat" -> "kernel-module-nf-nat-ipv4";
 "kernel-module-iptable-nat" -> "kernel-module-x-tables";
+"kernel-module-libcomposite" -> "kernel-module-configfs";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-conntrack-ipv4" -> "kernel-module-nf-defrag-ipv4";
 "kernel-module-nf-nat" -> "kernel-module-nf-conntrack";
@@ -97,6 +99,7 @@ digraph depends {
 "kernel-module-nf-nat-ipv4" -> "kernel-module-nf-nat";
 "kernel-module-nf-nat-masquerade-ipv4" -> "kernel-module-nf-conntrack";
 "kernel-module-nf-nat-masquerade-ipv4" -> "kernel-module-nf-nat";
+"kernel-module-usb-f-rndis" -> "kernel-module-configfs";
 "kernel-module-usb-f-rndis" -> "kernel-module-libcomposite";
 "kernel-module-usb-f-rndis" -> "kernel-module-u-ether";
 "kmod" -> "libz1";
@@ -842,10 +845,13 @@ digraph depends {
 "systemd-analyze" -> "libcap2";
 "systemd-analyze" -> "libmount1";
 "systemd-analyze" -> "libpam";
+"systemd-extra-utils" -> "base-files";
+"systemd-extra-utils" -> "base-passwd";
 "systemd-extra-utils" -> "iptables";
 "systemd-extra-utils" -> "libattr1";
 "systemd-extra-utils" -> "libblkid1";
 "systemd-extra-utils" -> "libcap2";
+"systemd-extra-utils" -> "shadow";
 "systemd-serialgetty" -> "systemd";
 "systemd-vconsole-setup" -> "kbd" [style=dotted];
 "systemd-vconsole-setup" -> "kbd-consolefonts" [style=dotted];
