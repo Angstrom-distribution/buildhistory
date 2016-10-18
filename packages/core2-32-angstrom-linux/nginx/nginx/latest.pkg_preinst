@@ -27,7 +27,6 @@ perform_groupadd () {
 	local groupname=`echo "$opts" | awk '{ print $NF }'`
 	local group_exists="`grep "^$groupname:" $rootdir/etc/group || true`"
 	if test "x$group_exists" = "x"; then
-		opts=`echo $opts | sed s/\'/\"/g`
 		eval flock -x $rootdir/etc -c \"$PSEUDO groupadd \$opts\" || true
 		group_exists="`grep "^$groupname:" $rootdir/etc/group || true`"
 		if test "x$group_exists" = "x"; then
@@ -44,7 +43,6 @@ perform_useradd () {
 	local username=`echo "$opts" | awk '{ print $NF }'`
 	local user_exists="`grep "^$username:" $rootdir/etc/passwd || true`"
 	if test "x$user_exists" = "x"; then
-		opts=`echo $opts | sed s/\'/\"/g`
 		eval flock -x $rootdir/etc -c  \"$PSEUDO useradd \$opts\" || true
 		user_exists="`grep "^$username:" $rootdir/etc/passwd || true`"
 		if test "x$user_exists" = "x"; then
@@ -102,7 +100,7 @@ if test "x$D" != "x"; then
 	fi
 
 	# user/group lookups should match useradd/groupadd --root
-	export PSEUDO_PASSWD="$SYSROOT:/build/jenkins/v2016.06/machine/minnow/build/tmp-angstrom-glibc/sysroots/x86_64-linux"
+	export PSEUDO_PASSWD="$SYSROOT:/build/v2016.06/build/tmp-angstrom-glibc/sysroots/x86_64-linux"
 fi
 
 # If we're not doing a special SSTATE/SYSROOT install
@@ -121,15 +119,15 @@ if test "x`echo $GROUPADD_PARAM | tr -d '[:space:]'`" != "x"; then
 	echo "Running groupadd commands..."
 	# Invoke multiple instances of groupadd for parameter lists
 	# separated by ';'
-	opts=`echo "$GROUPADD_PARAM" | cut -d ';' -f 1`
-	remaining=`echo "$GROUPADD_PARAM" | cut -d ';' -f 2-`
+	opts=`echo "$GROUPADD_PARAM" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+	remaining=`echo "$GROUPADD_PARAM" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
 	while test "x$opts" != "x"; do
 		perform_groupadd "$SYSROOT" "$OPT $opts"
 		if test "x$opts" = "x$remaining"; then
 			break
 		fi
-		opts=`echo "$remaining" | cut -d ';' -f 1`
-		remaining=`echo "$remaining" | cut -d ';' -f 2-`
+		opts=`echo "$remaining" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+		remaining=`echo "$remaining" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
 	done
 fi
 
@@ -137,15 +135,15 @@ if test "x`echo $USERADD_PARAM | tr -d '[:space:]'`" != "x"; then
 	echo "Running useradd commands..."
 	# Invoke multiple instances of useradd for parameter lists
 	# separated by ';'
-	opts=`echo "$USERADD_PARAM" | cut -d ';' -f 1`
-	remaining=`echo "$USERADD_PARAM" | cut -d ';' -f 2-`
+	opts=`echo "$USERADD_PARAM" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+	remaining=`echo "$USERADD_PARAM" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
 	while test "x$opts" != "x"; do
 		perform_useradd "$SYSROOT" "$OPT $opts"
 		if test "x$opts" = "x$remaining"; then
 			break
 		fi
-		opts=`echo "$remaining" | cut -d ';' -f 1`
-		remaining=`echo "$remaining" | cut -d ';' -f 2-`
+		opts=`echo "$remaining" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+		remaining=`echo "$remaining" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
 	done
 fi
 
@@ -153,14 +151,14 @@ if test "x`echo $GROUPMEMS_PARAM | tr -d '[:space:]'`" != "x"; then
 	echo "Running groupmems commands..."
 	# Invoke multiple instances of groupmems for parameter lists
 	# separated by ';'
-	opts=`echo "$GROUPMEMS_PARAM" | cut -d ';' -f 1`
-	remaining=`echo "$GROUPMEMS_PARAM" | cut -d ';' -f 2-`
+	opts=`echo "$GROUPMEMS_PARAM" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+	remaining=`echo "$GROUPMEMS_PARAM" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
 	while test "x$opts" != "x"; do
 		perform_groupmems "$SYSROOT" "$OPT $opts"
 		if test "x$opts" = "x$remaining"; then
 			break
 		fi
-		opts=`echo "$remaining" | cut -d ';' -f 1`
-		remaining=`echo "$remaining" | cut -d ';' -f 2-`
+		opts=`echo "$remaining" | cut -d ';' -f 1 | sed -e 's#[ \t]*$##'`
+		remaining=`echo "$remaining" | cut -d ';' -f 2- | sed -e 's#[ \t]*$##'`
 	done
 fi
