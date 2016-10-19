@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in /build/v2016.06/build/tmp-angstrom-glibc/work/dlink_dns320-angstrom-linux-gnueabi/linux-dominion/4.7.4-r0/git/arch/arm/boot/dts/kirkwood-dns320.dts 
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-dlink-dns320 | sed "s/dlink-dns320/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40704 || true
+	done
