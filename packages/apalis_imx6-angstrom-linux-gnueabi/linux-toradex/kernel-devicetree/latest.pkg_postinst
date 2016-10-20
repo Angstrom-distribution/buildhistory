@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in  imx6q-apalis-eval.dtb imx6q-apalis_v1_0-eval.dtb imx6q-apalis-ixora.dtb imx6q-apalis_v1_0-ixora.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo uImage-apalis-imx6 | sed "s/apalis-imx6/${DTB_BASE_NAME}/g"`
+		update-alternatives --install /boot/${DTB_BASE_NAME}.dtb ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 31428 || true
+	done
