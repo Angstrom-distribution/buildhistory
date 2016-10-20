@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in  imx6dl-colibri-eval-v3.dtb imx6dl-colibri-cam-eval-v3.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo uImage-colibri-imx6 | sed "s/colibri-imx6/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 31428 || true
+	done
