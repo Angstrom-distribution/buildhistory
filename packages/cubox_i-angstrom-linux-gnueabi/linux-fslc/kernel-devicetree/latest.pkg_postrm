@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in imx6dl-cubox-i.dtb imx6q-cubox-i.dtb imx6dl-hummingboard.dtb imx6q-hummingboard.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo zImage-cubox-i | sed "s/cubox-i/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 40404 || true
+	done
