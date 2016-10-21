@@ -1,0 +1,8 @@
+	if [ ! -e "$D/lib/modules/4.1.33-fslc+g1af16a7" ]; then
+		mkdir -p $D/lib/modules/4.1.33-fslc+g1af16a7
+	fi
+	if [ -n "$D" ]; then
+		depmodwrapper -a -b $D 4.1.33-fslc+g1af16a7
+	else
+		depmod -a 4.1.33-fslc+g1af16a7
+	fi
