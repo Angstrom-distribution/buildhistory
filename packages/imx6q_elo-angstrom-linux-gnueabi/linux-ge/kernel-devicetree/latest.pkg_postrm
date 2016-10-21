@@ -1,0 +1,7 @@
+	cd /boot
+	for DTB in imx6q-elo.dtb
+	do
+		DTB_BASE_NAME=`basename ${DTB} | awk -F "." '{print $1}'`
+		DTB_SYMLINK_NAME=`echo uImage-imx6q-elo | sed "s/imx6q-elo/${DTB_BASE_NAME}/g"`
+		update-alternatives --remove ${DTB_BASE_NAME}.dtb /boot/devicetree-${DTB_SYMLINK_NAME}.dtb 31414 || true
+	done
