@@ -1,0 +1,1 @@
+#!/bin/sh\n# Begin section update-alternatives\nupdate-alternatives --remove  resolv-conf /etc/resolv-conf.connman\n# End section update-alternatives\nOPTS=""\n\nif [ -n "$D" ]; then\n    OPTS="--root=$D"\nfi\n\nif type systemctl >/dev/null 2>/dev/null; then\n\tif [ -z "$D" ]; then\n\t\tsystemctl stop connman.service\n\tfi\n\n\tsystemctl $OPTS disable connman.service\nfi\n

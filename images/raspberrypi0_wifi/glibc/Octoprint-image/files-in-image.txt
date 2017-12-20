@@ -148,7 +148,7 @@ drwxr-xr-x root       root             4096 ./etc/init.d
 -rw-r--r-- root       root             1633 ./etc/inputrc
 -rw-r--r-- root       root              427 ./etc/issue
 -rw-r--r-- root       root              413 ./etc/issue.net
--rw-r--r-- root       root            10057 ./etc/ld.so.cache
+-rw-r--r-- root       root            10114 ./etc/ld.so.cache
 -rw-r--r-- root       root                0 ./etc/ld.so.conf
 drwxr-xr-x root       root             4096 ./etc/libnl
 -rw-r--r-- root       root             1130 ./etc/libnl/classid
@@ -2709,7 +2709,7 @@ lrwxrwxrwx root       root               32 ./lib/systemd/system/multi-user.targ
 -rw-r--r-- root       root              238 ./lib/systemd/system/nginx.service
 -rw-r--r-- root       root              514 ./lib/systemd/system/nss-lookup.target
 -rw-r--r-- root       root              473 ./lib/systemd/system/nss-user-lookup.target
--rw-r--r-- root       root              204 ./lib/systemd/system/octoprint.service
+-rw-r--r-- root       root              210 ./lib/systemd/system/octoprint.service
 -rw-r--r-- root       root              183 ./lib/systemd/system/ofono.service
 -rw-r--r-- root       root              533 ./lib/systemd/system/opkg-configure.service
 -rw-r--r-- root       root              555 ./lib/systemd/system/org.freedesktop.hostname1.busname
@@ -3015,6 +3015,7 @@ lrwxrwxrwx root       root               28 ./sbin/switch_root -> /sbin/switch_r
 -rwxr-xr-x root       root            18252 ./sbin/sysctl.procps
 lrwxrwxrwx root       root               19 ./sbin/sysctl -> /sbin/sysctl.procps
 lrwxrwxrwx root       root               19 ./sbin/syslogd -> /bin/busybox.nosuid
+-rwxr-xr-x root       root           335760 ./sbin/tc
 lrwxrwxrwx root       root               26 ./sbin/udevd -> /lib/systemd/systemd-udevd
 lrwxrwxrwx root       root               19 ./sbin/udhcpc -> /bin/busybox.nosuid
 lrwxrwxrwx root       root               17 ./sbin/vigr -> /sbin/vigr.shadow
@@ -3481,6 +3482,8 @@ lrwxrwxrwx root       root               17 ./usr/lib/libdvbv5.so.0 -> libdvbv5.
 -rwxr-xr-x root       root           151132 ./usr/lib/libEGL.so.1.0.0
 lrwxrwxrwx root       root               15 ./usr/lib/libEGL.so.1 -> libEGL.so.1.0.0
 lrwxrwxrwx root       root               11 ./usr/lib/libEGL.so -> libEGL.so.1
+-rwxr-xr-x root       root            92088 ./usr/lib/libelf-0.170.so
+lrwxrwxrwx root       root               15 ./usr/lib/libelf.so.1 -> libelf-0.170.so
 -rwxr-xr-x root       root           177992 ./usr/lib/libexpat.so.1.6.5
 lrwxrwxrwx root       root               17 ./usr/lib/libexpat.so.1 -> libexpat.so.1.6.5
 -rwxr-xr-x root       root            26480 ./usr/lib/libffi.so.6.0.4
@@ -12473,6 +12476,9 @@ drwxr-xr-x root       root             4096 ./usr/lib/systemd/user-generators
 drwxr-xr-x root       root             4096 ./usr/lib/sysusers.d
 -rw-r--r-- root       root             1105 ./usr/lib/sysusers.d/basic.conf
 -rw-r--r-- root       root              461 ./usr/lib/sysusers.d/systemd.conf
+drwxr-xr-x root       root             4096 ./usr/lib/tc
+lrwxrwxrwx root       root                7 ./usr/lib/tc/m_ipt.so -> m_xt.so
+-rwxr-xr-x root       root            10016 ./usr/lib/tc/m_xt.so
 drwxr-xr-x root       root             4096 ./usr/lib/tmpfiles.d
 -rw-r--r-- root       root              578 ./usr/lib/tmpfiles.d/etc.conf
 -rw-r--r-- root       root              362 ./usr/lib/tmpfiles.d/home.conf
@@ -16774,7 +16780,7 @@ drwxr-xr-x root       root             4096 ./var
 drwxr-xr-x root       root             4096 ./var/backups
 drwxr-xr-x root       root             4096 ./var/cache
 drwx------ root       root             4096 ./var/cache/ldconfig
--rw------- root       root            10013 ./var/cache/ldconfig/aux-cache
+-rw------- root       root            10073 ./var/cache/ldconfig/aux-cache
 drwxr-xr-x root       root             4096 ./var/cache/opkg
 drwxr-xr-x root       root             4096 ./var/lib
 drwxr-xr-x root       root             4096 ./var/lib/connman
@@ -16784,7 +16790,7 @@ drwxr-xr-x messagebus messagebus       4096 ./var/lib/dbus
 drwxr-xr-x root       root             4096 ./var/lib/misc
 drwxrwxrwx root       root             4096 ./var/lib/octoprint
 drwxr-xr-x root       root             4096 ./var/lib/opkg
-drwxr-xr-x root       root           491520 ./var/lib/opkg/info
+drwxr-xr-x root       root           495616 ./var/lib/opkg/info
 -rw-r--r-- root       root              422 ./var/lib/opkg/info/alsa-conf.control
 -rw-r--r-- root       root             5595 ./var/lib/opkg/info/alsa-conf.list
 -rw-r--r-- root       root              576 ./var/lib/opkg/info/alsa-utils-alsamixer.control
@@ -16882,6 +16888,8 @@ drwxr-xr-x root       root           491520 ./var/lib/opkg/info
 -rw-r--r-- root       root               69 ./var/lib/opkg/info/gptfdisk.list
 -rw-r--r-- root       root              414 ./var/lib/opkg/info/htop.control
 -rw-r--r-- root       root              124 ./var/lib/opkg/info/htop.list
+-rw-r--r-- root       root              682 ./var/lib/opkg/info/iproute2-tc.control
+-rw-r--r-- root       root               63 ./var/lib/opkg/info/iproute2-tc.list
 -rw-r--r-- root       root              737 ./var/lib/opkg/info/iptables.control
 -rw-r--r-- root       root             4097 ./var/lib/opkg/info/iptables.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/iptables.postinst
@@ -20057,7 +20065,7 @@ drwxr-xr-x root       root           491520 ./var/lib/opkg/info
 -rwxr-xr-x root       root              166 ./var/lib/opkg/info/kernel-module-nfc-4.9.59.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nfc-4.9.59.postrm
 -rw-r--r-- root       root              417 ./var/lib/opkg/info/kernel-module-nf-conntrack-4.9.59.control
--rw-r--r-- root       root               99 ./var/lib/opkg/info/kernel-module-nf-conntrack-4.9.59.list
+-rw-r--r-- root       root               57 ./var/lib/opkg/info/kernel-module-nf-conntrack-4.9.59.list
 -rwxr-xr-x root       root              166 ./var/lib/opkg/info/kernel-module-nf-conntrack-4.9.59.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-conntrack-4.9.59.postrm
 -rw-r--r-- root       root              515 ./var/lib/opkg/info/kernel-module-nf-conntrack-amanda-4.9.59.control
@@ -20149,7 +20157,7 @@ drwxr-xr-x root       root           491520 ./var/lib/opkg/info
 -rwxr-xr-x root       root              166 ./var/lib/opkg/info/kernel-module-nf-dup-ipv6-4.9.59.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-dup-ipv6-4.9.59.postrm
 -rw-r--r-- root       root              421 ./var/lib/opkg/info/kernel-module-nf-log-common-4.9.59.control
--rw-r--r-- root       root               58 ./var/lib/opkg/info/kernel-module-nf-log-common-4.9.59.list
+-rw-r--r-- root       root              100 ./var/lib/opkg/info/kernel-module-nf-log-common-4.9.59.list
 -rwxr-xr-x root       root              166 ./var/lib/opkg/info/kernel-module-nf-log-common-4.9.59.postinst
 -rwxr-xr-x root       root               89 ./var/lib/opkg/info/kernel-module-nf-log-common-4.9.59.postrm
 -rw-r--r-- root       root              480 ./var/lib/opkg/info/kernel-module-nf-log-ipv4-4.9.59.control
@@ -23339,6 +23347,9 @@ drwxr-xr-x root       root           491520 ./var/lib/opkg/info
 -rw-r--r-- root       root              527 ./var/lib/opkg/info/libe2p2.control
 -rw-r--r-- root       root               36 ./var/lib/opkg/info/libe2p2.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libe2p2.postinst
+-rw-r--r-- root       root              485 ./var/lib/opkg/info/libelf1.control
+-rw-r--r-- root       root               46 ./var/lib/opkg/info/libelf1.list
+-rwxr-xr-x root       root               90 ./var/lib/opkg/info/libelf1.postinst
 -rw-r--r-- root       root              564 ./var/lib/opkg/info/libexpat1.control
 -rw-r--r-- root       root               50 ./var/lib/opkg/info/libexpat1.list
 -rwxr-xr-x root       root               90 ./var/lib/opkg/info/libexpat1.postinst
@@ -24071,7 +24082,7 @@ drwxr-xr-x root       root           491520 ./var/lib/opkg/info
 -rw-r--r-- root       root               24 ./var/lib/opkg/info/wpa-supplicant-passphrase.list
 -rwxr-xr-x root       root              551 ./var/lib/opkg/info/wpa-supplicant.postinst
 -rwxr-xr-x root       root              354 ./var/lib/opkg/info/wpa-supplicant.prerm
--rw-r--r-- root       root           624890 ./var/lib/opkg/status
+-rw-r--r-- root       root           625339 ./var/lib/opkg/status
 drwx--x--x root       root             4096 ./var/lib/sudo
 drwx------ root       root             4096 ./var/lib/sudo/lectured
 drwxr-xr-x root       root             4096 ./var/lib/systemd

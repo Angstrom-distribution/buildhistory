@@ -1,0 +1,1 @@
+\t# If both systemd and sysvinit are enabled, mask the dbus-1 init script\n        if false; then\n\t\tif [ -n "$D" ]; then\n\t\t\tOPTS="--root=$D"\n\t\tfi\n\t\tsystemctl $OPTS mask dbus-1.service\n\tfi\n\n\tif [ -z "$D" ] && [ -e /etc/init.d/populate-volatile.sh ] ; then\n\t\t/etc/init.d/populate-volatile.sh update\n\tfi\n
