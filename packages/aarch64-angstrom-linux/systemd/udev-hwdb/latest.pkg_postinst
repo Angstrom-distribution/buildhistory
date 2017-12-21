@@ -1,0 +1,1 @@
+\tif test -n "$D"; then\n\t\tPSEUDO_UNLOAD=1 qemu-aarch64 -r 3.14  -L $D -E LD_LIBRARY_PATH=$D/usr/lib:$D/lib $D/bin/udevadm hwdb --update \\\n\t\t\t--root $D\n\t\tchown root:root $D/etc/udev/hwdb.bin\n\telse\n\t\tudevadm hwdb --update\n\tfi\n
