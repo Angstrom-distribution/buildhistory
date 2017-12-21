@@ -1,0 +1,1 @@
+\tsed -e '/^hosts:/s/\\s*\\<mdns\\>//' \\\n\t\t-e 's/\\(^hosts:.*\\)\\(\\<files\\>\\)\\(.*\\)\\(\\<dns\\>\\)\\(.*\\)/\\1\\2 mdns4_minimal [NOTFOUND=return]\\3\\4 mdns\\5/' \\\n\t\t-i $D/etc/nsswitch.conf\nif [ x"$D" = "x" ]; then\n\tif [ -x /sbin/ldconfig ]; then /sbin/ldconfig ; fi\nfi\n
