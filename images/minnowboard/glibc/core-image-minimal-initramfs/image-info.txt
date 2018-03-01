@@ -1,0 +1,13 @@
+DISTRO = angstrom
+DISTRO_VERSION = v2017.12
+USER_CLASSES = 
+IMAGE_CLASSES = image_types
+IMAGE_FEATURES = 
+IMAGE_LINGUAS = 
+IMAGE_INSTALL = systemd-compat-units udev systemd busybox
+BAD_RECOMMENDATIONS = busybox-syslog
+NO_RECOMMENDATIONS = 
+PACKAGE_EXCLUDE = 
+ROOTFS_POSTPROCESS_COMMAND = write_package_manifest; license_create_manifest;  zap_empty_root_password ;    rootfs_update_timestamp ;   write_image_test_data ;  set_systemd_default_target; systemd_create_users; empty_var_volatile; sort_passwd; 
+IMAGE_POSTPROCESS_COMMAND = write_deploy_manifest;  buildhistory_get_imageinfo ;
+IMAGESIZE = 26236

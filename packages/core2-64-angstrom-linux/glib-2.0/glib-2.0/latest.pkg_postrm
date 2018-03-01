@@ -1,0 +1,1 @@
+#!/bin/sh\nif [ "x$D" != "x" ]; then\n    $INTERCEPT_DIR/postinst_intercept update_gio_module_cache ${PKG} \\\n            mlprefix= \\\n            binprefix= \\\n            libdir=/usr/lib \\\n            base_libdir=/lib \\\n            bindir=/usr/bin\nelse\n    /usr/libexec/gio-querymodules /usr/lib/gio/modules/\nfi\n
