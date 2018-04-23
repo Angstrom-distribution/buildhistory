@@ -1,0 +1,1 @@
+#!/bin/sh\nif [ -n "$D" ] ; then\n\t$INTERCEPT_DIR/postinst_intercept update_font_cache ${PKG} mlprefix= \\\n\t\t'bindir="/usr/bin"' \\\n\t\t'libdir="/usr/lib"' \\\n\t\t'base_libdir="/lib"' \\\n\t\t'fontconfigcachedir="/var/cache/fontconfig"' \\\n\t\t'fontconfigcacheparams="-v"' \\\n\t\t'fontconfigcacheenv="FC_DEBUG=1"'\nelse\n\tFC_DEBUG=1 fc-cache -v\nfi\n
