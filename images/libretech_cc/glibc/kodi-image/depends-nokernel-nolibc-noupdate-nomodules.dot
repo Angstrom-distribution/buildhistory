@@ -29,6 +29,7 @@ digraph depends {
 "coreutils" -> "libgmp10"
 "cpufreq-tweaks" -> "cpufrequtils"
 "curl" -> "libcurl4"
+"curl" -> "libz1"
 "dbus-1" -> "base-files"
 "dbus-1" -> "base-passwd"
 "dbus-1" -> "libdbus-1-3"
@@ -303,8 +304,10 @@ digraph depends {
 "libcrypto1.0.2" -> "openssl-conf" [style=dotted]
 "libcurl4" -> "ca-certificates" [style=dotted]
 "libcurl4" -> "libcrypto1.0.2"
+"libcurl4" -> "libgnutls30"
 "libcurl4" -> "libssl1.0.2"
 "libcurl4" -> "libz1"
+"libcurl4" -> "nettle"
 "libdbus-1-3" -> "dbus-1" [style=dotted]
 "libdbus-1-3" -> "libsystemd0"
 "libdbwrap-samba4" -> "libsamba-debug-samba4"
@@ -334,10 +337,10 @@ digraph depends {
 "libdcerpc-samba-samba4" -> "libtevent0"
 "libdcerpc-samba-samba4" -> "libtevent-util0"
 "libdcerpc-samba-samba4" -> "samba-common"
+"libdrm-freedreno1" -> "libdrm2"
 "libegl-mesa" -> "libdrm2"
 "libegl-mesa" -> "libexpat1"
 "libegl-mesa" -> "libgbm1"
-"libegl-mesa" -> "libglapi0"
 "libegl-mesa" -> "libx11-6"
 "libegl-mesa" -> "libx11-xcb1"
 "libegl-mesa" -> "libxcb1"
@@ -357,7 +360,6 @@ digraph depends {
 "libfribidi0" -> "libglib-2.0-0"
 "libgbm1" -> "libdrm2"
 "libgbm1" -> "libexpat1"
-"libgbm1" -> "libz1"
 "libgbm1" -> "wayland"
 "libgcrypt" -> "libcap2"
 "libgcrypt" -> "libgpg-error0"
@@ -1131,6 +1133,7 @@ digraph depends {
 "linux-firmware-wl18xx" -> "linux-firmware-wl12xx"
 "locale-base-en-us" -> "glibc-binary-localedata-en-us"
 "mesa-megadriver" -> "libdrm2"
+"mesa-megadriver" -> "libdrm-freedreno1"
 "mesa-megadriver" -> "libexpat1"
 "mesa-megadriver" -> "libglapi0"
 "mesa-megadriver" -> "libstdc++6"
@@ -1163,6 +1166,7 @@ digraph depends {
 "packagegroup-basic" -> "htop" [style=dotted]
 "packagegroup-basic" -> "iw" [style=dotted]
 "packagegroup-basic" -> "kernel-devicetree" [style=dotted]
+"packagegroup-basic" -> "linux-firmware" [style=dotted]
 "packagegroup-basic" -> "openssh-scp"
 "packagegroup-basic" -> "openssh-sftp"
 "packagegroup-basic" -> "openssh-sftp-server"
