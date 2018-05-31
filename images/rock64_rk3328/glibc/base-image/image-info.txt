@@ -1,0 +1,13 @@
+DISTRO = angstrom
+DISTRO_VERSION = v2017.12
+USER_CLASSES = 
+IMAGE_CLASSES = rockchip-gpt-img image_types
+IMAGE_FEATURES = allow-empty-password empty-root-password package-management
+IMAGE_LINGUAS = en-us
+IMAGE_INSTALL = udev systemd busybox shadow angstrom-packagegroup-boot packagegroup-basic opkg opkg-config-base angstrom-feed-configs update-alternatives-opkg update-alternatives-opkg systemd-analyze cpufreq-tweaks fixmac
+BAD_RECOMMENDATIONS = 
+NO_RECOMMENDATIONS = 
+PACKAGE_EXCLUDE = 
+ROOTFS_POSTPROCESS_COMMAND = write_package_manifest; license_create_manifest;   ssh_allow_empty_password;   rootfs_update_timestamp ;   write_image_test_data ;  set_systemd_default_target; systemd_create_users; empty_var_volatile; sort_passwd; 
+IMAGE_POSTPROCESS_COMMAND = write_deploy_manifest;  buildhistory_get_imageinfo ;
+IMAGESIZE = 101696
